@@ -42,7 +42,7 @@ La programación funcional se centra en resolver problemas utilizando funciones 
     -   Facilita la concurrencia y el paralelismo.
 -   **Ejemplo de lenguajes**: Haskell, Scala, JavaScript (con funciones de orden superior).
 
-#### **1.1.4. Programación Declarativa**
+### **1.1.4. Programación Declarativa**
 
 En este paradigma, el programador especifica qué desea obtener, pero no cómo lograrlo.
 
@@ -235,9 +235,9 @@ class Libro {
 
 ## **2.3. Relaciones: Herencia, Composición y Agregación**
 
-### **1. Herencia**
+### **Herencia**
 
-Permite que una clase "hija" herede atributos y métodos de una clase "padre". Esto evita la duplicación de código.
+La herencia permite que una clase "hija" herede atributos y métodos de una clase "padre". Esto evita la duplicación de código.
 
 **Ejemplo**:  
 Si tenemos una clase general `Publicacion`, podemos crear una clase `Libro` que herede de ella.
@@ -255,7 +255,7 @@ class Libro extends Publicacion {
 
 La clase `Libro` hereda `titulo` y `autor` de `Publicacion`, y añade su propio atributo `paginas`.
 
-### **2. Composición**
+### **Composición**
 
 Ocurre cuando una clase contiene objetos de otras clases como parte de sus atributos, indicando una relación "tiene un".
 
@@ -267,7 +267,7 @@ class Biblioteca {
 }
 ```
 
-### **3. Agregación**
+### **Agregación**
 
 Es similar a la composición, pero la relación entre las clases es más débil. Los objetos relacionados pueden existir por separado.
 
@@ -284,7 +284,135 @@ class Libro {
 }
 ```
 
-## **2.4. Ejemplo Práctico de un Diagrama de Clases**
+
+## **2.4. Concepto de Abstracción en Programación Orientada a Objetos**
+
+La **abstracción** es uno de los principios fundamentales de la programación orientada a objetos (POO) y se refiere al proceso de ocultar los detalles complejos de implementación, mostrando solo lo necesario para el uso de un componente o sistema. Este principio permite centrarse en "qué hace un objeto" en lugar de "cómo lo hace", simplificando el diseño y la comprensión del código.
+
+### **2.4.1. Clases Abstractas**
+
+Una **clase abstracta** es una clase que no puede instanciarse directamente. Sirve como modelo o plantilla para otras clases y puede incluir:
+
+* **Métodos abstractos**: Declarados sin implementación (por ejemplo, `metodoAbstracto()`), que deben ser implementados en las subclases concretas.  
+* **Métodos concretos**: Métodos con implementación, que pueden heredarse por las subclases.
+
+**Características clave**:
+
+* Se utiliza para definir comportamientos comunes entre clases relacionadas.  
+* Facilita la reutilización de código y el cumplimiento de una estructura.
+
+**Ejemplo (Java)**:
+
+```java  
+abstract class Animal {
+    String nombre;
+
+    // Método abstracto: las subclases deben implementarlo.
+    abstract void hacerSonido();
+
+    // Método concreto: las subclases pueden usarlo tal cual.
+    void comer() { 
+        System.out.println(nombre + " está comiendo.");` 
+    }  
+}
+
+class Perro extends Animal {
+    @Override  
+    void hacerSonido() {
+        System.out.println("Guau, guau!");
+    }
+}
+
+class Gato extends Animal {
+    @Override
+    void hacerSonido() {
+        System.out.println("Miau, miau!");
+    }
+}
+
+```
+
+En este ejemplo, la clase `Animal` es abstracta. Define el método abstracto `hacerSonido()` y un método concreto `comer()`. Las subclases `Perro` y `Gato` implementan `hacerSonido()` con su propio comportamiento.
+
+### **2.4.2. Interfaces**
+
+Una **interfaz** define un conjunto de métodos que una clase debe implementar, sin proporcionar ninguna implementación concreta.
+
+* A diferencia de las clases abstractas, una interfaz no puede tener atributos ni métodos concretos (en la mayoría de los lenguajes).  
+* Una clase puede implementar múltiples interfaces, lo que permite cierta flexibilidad que las clases abstractas no ofrecen.
+
+**Características clave**:
+
+* Promueven el uso de la abstracción al nivel más alto.  
+* Son ideales para definir contratos entre clases no relacionadas jerárquicamente.
+
+**Ejemplo (Java)**:
+
+```java  
+interface Volador {
+    void volar();
+}
+
+class Ave implements Volador {
+    @Override
+    public void volar() {
+        System.out.println("El ave está volando.");
+    }
+}
+
+class Avion implements Volador {
+    @Override
+    public void volar() {
+        System.out.println("El avión está volando.");
+    }
+}
+```
+
+En este ejemplo, la interfaz `Volador` define el método `volar()`. Las clases `Ave` y `Avion` implementan esta interfaz, cada una con su propio comportamiento.
+
+**Representación en UML**:
+
+* Las **interfaces** se representan con el estereotipo `<<interface>>`.  
+* Las clases que implementan una interfaz tienen una línea discontinua con un triángulo apuntando hacia la interfaz.
+
+```mermaid  
+
+classDiagram  
+    class Volador {  
+        <<interface>>  
+        volar()  
+    }
+
+    class Ave {  
+        volar() void  
+    }
+
+    class Avion {  
+        volar() void  
+    }
+
+    Volador <|.. Ave  
+    Volador <|.. Avion
+```
+
+### **2.4.3. Diferencias entre Clase Abstracta e Interfaz**
+
+| Aspecto | Clase Abstracta | Interfaz |
+| ----- | ----- | ----- |
+| **Propósito** | Representar un concepto genérico común. | Definir un contrato que debe cumplirse. |
+| **Atributos** | Puede tener atributos concretos y abstractos. | No permite atributos (salvo constantes). |
+| **Herencia** | Una clase solo puede heredar de una clase abstracta. | Una clase puede implementar múltiples interfaces. |
+| **Métodos** | Puede tener métodos concretos y abstractos. | Solo métodos abstractos (hasta versiones recientes de algunos lenguajes). |
+
+### **2.4.4. Abstracción y Diagramas de Clases**
+
+La abstracción es clave para diseñar sistemas escalables y fáciles de mantener. En UML:
+
+* Se utiliza para modelar comportamientos genéricos con clases abstractas y para definir contratos con interfaces.  
+* Ayuda a visualizar jerarquías complejas y relaciones entre clases de forma clara.
+
+
+## **2.5. Ejemplo Práctico de un Diagrama de Clases**
 
 Para consolidar estos conceptos, vamos a representar un sistema básico de biblioteca usando un diagrama de clases:
 
@@ -293,9 +421,10 @@ Para consolidar estos conceptos, vamos a representar un sistema básico de bibli
     -   Composición: `Biblioteca` tiene varios `Libro`.
     -   Agregación: `Libro` tiene un `Autor`.
 
-**Diagrama UML:**
+**Diagrama UML para clases con relaciones:**
 ```mermaid
 classDiagram
+    direction LR
     class Biblioteca {
         Libro[] libros
     }
@@ -313,3 +442,58 @@ classDiagram
 ```
 
 Este ejemplo muestra cómo representar las relaciones entre clases y sus atributos/métodos.
+
+
+**Representación de clases y métodos abstractos en UML**:
+
+* Las **clases abstractas** se representan con el nombre en cursiva.  
+* Los **métodos abstractos** también aparecen en cursiva.
+
+``` mermaid  
+classDiagram 
+    class Animal {
+        <<abstract>>
+        String nombre
+        hacerSonido()*
+        comer() void
+    }
+
+    class Perro {
+        hacerSonido() void
+    }
+
+    class Gato {
+        hacerSonido() void
+    }
+
+    Animal <|-- Perro
+    Animal <|-- Gato
+```
+
+
+**Representación de interfaces en UML**:
+
+* Las **interfaces** se representan con el estereotipo `<<interface>>`.  
+* Las clases que implementan una interfaz tienen una línea discontinua con un triángulo apuntando hacia la interfaz.
+
+Siguiendo el ejemplo del apartado 2.4, este sería el diagrama de clases UML con la interfaz `Volador` y las clases `Ave` y `Avion`
+
+```mermaid  
+classDiagram  
+    direction RL
+    class Volador {  
+        <<interface>>  
+        volar()  
+    }
+
+    class Ave {  
+        volar() void  
+    }
+
+    class Avion {  
+        volar() void  
+    }
+
+    Volador <|.. Ave  
+    Volador <|.. Avion
+```
