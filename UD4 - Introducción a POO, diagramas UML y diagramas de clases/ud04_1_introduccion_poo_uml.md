@@ -500,6 +500,7 @@ public class Main {
         miAnimal.hacerSonido();  // Salida: "Miau, miau!"
     }
 }
+``` 
 
 **Resultado del programa**:  
 ```java
@@ -532,7 +533,7 @@ public class Main {
 
 ## **2.6. Ejemplo Práctico de un Diagrama de Clases**
 
-Para consolidar estos conceptos, vamos a representar un sistema básico de biblioteca usando un diagrama de clases:
+Antes de entrar en el detalle de la creación de diagramas de clases, y para consolidar los conceptos vistos anteriormente, vamos a representar las clases y sus relaciones vistas anteriormente mediante diagramas de clases.
 
 -   **Clases**: `Libro`, `Autor`, `Biblioteca`.
 -   **Relaciones**:
@@ -561,7 +562,6 @@ classDiagram
 
 Este ejemplo muestra cómo representar las relaciones entre clases y sus atributos/métodos.
 
-
 **Representación de clases y métodos abstractos en UML**:
 
 * Las **clases abstractas** se representan con el nombre en cursiva.  
@@ -587,7 +587,6 @@ classDiagram
     Animal <|-- Perro
     Animal <|-- Gato
 ```
-
 
 **Representación de interfaces en UML**:
 
