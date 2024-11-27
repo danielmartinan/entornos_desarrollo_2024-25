@@ -411,8 +411,126 @@ La abstracción es clave para diseñar sistemas escalables y fáciles de mantene
 * Se utiliza para modelar comportamientos genéricos con clases abstractas y para definir contratos con interfaces.  
 * Ayuda a visualizar jerarquías complejas y relaciones entre clases de forma clara.
 
+## **2.5. Polimorfismo en Programación Orientada a Objetos**  
 
-## **2.5. Ejemplo Práctico de un Diagrama de Clases**
+El **polimorfismo** es un principio fundamental de la programación orientada a objetos que permite a una entidad, como un método o un objeto, comportarse de múltiples formas dependiendo del contexto. En términos simples, el polimorfismo permite utilizar una misma interfaz para representar diferentes comportamientos o implementaciones.
+
+### **2.5.1. Tipos de Polimorfismo**  
+
+Existen dos tipos principales de polimorfismo en la programación orientada a objetos:
+
+#### **Polimorfismo en Tiempo de Compilación (Sobrecarga de Métodos)**  
+   - Ocurre cuando un método en una clase tiene el mismo nombre pero diferentes firmas (diferente número o tipo de parámetros).  
+   - El compilador selecciona cuál método invocar en función de los argumentos proporcionados.  
+   - Esto se conoce como *early binding* o vinculación temprana.
+
+**Ejemplo en Java**:  
+```java
+class Calculadora {
+    // Suma de dos números enteros
+    int sumar(int a, int b) {
+        return a + b;
+    }
+
+    // Suma de tres números enteros
+    int sumar(int a, int b, int c) {
+        return a + b + c;
+    }
+
+    // Suma de dos números de punto flotante
+    double sumar(double a, double b) {
+        return a + b;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Calculadora calc = new Calculadora();
+        System.out.println(calc.sumar(2, 3));        // Llama al método con dos enteros
+        System.out.println(calc.sumar(2, 3, 4));     // Llama al método con tres enteros
+        System.out.println(calc.sumar(2.5, 3.5));    // Llama al método con dos dobles
+    }
+}
+```
+
+**Resultado del programa**:  
+```java
+5
+9
+6.0
+```
+
+En este ejemplo, el método `sumar` tiene diferentes implementaciones según los parámetros, y el compilador selecciona automáticamente la versión apropiada.
+
+#### **Polimorfismo en Tiempo de Ejecución (Sobrescritura de Métodos)**  
+- Ocurre cuando una subclase proporciona su propia implementación de un método definido en una clase base.  
+- La invocación del método se decide en tiempo de ejecución en función del tipo del objeto real, no del tipo de referencia.  
+- Esto se conoce como *late binding* o vinculación tardía.
+
+**Ejemplo en Java**:  
+```java
+class Animal {
+    void hacerSonido() {
+        System.out.println("El animal hace un sonido.");
+    }
+}
+
+class Perro extends Animal {
+    @Override
+    void hacerSonido() {
+        System.out.println("Guau, guau!");
+    }
+}
+
+class Gato extends Animal {
+    @Override
+    void hacerSonido() {
+        System.out.println("Miau, miau!");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal miAnimal;
+
+        miAnimal = new Perro();
+        miAnimal.hacerSonido();  // Salida: "Guau, guau!"
+
+        miAnimal = new Gato();
+        miAnimal.hacerSonido();  // Salida: "Miau, miau!"
+    }
+}
+
+**Resultado del programa**:  
+```java
+Guau, guau! Miau, miau!
+```
+
+En este ejemplo, el método `hacerSonido` es sobrescrito en las clases `Perro` y `Gato`. Aunque la referencia es de tipo `Animal`, el método invocado depende del tipo real del objeto (`Perro` o `Gato`) en tiempo de ejecución.
+
+### **2.5.2. Importancia del Polimorfismo**  
+El polimorfismo permite:  
+- Diseñar sistemas extensibles y modulares, ya que el comportamiento puede cambiar sin alterar el código existente.  
+- Reducir la duplicación de código al reutilizar métodos comunes en clases base y personalizar el comportamiento en las subclases.  
+- Implementar patrones de diseño, como el **patrón de estrategia**, que dependen del uso de polimorfismo.
+
+### **2.5.3. Polimorfismo y Principio de Sustitución de Liskov**  
+El polimorfismo respeta el **Principio de Sustitución de Liskov (LSP)**, que establece que un objeto de una clase base debe poder ser sustituido por un objeto de una clase derivada sin alterar la funcionalidad del programa. Esto garantiza que el comportamiento esperado en tiempo de ejecución sea coherente, independientemente del tipo específico del objeto.
+
+```java
+public class Main {
+ static void reproducirSonido(Animal animal) {
+     animal.hacerSonido();
+ }
+
+ public static void main(String[] args) {
+     reproducirSonido(new Perro());  // Salida: "Guau, guau!"
+     reproducirSonido(new Gato());  // Salida: "Miau, miau!"
+ }
+} 
+```
+
+## **2.6. Ejemplo Práctico de un Diagrama de Clases**
 
 Para consolidar estos conceptos, vamos a representar un sistema básico de biblioteca usando un diagrama de clases:
 
