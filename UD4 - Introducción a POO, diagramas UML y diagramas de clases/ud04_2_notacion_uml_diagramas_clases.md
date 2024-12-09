@@ -102,7 +102,7 @@ classDiagram
     class Persona
     class Vehiculo
 
-    Persona "1" --> "1..*" Vehiculo
+    Persona "1" -- "1..*" Vehiculo
 ```
 
 ## **Navegabilidad**
@@ -110,10 +110,11 @@ classDiagram
 La navegabilidad indica si una clase conoce a la otra y puede interactuar con ella. Se representa con una flecha en el extremo de la línea de asociación. De esta manera, la asociación puede ser **unidireccional** o **bidireccional**.
 Si se convierte a Java dos clases unidas por una asociación bidireccional, cada una de ellas tendrá un objeto o conjunto de objetos (dependiendo de la multiplicidad entre ellas). 
 
-**Ejemplo de asociación navegable:**
+**Ejemplo de asociación unidireccional:**
 
 ```mermaid
 classDiagram
+    direction LR
     class Persona
     class Vehiculo
 
@@ -135,6 +136,6 @@ classDiagram
         -precio: float
     }
 
-    Persona "1" --> "1..*" Propiedad
-    Propiedad --> Vehiculo`
+    Persona "1" -- "1..*" Vehiculo
+    (Persona, Vehiculo) .. Propiedad
 ```
