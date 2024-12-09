@@ -71,6 +71,18 @@ Igual que los atributos, su visibilidad puede ser pública, privada, protegida o
 
 En el mundo real, muchos objetos están vinculados o relacionados entre sí. Esas relaciones en UML muestran cómo interactúan las clases entre sí, y se denominan **asociaciones**. Las asociaciones tienen un nombre y poseen una **cardinalidad** o **multiplicidad**.
 
+## **Asociación**
+
+Una **asociación** representa una relación entre dos o más clases. Se dibuja como una línea simple entre las clases.
+
+``` mermaid
+classDiagram LR
+    class Persona
+    class Vehiculo
+
+    Persona --  Vehiculo
+```
+
 ## **Cardinalidad o Multiplicidad**
 
 La cardinalidad especifica el número de instancias de una clase que pueden asociarse a otra. Se representa con números en los extremos de las líneas que conectan las clases.
@@ -86,16 +98,14 @@ La cardinalidad especifica el número de instancias de una clase que pueden asoc
 **Ejemplo de cardinalidad (Mermaid):**
 
 ``` mermaid
-classDiagram
+classDiagram LR
     class Persona
     class Vehiculo
 
-    Persona "1" --> "1..*" Vehiculo` 
+    Persona "1" --> "1..*" Vehiculo
 ```
 
-## **Asociación**
 
-Una **asociación** representa una relación entre dos o más clases. Se dibuja como una línea simple entre las clases.
 
 ## **Navegabilidad**
 
