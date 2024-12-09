@@ -46,7 +46,7 @@
 <!-- /TOC -->
 
 # **Introducción**
-Como hemos visto en las primeras unidades didacticas, el proceso de creación de aplicaciones y sistemas informáticas es complejo y consta de múltiples fases o etapas.
+Como hemos visto en las primeras unidades didácticas, el proceso de creación de aplicaciones y sistemas informáticas es complejo y consta de múltiples fases o etapas.
 
 ```mermaid
 flowchart LR 
@@ -60,7 +60,7 @@ Uno de los conceptos asociados a esta estrategia a la hora de desarrollar nuestr
 
 ## **Paradigma de desarrollo de software**
 
-En el mundo del desarrollo de software, un **paradigma de programación** es un enfoque o estilo para diseñar y escribir código. Cada paradigma organiza y resuelve los problemas de manera distinta, lo que afecta directamente la forma en que entendemos, diseñamos y modelamos los sistemas, incluyendo el uso de UML. A continuación, describimos los paradigmas más importantes:
+En el mundo del desarrollo de software, un **paradigma de programación** es un enfoque o estilo para **diseñar y escribir** código. Cada paradigma organiza y resuelve los problemas de manera distinta, lo que afecta directamente la forma en que entendemos, diseñamos y modelamos los sistemas, incluyendo el uso de UML. A continuación, describimos los paradigmas más importantes:
 
 ### **Programación Imperativa**
 
@@ -121,17 +121,17 @@ UML clasifica sus diagramas en tres grandes categorías:
 1.  **Diagramas estructurales**
     
     -   Representan la arquitectura estática del sistema.
-    -   Ejemplos: **Diagramas de clases, objetos, componentes y despliegue**.
+    -   Ejemplos: **Diagramas de clases, diagramas de objetos, diagramas de componentes, diagramas de paquetes y diagramas de despliegue**.
     -   **Fase del ciclo de vida**: Más utilizados en las fases de análisis y diseño.
 2.  **Diagramas de comportamiento**
     
     -   Muestran la lógica dinámica y el comportamiento del sistema.
-    -   Ejemplos: **Diagramas de casos de uso, actividades y estados**.
+    -   Ejemplos: **Diagramas de casos de uso, diagramas de actividades y diagramas de máquinas de estado**.
     -   **Fase del ciclo de vida**: Orientados al análisis de requisitos y validación.
 3.  **Diagramas de interacción**
     
     -   Profundizan en cómo los elementos del sistema interactúan entre sí.
-    -   Ejemplos: **Diagramas de secuencia, colaboración, tiempos e interacción general**.
+    -   Ejemplos: **Diagramas de secuencia, comunicación, tiempos e interacción general**.
     -   **Fase del ciclo de vida**: Comunes en diseño detallado y pruebas.
 
 ## **Relación de los diagramas de clases con el ciclo de vida**
@@ -280,7 +280,7 @@ class Libro {
 }` 
 ```
 
-## **Relaciones: Herencia, Composición y Agregación**
+## **Relaciones: Herencia o jerarquía, Composición y Agregación**
 
 ### **Herencia**
 
@@ -332,9 +332,11 @@ class Libro {
 ```
 
 
-## **Concepto de Abstracción en Programación Orientada a Objetos**
+## **Concepto de Abstracción y Encapsulación en Programación Orientada a Objetos**
 
 La **abstracción** es uno de los principios fundamentales de la programación orientada a objetos (POO) y se refiere al proceso de ocultar los detalles complejos de implementación, mostrando solo lo necesario para el uso de un componente o sistema. Este principio permite centrarse en "qué hace un objeto" en lugar de "cómo lo hace", simplificando el diseño y la comprensión del código.
+
+Por su parte, la **encapsulación** es el proceso de ocultar todos los detalles de un objeto que no son de interés desde fuera de dicho objeto, es decir, separar el aspecto externo accesible por otros objetos del interno, innaccesible para los demás. De esta manera, la encapsulación consiste en ocultar los atributos y métodos del objeto a otros objetos, pasando a denominarse **privados**.
 
 ### **Clases Abstractas**
 
@@ -416,31 +418,6 @@ class Avion implements Volador {
 ```
 
 En este ejemplo, la interfaz `Volador` define el método `volar()`. Las clases `Ave` y `Avion` implementan esta interfaz, cada una con su propio comportamiento.
-
-**Representación en UML**:
-
-* Las **interfaces** se representan con el estereotipo `<<interface>>`.  
-* Las clases que implementan una interfaz tienen una línea discontinua con un triángulo apuntando hacia la interfaz.
-
-```mermaid  
-
-classDiagram  
-    class Volador {  
-        <<interface>>  
-        volar()  
-    }
-
-    class Ave {  
-        volar() void  
-    }
-
-    class Avion {  
-        volar() void  
-    }
-
-    Volador <|.. Ave  
-    Volador <|.. Avion
-```
 
 ### **Diferencias entre Clase Abstracta e Interfaz**
 
