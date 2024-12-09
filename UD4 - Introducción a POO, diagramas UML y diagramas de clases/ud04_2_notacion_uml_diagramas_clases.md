@@ -1,14 +1,66 @@
-# **Clases**
+# Tabla de Contenidos
 <!-- TOC -->
 
+- [Tabla de Contenidos](#tabla-de-contenidos)
 - [**Clases**](#clases)
+- [**Atributos**](#atributos)
+- [**Métodos**](#métodos)
 - [**Relaciones**](#relaciones)
   - [**Asociación**](#asociación)
   - [**Cardinalidad o Multiplicidad**](#cardinalidad-o-multiplicidad)
   - [**Navegabilidad**](#navegabilidad)
   - [**Clase Asociación**](#clase-asociación)
 
+<!-- /TOC -->Asociación**](#clase-asociación)
+
 <!-- /TOC -->
+
+# **Clases**
+
+Una **clase** es la unidad básica que encapsula toda la información para la representación de un conjunto de objetos que comparten características (**atributos**) y comportamientos (**métodos**).
+
+En UML, una clase se representa con un rectángulo dividido en tres secciones:
+    1.  **Nombre de la clase** (parte superior).
+    2.  **Atributos** (parte intermedia).
+    3.  **Métodos** (parte inferior).
+
+**Ejemplo básico de clase en UML:**
+
+```mermaid
+
+classDiagram
+    class Persona {
+        -nombre: String
+        -edad: int
+        +saludar(): void
+    }
+```
+
+La parte superior contiene el nombre de la clase; la parte intermedia, los atributos (que pueden no existir y, por tanto, se podrían omitir) y la parte inferior, los métodos (que también pueden no existir).
+
+# **Atributos**
+
+Los **atributos** son las propiedades o características que describen a una clase. Se representan en la segunda sección del rectángulo y siguen esta sintaxis:
+
+`[visibilidad] nombre: tipo` 
+
+-   **Visibilidades**:
+    -   `+` (pública): el atributo es accesible desde cualquier clase.
+    -   `#` (protegida): el atributo es accesible solo desde la clase y sus subclases.
+    -   `-` (privada): el atributo es accesible solo desde la propia clase.
+    -   `~` (package): el atributo es accesible desde las clases del mismo paquete.
+
+**Ejemplo de atributos en UML (Mermaid):**
+
+Copiar código
+
+``` mermaid
+    classDiagram
+    class Persona {
+        -nombre: String
+        +direccion: String
+        #telefono: int
+    }
 ```
 
 # **Métodos**
@@ -17,7 +69,7 @@ Los **métodos**, también llamados operaciones, son la implementación de un se
 
 `[visibilidad] nombre(parámetros): tipo_de_retorno` 
 
-**Ejemplo de métodos en UML (Mermaid):**
+**Ejemplo de métodos en UML:**
 
 ``` mermaid
 classDiagram
@@ -58,7 +110,7 @@ La cardinalidad especifica el número de instancias de una clase que pueden asoc
     -   `N..M`: Entre N y M veces.
     -   `M`: Exactamente M veces.
 
-**Ejemplo de cardinalidad (Mermaid):**
+**Ejemplo de cardinalidad:**
 
 ``` mermaid
 classDiagram
@@ -67,7 +119,7 @@ classDiagram
     class Persona
     class Vehiculo
 
-    Persona "1" -- "1..*" Vehiculo
+    Persona "1" -- "1..*" Vehiculo: posee
 ```
 
 ## **Navegabilidad**
@@ -93,7 +145,7 @@ classDiagram
         +setModelo(modelo: String): void
     }
 
-    Persona --> Vehiculo: posee
+    Persona "1" --> "1..*" Vehiculo: posee
 
 ``` 
 
@@ -143,7 +195,7 @@ La clase Persona conoce y tiene acceso a un objeto de tipo Vehiculo, pero Vehicu
 
 En una relación bidireccional, ambas clases conocen a la otra. Esto se representa en UML con flechas en ambos sentidos o sin flechas explícitas, ya que se asume la reciprocidad.
 
-Diagrama UML (Mermaid):
+Diagrama UML:
 
 ```mermaid
 classDiagram
