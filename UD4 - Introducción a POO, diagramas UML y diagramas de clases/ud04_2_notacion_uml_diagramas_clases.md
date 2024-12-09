@@ -57,8 +57,8 @@ Los **métodos**, también llamados operaciones, son la implementación de un se
 ``` mermaid
 classDiagram
     class Persona {
-        +saludar(): void
-        -calcularEdad(fechaNacimiento: Date): int
+        +saludar() void
+        -calcularEdad(fechaNacimiento: Date) int
     }
 ```
 
@@ -110,29 +110,24 @@ classDiagram
 La navegabilidad indica si una clase conoce a la otra y puede interactuar con ella. Se representa con una flecha en el extremo de la línea de asociación. De esta manera, la asociación puede ser **unidireccional** o **bidireccional**.
 Si se convierte a Java dos clases unidas por una asociación bidireccional, cada una de ellas tendrá un objeto o conjunto de objetos (dependiendo de la multiplicidad entre ellas). 
 
-**Ejemplo de asociación navegable (Mermaid):**
+**Ejemplo de asociación navegable:**
 
-mermaid
-
-Copiar código
-
-`classDiagram
+```mermaid
+classDiagram
     class Persona
     class Vehiculo
 
     Persona "1" --> "1..*" Vehiculo: posee` 
+```
 
-##### **5.2. Clase Asociación**
+## **Clase Asociación**
 
 Cuando una relación tiene atributos propios, se puede representar como una **clase asociación**.
 
-**Ejemplo de clase asociación (Mermaid):**
+**Ejemplo de clase asociación:**
 
-mermaid
-
-Copiar código
-
-`classDiagram
+```mermaid
+classDiagram
     class Persona
     class Vehiculo
     class Propiedad {
@@ -142,3 +137,4 @@ Copiar código
 
     Persona "1" --> "1..*" Propiedad
     Propiedad --> Vehiculo`
+```
