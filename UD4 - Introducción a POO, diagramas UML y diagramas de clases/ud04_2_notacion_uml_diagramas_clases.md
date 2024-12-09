@@ -21,7 +21,7 @@ classDiagram
 
 La parte superior contiene el nombre de la clase; la parte intermedia, los atributos (que pueden no existir y, por tanto, se podrían omitir) y la parte inferior, los métodos (que también pueden no existir).
 
-# ** Atributos**
+# **Atributos**
 
 Los **atributos** son las propiedades o características que describen a una clase. Se representan en la segunda sección del rectángulo y siguen esta sintaxis:
 
@@ -33,21 +33,18 @@ Los **atributos** son las propiedades o características que describen a una cla
     -   `-` (privada): el atributo es accesible solo desde la propia clase.
     -   `~` (package): el atributo es accesible desde las clases del mismo paquete.
 
-
 **Ejemplo de atributos en UML (Mermaid):**
-
-mermaid
 
 Copiar código
 
-`classDiagram
+``` mermaid
+    classDiagram
     class Persona {
         -nombre: String
         +direccion: String
         #telefono: int
-    }` 
-
-----------
+    }
+```
 
 # **Métodos**
 
@@ -57,15 +54,16 @@ Los **métodos**, también llamados operaciones, son la implementación de un se
 
 **Ejemplo de métodos en UML (Mermaid):**
 
-mermaid
+``` mermaid
 
 Copiar código
 
-`classDiagram
+classDiagram
     class Persona {
         +saludar(): void
         -calcularEdad(fechaNacimiento: Date): int
-    }` 
+    }
+```
 
 Igual que los atributos, su visibilidad puede ser pública, privada, protegida o de paquete.
 
@@ -87,15 +85,13 @@ La cardinalidad especifica el número de instancias de una clase que pueden asoc
 
 **Ejemplo de cardinalidad (Mermaid):**
 
-mermaid
-
-Copiar código
-
-`classDiagram
+``` mermaid
+classDiagram
     class Persona
     class Vehiculo
 
     Persona "1" --> "1..*" Vehiculo` 
+```
 
 ## **Asociación**
 
