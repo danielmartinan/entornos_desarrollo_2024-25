@@ -118,7 +118,7 @@ classDiagram
     class Persona
     class Vehiculo
 
-    Persona "1" --> "1..*" Vehiculo: posee` 
+    Persona "1" --> "1..*" Vehiculo: posee
 ```
 
 ## **Clase Asociación**
@@ -129,6 +129,9 @@ Cuando una relación tiene atributos propios, se puede representar como una **cl
 
 ```mermaid
 classDiagram
+    direction LR
+    class ac["&ZeroWidthSpace;"] ::: invisible
+
     class Persona
     class Vehiculo
     class Propiedad {
@@ -136,6 +139,7 @@ classDiagram
         -precio: float
     }
 
-    Persona "1" -- "1..*" Vehiculo
-    (Persona, Vehiculo) .. Propiedad
+    Persona "1" -- ac
+    Vehiculo -- ac
+    ac .. Propiedad
 ```
