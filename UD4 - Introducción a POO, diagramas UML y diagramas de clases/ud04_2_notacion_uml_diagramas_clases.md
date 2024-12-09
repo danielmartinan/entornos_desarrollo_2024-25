@@ -55,9 +55,6 @@ Los **métodos**, también llamados operaciones, son la implementación de un se
 **Ejemplo de métodos en UML (Mermaid):**
 
 ``` mermaid
-
-Copiar código
-
 classDiagram
     class Persona {
         +saludar(): void
@@ -76,7 +73,8 @@ En el mundo real, muchos objetos están vinculados o relacionados entre sí. Esa
 Una **asociación** representa una relación entre dos o más clases. Se dibuja como una línea simple entre las clases.
 
 ``` mermaid
-classDiagram LR
+classDiagram
+    direction LR
     class Persona
     class Vehiculo
 
@@ -98,14 +96,14 @@ La cardinalidad especifica el número de instancias de una clase que pueden asoc
 **Ejemplo de cardinalidad (Mermaid):**
 
 ``` mermaid
-classDiagram LR
+classDiagram
+    direction LR
+
     class Persona
     class Vehiculo
 
     Persona "1" --> "1..*" Vehiculo
 ```
-
-
 
 ## **Navegabilidad**
 
