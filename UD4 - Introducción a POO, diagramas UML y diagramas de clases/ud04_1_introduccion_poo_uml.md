@@ -27,9 +27,11 @@
     - [**Métodos**](#métodos)
     - [**Visibilidad**](#visibilidad)
   - [**Relaciones: Herencia o jerarquía, Composición y Agregación**](#relaciones-herencia-o-jerarquía-composición-y-agregación)
+    - [**Clientela**](#clientela)
     - [**Herencia**](#herencia)
     - [**Composición**](#composición)
     - [**Agregación**](#agregación)
+    - [**Anidamiento**](#anidamiento)
   - [**Concepto de Abstracción y Encapsulación en Programación Orientada a Objetos**](#concepto-de-abstracción-y-encapsulación-en-programación-orientada-a-objetos)
     - [**Clases Abstractas**](#clases-abstractas)
     - [**Interfaces**](#interfaces)
@@ -278,6 +280,50 @@ class Libro {
 
 ## **Relaciones: Herencia o jerarquía, Composición y Agregación**
 
+Las relaciones entre clases son fundamentales en la programación orientada a objetos (POO) porque permiten organizar, estructurar y modelar el comportamiento y las interacciones entre diferentes entidades en un programa. Una correcta comprensión y uso de estas relaciones mejora la reutilización de código, la modularidad y la flexibilidad del diseño.
+
+En este apartado, analizaremos cinco tipos de relaciones entre clases:
+
+- Clientela
+- Herencia
+- Composición
+- Agregación
+- Anidamiento
+
+### **Clientela**
+
+La clientela (o asociación de uso) es una relación donde una clase utiliza los servicios o métodos de otra clase. Es una relación muy flexible y frecuente.
+
+Características:
+
+- Relación temporal y no necesariamente fuerte.
+- Una clase "cliente" depende de otra clase para realizar sus funciones.
+
+**Ejemplo:** Tenemos una clase `Usuario` que es cliente de la clase `Impresora`. El `Usuario` utiliza el método `imprimir` sin ser "dueño" de la impresora.
+
+```java
+class Impresora {
+    public void imprimir(String texto) {
+        System.out.println("Imprimiendo: " + texto);
+    }
+}
+
+class Usuario {
+    public void enviarAImprimir(Impresora impresora, String texto) {
+        impresora.imprimir(texto);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Usuario usuario = new Usuario();
+        Impresora impresora = new Impresora();
+
+        usuario.enviarAImprimir(impresora, "Hola, mundo.");
+    }
+}
+```
+
 ### **Herencia**
 
 La herencia permite que una clase "hija" herede atributos y métodos de una clase "padre". Esto evita la duplicación de código.
@@ -325,6 +371,42 @@ class Autor {
 
 class Libro {
     Autor autor; // Agregación: el libro tiene un autor
+}
+```
+
+### **Anidamiento**
+
+El anidamiento es una relación en la que una clase está contenida dentro de otra clase. Se implementa usando clases anidadas o clases internas.
+
+Características:
+
+- Permite organizar y modularizar el código.
+- Una clase interna tiene acceso a los miembros de la clase contenedora.
+- Puede ser estática o no estática.
+
+**Ejemplo:** Una clase `Procesador`que está anidada dentro de una clase `Ordenador`, y puede acceder a los atributos de la clase contenedora.
+
+```java
+class Ordenador {
+    private String marca;
+
+    public Ordenador(String marca) {
+        this.marca = marca;
+    }
+
+    class Procesador {
+        public void mostrarMarca() {
+            System.out.println("El procesador pertenece a un ordenador de marca: " + marca);
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Ordenador ordenador = new Ordenador("Lenovo");
+        Ordenador.Procesador procesador = ordenador.new Procesador();
+        procesador.mostrarMarca();
+    }
 }
 ```
 
