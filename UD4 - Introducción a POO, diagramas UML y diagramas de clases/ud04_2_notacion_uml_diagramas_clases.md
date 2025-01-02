@@ -1,6 +1,4 @@
 # Tabla de Contenidos
-<!-- TOC -->
-
 - [Tabla de Contenidos](#tabla-de-contenidos)
 - [Introduccion](#introduccion)
 - [Clases](#clases)
@@ -22,55 +20,6 @@
 - [Resumen de simbología para la representación de relaciones](#resumen-de-simbología-para-la-representación-de-relaciones)
 - [Polimorfismo](#polimorfismo)
 - [Restricciones (constraints)](#restricciones-constraints)
-
-<!-- /TOC -->
-- [Tabla de Contenidos](#tabla-de-contenidos)
-- [Introduccion](#introduccion)
-- [Clases](#clases)
-- [Atributos](#atributos)
-- [Métodos](#métodos)
-- [Relaciones](#relaciones)
-  - [Asociación](#asociación)
-  - [Cardinalidad o Multiplicidad](#cardinalidad-o-multiplicidad)
-  - [Navegabilidad](#navegabilidad)
-  - [Clase Asociación](#clase-asociación)
-  - [Relación unaria](#relación-unaria)
-- [Herencia (generalización)](#herencia-generalización)
-- [Composición](#composición)
-- [Agregación](#agregación)
-- [Dependencia](#dependencia)
-- [Interfaces](#interfaces)
-- [Clases Abstractas](#clases-abstractas)
-- [Enumeradores](#enumeradores)
-- [Resumen de simbología para la representación de relaciones](#resumen-de-simbología-para-la-representación-de-relaciones)
-- [Polimorfismo](#polimorfismo)
-- [Restricciones (constraints)](#restricciones-constraints)
-
-<!-- /TOC -->
-<!-- /TOC -->#herencia)
-- [Tabla de Contenidos](#tabla-de-contenidos)
-- [Introduccion](#introduccion)
-- [Clases](#clases)
-- [Atributos](#atributos)
-- [Métodos](#métodos)
-- [Relaciones](#relaciones)
-  - [Asociación](#asociación)
-  - [Cardinalidad o Multiplicidad](#cardinalidad-o-multiplicidad)
-  - [Navegabilidad](#navegabilidad)
-  - [Clase Asociación](#clase-asociación)
-  - [Relación unaria](#relación-unaria)
-- [Herencia (generalización)](#herencia-generalización)
-- [Composición](#composición)
-- [Agregación](#agregación)
-- [Dependencia](#dependencia)
-- [Interfaces](#interfaces)
-- [Clases Abstractas](#clases-abstractas)
-- [Enumeradores](#enumeradores)
-- [Resumen de simbología para la representación de relaciones](#resumen-de-simbología-para-la-representación-de-relaciones)
-- [Polimorfismo](#polimorfismo)
-- [Restricciones (constraints)](#restricciones-constraints)
-
-<!-- /TOC -->
 
 # Introduccion
 En la sección anterior hemos visto cómo los diagramas de clases UML permiten representar las diferentes clases y sus relaciones en una representación de un problema del mundo real. A continuación, veremos todos los elementos involucrados en este tipo de diagramas.
@@ -432,10 +381,26 @@ Los Profesor pueden existir sin pertenecer a una Universidad.
 
 # Dependencia
 
-TBD
+La relación de **dependencia** en UML se utiliza para modelar una conexión débil entre dos elementos, donde un cambio en el elemento independiente (el proveedor) puede afectar al elemento dependiente (el cliente). Este tipo de relación refleja que una clase utiliza o depende de otra para funcionar, pero no posee una asociación directa ni control completo sobre ella.
+
+```mermaid
+classDiagram
+    direction LR
+    class Pedido {
+        +procesar(cliente: Cliente): void
+    }
+
+    class Cliente {
+        +getDatos(): String
+    }
+
+    Pedido ..> Cliente
+```
+
+En este ejemplo, la clase `Pedido` depende de `Cliente` porque utiliza sus métodos o propiedades para procesar el pedido. No existe una relación permanente entre ambas clases, simplemente se utiliza temporalmente.
 
 # Interfaces
-Una interfaz define un conjunto de métodos que una clase debe implementar. En UML, se representa como una clase con el nombre en cursiva o precedido de <<interface>>.
+Una interfaz define un conjunto de métodos que una clase debe implementar. En UML, se representa como una clase con el nombre en cursiva o precedido de `<<interface>>`.
 
 Ejemplo UML:
 
@@ -459,7 +424,7 @@ classDiagram
 En el ejemplo, `Volador` define un contrato que `Avion` y `Pajaro` deben cumplir al implementar el método `volar`.
 
 
-A diferencia de en la herencia, cuando una clase implementa los métodos de una interfaz, hablamos de una relacion de "realización" y utilizamos una flecha con punta vacía y con línea discontinua.
+A diferencia de en la herencia, cuando una clase implementa los métodos de una interfaz, hablamos de una relación de "realización" y utilizamos una flecha con punta vacía y con línea discontinua.
 
 # Clases Abstractas
 
@@ -623,12 +588,11 @@ En UML, las restricciones permiten especificar reglas o condiciones que limitan 
 - **Restricciones de generalización**: limitan la participación en una jerarquía de herencia. Estas restricciones incluyen:
   - **Disjoint vs Overlapping**: Con `Disjoin`, Las subclases no pueden solaparse (una instancia pertenece a una sola subclase).
   - **Complete/Incomplete**: Con `Complete`, todas las instancias de la superclase deben pertenecer a alguna subclase (y por tanto, no a la clase padre).
-
-![](img/ud4_2_complete_disjoin.png)
+  ![](img/ud4_2_complete_disjoin.png)
 - **Restricciones de valores predeterminados**: Permiten definir valores iniciales para atributos o relaciones.
 
-Ejmplo con restricciones variadas:
+Eejmplo con restricciones variadas:
 
 ![Restricciones variadas](img/ud4_2_restricciones_diferentes.png)
 
-Ademas, también se pueden añadir **notas**, donde podemos realizar descripciones en lenguaje natural de estas restricciones o aclaraciones.
+Ademas, también se pueden añadir **notas**, en un rectángulo con la esquina superior derecha doblada, donde podemos realizar descripciones en lenguaje natural de estas restricciones o aclaraciones.
