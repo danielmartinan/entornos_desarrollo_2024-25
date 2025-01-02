@@ -1,7 +1,7 @@
-# **Tabla de contenidos**
-<!-- TOC -->
+# INTRODUCCIÓN AL DISEÑO ORIENTADO A OBJETOS Y DIAGRAMAS DE CLASES UML
 
-- [**Tabla de contenidos**](#tabla-de-contenidos)
+<!-- TOC -->
+- [INTRODUCCIÓN AL DISEÑO ORIENTADO A OBJETOS Y DIAGRAMAS DE CLASES UML](#introducción-al-diseño-orientado-a-objetos-y-diagramas-de-clases-uml)
 - [**Introducción**](#introducción)
   - [**Paradigma de desarrollo de software**](#paradigma-de-desarrollo-de-software)
     - [**Programación Imperativa**](#programación-imperativa)
@@ -26,11 +26,13 @@
     - [**Atributos**](#atributos)
     - [**Métodos**](#métodos)
     - [**Visibilidad**](#visibilidad)
-  - [**Relaciones: Herencia, Composición y Agregación**](#relaciones-herencia-composición-y-agregación)
+  - [**Relaciones: Herencia o jerarquía, Composición y Agregación**](#relaciones-herencia-o-jerarquía-composición-y-agregación)
+    - [**Clientela**](#clientela)
     - [**Herencia**](#herencia)
     - [**Composición**](#composición)
     - [**Agregación**](#agregación)
-  - [**Concepto de Abstracción en Programación Orientada a Objetos**](#concepto-de-abstracción-en-programación-orientada-a-objetos)
+    - [**Anidamiento**](#anidamiento)
+  - [**Concepto de Abstracción y Encapsulación en Programación Orientada a Objetos**](#concepto-de-abstracción-y-encapsulación-en-programación-orientada-a-objetos)
     - [**Clases Abstractas**](#clases-abstractas)
     - [**Interfaces**](#interfaces)
     - [**Diferencias entre Clase Abstracta e Interfaz**](#diferencias-entre-clase-abstracta-e-interfaz)
@@ -46,12 +48,14 @@
 <!-- /TOC -->
 
 # **Introducción**
+
 Como hemos visto en las primeras unidades didácticas, el proceso de creación de aplicaciones y sistemas informáticas es complejo y consta de múltiples fases o etapas.
 
 ```mermaid
 flowchart LR 
 Análisis --> Diseño --> Codificación --> Pruebas --> Despliegue --> Mantenimiento
 ```
+
 En cada una de estas etapas, se llevan a cabo diferentes actividades, y, por tanto, necesitamos diferentes herramientas para realizarlas.
 
 Además, sabemos que la forma de organizar estas etapas, así como las formas de trabajar, son multiples y muy diversas, por lo que debemos adaptarlas al sistema a desarrollar.
@@ -66,43 +70,43 @@ En el mundo del desarrollo de software, un **paradigma de programación** es un 
 
 La programación imperativa se basa en la idea de dar instrucciones paso a paso para resolver un problema.
 
--   **Características clave**:
-    -   El programador especifica cómo debe ejecutarse cada operación.
-    -   Se centra en cambiar el estado del programa mediante variables y estructuras de control (como bucles y condicionales).
--   **Ejemplo de lenguajes**: C, Pascal.
+- **Características clave**:
+  - El programador especifica cómo debe ejecutarse cada operación.
+  - Se centra en cambiar el estado del programa mediante variables y estructuras de control (como bucles y condicionales).
+- **Ejemplo de lenguajes**: C, Pascal.
 
 ### **Programación Orientada a Objetos (POO)**
 
 Este paradigma organiza el código en torno a objetos que combinan datos (atributos) y comportamientos (métodos).
 
--   **Características clave**:
-    -   Principios como **encapsulación**, **herencia** y **polimorfismo**.
-    -   Modela el sistema basándose en entidades del mundo real.
--   **Ejemplo de lenguajes**: Java, C++, Python, C#.
+- **Características clave**:
+  - Principios como **encapsulación**, **herencia** y **polimorfismo**.
+  - Modela el sistema basándose en entidades del mundo real.
+- **Ejemplo de lenguajes**: Java, C++, Python, C#.
 
 ### **Programación Funcional**
 
 La programación funcional se centra en resolver problemas utilizando funciones matemáticas puras, sin modificar el estado ni los datos.
 
--   **Características clave**:
-    -   Evita efectos secundarios y cambios de estado.
-    -   Facilita la concurrencia y el paralelismo.
--   **Ejemplo de lenguajes**: Haskell, Scala, JavaScript (con funciones de orden superior).
+- **Características clave**:
+  - Evita efectos secundarios y cambios de estado.
+  - Facilita la concurrencia y el paralelismo.
+- **Ejemplo de lenguajes**: Haskell, Scala, JavaScript (con funciones de orden superior).
 
 ### **Programación Declarativa**
 
 En este paradigma, el programador especifica qué desea obtener, pero no cómo lograrlo.
 
--   **Características clave**:
-    -   Los lenguajes declarativos se usan a menudo en bases de datos o sistemas de reglas.
-    -   Ejemplo: Escribir una consulta SQL para obtener datos sin especificar cómo buscarlos.
--   **Ejemplo de lenguajes**: SQL, Prolog.
+- **Características clave**:
+  - Los lenguajes declarativos se usan a menudo en bases de datos o sistemas de reglas.
+  - Ejemplo: Escribir una consulta SQL para obtener datos sin especificar cómo buscarlos.
+- **Ejemplo de lenguajes**: SQL, Prolog.
 
 ### **Paradigmas Combinados**
 
 Muchos lenguajes modernos combinan varios paradigmas para adaptarse mejor a diferentes tipos de problemas.
 
--   Ejemplo: Python es tanto orientado a objetos como funcional, y JavaScript mezcla paradigmas funcionales, orientados a objetos y declarativos.
+- Ejemplo: Python es tanto orientado a objetos como funcional, y JavaScript mezcla paradigmas funcionales, orientados a objetos y declarativos.
 
 ## **Importancia de los diagramas de clases en el desarrollo de aplicaciones**
 
@@ -118,30 +122,27 @@ UML proporciona una base común que permite a desarrolladores, analistas y otros
 
 UML clasifica sus diagramas en tres grandes categorías:
 
-1.  **Diagramas estructurales**
-    
-    -   Representan la arquitectura estática del sistema.
-    -   Ejemplos: **Diagramas de clases, diagramas de objetos, diagramas de componentes, diagramas de paquetes y diagramas de despliegue**.
-    -   **Fase del ciclo de vida**: Más utilizados en las fases de análisis y diseño.
-2.  **Diagramas de comportamiento**
-    
-    -   Muestran la lógica dinámica y el comportamiento del sistema.
-    -   Ejemplos: **Diagramas de casos de uso, diagramas de actividades y diagramas de máquinas de estado**.
-    -   **Fase del ciclo de vida**: Orientados al análisis de requisitos y validación.
-3.  **Diagramas de interacción**
-    
-    -   Profundizan en cómo los elementos del sistema interactúan entre sí.
-    -   Ejemplos: **Diagramas de secuencia, comunicación, tiempos e interacción general**.
-    -   **Fase del ciclo de vida**: Comunes en diseño detallado y pruebas.
+1. **Diagramas estructurales**
+   - Representan la arquitectura estática del sistema.
+   - Ejemplos: **Diagramas de clases, diagramas de objetos, diagramas de componentes, diagramas de paquetes y diagramas de despliegue**.
+   - **Fase del ciclo de vida**: Más utilizados en las fases de análisis y diseño.
+2. **Diagramas de comportamiento**
+   - Muestran la lógica dinámica y el comportamiento del sistema.
+   - Ejemplos: **Diagramas de casos de uso, diagramas de actividades y diagramas de máquinas de estado**.
+   - **Fase del ciclo de vida**: Orientados al análisis de requisitos y validación.
+3. **Diagramas de interacción**
+   - Profundizan en cómo los elementos del sistema interactúan entre sí.
+   - Ejemplos: **Diagramas de secuencia, comunicación, tiempos e interacción general**.
+   - **Fase del ciclo de vida**: Comunes en diseño detallado y pruebas.
 
 ## **Relación de los diagramas de clases con el ciclo de vida**
 
 El **diagrama de clases**, al ser un diagrama estructural, tiene un papel destacado en las siguientes fases:
 
--   **Análisis de requisitos**: Representa los conceptos clave y sus relaciones.
--   **Diseño**: Especifica la estructura detallada del sistema, incluyendo clases, atributos y métodos.
--   **Implementación**: Sirve como base para generar código automáticamente.
--   **Mantenimiento**: Permite interpretar, modificar y documentar sistemas existentes.
+- **Análisis de requisitos**: Representa los conceptos clave y sus relaciones.
+- **Diseño**: Especifica la estructura detallada del sistema, incluyendo clases, atributos y métodos.
+- **Implementación**: Sirve como base para generar código automáticamente.
+- **Mantenimiento**: Permite interpretar, modificar y documentar sistemas existentes.
 
 ## **Historia y Evolución de UML**
 
@@ -151,52 +152,49 @@ El Lenguaje Unificado de Modelado (**UML**) ha evolucionado desde sus inicios en
 
 Antes de UML, no existía un estándar común para modelar sistemas orientados a objetos, lo que dificultaba la comunicación entre equipos y organizaciones. En la década de 1980 y principios de 1990, varios métodos competían por dominar el diseño orientado a objetos, como:
 
--   **OMT (Object Modeling Technique)** de James Rumbaugh.
--   **Booch Method** de Grady Booch.
--   **OOSE (Object-Oriented Software Engineering)** de Ivar Jacobson.
+- **OMT (Object Modeling Technique)** de James Rumbaugh.
+- **Booch Method** de Grady Booch.
+- **OOSE (Object-Oriented Software Engineering)** de Ivar Jacobson.
 
 Estos tres métodos tenían enfoques complementarios pero inconsistentes. En 1994, los creadores de estos métodos (Booch, Rumbaugh y Jacobson) unieron fuerzas para desarrollar un lenguaje unificado. Este esfuerzo culminó en la creación de UML.
 
 ### **La Primera Versión de UML**
 
--   En **1997**, la versión **UML 1.0** fue adoptada oficialmente por el **Object Management Group (OMG)**, una organización dedicada a establecer estándares de modelado en ingeniería de software.
--   UML 1.0 combinaba elementos de los tres métodos principales y ofrecía un marco coherente para modelar sistemas.
+- En **1997**, la versión **UML 1.0** fue adoptada oficialmente por el **Object Management Group (OMG)**, una organización dedicada a establecer estándares de modelado en ingeniería de software.
+- UML 1.0 combinaba elementos de los tres métodos principales y ofrecía un marco coherente para modelar sistemas.
 
 **Características clave de UML 1.0:**
 
--   Introducción de diagramas estructurales (como los diagramas de clases).
--   Diagramas de comportamiento para modelar dinámicas del sistema.
--   Enfoque en sistemas orientados a objetos.
+- Introducción de diagramas estructurales (como los diagramas de clases).
+- Diagramas de comportamiento para modelar dinámicas del sistema.
+- Enfoque en sistemas orientados a objetos.
 
 ### **Evolución de UML: Principales Versiones**
 
 Desde su lanzamiento inicial, UML ha evolucionado para incluir nuevas capacidades y adaptarse a las necesidades de la industria del software.
 
-1.  **UML 1.x (1997-2000)**
-    
-    -   Versión inicial con mejoras iterativas.
-    -   Introducción de más tipos de diagramas, como diagramas de secuencia y casos de uso.
-2.  **UML 2.0 (2003)**
-    
-    -   Publicado por el OMG en 2003. Supuso un salto significativo en funcionalidad y robustez.
-    -   Principales mejoras:
-        -   Ampliación de los diagramas estructurales y de interacción.
-        -   Diagramas de componentes y despliegue más detallados.
-        -   Inclusión del concepto de "fragmentos combinados" en diagramas de secuencia.
-3.  **UML 2.x (2005 - Actualidad)**
-    
-    -   Series de actualizaciones menores para perfeccionar la versión 2.0.
-    -   Última versión oficial: **UML 2.5.1**, publicada en 2017.
-    -   Cambios clave:
-        -   Simplificación del estándar para facilitar su adopción.
-        -   Mejora en la interoperabilidad con herramientas CASE (Computer-Aided Software Engineering).
+1. **UML 1.x (1997-2000)**
+    - Versión inicial con mejoras iterativas.
+      - Introducción de más tipos de diagramas, como diagramas de secuencia y casos de uso.
+2. **UML 2.0 (2003)**
+    - Publicado por el OMG en 2003. Supuso un salto significativo en funcionalidad y robustez.
+    - Principales mejoras:
+      - Ampliación de los diagramas estructurales y de interacción.
+      - Diagramas de componentes y despliegue más detallados.
+      - Inclusión del concepto de "fragmentos combinados" en diagramas de secuencia.
+3. **UML 2.x (2005 - Actualidad)**
+    - Series de actualizaciones menores para perfeccionar la versión 2.0.
+    - Última versión oficial: **UML 2.5.1**, publicada en 2017.
+    - Cambios clave:
+      - Simplificación del estándar para facilitar su adopción.
+      - Mejora en la interoperabilidad con herramientas CASE (Computer-Aided Software Engineering).
 
 ### **UML Hoy en Día**
 
 En la actualidad, UML es el estándar más utilizado para modelar sistemas en múltiples industrias, no solo en software, sino también en áreas como sistemas embebidos y gestión empresarial.
 
--   **Usos comunes**: Análisis de requisitos, diseño de sistemas, comunicación entre equipos.
--   **Herramientas populares**: StarUML, Enterprise Architect, Visual Paradigm, y módulos de UML en IDEs como Eclipse o IntelliJ IDEA.
+- **Usos comunes**: Análisis de requisitos, diseño de sistemas, comunicación entre equipos.
+- **Herramientas populares**: StarUML, Enterprise Architect, Visual Paradigm, y módulos de UML en IDEs como Eclipse o IntelliJ IDEA.
 
 UML sigue evolucionando en función de las necesidades de la industria y los avances tecnológicos. Aunque no todos los diagramas de UML se usan con la misma frecuencia, los diagramas de clases, casos de uso y secuencia siguen siendo los más populares.
 
@@ -210,8 +208,8 @@ La programación orientada a objetos (POO) es un paradigma de programación que 
 
 Una **clase** es una plantilla o modelo que define cómo serán los objetos.
 
--   Incluye **atributos**, que son las características o propiedades del objeto (datos).
--   Contiene **métodos**, que son las acciones o comportamientos que el objeto puede realizar (funciones).
+- Incluye **atributos**, que son las características o propiedades del objeto (datos).
+- Contiene **métodos**, que son las acciones o comportamientos que el objeto puede realizar (funciones).
 
 **Ejemplo**:  
 Imagina que queremos crear una aplicación para gestionar libros en una biblioteca.  
@@ -232,7 +230,7 @@ class Libro {
 
 Un **objeto** es una instancia de una clase, es decir, un ejemplar concreto basado en la plantilla de la clase.
 
--   Si la clase `Libro` es el modelo, un objeto podría ser un libro específico, como "1984" de George Orwell.
+- Si la clase `Libro` es el modelo, un objeto podría ser un libro específico, como "1984" de George Orwell.
 
 **Ejemplo de instanciación**:
 
@@ -259,9 +257,9 @@ Son las acciones que un objeto puede realizar. En el ejemplo, `leer()` es un mé
 
 La **visibilidad** determina quién puede acceder a los atributos y métodos de una clase. Las palabras clave más comunes son:
 
--   **`public`**: accesible desde cualquier parte del programa.
--   **`private`**: accesible solo dentro de la propia clase.
--   **`protected`**: accesible dentro de la clase, sus subclases y el mismo paquete (más avanzado).
+- **`public`**: accesible desde cualquier parte del programa.
+- **`private`**: accesible solo dentro de la propia clase.
+- **`protected`**: accesible dentro de la clase, sus subclases y el mismo paquete (más avanzado).
 
 **Ejemplo de visibilidad**:
 
@@ -281,6 +279,50 @@ class Libro {
 ```
 
 ## **Relaciones: Herencia o jerarquía, Composición y Agregación**
+
+Las relaciones entre clases son fundamentales en la programación orientada a objetos (POO) porque permiten organizar, estructurar y modelar el comportamiento y las interacciones entre diferentes entidades en un programa. Una correcta comprensión y uso de estas relaciones mejora la reutilización de código, la modularidad y la flexibilidad del diseño.
+
+En este apartado, analizaremos cinco tipos de relaciones entre clases:
+
+- Clientela
+- Herencia
+- Composición
+- Agregación
+- Anidamiento
+
+### **Clientela**
+
+La clientela (o asociación de uso) es una relación donde una clase utiliza los servicios o métodos de otra clase. Es una relación muy flexible y frecuente.
+
+Características:
+
+- Relación temporal y no necesariamente fuerte.
+- Una clase "cliente" depende de otra clase para realizar sus funciones.
+
+**Ejemplo:** Tenemos una clase `Usuario` que es cliente de la clase `Impresora`. El `Usuario` utiliza el método `imprimir` sin ser "dueño" de la impresora.
+
+```java
+class Impresora {
+    public void imprimir(String texto) {
+        System.out.println("Imprimiendo: " + texto);
+    }
+}
+
+class Usuario {
+    public void enviarAImprimir(Impresora impresora, String texto) {
+        impresora.imprimir(texto);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Usuario usuario = new Usuario();
+        Impresora impresora = new Impresora();
+
+        usuario.enviarAImprimir(impresora, "Hola, mundo.");
+    }
+}
+```
 
 ### **Herencia**
 
@@ -308,6 +350,7 @@ Ocurre cuando una clase contiene objetos de otras clases como parte de sus atrib
 
 **Ejemplo**:  
 Un objeto de clase `Biblioteca` contiene varios objetos de clase `Libro`.
+
 ```java
 class Biblioteca {
     Libro[] libros; // Composición: la biblioteca tiene libros
@@ -331,6 +374,41 @@ class Libro {
 }
 ```
 
+### **Anidamiento**
+
+El anidamiento es una relación en la que una clase está contenida dentro de otra clase. Se implementa usando clases anidadas o clases internas.
+
+Características:
+
+- Permite organizar y modularizar el código.
+- Una clase interna tiene acceso a los miembros de la clase contenedora.
+- Puede ser estática o no estática.
+
+**Ejemplo:** Una clase `Procesador`que está anidada dentro de una clase `Ordenador`, y puede acceder a los atributos de la clase contenedora.
+
+```java
+class Ordenador {
+    private String marca;
+
+    public Ordenador(String marca) {
+        this.marca = marca;
+    }
+
+    class Procesador {
+        public void mostrarMarca() {
+            System.out.println("El procesador pertenece a un ordenador de marca: " + marca);
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Ordenador ordenador = new Ordenador("Lenovo");
+        Ordenador.Procesador procesador = ordenador.new Procesador();
+        procesador.mostrarMarca();
+    }
+}
+```
 
 ## **Concepto de Abstracción y Encapsulación en Programación Orientada a Objetos**
 
@@ -342,13 +420,13 @@ Por su parte, la **encapsulación** es el proceso de ocultar todos los detalles 
 
 Una **clase abstracta** es una clase que no puede instanciarse directamente. Sirve como modelo o plantilla para otras clases y puede incluir:
 
-* **Métodos abstractos**: Declarados sin implementación (por ejemplo, `metodoAbstracto()`), que deben ser implementados en las subclases concretas.  
-* **Métodos concretos**: Métodos con implementación, que pueden heredarse por las subclases.
+- **Métodos abstractos**: Declarados sin implementación (por ejemplo, `metodoAbstracto()`), que deben ser implementados en las subclases concretas.  
+- **Métodos concretos**: Métodos con implementación, que pueden heredarse por las subclases.
 
 **Características clave**:
 
-* Se utiliza para definir comportamientos comunes entre clases relacionadas.  
-* Facilita la reutilización de código y el cumplimiento de una estructura.
+- Se utiliza para definir comportamientos comunes entre clases relacionadas.  
+- Facilita la reutilización de código y el cumplimiento de una estructura.
 
 **Ejemplo (Java)**:
 
@@ -443,12 +521,14 @@ El **polimorfismo** es un principio fundamental de la programación orientada a 
 
 Existen dos tipos principales de polimorfismo en la programación orientada a objetos:
 
-#### **Polimorfismo en Tiempo de Compilación (Sobrecarga de Métodos)**  
-   - Ocurre cuando un método en una clase tiene el mismo nombre pero diferentes firmas (diferente número o tipo de parámetros).  
-   - El compilador selecciona cuál método invocar en función de los argumentos proporcionados.  
-   - Esto se conoce como *early binding* o vinculación temprana.
+#### **Polimorfismo en Tiempo de Compilación (Sobrecarga de Métodos)**
 
-**Ejemplo en Java**:  
+- Ocurre cuando un método en una clase tiene el mismo nombre pero diferentes firmas (diferente número o tipo de parámetros).  
+- El compilador selecciona cuál método invocar en función de los argumentos proporcionados.  
+- Esto se conoce como *early binding* o vinculación temprana.
+
+**Ejemplo en Java**:
+
 ```java
 class Calculadora {
     // Suma de dos números enteros
@@ -477,7 +557,8 @@ public class Main {
 }
 ```
 
-**Resultado del programa**:  
+**Resultado del programa**:
+
 ```java
 5
 9
@@ -486,12 +567,14 @@ public class Main {
 
 En este ejemplo, el método `sumar` tiene diferentes implementaciones según los parámetros, y el compilador selecciona automáticamente la versión apropiada.
 
-#### **Polimorfismo en Tiempo de Ejecución (Sobrescritura de Métodos)**  
+#### **Polimorfismo en Tiempo de Ejecución (Sobrescritura de Métodos)**
+
 - Ocurre cuando una subclase proporciona su propia implementación de un método definido en una clase base.  
 - La invocación del método se decide en tiempo de ejecución en función del tipo del objeto real, no del tipo de referencia.  
 - Esto se conoce como *late binding* o vinculación tardía.
 
-**Ejemplo en Java**:  
+**Ejemplo en Java**:
+
 ```java
 class Animal {
     void hacerSonido() {
@@ -526,20 +609,24 @@ public class Main {
 }
 ``` 
 
-**Resultado del programa**:  
+**Resultado del programa**:
+
 ```java
 Guau, guau! Miau, miau!
 ```
 
 En este ejemplo, el método `hacerSonido` es sobrescrito en las clases `Perro` y `Gato`. Aunque la referencia es de tipo `Animal`, el método invocado depende del tipo real del objeto (`Perro` o `Gato`) en tiempo de ejecución.
 
-### **Importancia del Polimorfismo**  
-El polimorfismo permite:  
+### **Importancia del Polimorfismo**
+
+El polimorfismo permite:
+
 - Diseñar sistemas extensibles y modulares, ya que el comportamiento puede cambiar sin alterar el código existente.  
 - Reducir la duplicación de código al reutilizar métodos comunes en clases base y personalizar el comportamiento en las subclases.  
 - Implementar patrones de diseño, como el **patrón de estrategia**, que dependen del uso de polimorfismo.
 
-### **Polimorfismo y Principio de Sustitución de Liskov**  
+### **Polimorfismo y Principio de Sustitución de Liskov**
+
 El polimorfismo respeta el **Principio de Sustitución de Liskov (LSP)**, que establece que un objeto de una clase base debe poder ser sustituido por un objeto de una clase derivada sin alterar la funcionalidad del programa. Esto garantiza que el comportamiento esperado en tiempo de ejecución sea coherente, independientemente del tipo específico del objeto.
 
 ```java
@@ -559,12 +646,13 @@ public class Main {
 
 Antes de entrar en el detalle de la creación de diagramas de clases, y para consolidar los conceptos vistos anteriormente, vamos a representar las clases y sus relaciones vistas anteriormente mediante diagramas de clases.
 
--   **Clases**: `Libro`, `Autor`, `Biblioteca`.
--   **Relaciones**:
-    -   Composición: `Biblioteca` tiene varios `Libro`.
-    -   Agregación: `Libro` tiene un `Autor`.
+- **Clases**: `Libro`, `Autor`, `Biblioteca`.
+- **Relaciones**:
+  - Composición: `Biblioteca` tiene varios `Libro`.
+  - Agregación: `Libro` tiene un `Autor`.
 
 **Diagrama UML para clases con relaciones:**
+
 ```mermaid
 classDiagram
     direction LR
@@ -588,8 +676,8 @@ Este ejemplo muestra cómo representar las relaciones entre clases y sus atribut
 
 **Representación de clases y métodos abstractos en UML**:
 
-* Las **clases abstractas** se representan con el nombre en cursiva.  
-* Los **métodos abstractos** también aparecen en cursiva.
+- Las **clases abstractas** se representan con el nombre en cursiva.  
+- Los **métodos abstractos** también aparecen en cursiva.
 
 ``` mermaid  
 classDiagram 
@@ -614,8 +702,8 @@ classDiagram
 
 **Representación de interfaces en UML**:
 
-* Las **interfaces** se representan con el estereotipo `<<interface>>`.  
-* Las clases que implementan una interfaz tienen una línea discontinua con un triángulo apuntando hacia la interfaz.
+- Las **interfaces** se representan con el estereotipo `<<interface>>`.  
+- Las clases que implementan una interfaz tienen una línea discontinua con un triángulo apuntando hacia la interfaz.
 
 Siguiendo el ejemplo del apartado 2.4, este sería el diagrama de clases UML con la interfaz `Volador` y las clases `Ave` y `Avion`
 
