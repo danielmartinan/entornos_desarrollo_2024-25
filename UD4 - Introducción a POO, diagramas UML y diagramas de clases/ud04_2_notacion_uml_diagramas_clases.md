@@ -17,6 +17,7 @@
 - [Interfaces](#interfaces)
 - [Clases Abstractas](#clases-abstractas)
 - [Enumeradores](#enumeradores)
+- [Métodos y atributos estáticos y atributos constantes](#métodos-y-atributos-estáticos-y-atributos-constantes)
 - [Resumen de simbología para la representación de relaciones](#resumen-de-simbología-para-la-representación-de-relaciones)
 - [Polimorfismo](#polimorfismo)
 - [Restricciones (constraints)](#restricciones-constraints)
@@ -428,7 +429,7 @@ A diferencia de en la herencia, cuando una clase implementa los métodos de una 
 
 # Clases Abstractas
 
-Una clase abstracta no se puede instanciar y puede contener **métodos abstractos** (sin implementación). En UML, se representa con el nombre de la clase en **cursiva**.
+Una clase abstracta no se puede instanciar directamente y puede contener **métodos abstractos** (sin implementación; debe tener al menos). En UML, se representa con el nombre de la clase en **cursiva** o con la anotación `<<abstract>>`. Los métodos y atributos abstractos deben representarse en cursiva.
 
 Ejemplo UML:
 
@@ -437,7 +438,7 @@ classDiagram
     class Forma {
         <<abstract>>
         +color: String
-        +dibujar(): void
+        +dibujar(): void*
     }
 
     class Circulo {
@@ -473,6 +474,19 @@ classDiagram
         BLACK
 }
 ```
+
+# Métodos y atributos estáticos y atributos constantes
+Los métodos y atributos estáticos son aquellos que pertenecen a la clase y no a sus isntancias (objetos). En los diagramas UML, se representan con un <u>subrayado</u>. Por su parte, UML **no contempla** el uso de constantes en sus diagramas. Sin embargo, podemos definir los atributos constantes utilizando letras mayúsculas.
+
+```mermaid
+classDiagram
+    class Utilidad {
+        -CONST_PI: double $
+        +calcularAreaCirculo(radio: double): double $
+    }
+```
+
+
 
 # Resumen de simbología para la representación de relaciones
 
