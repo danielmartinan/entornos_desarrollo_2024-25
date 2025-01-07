@@ -8,6 +8,7 @@
   - [Asociación](#asociación)
   - [Cardinalidad o Multiplicidad](#cardinalidad-o-multiplicidad)
   - [Navegabilidad](#navegabilidad)
+  - [Rol](#rol)
   - [Clase Asociación](#clase-asociación)
   - [Relación unaria](#relación-unaria)
 - [Herencia (generalización)](#herencia-generalización)
@@ -21,6 +22,7 @@
 - [Resumen de simbología para la representación de relaciones](#resumen-de-simbología-para-la-representación-de-relaciones)
 - [Polimorfismo](#polimorfismo)
 - [Restricciones (constraints)](#restricciones-constraints)
+- [Ejemplo de diagrama de clases completo](#ejemplo-de-diagrama-de-clases-completo)
 
 # Introduccion
 En la sección anterior hemos visto cómo los diagramas de clases UML permiten representar las diferentes clases y sus relaciones en una representación de un problema del mundo real. A continuación, veremos todos los elementos involucrados en este tipo de diagramas.
@@ -201,7 +203,7 @@ class Persona {
 }
 ```
 
-La clase Persona conoce y tiene acceso a un objeto de tipo Vehiculo, pero Vehiculo no tiene referencia alguna a Persona.
+La clase `Persona` conoce y tiene acceso a un objeto de tipo `Vehiculo`, pero `Vehiculo` no tiene referencia alguna a `Persona`.
 
 En una relación bidireccional, ambas clases conocen a la otra. Esto se representa en UML con flechas en ambos sentidos o sin flechas explícitas, ya que se asume la reciprocidad.
 
@@ -285,6 +287,20 @@ class Persona {
 
 `Persona` tiene una lista de vehículos asociados, y cada `Vehiculo` tiene una referencia a su propietario.
 El método `agregarVehiculo` asegura que ambos extremos de la relación se actualicen de forma consistente.
+
+## Rol
+En cada asociacion, podemos definir dos **roles**, que describen la semántica de la relación en el sentido indicado. Se representa en los extremos de la asociación correspondiente.
+
+```mermaid
+classDiagram
+    class Piloto {
+    }
+
+    class Automovil {
+    }
+
+    Automovil "Conduce" <--> "Es conducido por" Piloto: propietario
+```
 
 ## Clase Asociación
 
@@ -610,3 +626,191 @@ Eejmplo con restricciones variadas:
 ![Restricciones variadas](img/ud4_2_restricciones_diferentes.png)
 
 Ademas, también se pueden añadir **notas**, en un rectángulo con la esquina superior derecha doblada, donde podemos realizar descripciones en lenguaje natural de estas restricciones o aclaraciones.
+
+# Ejemplo de diagrama de clases completo
+
+El dueño de un hotel pide a desarrollar un programa para consultar sobre las habitaciones disponibles y reservar habitaciones de su hotel..
+El hotel posee tres tipos de habitaciones: simple, doble y matrimonial, y dos tipos de clientes: habituales y esporádicos. Una reserva almacena datos del cliente, de la habitación reservada, la fecha de comienzo y el número de días que será ocupada la habitación
+El recepcionista del hotel debe poder hacer la siguientes operaciones:
+- Obtener un listado de las habitaciones disponible de acuerdo a su tipo
+- Preguntar por el precio de una habitación de acuerdo a su tipo
+- Preguntar por el descuento ofrecido a los clientes habituales
+- Preguntar por el precio total para un cliente dado, especificando su numero de DNI, tipo de habitación y número de noches.
+- Dibujar en pantalla la foto de un habitación de acuerdo a su tipo
+- Reservar una habitación especificando el número de la habitación, DNI y nombre del cliente.
+- Eliminar una reserva especificando el número de la habitación
+El administrador puede usar el programa para:
+- Cambiar el precio de una habitación de acuerdo a su tipo
+- Cambiar el valor del descuento ofrecido a los clientes habituales
+- Calcular las ganancias que tendrán en un mes especificado (considere que todos los meses tienen treinta días).
+El hotel posee información sobre que clientes son habituales. El diseño a desarrollar debe facilitar la extensibilidad de nuevos tipos de habitación o clientes y a su vez permitir agregar nuevas consultas
+
+A continuación, se muestra una propuesta de solución:
+
+```mermaid
+
+classDiagram
+    %% Clases Principales %%
+    class Hotel {
+        -List~Habitacion~ habitaciones
+        -List~Cliente~ clientes
+        -double descuentoHabitual
+        +getHabitacionesDisponibles(TipoHabitacion tipo)
+        +getPrecioHabitacion(TipoHabitacion tipo)
+        +getDescuentoHabitual()
+        +calcularPrecioTotal(String dni, TipoHabitacion tipo, int noches)
+        +reservarHabitacion(int numHabitacion, String dni, String nombre)
+        +eliminarReserva(int numHabitacion)
+        +setPrecioHabitacion(TipoHabitacion tipo, double precio)
+        +setDescuentoHabitual(double descuento)
+        +calcularGananciasMes(int mes)
+    }
+
+    class Habitacion {
+        -int numero
+        -TipoHabitacion tipo
+        -double precio
+        -String rutaFoto
+        -boolean disponible
+        +getPrecio()
+        +setPrecio(double precio)
+        +isDisponible()
+        +setDisponible(boolean disponible)
+        +mostrarFoto()
+    }
+
+    class Cliente {
+        <<abstract>>
+        -String dni
+        -String nombre
+        +getDni()
+        +getNombre()
+        +aplicarDescuento(double precio)*
+    }
+
+    class ClienteHabitual {
+        +aplicarDescuento(double precio)
+    }
+
+    class ClienteEsporadico {
+        +aplicarDescuento(double precio)
+    }
+
+    class Reserva {
+        -Date fechaInicio
+        -int numDias
+        +calcularPrecioTotal()
+    }
+
+    class TipoHabitacion {
+        <<enumeration>>
+        SIMPLE
+        DOBLE
+        MATRIMONIAL
+    }
+
+    Hotel "1" *-- "*" Habitacion
+    Hotel "1" *-- "*" Cliente
+    Hotel "1" *-- "*" Reserva
+    Reserva "*" --> "1" Cliente
+    Reserva "*" --> "1" Habitacion
+    Habitacion --> "1" TipoHabitacion
+    Cliente <|-- ClienteHabitual
+    Cliente <|-- ClienteEsporadico
+
+```
+
+Como podemos observar, el diagrama resultado tiene una clase `Hotel` con múltiples responsabilidades (gestionar las habitaciones, los clientes, o las reservas). Esto va en contra del principio de Responsabilidad Única (primer principio SOLID) por lo que se propone una segunda versión del diseño con nuevas clases que se encarguen de responsabilidades espeecíficas:
+
+```mermaid
+
+classDiagram
+    %% Clases Principales %%
+    class Hotel {
+        +getGestorReservas() GestorReservas
+        +getGestorFinanciero() GestorFinanciero
+        +getGestorHabitaciones() GestorHabitaciones
+    }
+
+    class GestorReservas {
+        +reservarHabitacion(int numHabitacion, String dni, String nombre)
+        +eliminarReserva(int numHabitacion)
+        +getReservasActivas()
+    }
+
+    class GestorFinanciero {
+        -double descuentoHabitual
+        +getDescuentoHabitual()
+        +setDescuentoHabitual(double descuento)
+        +calcularPrecioTotal(String dni, TipoHabitacion tipo, int noches)
+        +calcularGananciasMes(int mes)
+    }
+
+    class GestorHabitaciones {
+        +getHabitacionesDisponibles(TipoHabitacion tipo)
+        +getPrecioHabitacion(TipoHabitacion tipo)
+        +setPrecioHabitacion(TipoHabitacion tipo, double precio)
+        +mostrarFotoHabitacion(int numHabitacion)
+    }
+
+    class Habitacion {
+        -int numero
+        -TipoHabitacion tipo
+        -double precio
+        -String rutaFoto
+        -boolean disponible
+        +getPrecio()
+        +setPrecio(double precio)
+        +isDisponible()
+        +setDisponible(boolean disponible)
+        +mostrarFoto()
+    }
+
+    class Cliente {
+        <<abstract>>
+        -String dni
+        -String nombre
+        +getDni()
+        +getNombre()
+        +aplicarDescuento(double precio)*
+    }
+
+    class ClienteHabitual {
+        +aplicarDescuento(double precio)
+    }
+
+    class ClienteEsporadico {
+        +aplicarDescuento(double precio)
+    }
+
+    class Reserva {
+        -Date fechaInicio
+        -int numDias
+        +calcularPrecioTotal()
+    }
+
+    class TipoHabitacion {
+        <<enumeration>>
+        SIMPLE
+        DOBLE
+        MATRIMONIAL
+    }
+
+    Hotel "1" *-- "1" GestorReservas
+    Hotel "1" *-- "1" GestorFinanciero
+    Hotel "1" *-- "1" GestorHabitaciones
+    GestorHabitaciones "1" *-- "*" Habitacion
+    GestorReservas "1" *-- "*" Reserva
+    GestorFinanciero "1" *-- "*" Cliente
+    Reserva "*" --> "1" Cliente
+    Reserva "*" --> "1" Habitacion
+    Habitacion --> "1" TipoHabitacion
+    Cliente <|-- ClienteHabitual
+    Cliente <|-- ClienteEsporadico
+
+```
+
+En esta segunda versión hemos creado tres gestores especializados:
+- GestorReservas: Maneja todo lo relacionado con reservas.
+- GestorFinanciero: Maneja precios, descuentos y cálculos financieros.
+- GestorHabitaciones: Maneja la gestión de habitaciones.
