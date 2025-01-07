@@ -38,3 +38,402 @@ En un mundo cada vez más colaborativo, las herramientas en línea como **[Lucid
 La elección de una herramienta para diagramas de clases depende de varios factores, como el alcance del proyecto, el nivel de experiencia del usuario y las funcionalidades requeridas. Mientras que herramientas genéricas como Draw.io o Visio pueden ser suficientes para diagramas básicos, proyectos más complejos pueden beneficiarse de soluciones especializadas como Visual Paradigm o StarUML. Por otro lado, desarrolladores interesados en automatizar y documentar sus proyectos pueden encontrar en PlantUML y Mermaid herramientas que se ajusten a sus necesidades.
 
 En cualquier caso, conocer las fortalezas y limitaciones de cada herramienta es clave para seleccionar la que mejor se adapte a las necesidades del proyecto y del equipo.
+
+# Cómo crear un diagrama de clases a partir de la descripción de un problema 
+
+Los diagramas de clases son herramientas esenciales en el desarrollo de software, ya que permiten estructurar y organizar los elementos principales de un sistema antes de pasar a la implementación. Crear un diagrama de clases a partir de una descripción requiere un proceso sistemático que garantice la correcta representación de las entidades, sus atributos, métodos y relaciones. Este apartado detalla los pasos necesarios para realizar este proceso, acompañados de un ejemplo práctico.
+
+## Paso 1: Comprender la Descripción del Problema
+
+El primer paso consiste en leer atentamente la descripción proporcionada y comprender el contexto del sistema que se desea modelar. Es fundamental identificar:
+
+* Los actores principales del sistema.  
+* Las entidades o conceptos clave mencionados.  
+* Las acciones o relaciones descritas entre las entidades.
+
+Una buena práctica es subrayar palabras clave relacionadas con clases (sustantivos), atributos (características) y métodos (acciones).
+
+**Ejemplo:**  
+Descripción del problema: *“Una biblioteca administra libros y usuarios. Los libros tienen un título, autor, ISBN y una cantidad disponible. Los usuarios pueden ser estudiantes o profesores. Los estudiantes tienen un identificador único, y los profesores tienen un departamento asociado. Los usuarios pueden tomar libros en préstamo, y cada préstamo debe registrar la fecha de inicio y la fecha de devolución.”*
+
+
+## Paso 2: Identificar Clases y Atributos
+
+Una vez comprendido el problema, se identifican las clases principales a partir de los sustantivos destacados. Luego, se determinan los atributos relevantes para cada clase.
+
+**Ejemplo:**
+
+* Clases:  
+  * Libro  
+  * Usuario (Estudiante, Profesor)  
+  * Préstamo  
+* Atributos:  
+  * **Libro**: título, autor, ISBN, cantidadDisponible  
+  * **Estudiante**: identificador  
+  * **Profesor**: departamento  
+  * **Préstamo**: fechaInicio, fechaDevolución
+
+## Paso 3: Determinar las Relaciones entre las Clases
+
+El siguiente paso consiste en identificar cómo se relacionan las clases entre sí. Esto incluye asociaciones, agregaciones, composiciones y herencias. Se deben analizar las cardinalidades y la navegabilidad.
+
+**Ejemplo:**
+
+* Relación 1: Un **Usuario** puede realizar múltiples **Préstamos**, pero cada préstamo está asociado a un único usuario (relación 1 a N).  
+* Relación 2: Cada **Préstamo** está asociado a un único **Libro**, pero un libro puede ser prestado múltiples veces (relación 1 a N).  
+* Relación 3: Los **Estudiantes** y **Profesores** son tipos específicos de usuarios (herencia).
+
+## Paso 4: Definir Métodos y Comportamientos
+
+Con las relaciones definidas, se identifican los métodos principales de cada clase, que representan las acciones o comportamientos mencionados en el problema.
+
+**Ejemplo:**
+
+* **Usuario**: realizarPréstamo()  
+* **Libro**: actualizarCantidadDisponible()  
+* **Préstamo**: calcularDuración()
+
+## Paso 5: Representar el Diagrama en Notación UML
+
+Con toda la información recopilada, se dibuja el diagrama utilizando notación UML. Se incluyen las clases, sus atributos y métodos, y las relaciones con las cardinalidades y navegabilidad correspondientes.
+
+**Ejemplo:**
+
+```mermaid
+    classDiagram  
+        class Libro {  
+            - String titulo  
+            - String autor  
+            - String ISBN  
+            - int cantidadDisponible  
+            + actualizarCantidadDisponible(): void  
+        }
+
+        class Usuario {  
+            <<abstract>>  
+            - String nombre  
+            + realizarPrestamo(): void  
+        }
+
+        class Estudiante {  
+            - String identificador  
+        }
+
+        class Profesor {  
+            - String departamento  
+        }
+
+        class Prestamo {  
+            - Date fechaInicio  
+            - Date fechaDevolucion  
+            + calcularDuracion(): int  
+        }
+
+        Usuario <|-- Estudiante  
+        Usuario <|-- Profesor  
+        Usuario "1" --> "N" Prestamo  
+        Prestamo "1" --> "1" Libro
+```
+
+## Ejemplo Práctico: Resolviendo un Problema
+
+**Descripción:**  
+Una tienda de música en línea vende álbumes y permite a los usuarios registrarse para comprar canciones o álbumes completos. Los álbumes tienen un título, un artista y un año de lanzamiento. Las canciones tienen un título, una duración y un precio. Los usuarios registrados tienen un correo electrónico y un nombre de usuario. Los usuarios pueden realizar múltiples compras, y cada compra debe incluir la fecha y una lista de canciones o álbumes comprados.
+
+**Resolución:**
+
+1. Clases identificadas: Álbum, Canción, Usuario, Compra.  
+2. Atributos:  
+   * Álbum: título, artista, añoLanzamiento.  
+   * Canción: título, duración, precio.  
+   * Usuario: correo, nombreUsuario.  
+   * Compra: fecha.  
+3. Relaciones:  
+   * Un álbum contiene varias canciones (composición).  
+   * Un usuario puede realizar varias compras (asociación 1 a N).  
+   * Cada compra incluye múltiples canciones o álbumes (agregación).
+
+**Diagrama:**
+
+```mermaid
+    classDiagram  
+        class Album {  
+            - String titulo  
+            - String artista  
+            - int añoLanzamiento  
+        }
+
+        class Cancion {  
+            - String titulo  
+            - double duracion  
+            - double precio  
+        }
+
+        class Usuario {  
+            - String correo  
+            - String nombreUsuario  
+    }
+
+        class Compra {  
+            - Date fecha  
+        }
+
+        Album *-- Cancion  
+        Usuario "1" --> "N" Compra  
+        Compra "N" o-- "N" Cancion  
+        Compra "N" o-- "N" Album
+```
+
+# Cómo Generar Código a partir de un Diagrama de Clases
+
+Generar código a partir de un diagrama de clases es un proceso que traduce la representación conceptual y visual de un sistema a un código fuente funcional en un lenguaje de programación. Este enfoque ayuda a mantener una conexión directa entre el diseño y la implementación, lo que reduce errores y mejora la consistencia del desarrollo del software.
+
+---
+
+## Comprensión del Proceso de Generación de Código
+
+El objetivo principal de generar código a partir de un diagrama de clases es automatizar la creación de las estructuras básicas de las clases, sus atributos y métodos, así como las relaciones entre ellas. Sin embargo, es importante destacar que:
+
+* El código generado suele ser un punto de partida; se necesita ajustar, refinar y completar según los requerimientos específicos del sistema.  
+* Los métodos pueden ser generados como "stubs" o esqueletos vacíos, que luego deben implementarse.  
+* Algunas herramientas pueden generar atributos, métodos, relaciones y, en ciertos casos, incluso asociaciones específicas como clases asociativas.
+
+## Herramientas para Generar Código a partir de UML
+
+Como ya hemos visto, existen diversas herramientas que permiten transformar diagramas de clases en código fuente. Debemos escoger aquella que más se ajuste a nuestras necesidades.
+
+## Pasos para Generar Código
+
+1. **Diseño Completo del Diagrama de Clases**  
+   Antes de generar el código, asegúrate de que el diagrama de clases esté completamente definido, con:  
+   * Todas las clases necesarias, junto con sus atributos y métodos.  
+   * Relaciones correctas (asociaciones, composiciones, dependencias, etc.).  
+   * Niveles de visibilidad (pública, privada, protegida) correctamente especificados.  
+2. **Seleccionar la Herramienta Apropiada**  
+   Dependiendo de los requerimientos del proyecto y el lenguaje de programación, elige una herramienta que soporte tanto el diseño como la generación de código.  
+3. **Configuración de Opciones de Generación**  
+   Configura la herramienta para:  
+   * Elegir el lenguaje de programación deseado.  
+   * Especificar la estructura del proyecto (nombres de paquetes, directorios de salida, etc.).  
+   * Determinar si se incluirán comentarios o anotaciones en el código.  
+4. **Ejecutar la Generación de Código**  
+   La herramienta transformará automáticamente el diagrama en código fuente. Este código puede incluir:  
+   * Declaraciones de clases, atributos y métodos.  
+   * Implementación de relaciones como herencia y asociaciones.  
+   * Inclusión de clases asociativas si están presentes.  
+5. **Revisión y Ajuste del Código Generado**  
+   Verifica que el código generado sea correcto y ajusta los detalles según las necesidades específicas del proyecto, incluyendo la implementación de métodos y lógica interna.
+
+## Ejemplo Práctico de Generación de Código
+
+**Diagrama de Clases:**  
+Aquí tienes un diagrama UML simple que describe un sistema de gestión de empleados:
+
+```mermaid
+
+classDiagram
+    class Empleado {
+        - String nombre
+        - int edad
+        + trabajar(): void
+    }
+    
+    class Gerente {
+        - String departamento
+        + asignarTarea(): void
+    }
+    
+    class Proyecto {
+        - String nombre
+        - Date fechaInicio
+        - Date fechaFin
+        + calcularDuracion(): int
+    }
+    
+    Empleado <|-- Gerente
+    Empleado "1" --> "N" Proyecto
+``` 
+
+**Código Generado (Java):**  
+El código que se puede generar a partir del diagrama anterior es:
+
+```java
+
+// Clase Empleado
+public class Empleado {
+    private String nombre;
+    private int edad;
+    public void trabajar() {
+        // Implementación
+    }
+}
+
+// Clase Gerente
+public class Gerente extends Empleado {
+    private String departamento;
+    public void asignarTarea() {
+        // Implementación
+    }
+}
+
+// Clase Proyecto
+import java.util.Date;
+public class Proyecto {
+    private String nombre;
+    private Date fechaInicio;
+    private Date fechaFin;
+    public int calcularDuracion() {
+       // Implementación
+       return 0;
+    }
+}
+```
+
+## Beneficios de Generar Código desde UML
+
+1. **Reducción de Errores**: Evita errores manuales en la transcripción del diseño al código.  
+2. **Consistencia**: Mantiene la alineación entre el modelo conceptual y la implementación.  
+3. **Ahorro de Tiempo**: Automatiza tareas repetitivas como la creación de clases y métodos.
+
+# Proceso de Ingeniería Inversa en IntelliJ IDEA
+
+La **ingeniería inversa** en el contexto del desarrollo de software es el proceso de generar un diagrama UML, como el diagrama de clases, a partir de código fuente existente. Esta práctica es útil para comprender sistemas complejos, documentar código o analizar la arquitectura del software.
+
+IntelliJ IDEA, uno de los IDEs más avanzados, soporta esta funcionalidad a través de herramientas integradas o complementos. 
+
+Las herramientas relacionadas con la generación de diagramas de clases desde Intellij IDEA son parte de su versión ultimate, por lo que no podremos aplicarlas desde la versión community,  pero, como estudiantes, se puede obtener una licencia gratuíta siguiendo los pasos descritos [aquí](https://www.jetbrains.com/community/education/#students).
+
+A continuación, explicamos el proceso de generación de un diagrama de clases desde código Java paso a paso.
+
+## Preparación del Entorno
+
+Antes de comenzar con la ingeniería inversa, asegúrate de cumplir con los siguientes requisitos:
+
+1. **Instalación de IntelliJ IDEA**: Descarga e instala la versión Ultimate, ya que esta ofrece un soporte más completo para UML.  
+2. **Cargar el Proyecto**: Abre el proyecto Java o Kotlin cuyo diagrama deseas generar.  
+3. **Complementos Requeridos**:  
+   * Asegúrate de que el complemento **UML Support** está activado. Para verificar:  
+     * Ve a `File > Settings > Plugins`.  
+     * Busca "UML Support" y actívalo si no está instalado.
+
+## Generación del Diagrama UML
+
+1. **Abrir el Proyecto**  
+   Abre tu proyecto en IntelliJ IDEA y asegúrate de que se compila correctamente.  
+2. **Acceso a la Funcionalidad de UML**  
+   * Navega al paquete o clase del proyecto del cual deseas generar el diagrama.  
+   * Haz clic derecho en el paquete o clase y selecciona:  
+     `Diagrams > Show Diagram`.  
+3. **Selección del Tipo de Diagrama**  
+   * IntelliJ IDEA generará un **diagrama UML de clases** para la selección actual (paquete, módulo o clase).  
+   * Puedes personalizar el nivel de detalle del diagrama en:  
+     `View Options > Show/Hide Dependencies`, `Show/Hide Attributes`, etc.  
+4. **Explorar y Personalizar el Diagrama**  
+   * El diagrama generado incluirá clases, interfaces y relaciones como herencias, asociaciones y dependencias.  
+   * Puedes mover, organizar y ocultar elementos según sea necesario.  
+5. **Exportar el Diagrama**  
+   Una vez satisfecho con el diagrama, puedes exportarlo:  
+   * Ve a `File > Export Diagram`.  
+   * Selecciona el formato deseado, como PNG, SVG o PDF.
+
+## Ejemplo Práctico
+
+**Código de Ejemplo:**  
+Supongamos que tienes el siguiente código en tu proyecto:
+
+```java
+
+// Clase Empleado
+public class Empleado {
+    private String nombre;
+    private int edad;
+    public void trabajar() {
+        System.out.println("Trabajando...");
+    }
+}
+
+// Clase Gerente
+public class Gerente extends Empleado {
+    private String departamento;
+    public void asignarTarea() {
+        System.out.println("Asignando tarea...");
+    }
+}
+
+// Clase Proyecto
+import java.util.Date;
+public class Proyecto {
+    private String nombre;
+    private Date fechaInicio;
+    private Date fechaFin;
+    public int calcularDuracion() {
+        return 0;
+    }
+
+}
+```
+
+**Generación del Diagrama:**
+
+1. Haz clic derecho en el paquete que contiene las clases.  
+2. Selecciona `Diagrams > Show Diagram`.  
+3. Ajusta el nivel de detalle para mostrar atributos y métodos.
+
+El diagrama generado incluirá las clases **Empleado**, **Gerente** y **Proyecto**, con relaciones entre ellas.
+
+## Ventajas de la Ingeniería Inversa con IntelliJ IDEA
+
+1. **Documentación Automática**: Permite generar documentación visual de sistemas complejos de manera rápida.  
+2. **Comprensión de Sistemas Complejos**: Es ideal para analizar sistemas legados o proyectos desarrollados por otros equipos y permite visualizar rápidamente la estructura y relaciones entre clases.
+3. **Análisis de Dependencias**: Facilita la identificación de relaciones y dependencias entre clases.  
+4. **Personalización**: Ofrece múltiples opciones para ajustar el nivel de detalle según las necesidades del proyecto.  
+5. **Compatibilidad**: Admite proyectos grandes y lenguajes como Java, Kotlin y más.
+
+## Limitaciones y Consideraciones
+
+* **Nivel de Detalle**: El diagrama puede ser difícil de interpretar si el proyecto tiene demasiadas clases o relaciones.  
+* **Lógica de Negocio**: La ingeniería inversa no incluye detalles sobre la implementación de métodos o lógica interna.  
+* **Complejidad**: Proyectos mal estructurados generan diagramas desorganizados, lo que puede requerir ajustes manuales.
+
+# ¿Es buena práctica hacer uso de la ingeniería inversa?
+
+## **Limitaciones y Riesgos**
+
+1. **Falta de Abstracción**:  
+   * Los diagramas generados automáticamente reflejan el estado exacto del código. Esto puede incluir demasiados detalles irrelevantes y carecer de la abstracción necesaria para un diseño comprensible.  
+2. **Complejidad Visual**:  
+   * En sistemas grandes, el diagrama resultante puede ser difícil de interpretar debido al exceso de elementos y relaciones.  
+3. **Diseño No Intencional**:  
+   * Generar un diagrama después de escribir el código no garantiza que siga principios de diseño sólido como SOLID o GRASP.  
+   * El diagrama refleja cómo está diseñado el sistema, no cómo debería estar diseñado.  
+4. **Dependencia de Herramientas**:  
+   * El diagrama depende de la precisión de la herramienta utilizada para generarlo. Algunas relaciones o elementos clave podrían omitirse.
+
+## **¿Cuándo es una Buena Práctica?**
+
+* **Análisis de Código Existente**:  
+  Útil para comprender proyectos heredados o sistemas sin documentación previa.  
+* **Refactorización**:  
+  Ayuda a identificar dependencias o clases que pueden ser refactorizadas.  
+* **Documentación Complementaria**:  
+  Sirve como apoyo visual en proyectos que ya tienen un diseño establecido.  
+
+## **¿Cuándo No es Recomendable?**
+
+* **Diseño de Nuevos Sistemas**:  
+  El diseño debería preceder al código, y los diagramas deberían reflejar una arquitectura planificada. Generar diagramas después del código puede dar una falsa sensación de diseño.  
+* **Documentación Oficial**:  
+  Los diagramas generados automáticamente no siempre son claros y pueden no cumplir con los estándares de documentación esperados.  
+* **Sistemas Complejos y Desordenados**:  
+  En proyectos grandes o mal diseñados, los diagramas resultantes pueden ser caóticos e inútiles.
+
+## **Buenas Prácticas al Usar Ingeniería Inversa**
+
+1. **Refina el Diagrama**:  
+   Elimina detalles innecesarios y ajusta el nivel de abstracción para que sea comprensible y útil.  
+2. **Combínalo con Documentación Manual**:  
+   Usa el diagrama como punto de partida, pero complementa con información de alto nivel, como patrones de diseño y decisiones arquitectónicas.  
+3. **Utiliza Herramientas de Calidad**:  
+   Herramientas como Visual Paradigm, StarUML o IntelliJ IDEA pueden generar diagramas más precisos y personalizables.  
+4. **Fomenta el Diseño Previo**:  
+   Utiliza ingeniería inversa solo como apoyo, no como un sustituto de un buen diseño previo al desarrollo.
