@@ -682,12 +682,10 @@ Antes de entrar en el detalle de la creación de diagramas de clases, y para con
 classDiagram
     direction LR
     class Biblioteca {
-        Libro[] libros
     }
     class Libro {
         String titulo
         int paginas
-        Autor autor
         leer() void
     }
     class Autor {

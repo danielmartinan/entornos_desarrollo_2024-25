@@ -541,8 +541,8 @@ classDiagram
         +dibujar(): void
     }
 
-    Figura <|-- Rectangulo
-    Figura <|-- Triangulo
+    Figura <|.. Rectangulo
+    Figura <|.. Triangulo
 ```
 
 Implementación en Java:
