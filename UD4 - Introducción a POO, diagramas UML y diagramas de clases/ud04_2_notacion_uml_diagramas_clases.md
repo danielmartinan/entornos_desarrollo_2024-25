@@ -1,7 +1,8 @@
 # Tabla de Contenidos
 - [Tabla de Contenidos](#tabla-de-contenidos)
-- [Introduccion](#introduccion)
-- [Clases](#clases)
+<!-- TOC -->
+
+- [Tabla de Contenidos](#tabla-de-contenidos)
 - [Atributos](#atributos)
 - [Métodos](#métodos)
 - [Relaciones](#relaciones)
@@ -24,29 +25,7 @@
 - [Restricciones (constraints)](#restricciones-constraints)
 - [Ejemplo de diagrama de clases completo](#ejemplo-de-diagrama-de-clases-completo)
 
-# Introduccion
-En la sección anterior hemos visto cómo los diagramas de clases UML permiten representar las diferentes clases y sus relaciones en una representación de un problema del mundo real. A continuación, veremos todos los elementos involucrados en este tipo de diagramas.
-
-# Clases
-
-Una **clase** es la unidad básica que encapsula toda la información para la representación de un conjunto de objetos que comparten características (**atributos**) y comportamientos (**métodos**).
-
-En UML, una clase se representa con un rectángulo dividido en tres secciones:
-    1.  **Nombre de la clase** (parte superior).
-    2.  **Atributos** (parte intermedia).
-    3.  **Métodos** (parte inferior).
-
-**Ejemplo básico de clase en UML:**
-
-```mermaid
-
-classDiagram
-    class Persona {
-        -nombre: String
-        -edad: int
-        +saludar(): void
-    }
-```
+<!-- /TOC -->
 
 La parte superior contiene el nombre de la clase; la parte intermedia, los atributos (que pueden no existir y, por tanto, se podrían omitir) y la parte inferior, los métodos (que también pueden no existir).
 
@@ -652,8 +631,6 @@ A continuación, se muestra una propuesta de solución:
 classDiagram
     %% Clases Principales %%
     class Hotel {
-        -List~Habitacion~ habitaciones
-        -List~Cliente~ clientes
         -double descuentoHabitual
         +getHabitacionesDisponibles(TipoHabitacion tipo)
         +getPrecioHabitacion(TipoHabitacion tipo)

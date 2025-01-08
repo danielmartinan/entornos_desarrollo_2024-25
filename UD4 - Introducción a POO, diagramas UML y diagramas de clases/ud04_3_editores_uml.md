@@ -1,4 +1,37 @@
 # Introducción a las Herramientas para Diagramas de Clases
+
+- [Introducción a las Herramientas para Diagramas de Clases](#introducción-a-las-herramientas-para-diagramas-de-clases)
+  - [Herramientas Genéricas](#herramientas-genéricas)
+  - [Herramientas Especializadas en UML](#herramientas-especializadas-en-uml)
+  - [Herramientas Open Source y Gratuitas](#herramientas-open-source-y-gratuitas)
+  - [Herramientas Online y Colaborativas](#herramientas-online-y-colaborativas)
+  - [Tabla resumen con las distintas herramientas de modelado UML](#tabla-resumen-con-las-distintas-herramientas-de-modelado-uml)
+  - [Elección de la Herramienta Adecuada](#elección-de-la-herramienta-adecuada)
+- [Cómo crear un diagrama de clases a partir de la descripción de un problema](#cómo-crear-un-diagrama-de-clases-a-partir-de-la-descripción-de-un-problema)
+  - [Paso 1: Comprender la Descripción del Problema](#paso-1-comprender-la-descripción-del-problema)
+  - [Paso 2: Identificar Clases y Atributos](#paso-2-identificar-clases-y-atributos)
+  - [Paso 3: Determinar las Relaciones entre las Clases](#paso-3-determinar-las-relaciones-entre-las-clases)
+  - [Paso 4: Definir Métodos y Comportamientos](#paso-4-definir-métodos-y-comportamientos)
+  - [Paso 5: Representar el Diagrama en Notación UML](#paso-5-representar-el-diagrama-en-notación-uml)
+  - [Ejemplo Práctico: Resolviendo un Problema](#ejemplo-práctico-resolviendo-un-problema)
+- [Cómo Generar Código a partir de un Diagrama de Clases](#cómo-generar-código-a-partir-de-un-diagrama-de-clases)
+  - [Comprensión del Proceso de Generación de Código](#comprensión-del-proceso-de-generación-de-código)
+  - [Herramientas para Generar Código a partir de UML](#herramientas-para-generar-código-a-partir-de-uml)
+  - [Pasos para Generar Código](#pasos-para-generar-código)
+  - [Ejemplo Práctico de Generación de Código](#ejemplo-práctico-de-generación-de-código)
+  - [Beneficios de Generar Código desde UML](#beneficios-de-generar-código-desde-uml)
+- [Proceso de Ingeniería Inversa en IntelliJ IDEA](#proceso-de-ingeniería-inversa-en-intellij-idea)
+  - [Preparación del Entorno](#preparación-del-entorno)
+  - [Generación del Diagrama UML](#generación-del-diagrama-uml)
+  - [Ejemplo Práctico](#ejemplo-práctico)
+  - [Ventajas de la Ingeniería Inversa con IntelliJ IDEA](#ventajas-de-la-ingeniería-inversa-con-intellij-idea)
+  - [Limitaciones y Consideraciones](#limitaciones-y-consideraciones)
+- [¿Es buena práctica hacer uso de la ingeniería inversa?](#es-buena-práctica-hacer-uso-de-la-ingeniería-inversa)
+  - [Limitaciones y Riesgos](#limitaciones-y-riesgos)
+  - [¿Cuándo es una Buena Práctica?](#cuándo-es-una-buena-práctica)
+  - [¿Cuándo No es Recomendable?](#cuándo-no-es-recomendable)
+  - [**Buenas Prácticas al Usar Ingeniería Inversa**](#buenas-prácticas-al-usar-ingeniería-inversa)
+
 En el desarrollo de software, los diagramas de clases son una herramienta fundamental para modelar y visualizar la estructura de un sistema. Estos diagramas permiten definir las clases que compondrán el software, sus atributos, métodos y relaciones. Para crearlos, existen diversas **herramientas** en el mercado, que van desde soluciones simples y **genéricas** hasta herramientas **altamente especializadas** para diagramación y modelado en UML (Lenguaje Unificado de Modelado). En este apartado exploraremos algunas de estas herramientas, sus características principales y sus aplicaciones en distintos contextos.
 
 Las herramientas para diagramas de clases pueden dividirse en dos grandes categorías: las genéricas, que no están diseñadas específicamente para UML, y las especializadas, que ofrecen un soporte más completo para este tipo de modelado.
@@ -397,43 +430,30 @@ El diagrama generado incluirá las clases **Empleado**, **Gerente** y **Proyecto
 
 # ¿Es buena práctica hacer uso de la ingeniería inversa?
 
-## **Limitaciones y Riesgos**
+## Limitaciones y Riesgos
 
-1. **Falta de Abstracción**:  
-   * Los diagramas generados automáticamente reflejan el estado exacto del código. Esto puede incluir demasiados detalles irrelevantes y carecer de la abstracción necesaria para un diseño comprensible.  
-2. **Complejidad Visual**:  
-   * En sistemas grandes, el diagrama resultante puede ser difícil de interpretar debido al exceso de elementos y relaciones.  
+1. **Falta de Abstracción**: Los diagramas generados automáticamente reflejan el estado exacto del código. Esto puede incluir demasiados detalles irrelevantes y carecer de la abstracción necesaria para un diseño comprensible.  
+2. **Complejidad Visual**: En sistemas grandes, el diagrama resultante puede ser difícil de interpretar debido al exceso de elementos y relaciones.  
 3. **Diseño No Intencional**:  
    * Generar un diagrama después de escribir el código no garantiza que siga principios de diseño sólido como SOLID o GRASP.  
    * El diagrama refleja cómo está diseñado el sistema, no cómo debería estar diseñado.  
-4. **Dependencia de Herramientas**:  
-   * El diagrama depende de la precisión de la herramienta utilizada para generarlo. Algunas relaciones o elementos clave podrían omitirse.
+4. **Dependencia de Herramientas**: El diagrama depende de la precisión de la herramienta utilizada para generarlo. Algunas relaciones o elementos clave podrían omitirse.
 
-## **¿Cuándo es una Buena Práctica?**
+## ¿Cuándo es una Buena Práctica?
 
-* **Análisis de Código Existente**:  
-  Útil para comprender proyectos heredados o sistemas sin documentación previa.  
-* **Refactorización**:  
-  Ayuda a identificar dependencias o clases que pueden ser refactorizadas.  
-* **Documentación Complementaria**:  
-  Sirve como apoyo visual en proyectos que ya tienen un diseño establecido.  
+* **Análisis de Código Existente**: Útil para comprender proyectos heredados o sistemas sin documentación previa.  
+* **Refactorización**: Ayuda a identificar dependencias o clases que pueden ser refactorizadas.  
+* **Documentación Complementaria**: Sirve como apoyo visual en proyectos que ya tienen un diseño establecido.  
 
-## **¿Cuándo No es Recomendable?**
+## ¿Cuándo No es Recomendable?
 
-* **Diseño de Nuevos Sistemas**:  
-  El diseño debería preceder al código, y los diagramas deberían reflejar una arquitectura planificada. Generar diagramas después del código puede dar una falsa sensación de diseño.  
-* **Documentación Oficial**:  
-  Los diagramas generados automáticamente no siempre son claros y pueden no cumplir con los estándares de documentación esperados.  
-* **Sistemas Complejos y Desordenados**:  
-  En proyectos grandes o mal diseñados, los diagramas resultantes pueden ser caóticos e inútiles.
+* **Diseño de Nuevos Sistemas**: El diseño debería preceder al código, y los diagramas deberían reflejar una arquitectura planificada. Generar diagramas después del código puede dar una falsa sensación de diseño.  
+* **Documentación Oficial**: Los diagramas generados automáticamente no siempre son claros y pueden no cumplir con los estándares de documentación esperados.  
+* **Sistemas Complejos y Desordenados**: En proyectos grandes o mal diseñados, los diagramas resultantes pueden ser caóticos e inútiles.
 
 ## **Buenas Prácticas al Usar Ingeniería Inversa**
 
-1. **Refina el Diagrama**:  
-   Elimina detalles innecesarios y ajusta el nivel de abstracción para que sea comprensible y útil.  
-2. **Combínalo con Documentación Manual**:  
-   Usa el diagrama como punto de partida, pero complementa con información de alto nivel, como patrones de diseño y decisiones arquitectónicas.  
-3. **Utiliza Herramientas de Calidad**:  
-   Herramientas como Visual Paradigm, StarUML o IntelliJ IDEA pueden generar diagramas más precisos y personalizables.  
-4. **Fomenta el Diseño Previo**:  
-   Utiliza ingeniería inversa solo como apoyo, no como un sustituto de un buen diseño previo al desarrollo.
+1. **Refina el Diagrama**: Elimina detalles innecesarios y ajusta el nivel de abstracción para que sea comprensible y útil.  
+2. **Combínalo con Documentación Manual**: Usa el diagrama como punto de partida, pero complementa con información de alto nivel, como patrones de diseño y decisiones arquitectónicas.  
+3. **Utiliza Herramientas de Calidad**: Herramientas como Visual Paradigm, StarUML o IntelliJ IDEA pueden generar diagramas más precisos y personalizables.  
+4. **Fomenta el Diseño Previo**: Utiliza ingeniería inversa solo como apoyo, no como un sustituto de un buen diseño previo al desarrollo.
