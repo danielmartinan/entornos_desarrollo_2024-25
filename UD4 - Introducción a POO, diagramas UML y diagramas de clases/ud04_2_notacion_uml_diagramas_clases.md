@@ -1,35 +1,56 @@
-# Tabla de Contenidos
-- [Tabla de Contenidos](#tabla-de-contenidos)
-<!-- TOC -->
-
-- [Tabla de Contenidos](#tabla-de-contenidos)
-- [Atributos](#atributos)
-- [Métodos](#métodos)
-- [Relaciones](#relaciones)
-  - [Asociación](#asociación)
-  - [Cardinalidad o Multiplicidad](#cardinalidad-o-multiplicidad)
-  - [Navegabilidad](#navegabilidad)
-  - [Rol](#rol)
-  - [Clase Asociación](#clase-asociación)
-  - [Relación unaria](#relación-unaria)
-- [Herencia (generalización)](#herencia-generalización)
-- [Composición](#composición)
-- [Agregación](#agregación)
-- [Dependencia](#dependencia)
-- [Interfaces](#interfaces)
-- [Clases Abstractas](#clases-abstractas)
-- [Enumeradores](#enumeradores)
-- [Métodos y atributos estáticos y atributos constantes](#métodos-y-atributos-estáticos-y-atributos-constantes)
-- [Resumen de simbología para la representación de relaciones](#resumen-de-simbología-para-la-representación-de-relaciones)
-- [Polimorfismo](#polimorfismo)
-- [Restricciones (constraints)](#restricciones-constraints)
-- [Ejemplo de diagrama de clases completo](#ejemplo-de-diagrama-de-clases-completo)
+# Notación UML para la generación de diagramas de clases
+- [1. Introduccion](#1-introduccion)
+- [2. Clases](#2-clases)
+- [3. Atributos](#3-atributos)
+- [4. Métodos](#4-métodos)
+- [5. Relaciones](#5-relaciones)
+  - [5.1. Asociación](#51-asociación)
+  - [5.2. Cardinalidad o Multiplicidad](#52-cardinalidad-o-multiplicidad)
+  - [5.3. Navegabilidad](#53-navegabilidad)
+  - [5.4. Rol](#54-rol)
+  - [5.5. Clase Asociación](#55-clase-asociación)
+  - [5.6. Relación unaria](#56-relación-unaria)
+- [6. Herencia (generalización)](#6-herencia-generalización)
+- [7. Composición](#7-composición)
+- [8. Agregación](#8-agregación)
+- [9. Dependencia](#9-dependencia)
+- [10. Interfaces](#10-interfaces)
+- [11. Clases Abstractas](#11-clases-abstractas)
+- [12. Enumeradores](#12-enumeradores)
+- [13. Métodos y atributos estáticos y atributos constantes](#13-métodos-y-atributos-estáticos-y-atributos-constantes)
+- [14. Resumen de simbología para la representación de relaciones](#14-resumen-de-simbología-para-la-representación-de-relaciones)
+- [15. Polimorfismo](#15-polimorfismo)
+- [16. Restricciones (constraints)](#16-restricciones-constraints)
+- [17. Ejemplo de diagrama de clases completo](#17-ejemplo-de-diagrama-de-clases-completo)
 
 <!-- /TOC -->
+## 1. Introduccion
+En la sección anterior hemos visto cómo los diagramas de clases UML permiten representar las diferentes clases y sus relaciones en una representación de un problema del mundo real. A continuación, veremos todos los elementos involucrados en este tipo de diagramas.
+
+## 2. Clases
+
+Una **clase** es la unidad básica que encapsula toda la información para la representación de un conjunto de objetos que comparten características (**atributos**) y comportamientos (**métodos**).
+
+En UML, una clase se representa con un rectángulo dividido en tres secciones:
+    1.  **Nombre de la clase** (parte superior).
+    2.  **Atributos** (parte intermedia).
+    3.  **Métodos** (parte inferior).
+
+**Ejemplo básico de clase en UML:**
+
+```mermaid
+
+classDiagram
+    class Persona {
+        -nombre: String
+        -edad: int
+        +saludar(): void
+    }
+```
 
 La parte superior contiene el nombre de la clase; la parte intermedia, los atributos (que pueden no existir y, por tanto, se podrían omitir) y la parte inferior, los métodos (que también pueden no existir).
 
-# Atributos
+## 3. Atributos
 
 Los **atributos** son las propiedades o características que describen a una clase. Se representan en la segunda sección del rectángulo y siguen esta sintaxis:
 
@@ -43,8 +64,6 @@ Los **atributos** son las propiedades o características que describen a una cla
 
 **Ejemplo de atributos en UML (Mermaid):**
 
-Copiar código
-
 ``` mermaid
     classDiagram
     class Persona {
@@ -54,7 +73,7 @@ Copiar código
     }
 ```
 
-# Métodos
+## 4. Métodos
 
 Los **métodos**, también llamados operaciones, son la implementación de un servicio de la clase que muestra un comportamiento común a todos los objetos de dicha clase. Definen cómo interactúa la clase con su entorno. Se representan en la tercera sección del rectángulo y siguen esta sintaxis:
 
@@ -72,11 +91,11 @@ classDiagram
 
 Igual que los atributos, su visibilidad puede ser pública, privada, protegida o de paquete.
 
-# Relaciones
+## 5. Relaciones
 
 En el mundo real, muchos objetos están vinculados o relacionados entre sí. Esas relaciones en UML muestran cómo interactúan las clases entre sí, y se denominan **asociaciones**. Las asociaciones tienen un nombre y poseen una **cardinalidad** o **multiplicidad**.
 
-## Asociación
+### 5.1. Asociación
 
 Una **asociación** representa una relación entre dos o más clases. Se dibuja como una línea simple entre las clases.
 
@@ -89,7 +108,7 @@ classDiagram
     Persona --  Vehiculo
 ```
 
-## Cardinalidad o Multiplicidad
+### 5.2. Cardinalidad o Multiplicidad
 
 La cardinalidad especifica el número de instancias de una clase que pueden asociarse a otra. Se representa con números en los extremos de las líneas que conectan las clases.
 
@@ -113,7 +132,7 @@ classDiagram
     Persona "1" -- "1..*" Vehiculo: posee
 ```
 
-## Navegabilidad
+### 5.3. Navegabilidad
 
 La navegabilidad indica si una clase conoce a la otra y puede interactuar con ella. Se representa con una flecha en el extremo de la línea de asociación. De esta manera, la asociación puede ser **unidireccional** o **bidireccional**.
 Si se convierte a Java dos clases unidas por una asociación bidireccional, cada una de ellas tendrá un objeto o conjunto de objetos (dependiendo de la multiplicidad entre ellas). 
@@ -267,7 +286,7 @@ class Persona {
 `Persona` tiene una lista de vehículos asociados, y cada `Vehiculo` tiene una referencia a su propietario.
 El método `agregarVehiculo` asegura que ambos extremos de la relación se actualicen de forma consistente.
 
-## Rol
+### 5.4. Rol
 En cada asociacion, podemos definir dos **roles**, que describen la semántica de la relación en el sentido indicado. Se representa en los extremos de la asociación correspondiente.
 
 ```mermaid
@@ -281,7 +300,7 @@ classDiagram
     Automovil "Conduce" <--> "Es conducido por" Piloto: propietario
 ```
 
-## Clase Asociación
+### 5.5. Clase Asociación
 
 Cuando una relación tiene atributos propios, se puede representar como una **clase asociación**.
 
@@ -289,11 +308,11 @@ Cuando una relación tiene atributos propios, se puede representar como una **cl
 
 ![](img/ud4_2_association_class.png)
 
-## Relación unaria
+### 5.6. Relación unaria
 
 TBD
 
-# Herencia (generalización)
+## 6. Herencia (generalización)
 
 La herencia es una relación jerárquica que permite que una clase (hija) herede los atributos y métodos de otra clase (padre). En UML, se representa con una flecha con punta vacía 
 
@@ -329,7 +348,7 @@ classDiagram
 
 Animal es la clase base, y Perro y Gato heredan sus atributos y métodos.
 
-# Composición
+## 7. Composición
 La composición es una relación de "todo-parte" fuerte. Las partes no pueden existir sin el "todo". Se representa con un **rombo sólido** en el extremo del "todo".
 
 Ejemplo UML:
@@ -352,7 +371,7 @@ classDiagram
 
 Si una Casa es destruida, sus Habitacion también lo serán.
 
-# Agregación
+## 8. Agregación
 La agregación es una relación de "todo-parte" débil, donde las partes pueden existir de forma independiente. Se representa con un **rombo vacío** en el extremo del "todo".
 
 Ejemplo UML:
@@ -375,7 +394,7 @@ classDiagram
 
 Los Profesor pueden existir sin pertenecer a una Universidad.
 
-# Dependencia
+## 9. Dependencia
 
 La relación de **dependencia** en UML se utiliza para modelar una conexión débil entre dos elementos, donde un cambio en el elemento independiente (el proveedor) puede afectar al elemento dependiente (el cliente). Este tipo de relación refleja que una clase utiliza o depende de otra para funcionar, pero no posee una asociación directa ni control completo sobre ella.
 
@@ -395,7 +414,7 @@ classDiagram
 
 En este ejemplo, la clase `Pedido` depende de `Cliente` porque utiliza sus métodos o propiedades para procesar el pedido. No existe una relación permanente entre ambas clases, simplemente se utiliza temporalmente.
 
-# Interfaces
+## 10. Interfaces
 Una interfaz define un conjunto de métodos que una clase debe implementar. En UML, se representa como una clase con el nombre en cursiva o precedido de `<<interface>>`.
 
 Ejemplo UML:
@@ -422,7 +441,7 @@ En el ejemplo, `Volador` define un contrato que `Avion` y `Pajaro` deben cumplir
 
 A diferencia de en la herencia, cuando una clase implementa los métodos de una interfaz, hablamos de una relación de "realización" y utilizamos una flecha con punta vacía y con línea discontinua.
 
-# Clases Abstractas
+## 11. Clases Abstractas
 
 Una clase abstracta no se puede instanciar directamente y puede contener **métodos abstractos** (sin implementación; debe tener al menos). En UML, se representa con el nombre de la clase en **cursiva** o con la anotación `<<abstract>>`. Los métodos y atributos abstractos deben representarse en cursiva.
 
@@ -450,7 +469,7 @@ classDiagram
 
 `Forma` es una clase abstracta, y sus subclases (`Circulo` y `Cuadrado`) deben implementar el método `dibujar`.
 
-# Enumeradores
+## 12. Enumeradores
 Los enumeradores se definen mediante la anotacion `<<Enumeration>>` de la siguiente manera:
 
 ```mermaid
@@ -470,7 +489,7 @@ classDiagram
 }
 ```
 
-# Métodos y atributos estáticos y atributos constantes
+## 13. Métodos y atributos estáticos y atributos constantes
 Los métodos y atributos estáticos son aquellos que pertenecen a la clase y no a sus isntancias (objetos). En los diagramas UML, se representan con un <u>subrayado</u>. Por su parte, UML **no contempla** el uso de constantes en sus diagramas. Sin embargo, podemos definir los atributos constantes utilizando letras mayúsculas.
 
 ```mermaid
@@ -483,7 +502,7 @@ classDiagram
 
 
 
-# Resumen de simbología para la representación de relaciones
+## 14. Resumen de simbología para la representación de relaciones
 
 | Tipo de Relación | Descripción | Símbolo en UML |
 | ----- | ----- | ----- | 
@@ -518,7 +537,7 @@ classDiagram
     ClaseF ..> ClaseA : Dependencia
 ```
 
-# Polimorfismo
+## 15. Polimorfismo
 
 El polimorfismo permite que diferentes clases respondan de manera distinta a un mismo mensaje o método.
 
@@ -582,7 +601,7 @@ public class PolimorfismoDemo {
 La clase base Figura define un método dibujar.
 Rectangulo y Triangulo sobrescriben este método, permitiendo un comportamiento distinto en tiempo de ejecución.
 
-# Restricciones (constraints)
+## 16. Restricciones (constraints)
 
 En UML, las restricciones permiten especificar reglas o condiciones que limitan el comportamiento o las relaciones entre los elementos. Estas se colocan entre llaves {} y se pueden asociar a elementos individuales, relaciones o diagramas completos. A continuación, se describen los principales tipos de restricciones que se pueden definir en UML
 
@@ -606,7 +625,7 @@ Eejmplo con restricciones variadas:
 
 Ademas, también se pueden añadir **notas**, en un rectángulo con la esquina superior derecha doblada, donde podemos realizar descripciones en lenguaje natural de estas restricciones o aclaraciones.
 
-# Ejemplo de diagrama de clases completo
+## 17. Ejemplo de diagrama de clases completo
 
 El dueño de un hotel pide a desarrollar un programa para consultar sobre las habitaciones disponibles y reservar habitaciones de su hotel..
 El hotel posee tres tipos de habitaciones: simple, doble y matrimonial, y dos tipos de clientes: habituales y esporádicos. Una reserva almacena datos del cliente, de la habitación reservada, la fecha de comienzo y el número de días que será ocupada la habitación
