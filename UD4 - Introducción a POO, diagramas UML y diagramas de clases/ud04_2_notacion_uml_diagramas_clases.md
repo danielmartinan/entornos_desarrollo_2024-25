@@ -1,27 +1,28 @@
 # Notación UML para la generación de diagramas de clases
-- [1. Introduccion](#1-introduccion)
-- [2. Clases](#2-clases)
-- [3. Atributos](#3-atributos)
-- [4. Métodos](#4-métodos)
-- [5. Relaciones](#5-relaciones)
-  - [5.1. Asociación](#51-asociación)
-  - [5.2. Cardinalidad o Multiplicidad](#52-cardinalidad-o-multiplicidad)
-  - [5.3. Navegabilidad](#53-navegabilidad)
-  - [5.4. Rol](#54-rol)
-  - [5.5. Clase Asociación](#55-clase-asociación)
-  - [5.6. Relación unaria](#56-relación-unaria)
-- [6. Herencia (generalización)](#6-herencia-generalización)
-- [7. Composición](#7-composición)
-- [8. Agregación](#8-agregación)
-- [9. Dependencia](#9-dependencia)
-- [10. Interfaces](#10-interfaces)
-- [11. Clases Abstractas](#11-clases-abstractas)
-- [12. Enumeradores](#12-enumeradores)
-- [13. Métodos y atributos estáticos y atributos constantes](#13-métodos-y-atributos-estáticos-y-atributos-constantes)
-- [14. Resumen de simbología para la representación de relaciones](#14-resumen-de-simbología-para-la-representación-de-relaciones)
-- [15. Polimorfismo](#15-polimorfismo)
-- [16. Restricciones (constraints)](#16-restricciones-constraints)
-- [17. Ejemplo de diagrama de clases completo](#17-ejemplo-de-diagrama-de-clases-completo)
+- [Notación UML para la generación de diagramas de clases](#notación-uml-para-la-generación-de-diagramas-de-clases)
+  - [1. Introduccion](#1-introduccion)
+  - [2. Clases](#2-clases)
+  - [3. Atributos](#3-atributos)
+  - [4. Métodos](#4-métodos)
+  - [5. Relaciones](#5-relaciones)
+    - [5.1. Asociación](#51-asociación)
+    - [5.2. Cardinalidad o Multiplicidad](#52-cardinalidad-o-multiplicidad)
+    - [5.3. Navegabilidad](#53-navegabilidad)
+    - [5.4. Rol](#54-rol)
+    - [5.5. Clase Asociación](#55-clase-asociación)
+    - [5.6. Relación unaria](#56-relación-unaria)
+  - [6. Herencia (generalización)](#6-herencia-generalización)
+  - [7. Composición](#7-composición)
+  - [8. Agregación](#8-agregación)
+  - [9. Dependencia](#9-dependencia)
+  - [10. Interfaces](#10-interfaces)
+  - [11. Clases Abstractas](#11-clases-abstractas)
+  - [12. Enumeradores](#12-enumeradores)
+  - [13. Métodos y atributos estáticos y atributos constantes](#13-métodos-y-atributos-estáticos-y-atributos-constantes)
+  - [14. Resumen de simbología para la representación de relaciones](#14-resumen-de-simbología-para-la-representación-de-relaciones)
+  - [15. Polimorfismo](#15-polimorfismo)
+  - [16. Restricciones (constraints)](#16-restricciones-constraints)
+  - [17. Ejemplo de diagrama de clases completo](#17-ejemplo-de-diagrama-de-clases-completo)
 
 <!-- /TOC -->
 ## 1. Introduccion
@@ -310,7 +311,71 @@ Cuando una relación tiene atributos propios, se puede representar como una **cl
 
 ### 5.6. Relación unaria
 
-TBD
+En el contexto de los diagramas de clases UML, una relación unaria, también conocida como **auto-relación**, ocurre cuando una clase está relacionada consigo misma. Este tipo de relación es útil para modelar situaciones donde las instancias de una clase pueden interactuar entre sí de alguna manera específica.
+
+Este tipo de relación se representa gráficamente mediante una línea que conecta la clase consigo misma, formando un bucle. Se puede utilizar en casos donde las instancias de una misma clase están organizadas jerárquicamente, colaboran entre sí o tienen una dependencia directa.
+
+Un ejemplo común de relación unaria es el de una clase que representa empleados en una organización, donde un empleado puede ser el jefe de otro empleado.
+
+Imaginemos una clase llamada `Empleado`, donde un empleado puede supervisar a otros empleados. La relación unaria entre empleados se puede modelar como sigue:
+
+```mermaid
+classDiagram
+    direction LR
+    class Empleado {
+        -nombre: String
+        -puesto: String
+        -salario: Double
+        +obtenerJefe(): Empleado
+        +asignarJefe(jefe: Empleado)
+    }
+    Empleado "1" --> "0..*" Empleado : supervisa
+```
+
+- **Clase**: La clase `Empleado` tiene atributos como `nombre`, `puesto` y `salario`.  
+- **Relación Unaria**:  
+   * Un empleado puede supervisar a múltiples empleados (multiplicidad `0..*` en el lado supervisado).  
+   * Un empleado solo puede tener un supervisor directo (multiplicidad `1` en el lado supervisor).  
+- **Métodos**:  
+   * `obtenerJefe()` permite consultar quién es el supervisor directo de un empleado.  
+   * `asignarJefe(jefe: Empleado)` establece la relación entre un empleado y su supervisor.
+
+**Casos de Uso Comunes:**
+
+1. **Jerarquías Organizacionales**: Como el ejemplo anterior, donde las instancias de una clase representan relaciones jerárquicas.  
+2. **Redes o Grafos**: Modelar conexiones entre nodos, como usuarios que se siguen mutuamente en redes sociales.  
+3. **Partes de un Todo**: Como en un árbol de componentes donde cada componente puede estar compuesto por otros componentes de la misma clase.
+
+**Consideraciones para Diseñar Relaciones Unarias:**
+
+1. **Multiplicidad**: Es fundamental definir correctamente las cardinalidades de la relación para reflejar la realidad del sistema.  
+2. **Restricciones**:  
+   * ¿Puede una instancia relacionarse consigo misma? Si no, esto debe especificarse.  
+   * ¿Hay límites en la profundidad de la jerarquía?  
+3. **Impacto en la Implementación**:  
+   * Se debe decidir cómo se representarán estas relaciones en el código (por ejemplo, como referencias en atributos).  
+   * Se debe manejar adecuadamente la validación de las relaciones para evitar ciclos o inconsistencias.
+
+**Otro Ejemplo: Productos Relacionados:**
+
+En un sistema de catálogo de productos, un producto puede estar relacionado con otros productos complementarios.
+
+```mermaid
+classDiagram
+    class Producto {
+        -nombre: String
+        -precio: Double
+        -descripcion: String
+        +agregarRelacionado(producto: Producto)
+        +obtenerRelacionados(): List~Producto~
+    }
+    Producto <--> Producto : relacionado con
+```
+
+En este caso:
+
+* La relación es bidireccional, pero sigue siendo unaria.  
+* Un producto puede estar relacionado con muchos otros productos.
 
 ## 6. Herencia (generalización)
 
