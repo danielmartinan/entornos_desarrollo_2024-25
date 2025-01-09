@@ -15,6 +15,7 @@
   - [7. Composición](#7-composición)
   - [8. Agregación](#8-agregación)
   - [9. Dependencia](#9-dependencia)
+  - [¿Cómo distinguir los diferentes tipos de relación?](#cómo-distinguir-los-diferentes-tipos-de-relación)
   - [10. Interfaces](#10-interfaces)
   - [11. Clases Abstractas](#11-clases-abstractas)
   - [12. Enumeradores](#12-enumeradores)
@@ -478,6 +479,76 @@ classDiagram
 ```
 
 En este ejemplo, la clase `Pedido` depende de `Cliente` porque utiliza sus métodos o propiedades para procesar el pedido. No existe una relación permanente entre ambas clases, simplemente se utiliza temporalmente.
+
+## ¿Cómo distinguir los diferentes tipos de relación?
+
+La **diferencia clave** entre una **asociación (clientela)** y una **agregación o composición** radica en la **naturaleza y la fuerza de la relación entre las clases involucradas**, particularmente en términos de propiedad y ciclo de vida.
+
+**Asociación (Clientela):**
+
+* Es una relación **estructural genérica** entre dos clases.  
+* **No implica propiedad.** Ninguna de las clases "posee" a la otra.  
+* Representa una **colaboración** entre objetos, donde uno utiliza o interactúa con otro.  
+* El ciclo de vida de los objetos no está relacionado, es decir, un objeto puede existir independientemente del otro.  
+* **Ejemplo:** Una clase `Cliente` está asociada a una clase `Pedido`, pero el cliente no "posee" el pedido, simplemente interactúa con él.
+
+```mermaid
+classDiagram
+    class Cliente {
+        -nombre: String
+    }
+    class Pedido {
+        -fecha: Date
+    }
+    Cliente --> Pedido : realiza
+```
+
+**Agregación:**
+
+* Es un tipo especial de asociación que representa una relación **"todo-parte" débil**.  
+* **No implica una fuerte propiedad.** El objeto "todo" puede contener partes, pero las partes pueden existir independientemente del "todo".  
+* Relación más fuerte que una simple asociación, pero más débil que una composición.  
+* **Ejemplo:** Una clase `Profesor` está asociado a una clase `Departamento`, pero el profesor puede cambiar de departamento o existir sin él.
+
+```mermaid
+classDiagram
+    class Profesor {
+        -nombre: String
+    }
+    class Departamento {
+        -nombre: String
+    }
+    Departamento o-- Profesor : pertenece
+```
+
+**Composición:**
+
+* Es un tipo especial de asociación que representa una relación **"todo-parte" fuerte.**  
+* **Implica propiedad.** El objeto "todo" posee las partes, y las partes no pueden existir independientemente del "todo".  
+* El ciclo de vida de las partes está **estrechamente ligado** al ciclo de vida del "todo". Si el "todo" se destruye, sus partes también lo hacen.  
+* **Ejemplo:** Una clase `Casa` tiene objetos `Habitación`. Las habitaciones no tienen sentido fuera de la casa.
+
+```mermaid
+classDiagram
+    class Casa {
+        -direccion: String
+    }
+    class Habitacion {
+        -tamano: Double
+    }
+    Casa *-- Habitacion : contiene
+```
+**Resumen de diferencias**
+
+| Característica | Asociación | Agregación | Composición |
+| ----- | ----- | ----- | ----- |
+| **Propiedad** | No | Débil | Fuerte |
+| **Independencia** | Total | Parcial | Ninguna |
+| **Ciclo de vida** | Independiente | Relativamente débil | Dependiente |
+| **Fuerza de la relación** | Débil | Moderada | Fuerte |
+| **Ejemplo típico** | Cliente \- Pedido | Profesor \- Departamento | Casa \- Habitación |
+
+La diferencia clave, por tanto, es que **la asociación no implica propiedad ni ciclo de vida compartido**, mientras que la agregación y la composición representan relaciones "todo-parte" con diferente grado de acoplamiento
 
 ## 10. Interfaces
 Una interfaz define un conjunto de métodos que una clase debe implementar. En UML, se representa como una clase con el nombre en cursiva o precedido de `<<interface>>`.
