@@ -1,42 +1,32 @@
-# Introducción a las Herramientas para Diagramas de Clases
+# Herramientas para la generación de Diagramas de Clases
 
-- [Introducción a las Herramientas para Diagramas de Clases](#introducción-a-las-herramientas-para-diagramas-de-clases)
-  - [Herramientas Genéricas](#herramientas-genéricas)
-  - [Herramientas Especializadas en UML](#herramientas-especializadas-en-uml)
-  - [Herramientas Open Source y Gratuitas](#herramientas-open-source-y-gratuitas)
-  - [Herramientas Online y Colaborativas](#herramientas-online-y-colaborativas)
-  - [Tabla resumen con las distintas herramientas de modelado UML](#tabla-resumen-con-las-distintas-herramientas-de-modelado-uml)
-  - [Elección de la Herramienta Adecuada](#elección-de-la-herramienta-adecuada)
-- [Cómo crear un diagrama de clases a partir de la descripción de un problema](#cómo-crear-un-diagrama-de-clases-a-partir-de-la-descripción-de-un-problema)
-  - [Paso 1: Comprender la Descripción del Problema](#paso-1-comprender-la-descripción-del-problema)
-  - [Paso 2: Identificar Clases y Atributos](#paso-2-identificar-clases-y-atributos)
-  - [Paso 3: Determinar las Relaciones entre las Clases](#paso-3-determinar-las-relaciones-entre-las-clases)
-  - [Paso 4: Definir Métodos y Comportamientos](#paso-4-definir-métodos-y-comportamientos)
-  - [Paso 5: Representar el Diagrama en Notación UML](#paso-5-representar-el-diagrama-en-notación-uml)
-  - [Ejemplo Práctico: Resolviendo un Problema](#ejemplo-práctico-resolviendo-un-problema)
-- [Cómo Generar Código a partir de un Diagrama de Clases](#cómo-generar-código-a-partir-de-un-diagrama-de-clases)
-  - [Comprensión del Proceso de Generación de Código](#comprensión-del-proceso-de-generación-de-código)
-  - [Herramientas para Generar Código a partir de UML](#herramientas-para-generar-código-a-partir-de-uml)
-  - [Pasos para Generar Código](#pasos-para-generar-código)
-  - [Ejemplo Práctico de Generación de Código](#ejemplo-práctico-de-generación-de-código)
-  - [Beneficios de Generar Código desde UML](#beneficios-de-generar-código-desde-uml)
-- [Proceso de Ingeniería Inversa en IntelliJ IDEA](#proceso-de-ingeniería-inversa-en-intellij-idea)
-  - [Preparación del Entorno](#preparación-del-entorno)
-  - [Generación del Diagrama UML](#generación-del-diagrama-uml)
-  - [Ejemplo Práctico](#ejemplo-práctico)
-  - [Ventajas de la Ingeniería Inversa con IntelliJ IDEA](#ventajas-de-la-ingeniería-inversa-con-intellij-idea)
-  - [Limitaciones y Consideraciones](#limitaciones-y-consideraciones)
-- [¿Es buena práctica hacer uso de la ingeniería inversa?](#es-buena-práctica-hacer-uso-de-la-ingeniería-inversa)
-  - [Limitaciones y Riesgos](#limitaciones-y-riesgos)
-  - [¿Cuándo es una Buena Práctica?](#cuándo-es-una-buena-práctica)
-  - [¿Cuándo No es Recomendable?](#cuándo-no-es-recomendable)
-  - [**Buenas Prácticas al Usar Ingeniería Inversa**](#buenas-prácticas-al-usar-ingeniería-inversa)
+- [Herramientas Genéricas](#herramientas-genéricas)
+- [Herramientas Especializadas en UML](#herramientas-especializadas-en-uml)
+- [Herramientas Open Source y Gratuitas](#herramientas-open-source-y-gratuitas)
+- [Herramientas Online y Colaborativas](#herramientas-online-y-colaborativas)
+- [Tabla resumen con las distintas herramientas de modelado UML](#tabla-resumen-con-las-distintas-herramientas-de-modelado-uml)
+- [Elección de la Herramienta Adecuada](#elección-de-la-herramienta-adecuada)
+- [Comprensión del Proceso de Generación de Código](#comprensión-del-proceso-de-generación-de-código)
+- [Herramientas para Generar Código a partir de UML](#herramientas-para-generar-código-a-partir-de-uml)
+- [Pasos para Generar Código](#pasos-para-generar-código)
+- [Ejemplo Práctico de Generación de Código](#ejemplo-práctico-de-generación-de-código)
+- [Beneficios de Generar Código desde UML](#beneficios-de-generar-código-desde-uml)
+- [Preparación del Entorno](#preparación-del-entorno)
+- [Generación del Diagrama UML](#generación-del-diagrama-uml)
+- [Ejemplo Práctico](#ejemplo-práctico)
+- [Ventajas de la Ingeniería Inversa con IntelliJ IDEA](#ventajas-de-la-ingeniería-inversa-con-intellij-idea)
+- [Limitaciones y Consideraciones](#limitaciones-y-consideraciones)
+- [Limitaciones y Riesgos](#limitaciones-y-riesgos)
+- [¿Cuándo es una Buena Práctica?](#cuándo-es-una-buena-práctica)
+- [¿Cuándo No es Recomendable?](#cuándo-no-es-recomendable)
+- [**Buenas Prácticas al Usar Ingeniería Inversa**](#buenas-prácticas-al-usar-ingeniería-inversa)
 
 En el desarrollo de software, los diagramas de clases son una herramienta fundamental para modelar y visualizar la estructura de un sistema. Estos diagramas permiten definir las clases que compondrán el software, sus atributos, métodos y relaciones. Para crearlos, existen diversas **herramientas** en el mercado, que van desde soluciones simples y **genéricas** hasta herramientas **altamente especializadas** para diagramación y modelado en UML (Lenguaje Unificado de Modelado). En este apartado exploraremos algunas de estas herramientas, sus características principales y sus aplicaciones en distintos contextos.
 
 Las herramientas para diagramas de clases pueden dividirse en dos grandes categorías: las genéricas, que no están diseñadas específicamente para UML, y las especializadas, que ofrecen un soporte más completo para este tipo de modelado.
 
 ## Herramientas Genéricas
+
 Una de las herramientas genéricas más populares es **[Draw.io](https://app.diagrams.net/)**, una plataforma en línea gratuita que permite la creación de una amplia variedad de diagramas, incluyendo UML. Al ser accesible desde cualquier navegador web, Draw.io es una opción ideal para quienes buscan facilidad de uso y no necesitan funcionalidades avanzadas como la generación de código. Sin embargo, su biblioteca de símbolos UML es limitada, lo que puede dificultar la creación de diagramas muy complejos. Esta herramienta destaca por su integración con servicios en la nube como Google Drive y GitHub, facilitando el trabajo colaborativo.
 
 Otra herramienta de uso general es **[Microsoft Visio](https://www.microsoft.com/es-es/microsoft-365/visio/flowchart-software)**, ampliamente conocida en el ámbito empresarial. Visio cuenta con una extensa biblioteca de formas y diagramas que la convierten en una herramienta versátil, aunque su soporte para UML es menos robusto. A pesar de esto, su popularidad radica en la familiaridad que ofrece a los usuarios de Microsoft Office y su capacidad para integrarse con otros productos de esta suite. Sin embargo, el alto coste de esta herramienta puede ser un obstáculo para estudiantes y pequeñas empresas.
@@ -72,150 +62,7 @@ La elección de una herramienta para diagramas de clases depende de varios facto
 
 En cualquier caso, conocer las fortalezas y limitaciones de cada herramienta es clave para seleccionar la que mejor se adapte a las necesidades del proyecto y del equipo.
 
-# Cómo crear un diagrama de clases a partir de la descripción de un problema 
 
-Los diagramas de clases son herramientas esenciales en el desarrollo de software, ya que permiten estructurar y organizar los elementos principales de un sistema antes de pasar a la implementación. Crear un diagrama de clases a partir de una descripción requiere un proceso sistemático que garantice la correcta representación de las entidades, sus atributos, métodos y relaciones. Este apartado detalla los pasos necesarios para realizar este proceso, acompañados de un ejemplo práctico.
-
-## Paso 1: Comprender la Descripción del Problema
-
-El primer paso consiste en leer atentamente la descripción proporcionada y comprender el contexto del sistema que se desea modelar. Es fundamental identificar:
-
-* Los actores principales del sistema.  
-* Las entidades o conceptos clave mencionados.  
-* Las acciones o relaciones descritas entre las entidades.
-
-Una buena práctica es subrayar palabras clave relacionadas con clases (sustantivos), atributos (características) y métodos (acciones).
-
-**Ejemplo:**  
-Descripción del problema: *“Una biblioteca administra libros y usuarios. Los libros tienen un título, autor, ISBN y una cantidad disponible. Los usuarios pueden ser estudiantes o profesores. Los estudiantes tienen un identificador único, y los profesores tienen un departamento asociado. Los usuarios pueden tomar libros en préstamo, y cada préstamo debe registrar la fecha de inicio y la fecha de devolución.”*
-
-
-## Paso 2: Identificar Clases y Atributos
-
-Una vez comprendido el problema, se identifican las clases principales a partir de los sustantivos destacados. Luego, se determinan los atributos relevantes para cada clase.
-
-**Ejemplo:**
-
-* Clases:  
-  * Libro  
-  * Usuario (Estudiante, Profesor)  
-  * Préstamo  
-* Atributos:  
-  * **Libro**: título, autor, ISBN, cantidadDisponible  
-  * **Estudiante**: identificador  
-  * **Profesor**: departamento  
-  * **Préstamo**: fechaInicio, fechaDevolución
-
-## Paso 3: Determinar las Relaciones entre las Clases
-
-El siguiente paso consiste en identificar cómo se relacionan las clases entre sí. Esto incluye asociaciones, agregaciones, composiciones y herencias. Se deben analizar las cardinalidades y la navegabilidad.
-
-**Ejemplo:**
-
-* Relación 1: Un **Usuario** puede realizar múltiples **Préstamos**, pero cada préstamo está asociado a un único usuario (relación 1 a N).  
-* Relación 2: Cada **Préstamo** está asociado a un único **Libro**, pero un libro puede ser prestado múltiples veces (relación 1 a N).  
-* Relación 3: Los **Estudiantes** y **Profesores** son tipos específicos de usuarios (herencia).
-
-## Paso 4: Definir Métodos y Comportamientos
-
-Con las relaciones definidas, se identifican los métodos principales de cada clase, que representan las acciones o comportamientos mencionados en el problema.
-
-**Ejemplo:**
-
-* **Usuario**: realizarPréstamo()  
-* **Libro**: actualizarCantidadDisponible()  
-* **Préstamo**: calcularDuración()
-
-## Paso 5: Representar el Diagrama en Notación UML
-
-Con toda la información recopilada, se dibuja el diagrama utilizando notación UML. Se incluyen las clases, sus atributos y métodos, y las relaciones con las cardinalidades y navegabilidad correspondientes.
-
-**Ejemplo:**
-
-```mermaid
-    classDiagram  
-        class Libro {  
-            - String titulo  
-            - String autor  
-            - String ISBN  
-            - int cantidadDisponible  
-            + actualizarCantidadDisponible(): void  
-        }
-
-        class Usuario {  
-            <<abstract>>  
-            - String nombre  
-            + realizarPrestamo(): void  
-        }
-
-        class Estudiante {  
-            - String identificador  
-        }
-
-        class Profesor {  
-            - String departamento  
-        }
-
-        class Prestamo {  
-            - Date fechaInicio  
-            - Date fechaDevolucion  
-            + calcularDuracion(): int  
-        }
-
-        Usuario <|-- Estudiante  
-        Usuario <|-- Profesor  
-        Usuario "1" --> "N" Prestamo  
-        Prestamo "1" --> "1" Libro
-```
-
-## Ejemplo Práctico: Resolviendo un Problema
-
-**Descripción:**  
-Una tienda de música en línea vende álbumes y permite a los usuarios registrarse para comprar canciones o álbumes completos. Los álbumes tienen un título, un artista y un año de lanzamiento. Las canciones tienen un título, una duración y un precio. Los usuarios registrados tienen un correo electrónico y un nombre de usuario. Los usuarios pueden realizar múltiples compras, y cada compra debe incluir la fecha y una lista de canciones o álbumes comprados.
-
-**Resolución:**
-
-1. Clases identificadas: Álbum, Canción, Usuario, Compra.  
-2. Atributos:  
-   * Álbum: título, artista, añoLanzamiento.  
-   * Canción: título, duración, precio.  
-   * Usuario: correo, nombreUsuario.  
-   * Compra: fecha.  
-3. Relaciones:  
-   * Un álbum contiene varias canciones (composición).  
-   * Un usuario puede realizar varias compras (asociación 1 a N).  
-   * Cada compra incluye múltiples canciones o álbumes (agregación).
-
-**Diagrama:**
-
-```mermaid
-    classDiagram  
-        class Album {  
-            - String titulo  
-            - String artista  
-            - int añoLanzamiento  
-        }
-
-        class Cancion {  
-            - String titulo  
-            - double duracion  
-            - double precio  
-        }
-
-        class Usuario {  
-            - String correo  
-            - String nombreUsuario  
-    }
-
-        class Compra {  
-            - Date fecha  
-        }
-
-        Album *-- Cancion  
-        Usuario "1" --> "N" Compra  
-        Compra "N" o-- "N" Cancion  
-        Compra "N" o-- "N" Album
-```
 
 # Cómo Generar Código a partir de un Diagrama de Clases
 

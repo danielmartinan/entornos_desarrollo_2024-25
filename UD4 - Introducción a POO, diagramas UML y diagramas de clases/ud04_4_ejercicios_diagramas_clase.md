@@ -7,7 +7,7 @@ A continuación se plantean algunos ejercicios sobre la realización de diferent
 Crear un diagrama de clases que permita modelar un sistema que sirva para simular el funcionamiento de una red social, teniendo en cuenta lo siguiente:
 
 - Los usuarios de la red social se identifican con un identificador y una contraseña. Además, se almacena de ellos: 
-- Su nombre, apellidos, dirección, teléfono (puede tener varios teléfonos) e e-mail (el email no tiene que poder coincidir con el de otro usuario) y una foto
+  - Su nombre, apellidos, dirección, teléfono (puede tener varios teléfonos) e e-mail (el email no tiene que poder coincidir con el de otro usuario) y una foto
 - Si los usuarios son celebridades, de ellos no aparecerá ni el email ni la dirección ni el teléfono.
 - Los usuarios pueden tener una serie de contactos, que en realidad son otros usuarios. De cada contacto se puede almacenar un comentario que es personal y que sirve para describir al contacto.
 - Los usuarios pueden organizar sus contactos en grupos de los cuales se almacena un nombre y deberemos saber los contactos que contiene. El mismo contacto puede formar parte de varios grupos.

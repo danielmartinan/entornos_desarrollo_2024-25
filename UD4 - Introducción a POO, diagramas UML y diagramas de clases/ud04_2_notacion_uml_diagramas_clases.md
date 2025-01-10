@@ -1,29 +1,38 @@
 # Notación UML para la generación de diagramas de clases
-- [Notación UML para la generación de diagramas de clases](#notación-uml-para-la-generación-de-diagramas-de-clases)
-  - [1. Introduccion](#1-introduccion)
-  - [2. Clases](#2-clases)
-  - [3. Atributos](#3-atributos)
-  - [4. Métodos](#4-métodos)
-  - [5. Relaciones](#5-relaciones)
-    - [5.1. Asociación](#51-asociación)
-    - [5.2. Cardinalidad o Multiplicidad](#52-cardinalidad-o-multiplicidad)
-    - [5.3. Navegabilidad](#53-navegabilidad)
-    - [5.4. Rol](#54-rol)
-    - [5.5. Clase Asociación](#55-clase-asociación)
-    - [5.6. Relación unaria](#56-relación-unaria)
-  - [6. Herencia (generalización)](#6-herencia-generalización)
-  - [7. Composición](#7-composición)
-  - [8. Agregación](#8-agregación)
-  - [9. Dependencia](#9-dependencia)
-  - [¿Cómo distinguir los diferentes tipos de relación?](#cómo-distinguir-los-diferentes-tipos-de-relación)
-  - [10. Interfaces](#10-interfaces)
-  - [11. Clases Abstractas](#11-clases-abstractas)
-  - [12. Enumeradores](#12-enumeradores)
-  - [13. Métodos y atributos estáticos y atributos constantes](#13-métodos-y-atributos-estáticos-y-atributos-constantes)
-  - [14. Resumen de simbología para la representación de relaciones](#14-resumen-de-simbología-para-la-representación-de-relaciones)
-  - [15. Polimorfismo](#15-polimorfismo)
-  - [16. Restricciones (constraints)](#16-restricciones-constraints)
-  - [17. Ejemplo de diagrama de clases completo](#17-ejemplo-de-diagrama-de-clases-completo)
+
+**Índice**
+
+- [1. Introduccion](#1-introduccion)
+- [2. Clases](#2-clases)
+- [3. Atributos](#3-atributos)
+- [4. Métodos](#4-métodos)
+- [5. Relaciones](#5-relaciones)
+  - [5.1. Asociación](#51-asociación)
+  - [5.2. Cardinalidad o Multiplicidad](#52-cardinalidad-o-multiplicidad)
+  - [5.3. Navegabilidad](#53-navegabilidad)
+  - [5.4. Rol](#54-rol)
+  - [5.5. Clase Asociación](#55-clase-asociación)
+  - [5.6. Relación unaria](#56-relación-unaria)
+- [6. Herencia (generalización)](#6-herencia-generalización)
+- [7. Composición](#7-composición)
+- [8. Agregación](#8-agregación)
+- [9. Dependencia](#9-dependencia)
+- [10. ¿Cómo distinguir los diferentes tipos de relación?](#10-cómo-distinguir-los-diferentes-tipos-de-relación)
+- [11. Interfaces](#11-interfaces)
+- [12. Clases Abstractas](#12-clases-abstractas)
+- [13. Enumeradores](#13-enumeradores)
+- [14. Métodos y atributos estáticos y atributos constantes](#14-métodos-y-atributos-estáticos-y-atributos-constantes)
+- [15. Resumen de simbología para la representación de relaciones](#15-resumen-de-simbología-para-la-representación-de-relaciones)
+- [16. Polimorfismo](#16-polimorfismo)
+- [17. Restricciones (constraints)](#17-restricciones-constraints)
+- [18. Cómo crear un diagrama de clases a partir de la descripción de un problema](#18-cómo-crear-un-diagrama-de-clases-a-partir-de-la-descripción-de-un-problema)
+  - [18.1. Paso 1: Comprender la Descripción del Problema](#181-paso-1-comprender-la-descripción-del-problema)
+  - [18.2. Paso 2: Identificar Clases y Atributos](#182-paso-2-identificar-clases-y-atributos)
+  - [18.3. Paso 3: Determinar las Relaciones entre las Clases](#183-paso-3-determinar-las-relaciones-entre-las-clases)
+  - [18.4. Paso 4: Definir Métodos y Comportamientos](#184-paso-4-definir-métodos-y-comportamientos)
+  - [18.5. Paso 5: Representar el Diagrama en Notación UML](#185-paso-5-representar-el-diagrama-en-notación-uml)
+- [19. Ejemplo Práctico: Resolviendo un Problema](#19-ejemplo-práctico-resolviendo-un-problema)
+- [20. Otro ejemplo de diagrama de clases completo](#20-otro-ejemplo-de-diagrama-de-clases-completo)
 
 <!-- /TOC -->
 ## 1. Introduccion
@@ -46,7 +55,7 @@ classDiagram
     class Persona {
         -nombre: String
         -edad: int
-        +saludar(): void
+        +saludar() void
     }
 ```
 
@@ -64,7 +73,7 @@ Los **atributos** son las propiedades o características que describen a una cla
     -   `-` (privada): el atributo es accesible solo desde la propia clase.
     -   `~` (package): el atributo es accesible desde las clases del mismo paquete.
 
-**Ejemplo de atributos en UML (Mermaid):**
+**Ejemplo de atributos en UML:**
 
 ``` mermaid
     classDiagram
@@ -131,33 +140,34 @@ classDiagram
     class Persona
     class Vehiculo
 
-    Persona "1" -- "1..*" Vehiculo: posee
+    Persona "1" -- "0..*" Vehiculo: posee
 ```
 
 ### 5.3. Navegabilidad
 
 La navegabilidad indica si una clase conoce a la otra y puede interactuar con ella. Se representa con una flecha en el extremo de la línea de asociación. De esta manera, la asociación puede ser **unidireccional** o **bidireccional**.
-Si se convierte a Java dos clases unidas por una asociación bidireccional, cada una de ellas tendrá un objeto o conjunto de objetos (dependiendo de la multiplicidad entre ellas). 
+Si se convierte a Java dos clases unidas por una asociación bidireccional, cada una de ellas tendrá un objeto o conjunto de objetos (dependiendo de la multiplicidad entre ellas).
 
 **Ejemplos**
 
 A continuación, vamos a ver un ejemplo de dos clases que se relacionan mediante asociaciones unidirecionales o bidireccionales.
+
 ``` mermaid
 classDiagram
     direction LR
     class Persona {
         -nombre: String
-        +getNombre(): String
-        +setNombre(nombre: String): void
+        +getNombre() String
+        +setNombre(nombre: String) void
     }
 
     class Vehiculo {
         -modelo: String
-        +getModelo(): String
-        +setModelo(modelo: String): void
+        +getModelo() String
+        +setModelo(modelo: String) void
     }
 
-    Persona "1" --> "1..*" Vehiculo: posee
+    Persona "1" --> "*" Vehiculo: posee
 
 ``` 
 
@@ -179,14 +189,12 @@ class Vehiculo {
         this.modelo = modelo;
     }
 }
-
 class Persona {
     private String nombre;
-    private Vehiculo vehiculo; // Asociación unidireccional
+    private List<Vehiculo> vehiculos = new ArrayList<>(); // Asociación bidireccional
 
-    public Persona(String nombre, Vehiculo vehiculo) {
+    public Persona(String nombre) {
         this.nombre = nombre;
-        this.vehiculo = vehiculo;
     }
 
     public String getNombre() {
@@ -197,13 +205,18 @@ class Persona {
         this.nombre = nombre;
     }
 
-    public Vehiculo getVehiculo() {
-        return vehiculo;
+    public List<Vehiculo> getVehiculos() {
+        return vehiculos;
+    }
+
+    public void agregarVehiculo(Vehiculo vehiculo) {
+        this.vehiculos.add(vehiculo);
+        vehiculo.setPropietario(this); // Vinculación bidireccional
     }
 }
 ```
 
-La clase `Persona` conoce y tiene acceso a un objeto de tipo `Vehiculo`, pero `Vehiculo` no tiene referencia alguna a `Persona`.
+La clase `Persona` conoce y tiene acceso a una colección (Lista) de objetos de tipo `Vehiculo`, pero `Vehiculo` no tiene referencia alguna a `Persona` (su propietario).
 
 En una relación bidireccional, ambas clases conocen a la otra. Esto se representa en UML con flechas en ambos sentidos o sin flechas explícitas, ya que se asume la reciprocidad.
 
@@ -214,17 +227,17 @@ classDiagram
     direction LR
     class Persona {
         -nombre: String
-        +getNombre(): String
-        +setNombre(nombre: String): void
+        +getNombre() String
+        +setNombre(nombre: String) void
     }
 
     class Vehiculo {
         -modelo: String
-        +getModelo(): String
-        +setModelo(modelo: String): void
+        +getModelo() String
+        +setModelo(modelo: String) void
     }
 
-    Persona "1" <--> "1..*" Vehiculo: propietario
+    Persona "1" <--> "*" Vehiculo: propietario
 ```
 
 Esta sería su implementación en Java:
@@ -293,13 +306,14 @@ En cada asociacion, podemos definir dos **roles**, que describen la semántica d
 
 ```mermaid
 classDiagram
+    direction LR
     class Piloto {
     }
 
     class Automovil {
     }
 
-    Automovil "Conduce" <--> "Es conducido por" Piloto: propietario
+    Automovil "Conduce" <--> "Es conducido por" Piloto
 ```
 
 ### 5.5. Clase Asociación
@@ -327,7 +341,7 @@ classDiagram
         -nombre: String
         -puesto: String
         -salario: Double
-        +obtenerJefe(): Empleado
+        +obtenerJefe() Empleado
         +asignarJefe(jefe: Empleado)
     }
     Empleado "1" --> "0..*" Empleado : supervisa
@@ -368,7 +382,7 @@ classDiagram
         -precio: Double
         -descripcion: String
         +agregarRelacionado(producto: Producto)
-        +obtenerRelacionados(): List~Producto~
+        +obtenerRelacionados() List~Producto~
     }
     Producto <--> Producto : relacionado con
 ```
@@ -397,15 +411,15 @@ classDiagram
     class Animal {
         +nombre: String
         +edad: int
-        +comer(): void
+        +comer() void
     }
 
     class Perro {
-        +ladrar(): void
+        +ladrar() void
     }
 
     class Gato {
-        +maullar(): void
+        +maullar() void
     }
 
     Animal <|-- Perro
@@ -424,12 +438,12 @@ classDiagram
     direction LR
     class Casa {
         -direccion: String
-        +mostrarDireccion(): void
+        +mostrarDireccion() void
     }
 
     class Habitacion {
         -tamaño: int
-        +mostrarTamaño(): void
+        +mostrarTamaño() void
     }
 
     Casa *-- Habitacion
@@ -447,12 +461,12 @@ classDiagram
     direction LR
     class Universidad {
         -nombre: String
-        +mostrarNombre(): void
+        +mostrarNombre() void
     }
 
     class Profesor {
         -nombre: String
-        +mostrarNombre(): void
+        +mostrarNombre() void
     }
 
     Universidad o-- Profesor
@@ -468,11 +482,11 @@ La relación de **dependencia** en UML se utiliza para modelar una conexión dé
 classDiagram
     direction LR
     class Pedido {
-        +procesar(cliente: Cliente): void
+        +procesar(cliente: Cliente) void
     }
 
     class Cliente {
-        +getDatos(): String
+        +getDatos() String
     }
 
     Pedido ..> Cliente
@@ -480,7 +494,7 @@ classDiagram
 
 En este ejemplo, la clase `Pedido` depende de `Cliente` porque utiliza sus métodos o propiedades para procesar el pedido. No existe una relación permanente entre ambas clases, simplemente se utiliza temporalmente.
 
-## ¿Cómo distinguir los diferentes tipos de relación?
+## 10. ¿Cómo distinguir los diferentes tipos de relación?
 
 La **diferencia clave** entre una **asociación (clientela)** y una **agregación o composición** radica en la **naturaleza y la fuerza de la relación entre las clases involucradas**, particularmente en términos de propiedad y ciclo de vida.
 
@@ -550,7 +564,7 @@ classDiagram
 
 La diferencia clave, por tanto, es que **la asociación no implica propiedad ni ciclo de vida compartido**, mientras que la agregación y la composición representan relaciones "todo-parte" con diferente grado de acoplamiento
 
-## 10. Interfaces
+## 11. Interfaces
 Una interfaz define un conjunto de métodos que una clase debe implementar. En UML, se representa como una clase con el nombre en cursiva o precedido de `<<interface>>`.
 
 Ejemplo UML:
@@ -559,7 +573,7 @@ Ejemplo UML:
 classDiagram
     class Volador {
         <<interface>>
-        +volar(): void
+        +volar() void
     }
 
     class Avion {
@@ -577,7 +591,7 @@ En el ejemplo, `Volador` define un contrato que `Avion` y `Pajaro` deben cumplir
 
 A diferencia de en la herencia, cuando una clase implementa los métodos de una interfaz, hablamos de una relación de "realización" y utilizamos una flecha con punta vacía y con línea discontinua.
 
-## 11. Clases Abstractas
+## 12. Clases Abstractas
 
 Una clase abstracta no se puede instanciar directamente y puede contener **métodos abstractos** (sin implementación; debe tener al menos). En UML, se representa con el nombre de la clase en **cursiva** o con la anotación `<<abstract>>`. Los métodos y atributos abstractos deben representarse en cursiva.
 
@@ -588,15 +602,15 @@ classDiagram
     class Forma {
         <<abstract>>
         +color: String
-        +dibujar(): void*
+        +dibujar() void*
     }
 
     class Circulo {
-        +dibujar(): void
+        +dibujar() void
     }
 
     class Cuadrado {
-        +dibujar(): void
+        +dibujar() void
     }
 
     Forma <|-- Circulo
@@ -605,7 +619,7 @@ classDiagram
 
 `Forma` es una clase abstracta, y sus subclases (`Circulo` y `Cuadrado`) deben implementar el método `dibujar`.
 
-## 12. Enumeradores
+## 13. Enumeradores
 Los enumeradores se definen mediante la anotacion `<<Enumeration>>` de la siguiente manera:
 
 ```mermaid
@@ -625,20 +639,20 @@ classDiagram
 }
 ```
 
-## 13. Métodos y atributos estáticos y atributos constantes
+## 14. Métodos y atributos estáticos y atributos constantes
 Los métodos y atributos estáticos son aquellos que pertenecen a la clase y no a sus isntancias (objetos). En los diagramas UML, se representan con un <u>subrayado</u>. Por su parte, UML **no contempla** el uso de constantes en sus diagramas. Sin embargo, podemos definir los atributos constantes utilizando letras mayúsculas.
 
 ```mermaid
 classDiagram
     class Utilidad {
         -CONST_PI: double $
-        +calcularAreaCirculo(radio: double): double $
+        +calcularAreaCirculo(radio: double) double $
     }
 ```
 
 
 
-## 14. Resumen de simbología para la representación de relaciones
+## 15. Resumen de simbología para la representación de relaciones
 
 | Tipo de Relación | Descripción | Símbolo en UML |
 | ----- | ----- | ----- | 
@@ -673,7 +687,7 @@ classDiagram
     ClaseF ..> ClaseA : Dependencia
 ```
 
-## 15. Polimorfismo
+## 16. Polimorfismo
 
 El polimorfismo permite que diferentes clases respondan de manera distinta a un mismo mensaje o método.
 
@@ -685,15 +699,15 @@ Ejemplo UML:
 ```mermaid
 classDiagram
     class Figura {
-        +dibujar(): void
+        +dibujar() void
     }
 
     class Rectangulo {
-        +dibujar(): void
+        +dibujar() void
     }
 
     class Triangulo {
-        +dibujar(): void
+        +dibujar() void
     }
 
     Figura <|.. Rectangulo
@@ -737,7 +751,7 @@ public class PolimorfismoDemo {
 La clase base Figura define un método dibujar.
 Rectangulo y Triangulo sobrescriben este método, permitiendo un comportamiento distinto en tiempo de ejecución.
 
-## 16. Restricciones (constraints)
+## 17. Restricciones (constraints)
 
 En UML, las restricciones permiten especificar reglas o condiciones que limitan el comportamiento o las relaciones entre los elementos. Estas se colocan entre llaves {} y se pueden asociar a elementos individuales, relaciones o diagramas completos. A continuación, se describen los principales tipos de restricciones que se pueden definir en UML
 
@@ -761,11 +775,157 @@ Eejmplo con restricciones variadas:
 
 Ademas, también se pueden añadir **notas**, en un rectángulo con la esquina superior derecha doblada, donde podemos realizar descripciones en lenguaje natural de estas restricciones o aclaraciones.
 
-## 17. Ejemplo de diagrama de clases completo
+## 18. Cómo crear un diagrama de clases a partir de la descripción de un problema 
+
+Los diagramas de clases son herramientas esenciales en el desarrollo de software, ya que permiten estructurar y organizar los elementos principales de un sistema antes de pasar a la implementación. Crear un diagrama de clases a partir de una descripción requiere un proceso sistemático que garantice la correcta representación de las entidades, sus atributos, métodos y relaciones. Este apartado detalla los pasos necesarios para realizar este proceso, acompañados de un ejemplo práctico.
+
+### 18.1. Paso 1: Comprender la Descripción del Problema
+
+El primer paso consiste en leer atentamente la descripción proporcionada y comprender el contexto del sistema que se desea modelar. Es fundamental identificar:
+
+* Los actores principales del sistema.  
+* Las entidades o conceptos clave mencionados.  
+* Las acciones o relaciones descritas entre las entidades.
+
+Una buena práctica es subrayar palabras clave relacionadas con clases (sustantivos), atributos (características) y métodos (acciones).
+
+**Ejemplo:**  
+Descripción del problema: *“Una biblioteca administra libros y usuarios. Los libros tienen un título, autor, ISBN y una cantidad disponible. Los usuarios pueden ser estudiantes o profesores. Los estudiantes tienen un identificador único, y los profesores tienen un departamento asociado. Los usuarios pueden tomar libros en préstamo, y cada préstamo debe registrar la fecha de inicio y la fecha de devolución.”*
+
+
+### 18.2. Paso 2: Identificar Clases y Atributos
+
+Una vez comprendido el problema, se identifican las clases principales a partir de los sustantivos destacados. Luego, se determinan los atributos relevantes para cada clase.
+
+**Ejemplo:**
+
+* Clases:  
+  * Libro  
+  * Usuario (Estudiante, Profesor)  
+  * Préstamo  
+* Atributos:  
+  * **Libro**: título, autor, ISBN, cantidadDisponible  
+  * **Estudiante**: identificador  
+  * **Profesor**: departamento  
+  * **Préstamo**: fechaInicio, fechaDevolución
+
+### 18.3. Paso 3: Determinar las Relaciones entre las Clases
+
+El siguiente paso consiste en identificar cómo se relacionan las clases entre sí. Esto incluye asociaciones, agregaciones, composiciones y herencias. Se deben analizar las cardinalidades y la navegabilidad.
+
+**Ejemplo:**
+
+* Relación 1: Un **Usuario** puede realizar múltiples **Préstamos**, pero cada préstamo está asociado a un único usuario (relación 1 a N).  
+* Relación 2: Cada **Préstamo** está asociado a un único **Libro**, pero un libro puede ser prestado múltiples veces (relación 1 a N).  
+* Relación 3: Los **Estudiantes** y **Profesores** son tipos específicos de usuarios (herencia).
+
+### 18.4. Paso 4: Definir Métodos y Comportamientos
+
+Con las relaciones definidas, se identifican los métodos principales de cada clase, que representan las acciones o comportamientos mencionados en el problema.
+
+**Ejemplo:**
+
+* **Usuario**: realizarPréstamo()  
+* **Libro**: actualizarCantidadDisponible()  
+* **Préstamo**: calcularDuración()
+
+### 18.5. Paso 5: Representar el Diagrama en Notación UML
+
+Con toda la información recopilada, se dibuja el diagrama utilizando notación UML. Se incluyen las clases, sus atributos y métodos, y las relaciones con las cardinalidades y navegabilidad correspondientes.
+
+**Ejemplo:**
+
+```mermaid
+    classDiagram  
+        class Libro {  
+            - String titulo  
+            - String autor  
+            - String ISBN  
+            - int cantidadDisponible  
+            + actualizarCantidadDisponible() void  
+        }
+
+        class Usuario {  
+            <<abstract>>  
+            - String nombre  
+            + realizarPrestamo() void  
+        }
+
+        class Estudiante {  
+            - String identificador  
+        }
+
+        class Profesor {  
+            - String departamento  
+        }
+
+        class Prestamo {  
+            - Date fechaInicio  
+            - Date fechaDevolucion  
+            + calcularDuracion() int  
+        }
+
+        Usuario <|-- Estudiante  
+        Usuario <|-- Profesor  
+        Usuario "1" --> "N" Prestamo  
+        Prestamo "1" --> "1" Libro
+```
+
+## 19. Ejemplo Práctico: Resolviendo un Problema
+
+**Descripción:**  
+Una tienda de música en línea vende álbumes y permite a los usuarios registrarse para comprar canciones o álbumes completos. Los álbumes tienen un título, un artista y un año de lanzamiento. Las canciones tienen un título, una duración y un precio. Los usuarios registrados tienen un correo electrónico y un nombre de usuario. Los usuarios pueden realizar múltiples compras, y cada compra debe incluir la fecha y una lista de canciones o álbumes comprados.
+
+**Resolución:**
+
+1. Clases identificadas: Álbum, Canción, Usuario, Compra.  
+2. Atributos:  
+   * Álbum: título, artista, añoLanzamiento.  
+   * Canción: título, duración, precio.  
+   * Usuario: correo, nombreUsuario.  
+   * Compra: fecha.  
+3. Relaciones:  
+   * Un álbum contiene varias canciones (composición).  
+   * Un usuario puede realizar varias compras (asociación 1 a N).  
+   * Cada compra incluye múltiples canciones o álbumes (agregación).
+
+**Diagrama:**
+
+```mermaid
+    classDiagram  
+        class Album {  
+            - String titulo  
+            - String artista  
+            - int añoLanzamiento  
+        }
+
+        class Cancion {  
+            - String titulo  
+            - double duracion  
+            - double precio  
+        }
+
+        class Usuario {  
+            - String correo  
+            - String nombreUsuario  
+    }
+
+        class Compra {  
+            - Date fecha  
+        }
+
+        Album *-- Cancion  
+        Usuario "1" --> "N" Compra  
+        Compra "N" o-- "N" Cancion  
+        Compra "N" o-- "N" Album
+```
+
+## 20. Otro ejemplo de diagrama de clases completo
 
 El dueño de un hotel pide a desarrollar un programa para consultar sobre las habitaciones disponibles y reservar habitaciones de su hotel..
 El hotel posee tres tipos de habitaciones: simple, doble y matrimonial, y dos tipos de clientes: habituales y esporádicos. Una reserva almacena datos del cliente, de la habitación reservada, la fecha de comienzo y el número de días que será ocupada la habitación
 El recepcionista del hotel debe poder hacer la siguientes operaciones:
+
 - Obtener un listado de las habitaciones disponible de acuerdo a su tipo
 - Preguntar por el precio de una habitación de acuerdo a su tipo
 - Preguntar por el descuento ofrecido a los clientes habituales
