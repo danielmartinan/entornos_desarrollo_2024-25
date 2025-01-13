@@ -40,7 +40,9 @@
 - [21. Otro ejemplo de diagrama de clases completo](#21-otro-ejemplo-de-diagrama-de-clases-completo)
 
 <!-- /TOC -->
+
 ## 1. Introduccion
+
 En la sección anterior hemos visto cómo los diagramas de clases UML permiten representar las diferentes clases y sus relaciones en una representación de un problema del mundo real. A continuación, veremos todos los elementos involucrados en este tipo de diagramas.
 
 ## 2. Clases
@@ -146,6 +148,26 @@ classDiagram
     class Vehiculo
 
     Persona "1" -- "0..*" Vehiculo: posee
+```
+
+La cardinalidad también puede afectar a atributos o métodos. En algunas ocasiones, una clase tendrá como atributo una **colección** de elementos del mismo tipo (tipicamente de tipos primitivos: boolean, integer, String, ...). En otras ocasiones, un método de una clase puede recibir por parámetro una colección, o devolverla como retorno.
+
+```mermaid
+    classDiagram
+
+        note for Persona "Direcciones tiene exactamente 10 Strings
+        nick tiene desde 1 hasta un numero indefinido de String, 
+        y conexiones tiene un numero indeterminado de Date"
+
+        class Persona {
+            -direcciones :  String[10]
+            -nick : String[1..*]
+            -conexiones: Date[*]
+
+            +getConectionsLastMont() Date[*]
+            +setNewNicks(nicks String[1..*]) boolean
+        }
+
 ```
 
 ### 5.3. Navegabilidad
@@ -354,11 +376,11 @@ classDiagram
 
 - **Clase**: La clase `Empleado` tiene atributos como `nombre`, `puesto` y `salario`.  
 - **Relación Unaria**:  
-   * Un empleado puede supervisar a múltiples empleados (multiplicidad `0..*` en el lado supervisado).  
-   * Un empleado solo puede tener un supervisor directo (multiplicidad `1` en el lado supervisor).  
+   - Un empleado puede supervisar a múltiples empleados (multiplicidad `0..*` en el lado supervisado).  
+   - Un empleado solo puede tener un supervisor directo (multiplicidad `1` en el lado supervisor).  
 - **Métodos**:  
-   * `obtenerJefe()` permite consultar quién es el supervisor directo de un empleado.  
-   * `asignarJefe(jefe: Empleado)` establece la relación entre un empleado y su supervisor.
+   - `obtenerJefe()` permite consultar quién es el supervisor directo de un empleado.  
+   - `asignarJefe(jefe: Empleado)` establece la relación entre un empleado y su supervisor.
 
 **Casos de Uso Comunes:**
 
@@ -370,11 +392,11 @@ classDiagram
 
 1. **Multiplicidad**: Es fundamental definir correctamente las cardinalidades de la relación para reflejar la realidad del sistema.  
 2. **Restricciones**:  
-   * ¿Puede una instancia relacionarse consigo misma? Si no, esto debe especificarse.  
-   * ¿Hay límites en la profundidad de la jerarquía?  
+   - ¿Puede una instancia relacionarse consigo misma? Si no, esto debe especificarse.  
+   - ¿Hay límites en la profundidad de la jerarquía?  
 3. **Impacto en la Implementación**:  
-   * Se debe decidir cómo se representarán estas relaciones en el código (por ejemplo, como referencias en atributos).  
-   * Se debe manejar adecuadamente la validación de las relaciones para evitar ciclos o inconsistencias.
+   - Se debe decidir cómo se representarán estas relaciones en el código (por ejemplo, como referencias en atributos).  
+   - Se debe manejar adecuadamente la validación de las relaciones para evitar ciclos o inconsistencias.
 
 **Otro Ejemplo: Productos Relacionados:**
 
@@ -394,18 +416,19 @@ classDiagram
 
 En este caso:
 
-* La relación es bidireccional, pero sigue siendo unaria.  
-* Un producto puede estar relacionado con muchos otros productos.
+- La relación es bidireccional, pero sigue siendo unaria.  
+- Un producto puede estar relacionado con muchos otros productos.
 
 ## 6. Herencia (generalización)
 
 La herencia es una relación jerárquica que permite que una clase (hija) herede los atributos y métodos de otra clase (padre). En UML, se representa con una flecha con punta vacía 
 
-```mermaid     
+```mermaid
     classDiagram 
     direction LR
         Padre <|-- Hijo
 ``` 
+
 que apunta de la clase hija a la clase padre.
 
 Ejemplo UML:
@@ -434,6 +457,7 @@ classDiagram
 Animal es la clase base, y Perro y Gato heredan sus atributos y métodos.
 
 ## 7. Composición
+
 La composición es una relación de "todo-parte" fuerte. Las partes no pueden existir sin el "todo". Se representa con un **rombo sólido** en el extremo del "todo".
 
 Ejemplo UML:
@@ -457,6 +481,7 @@ classDiagram
 Si una Casa es destruida, sus Habitacion también lo serán.
 
 ## 8. Agregación
+
 La agregación es una relación de "todo-parte" débil, donde las partes pueden existir de forma independiente. Se representa con un **rombo vacío** en el extremo del "todo".
 
 Ejemplo UML:
@@ -544,10 +569,10 @@ classDiagram
 
 **Composición:**
 
-* Es un tipo especial de asociación que representa una relación **"todo-parte" fuerte.**  
-* **Implica propiedad.** El objeto "todo" posee las partes, y las partes no pueden existir independientemente del "todo".  
-* El ciclo de vida de las partes está **estrechamente ligado** al ciclo de vida del "todo". Si el "todo" se destruye, sus partes también lo hacen.  
-* **Ejemplo:** Una clase `Casa` tiene objetos `Habitación`. Las habitaciones no tienen sentido fuera de la casa.
+- Es un tipo especial de asociación que representa una relación **"todo-parte" fuerte.**  
+- **Implica propiedad.** El objeto "todo" posee las partes, y las partes no pueden existir independientemente del "todo".  
+- El ciclo de vida de las partes está **estrechamente ligado** al ciclo de vida del "todo". Si el "todo" se destruye, sus partes también lo hacen.  
+- **Ejemplo:** Una clase `Casa` tiene objetos `Habitación`. Las habitaciones no tienen sentido fuera de la casa.
 
 ```mermaid
 classDiagram
@@ -563,9 +588,9 @@ classDiagram
 
 **Dependencia:**
 
-* Representa una relación muy débil y temporal, no una relación estructural.**  
-* Los ciclos de vida son del todo independientes.  
-* **Ejemplo:** Una clase `Impresora` depende de la clase `Documento` para imprimir un archivo. Sin embargo, la `Impresora` no "posee" ni tiene un atributo del tipo `Documento`. Simplemente usa la instancia del documento temporalmente.
+- Representa una relación muy débil y temporal, no una relación estructural.
+- Los ciclos de vida son del todo independientes.  
+- **Ejemplo:** Una clase `Impresora` depende de la clase `Documento` para imprimir un archivo. Sin embargo, la `Impresora` no "posee" ni tiene un atributo del tipo `Documento`. Simplemente usa la instancia del documento temporalmente.
 
 ```mermaid
 classDiagram
@@ -583,7 +608,7 @@ classDiagram
     Impresora ..> Documento : "depende"
 ```
 
-**Resumen de diferencias**
+**Resumen de diferencias:**
 
 | Característica | Asociación | Agregación | Composición | Dependencia |
 | ----- | ----- | ----- | ----- | ----- |
@@ -596,6 +621,7 @@ classDiagram
 La diferencia clave, por tanto, es que **la asociación no implica propiedad ni ciclo de vida compartido**, mientras que la agregación y la composición representan relaciones "todo-parte" con diferente grado de acoplamiento
 
 ## 11. Interfaces
+
 Una interfaz define un conjunto de métodos que una clase debe implementar. En UML, se representa como una clase con el nombre en cursiva o precedido de `<<interface>>`.
 
 Ejemplo UML:
@@ -618,7 +644,6 @@ classDiagram
 ```
 
 En el ejemplo, `Volador` define un contrato que `Avion` y `Pajaro` deben cumplir al implementar el método `volar`.
-
 
 A diferencia de en la herencia, cuando una clase implementa los métodos de una interfaz, hablamos de una relación de "realización" y utilizamos una flecha con punta vacía y con línea discontinua.
 
@@ -651,6 +676,7 @@ classDiagram
 `Forma` es una clase abstracta, y sus subclases (`Circulo` y `Cuadrado`) deben implementar el método `dibujar`.
 
 ## 13. Enumeradores
+
 Los enumeradores se definen mediante la anotacion `<<Enumeration>>` de la siguiente manera:
 
 ```mermaid
@@ -671,6 +697,7 @@ classDiagram
 ```
 
 ## 14. Métodos y atributos estáticos y atributos constantes
+
 Los métodos y atributos estáticos son aquellos que pertenecen a la clase y no a sus isntancias (objetos). En los diagramas UML, se representan con un <u>subrayado</u>. Por su parte, UML **no contempla** el uso de constantes en sus diagramas. Sin embargo, podemos definir los atributos constantes utilizando letras mayúsculas.
 
 ```mermaid
@@ -681,19 +708,17 @@ classDiagram
     }
 ```
 
-
-
 ## 15. Resumen de simbología para la representación de relaciones
 
 | Tipo de Relación | Descripción | Símbolo en UML |
-| ----- | ----- | ----- | 
+| ----- | ----- | ----- |
 | **Asociación** | Relación entre clases que indica una conexión lógica. | Línea simple o flecha para navegabilidad. |
 | **Asociación Unidireccional** | Una clase conoce a otra, pero no viceversa. | Flecha simple `→`. |
-| **Asociación Bidireccional** | Ambas clases se conocen mutuamente. | Línea sin flechas (o flechas en ambos extremos). | 
-| **Agregación** | Relación "todo-parte" débil. Las partes pueden existir independientemente. | Línea con rombo vacío en el lado del "todo". | 
+| **Asociación Bidireccional** | Ambas clases se conocen mutuamente. | Línea sin flechas (o flechas en ambos extremos). |
+| **Agregación** | Relación "todo-parte" débil. Las partes pueden existir independientemente. | Línea con rombo vacío en el lado del "todo". |
 | **Composición** | Relación "todo-parte" fuerte. Las partes no pueden existir sin el "todo". | Línea con rombo lleno en el lado del "todo". |
-| **Herencia (Generalización)** | Relación jerárquica donde una clase hija hereda de una clase padre. | Flecha con punta vacía apuntando al padre. | 
-| **Realización (Interfaces)** | Una clase implementa los métodos definidos en una interfaz. | Línea discontinua con punta vacía apuntando a la interfaz. | 
+| **Herencia (Generalización)** | Relación jerárquica donde una clase hija hereda de una clase padre. | Flecha con punta vacía apuntando al padre. |
+| **Realización (Interfaces)** | Una clase implementa los métodos definidos en una interfaz. | Línea discontinua con punta vacía apuntando a la interfaz. |
 | **Dependencia** | Una clase utiliza temporalmente a otra (relación débil). | Línea discontinua con punta abierta. |
 
 Ejemplo UML:
@@ -786,11 +811,12 @@ Rectangulo y Triangulo sobrescriben este método, permitiendo un comportamiento 
 
 En los diagramas de clases UML, las **notas** son un elemento visual y textual utilizado para proporcionar información adicional sobre los elementos del modelo. No afectan directamente al diseño estructural o la lógica del sistema, pero son fundamentales para documentar y clarificar aspectos que no pueden ser representados formalmente en el diagrama. Esto incluye decisiones de diseño, explicaciones de restricciones, ejemplos de uso o cualquier información que facilite la comprensión del modelo.
 
-Se representan como un rectángulo con la esquina superior derecha doblada (parecida a un post-it).  
-* Se utiliza para adjuntar comentarios, explicaciones o restricciones adicionales a uno o varios elementos del diagrama.  
-* Las notas no tienen un impacto directo en la implementación del sistema; su función es puramente descriptiva.
-* Puede estar conectado a uno o más elementos con una línea discontinua.  
-* Contienen un bloque de texto que describe la nota. El texto puede incluir comentarios en lenguaje natural o expresiones formales (como restricciones en OCL \- *Object Constraint Language*).
+Se representan como un rectángulo con la esquina superior derecha doblada (parecida a un post-it).
+
+- Se utiliza para adjuntar comentarios, explicaciones o restricciones adicionales a uno o varios elementos del diagrama.  
+- Las notas no tienen un impacto directo en la implementación del sistema; su función es puramente descriptiva.
+- Puede estar conectado a uno o más elementos con una línea discontinua.  
+- Contienen un bloque de texto que describe la nota. El texto puede incluir comentarios en lenguaje natural o expresiones formales (como restricciones en OCL \- *Object Constraint Language*).
 
 **Propósito de las Notas:**
 
@@ -799,7 +825,6 @@ Se representan como un rectángulo con la esquina superior derecha doblada (pare
 3. **Explicaciones de relaciones**: Aclaran el propósito o la naturaleza de una relación entre clases.  
 4. **Ejemplos de uso**: Ofrecen ejemplos concretos de cómo una clase, atributo o método es utilizado.  
 5. **Tareas o recordatorios**: Indican elementos pendientes o en revisión dentro del diseño.
-
 
 ### 17.1. Tipos de Información en las Notas
 
@@ -864,18 +889,37 @@ classDiagram
 
 En UML, las restricciones permiten especificar reglas o condiciones que limitan el comportamiento o las relaciones entre los elementos. Estas se colocan entre llaves {} y se pueden asociar a elementos individuales, relaciones o diagramas completos. A continuación, se describen los principales tipos de restricciones que se pueden definir en UML
 
-- **Restricciones de cardinalidad**: como ya hemos visto anteriormente, limitan el número de instancias permitidas en una relación. Estas restricciones se aplican comúnmente en asociaciones.
+- **Restricciones de cardinalidad**: como ya hemos visto anteriormente, limitan el número de instancias permitidas en una relación. Estas restricciones se aplican comúnmente en asociaciones, pero también en atributos para colecciones de tipos primitivos (o su úso en los métodos).
 - **Restricciones de exclusividad**: Indican que dos relaciones son mutuamente excluyentes (no pueden existir simultáneamente).
 ![Restricción de exclusividad](img/ud04_2_XOR-constraint-between-two-associations.jpg)
-- **Restricciones de unicidad**: especifican que ciertos valores o relaciones deben ser únicos. En el caso de atributos, se suele indicar con el texto {id} despues del atributo.
-- **Restricciones de orden**: indican que las instancias de una relación deben estar ordenadas.
+- **Restricciones de unicidad**: especifican que ciertos valores o relaciones deben ser únicos. En el caso de atributos, se suele indicar con el texto "{id}" despues del atributo.
+
+    ```mermaid
+        classDiagram
+            class Persona {
+                - uuid : int "{id}"
+            }
+    ```
+
+- **Restricciones de orden**: indican que las instancias de una relación deben estar ordenadas. Se combinan con las restricciones de unicidad dentro de la propia colección, para indicar si en ésta, los elementos son ónicos y tienen un criterio de orden, o no.
+
+    ```mermaid
+    classDiagram
+    class Class {
+        - OrderedSet: Integer[*] <<unique, ordered>>
+        - Set: Integer[*] <<unique, unordered>>
+        - Sequence: Integer[*] <<nonunique, ordered>>
+        - Bag: Integer[*] <<nonunique, unordered>>
+    }
+    ```
+
 - **Restricciones de validación**: permiten definir condiciones más complejas para garantizar que ciertos atributos o relaciones cumplan requisitos específicos.
 - **Restricciones de dependencia**: limitan las relaciones de dependencia entre clases o componentes. Por ejemplo, una clase A depende de B solo bajo ciertas condiciones.
 - **Restricciones de composición**: especifican que una parte (componente) no puede pertenecer a más de un todo (composición).
 - **Restricciones de generalización**: limitan la participación en una jerarquía de herencia. Estas restricciones incluyen:
   - **Disjoint vs Overlapping**: Con `Disjoin`, Las subclases no pueden solaparse (una instancia pertenece a una sola subclase).
   - **Complete/Incomplete**: Con `Complete`, todas las instancias de la superclase deben pertenecer a alguna subclase (y por tanto, no a la clase padre).
-  ![](img/ud4_2_complete_disjoin.png)
+  ![Ejemplo de generalización completa/incompleta y disjunta/solapada](img/ud4_2_complete_disjoin.png)
 - **Restricciones de valores predeterminados**: Permiten definir valores iniciales para atributos o relaciones.
 
 Eejmplo con restricciones variadas:
@@ -884,7 +928,7 @@ Eejmplo con restricciones variadas:
 
 Ademas, también se pueden añadir **notas**, en un rectángulo con la esquina superior derecha doblada, donde podemos realizar descripciones en lenguaje natural de estas restricciones o aclaraciones.
 
-## 19. Cómo crear un diagrama de clases a partir de la descripción de un problema 
+## 19. Cómo crear un diagrama de clases a partir de la descripción de un problema
 
 Los diagramas de clases son herramientas esenciales en el desarrollo de software, ya que permiten estructurar y organizar los elementos principales de un sistema antes de pasar a la implementación. Crear un diagrama de clases a partir de una descripción requiere un proceso sistemático que garantice la correcta representación de las entidades, sus atributos, métodos y relaciones. Este apartado detalla los pasos necesarios para realizar este proceso, acompañados de un ejemplo práctico.
 
@@ -908,15 +952,15 @@ Una vez comprendido el problema, se identifican las clases principales a partir 
 
 **Ejemplo:**
 
-* Clases:  
-  * Libro  
-  * Usuario (Estudiante, Profesor)  
-  * Préstamo  
-* Atributos:  
-  * **Libro**: título, autor, ISBN, cantidadDisponible  
-  * **Estudiante**: identificador  
-  * **Profesor**: departamento  
-  * **Préstamo**: fechaInicio, fechaDevolución
+- Clases:  
+  - Libro  
+  - Usuario (Estudiante, Profesor)  
+  - Préstamo  
+- Atributos:  
+  - **Libro**: título, autor, ISBN, cantidadDisponible  
+  - **Estudiante**: identificador  
+  - **Profesor**: departamento  
+  - **Préstamo**: fechaInicio, fechaDevolución
 
 ### 19.3. Paso 3: Determinar las Relaciones entre las Clases
 
@@ -924,9 +968,9 @@ El siguiente paso consiste en identificar cómo se relacionan las clases entre s
 
 **Ejemplo:**
 
-* Relación 1: Un **Usuario** puede realizar múltiples **Préstamos**, pero cada préstamo está asociado a un único usuario (relación 1 a N).  
-* Relación 2: Cada **Préstamo** está asociado a un único **Libro**, pero un libro puede ser prestado múltiples veces (relación 1 a N).  
-* Relación 3: Los **Estudiantes** y **Profesores** son tipos específicos de usuarios (herencia).
+- Relación 1: Un **Usuario** puede realizar múltiples **Préstamos**, pero cada préstamo está asociado a un único usuario (relación 1 a N).  
+- Relación 2: Cada **Préstamo** está asociado a un único **Libro**, pero un libro puede ser prestado múltiples veces (relación 1 a N).  
+- Relación 3: Los **Estudiantes** y **Profesores** son tipos específicos de usuarios (herencia).
 
 ### 19.4. Paso 4: Definir Métodos y Comportamientos
 
@@ -934,9 +978,9 @@ Con las relaciones definidas, se identifican los métodos principales de cada cl
 
 **Ejemplo:**
 
-* **Usuario**: realizarPréstamo()  
-* **Libro**: actualizarCantidadDisponible()  
-* **Préstamo**: calcularDuración()
+- **Usuario**: realizarPréstamo()  
+- **Libro**: actualizarCantidadDisponible()  
+- **Préstamo**: calcularDuración()
 
 ### 19.5. Paso 5: Representar el Diagrama en Notación UML
 
@@ -989,14 +1033,14 @@ Una tienda de música en línea vende álbumes y permite a los usuarios registra
 
 1. Clases identificadas: Álbum, Canción, Usuario, Compra.  
 2. Atributos:  
-   * Álbum: título, artista, añoLanzamiento.  
-   * Canción: título, duración, precio.  
-   * Usuario: correo, nombreUsuario.  
-   * Compra: fecha.  
+   - Álbum: título, artista, añoLanzamiento.  
+   - Canción: título, duración, precio.  
+   - Usuario: correo, nombreUsuario.  
+   - Compra: fecha.  
 3. Relaciones:  
-   * Un álbum contiene varias canciones (composición).  
-   * Un usuario puede realizar varias compras (asociación 1 a N).  
-   * Cada compra incluye múltiples canciones o álbumes (agregación).
+   - Un álbum contiene varias canciones (composición).  
+   - Un usuario puede realizar varias compras (asociación 1 a N).  
+   - Cada compra incluye múltiples canciones o álbumes (agregación).
 
 **Diagrama:**
 

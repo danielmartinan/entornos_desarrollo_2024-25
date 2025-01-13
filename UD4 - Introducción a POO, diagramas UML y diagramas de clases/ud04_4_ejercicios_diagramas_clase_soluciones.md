@@ -1,8 +1,38 @@
-# Ejercicios de diagramas de clases
+# Soluciones propuestas a los ejercicios de diagramas de clases
 
-A continuación se plantean algunos ejercicios sobre la realización de diferentes diagramas de clases para realizar el diseño de diferentes sistemas informáticos.
+## Web de deportes
 
-## **RED SOCIAL**
+El periódico digital "Marca" quiere desarrollar un sistema para gestionar su contenido relacionado con deportes, equipos, competiciones y noticias. Este sistema permitirá a los administradores de la web organizar y actualizar la información de manera eficiente, y a los usuarios disfrutar de un acceso estructurado a las noticias y datos deportivos.
+
+Requisitos:
+
+- Deportes y competiciones: La web cubre diferentes deportes como fútbol, baloncesto, tenis, entre otros. Cada deporte tiene una lista de competiciones asociadas (por ejemplo, LaLiga, NBA, Roland Garros). En cada deporte, debemos poder consultar el número de competiciones vinculadas. Para cada competición, debemos poder agregar un equipo y listar los equipos participantes.
+- Equipos y jugadores: cada competición tiene varios equipos participantes. Un equipo tiene atributos como nombre, ciudad y estadio.
+Cada equipo tiene una plantilla de jugadores, con información como nombre, posición, número de camiseta y estadísticas (goles, asistencias, etc.). Cada equipo debe permitir añadir y eliminar jugadores de su plantilla, así como consultar las estadísticas agregadas de todos los jugadores. De cada jugador nos interesa también poder acceder a sus estadísticas específicas.
+- Noticias: el sistema debe permitir gestionar noticias relacionadas con deportes, equipos o jugadores específicos. Cada noticia tiene un título, un contenido, una fecha de publicación y etiquetas relacionadas (por ejemplo, "Fútbol", "Real Madrid"). Una noticia puede referirse a múltiples equipos o jugadores. Debemos poder añadir o eliminar las etiquetas de una noticia.
+- Usuarios y comentarios: Los usuarios pueden registrarse en la web para comentar en las noticias. Un usuario tiene atributos como nombre, correo electrónico, contraseña y fecha de registro. Cada comentario pertenece a un usuario y a una noticia específica, y tiene una fecha y contenido. Un usuario debe poder eliminar un comentario realizado.
+- Funciones de Administración: los administradores pueden añadir o eliminar deportes, competiciones, equipos, jugadores y noticias.
+Los administradores tienen atributos como nombre, correo y rol. 
+- Operaciones esperadas del sistema:
+  - Listar noticias por deporte, equipo o jugador.
+  - Buscar noticias por palabra clave en el título o contenido.
+  - Mostrar estadísticas de un equipo o jugador específico.
+  - Gestionar usuarios (añadir, editar, eliminar) y comentarios ofensivos.
+
+Tarea: diseña un diagrama de clases UML que modele el sistema descrito. Tu modelo debe:
+
+- Identificar las clases principales y sus atributos.
+- Definir las relaciones entre las clases (asociaciones, agregaciones o composiciones según corresponda).
+- Indicar la multiplicidad en cada relación.
+- (Opcional) Añadir métodos principales a las clases si es relevante para clarificar su propósito.
+
+Consideraciones:
+
+- Piensa en la extensibilidad del sistema: ¿Cómo se podrían agregar nuevos deportes o tipos de contenido?
+- Usa abstracciones si es necesario (por ejemplo, clases genéricas para contenido).
+- Diseña el modelo para facilitar operaciones futuras, como estadísticas avanzadas o integración con redes sociales.
+
+## Red social
 
 Crear un diagrama de clases que permita modelar un sistema que sirva para simular el funcionamiento de una red social, teniendo en cuenta lo siguiente:
 
@@ -14,7 +44,7 @@ Crear un diagrama de clases que permita modelar un sistema que sirva para simula
 - Además, cada usuario puede tener una lista de usuarios bloqueados a fin de que no puedan contactar con él
 - Los usuarios pueden publicar en la red comentarios, los cuales se puede hacer que los vea todo el mundo, que los vea uno o varios de los grupos de contactos del usuario o bien una lista concreta de usuarios. Los comentarios pueden incluir un texto y una imagen.
 
-## **EMPRESA DE COMIDAS**
+## Empresa de comidas
 
 Crear un diagrama de clases para una empresa de comidas. En la base de datos tienen que figurar:
 
@@ -30,9 +60,9 @@ Crear un diagrama de clases para una empresa de comidas. En la base de datos tie
 - Cada pinche está a cargo de un cocinero o cocinera.
 - La cantidad de ingredientes en cada estantería de un almacén se actualiza en la base de datos al instante. Si cogemos dos ajos de un estante, figurará al instante que tenemos dos ajos menos en ese estante. Es necesario por lo tanto saber los ingredientes (cuáles y en qué número) que tenemos en cada estante.
 
-## **EMPRESA DE SOFTWARE**
+## Empresa de software
 
-Realizar un diagrama de clases que permita modelar el sistema de información de una empresa de software atendiendo las siguientes premisas 
+Realizar un diagrama de clases que permita modelar el sistema de información de una empresa de software atendiendo las siguientes premisas:
 
 - La empresa crea proyectos para otras empresas. De dichas empresas se almacena el CIF, nombre, dirección y teléfono así como un código interno de empresa. 
 - Los proyectos se inician en una determinada fecha y finalizan en otra. Además al planificarle se almacena la fecha prevista de finalización (que puede no coincidir con la finalización real)
@@ -44,7 +74,7 @@ Realizar un diagrama de clases que permita modelar el sistema de información de
 - Todos los trabajadores han participado en algún proyecto
 - En la base de datos, la profesión “administrador de diseño” no la ha desempeñado todavía ningún trabajador o trabajadora 
 
-## **VUELOS**
+## Vuelos
 
 Crear el diagrama de clases que permita gestionar reservas de vuelos, de modo que:
 
@@ -55,9 +85,9 @@ Crear el diagrama de clases que permita gestionar reservas de vuelos, de modo qu
 - Los aeropuertos poseen un código único, además del nombre y la localidad y el país en el que se encuentran
 - Se guarda información sobre los aviones, código y número de plazas. Los vuelos sólo les puede realizar un avión determinado, pero el mismo avión puede realizar (como es lógico) otros vuelos
 
-## **ACCIDENTES GEOGRÁFICOS**
+## Accidentes geográficos
 
-Realizar un diagrama de clases que sirva para almacenar información geográfica. Para ello hay que tener en cuenta 
+Realizar un diagrama de clases que sirva para almacenar información geográfica. Para ello hay que tener en cuenta:
 
 - Se almacenan los siguientes accidentes geográficos: ríos, lagos y montañas
 - De cada accidente se almacenan su posición horizontal y vertical según el eje de la tierra, además de su nombre
@@ -65,7 +95,7 @@ Realizar un diagrama de clases que sirva para almacenar información geográfica
 - Se almacena también información sobre cada país, su nombre, su extensión y su población
 - Se desea almacenar información que permite saber en qué país está cada accidente geográfico, teniendo en cuenta que cada accidente puede estar en más de un país.
 
-## **HORARIO ESCOLAR**
+## Horario escolar
 
 Crear un diagrama de clases que represente el funcionamiento de un centro escolar de formación profesional, teniendo en cuenta que:
 
@@ -83,7 +113,7 @@ Complicamos el esquema anterior en este sentido
 - Siendo más realistas, nos damos cuenta de que en un curso escolar, puede haber varios profesores responsables de una asignatura (por bajas, ceses, etc.); por lo que anotamos cuándo empezó a impartir dicho profesor la asignatura y cuando terminó (si no ha terminado, se dejaría vacío)
 - Asegurar que podemos averiguar gracias al diseño, que si buscamos a un profesor un día concreto (por ejemplo el 13 de Mayo de 2012\) a una hora concreta (sexta hora), podríamos saber en qué aula va a estar.
 
-## **INMUEBLES**
+## Inmuebles
 
 Crear un diagrama de clases que permita modelar un sistema que sirva para gestionar una empresa que posee inmuebles.  Para ello 
 
@@ -100,7 +130,7 @@ Crear un diagrama de clases que permita modelar un sistema que sirva para gestio
 - Al alquilar queremos saber el nombre del agente de la empresa que gestionó el alquiler así como a qué persona (solo una) estamos alquilando el inmueble.
 - Cada pago de cada alquiler será almacenado en la base de datos, llevando el año, el mes y el valor del mismo. 
 
-## **OLIMPIADAS**
+## Olimpiadas
 
 Las sedes olímpicas se dividen en complejos deportivos. Los complejos deportivos se subdividen en aquellos en los que se desarrolla un único deporte y en los polideportivos. Los complejos polideportivos tienen áreas designadas para cada deporte con un indicador de localización (ejemplo: centro, esquinaNE, etc.). Un complejo tiene una localización, un jefe de organización individual y un área total ocupada.
 
