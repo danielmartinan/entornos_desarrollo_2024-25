@@ -599,7 +599,7 @@ Ejemplo UML:
 classDiagram
     class Volador {
         <<interface>>
-        +volar() void
+        +volar() void*
     }
 
     class Avion {
