@@ -24,15 +24,20 @@
 - [14. Métodos y atributos estáticos y atributos constantes](#14-métodos-y-atributos-estáticos-y-atributos-constantes)
 - [15. Resumen de simbología para la representación de relaciones](#15-resumen-de-simbología-para-la-representación-de-relaciones)
 - [16. Polimorfismo](#16-polimorfismo)
-- [17. Restricciones (constraints)](#17-restricciones-constraints)
-- [18. Cómo crear un diagrama de clases a partir de la descripción de un problema](#18-cómo-crear-un-diagrama-de-clases-a-partir-de-la-descripción-de-un-problema)
-  - [18.1. Paso 1: Comprender la Descripción del Problema](#181-paso-1-comprender-la-descripción-del-problema)
-  - [18.2. Paso 2: Identificar Clases y Atributos](#182-paso-2-identificar-clases-y-atributos)
-  - [18.3. Paso 3: Determinar las Relaciones entre las Clases](#183-paso-3-determinar-las-relaciones-entre-las-clases)
-  - [18.4. Paso 4: Definir Métodos y Comportamientos](#184-paso-4-definir-métodos-y-comportamientos)
-  - [18.5. Paso 5: Representar el Diagrama en Notación UML](#185-paso-5-representar-el-diagrama-en-notación-uml)
-- [19. Ejemplo Práctico: Resolviendo un Problema](#19-ejemplo-práctico-resolviendo-un-problema)
-- [20. Otro ejemplo de diagrama de clases completo](#20-otro-ejemplo-de-diagrama-de-clases-completo)
+- [17. Notas en UML](#17-notas-en-uml)
+  - [17.1. Tipos de Información en las Notas](#171-tipos-de-información-en-las-notas)
+  - [17.2. Uso de Notas con Restricciones Formales (OCL)](#172-uso-de-notas-con-restricciones-formales-ocl)
+  - [17.3. Ejemplo de Notas en Diagramas UML](#173-ejemplo-de-notas-en-diagramas-uml)
+  - [17.4. Buenas Prácticas al Usar Notas](#174-buenas-prácticas-al-usar-notas)
+- [18. Restricciones (constraints)](#18-restricciones-constraints)
+- [19. Cómo crear un diagrama de clases a partir de la descripción de un problema](#19-cómo-crear-un-diagrama-de-clases-a-partir-de-la-descripción-de-un-problema)
+  - [19.1. Paso 1: Comprender la Descripción del Problema](#191-paso-1-comprender-la-descripción-del-problema)
+  - [19.2. Paso 2: Identificar Clases y Atributos](#192-paso-2-identificar-clases-y-atributos)
+  - [19.3. Paso 3: Determinar las Relaciones entre las Clases](#193-paso-3-determinar-las-relaciones-entre-las-clases)
+  - [19.4. Paso 4: Definir Métodos y Comportamientos](#194-paso-4-definir-métodos-y-comportamientos)
+  - [19.5. Paso 5: Representar el Diagrama en Notación UML](#195-paso-5-representar-el-diagrama-en-notación-uml)
+- [20. Ejemplo Práctico: Resolviendo un Problema](#20-ejemplo-práctico-resolviendo-un-problema)
+- [21. Otro ejemplo de diagrama de clases completo](#21-otro-ejemplo-de-diagrama-de-clases-completo)
 
 <!-- /TOC -->
 ## 1. Introduccion
@@ -777,7 +782,85 @@ public class PolimorfismoDemo {
 La clase base Figura define un método dibujar.
 Rectangulo y Triangulo sobrescriben este método, permitiendo un comportamiento distinto en tiempo de ejecución.
 
-## 17. Restricciones (constraints)
+## 17. Notas en UML
+
+En los diagramas de clases UML, las **notas** son un elemento visual y textual utilizado para proporcionar información adicional sobre los elementos del modelo. No afectan directamente al diseño estructural o la lógica del sistema, pero son fundamentales para documentar y clarificar aspectos que no pueden ser representados formalmente en el diagrama. Esto incluye decisiones de diseño, explicaciones de restricciones, ejemplos de uso o cualquier información que facilite la comprensión del modelo.
+
+Se representan como un rectángulo con la esquina superior derecha doblada (parecida a un post-it).  
+* Se utiliza para adjuntar comentarios, explicaciones o restricciones adicionales a uno o varios elementos del diagrama.  
+* Las notas no tienen un impacto directo en la implementación del sistema; su función es puramente descriptiva.
+* Puede estar conectado a uno o más elementos con una línea discontinua.  
+* Contienen un bloque de texto que describe la nota. El texto puede incluir comentarios en lenguaje natural o expresiones formales (como restricciones en OCL \- *Object Constraint Language*).
+
+**Propósito de las Notas:**
+
+1. **Documentación adicional**: Permiten anotar decisiones de diseño que no son evidentes en el diagrama.  
+2. **Restricciones**: Expresan reglas o condiciones específicas (por ejemplo, "El precio no puede ser negativo").  
+3. **Explicaciones de relaciones**: Aclaran el propósito o la naturaleza de una relación entre clases.  
+4. **Ejemplos de uso**: Ofrecen ejemplos concretos de cómo una clase, atributo o método es utilizado.  
+5. **Tareas o recordatorios**: Indican elementos pendientes o en revisión dentro del diseño.
+
+
+### 17.1. Tipos de Información en las Notas
+
+1. **Comentarios generales**:  
+   `Nota: Esta clase puede ampliarse en el futuro para incluir más tipos de habitaciones.`
+2. **Restricciones de diseño**:  
+   ``Restricción: El atributo `edad` debe ser mayor o igual a 18.``
+3. **Ejemplo de uso**:  
+   ``Ejemplo: Para reservar una habitación, primero llame al método `verDisponibilidad()`.``
+4. **Decisiones de diseño**:  
+   `Decisión: Se usó agregación en lugar de composición para permitir mayor flexibilidad en la relación.`
+
+### 17.2. Uso de Notas con Restricciones Formales (OCL)
+
+En UML, es común usar las notas para expresar restricciones formales utilizando OCL (Object Constraint Language). Estas restricciones añaden condiciones específicas sobre atributos o relaciones.
+
+**Ejemplo de Restricción Formal en OCL**:
+
+```plaintext
+    context Cliente
+    inv: self.edad >= 18
+```
+
+Esta restricción indica que la edad de un cliente debe ser mayor o igual a 18.
+
+### 17.3. Ejemplo de Notas en Diagramas UML
+
+```mermaid
+classDiagram
+    direction TD
+    
+    %% Nota general sobre el diagrama
+    note "Este diagrama modela la relación entre clientes y habitaciones en un hotel."
+
+    class Cliente {
+        +String nombre
+        +int edad
+        +reservarHabitacion()
+    }
+
+    class Habitacion {
+        +int numero
+        +double precio
+        +reservar()
+    }
+
+    %% Nota conectada a un elemento
+    note for Cliente "Los clientes deben tener al menos 18 años para realizar una reserva."
+
+    %% Nota sobre una restricción
+    note for Habitacion "El precio debe ser mayor a cero."
+```
+
+### 17.4. Buenas Prácticas al Usar Notas
+
+1. **Sé claro y conciso**: Evita saturar el diagrama con texto innecesario.  
+2. **Ubicación estratégica**: Coloca las notas cerca de los elementos relacionados para evitar confusión.  
+3. **Línea discontinua**: Conecta las notas a los elementos relevantes para mostrar la relación.  
+4. **Uso moderado**: Usa las notas solo cuando sea estrictamente necesario. Si son demasiadas, considera documentar los detalles en una especificación aparte.
+
+## 18. Restricciones (constraints)
 
 En UML, las restricciones permiten especificar reglas o condiciones que limitan el comportamiento o las relaciones entre los elementos. Estas se colocan entre llaves {} y se pueden asociar a elementos individuales, relaciones o diagramas completos. A continuación, se describen los principales tipos de restricciones que se pueden definir en UML
 
@@ -801,11 +884,11 @@ Eejmplo con restricciones variadas:
 
 Ademas, también se pueden añadir **notas**, en un rectángulo con la esquina superior derecha doblada, donde podemos realizar descripciones en lenguaje natural de estas restricciones o aclaraciones.
 
-## 18. Cómo crear un diagrama de clases a partir de la descripción de un problema 
+## 19. Cómo crear un diagrama de clases a partir de la descripción de un problema 
 
 Los diagramas de clases son herramientas esenciales en el desarrollo de software, ya que permiten estructurar y organizar los elementos principales de un sistema antes de pasar a la implementación. Crear un diagrama de clases a partir de una descripción requiere un proceso sistemático que garantice la correcta representación de las entidades, sus atributos, métodos y relaciones. Este apartado detalla los pasos necesarios para realizar este proceso, acompañados de un ejemplo práctico.
 
-### 18.1. Paso 1: Comprender la Descripción del Problema
+### 19.1. Paso 1: Comprender la Descripción del Problema
 
 El primer paso consiste en leer atentamente la descripción proporcionada y comprender el contexto del sistema que se desea modelar. Es fundamental identificar:
 
@@ -819,7 +902,7 @@ Una buena práctica es subrayar palabras clave relacionadas con clases (sustanti
 Descripción del problema: *“Una biblioteca administra libros y usuarios. Los libros tienen un título, autor, ISBN y una cantidad disponible. Los usuarios pueden ser estudiantes o profesores. Los estudiantes tienen un identificador único, y los profesores tienen un departamento asociado. Los usuarios pueden tomar libros en préstamo, y cada préstamo debe registrar la fecha de inicio y la fecha de devolución.”*
 
 
-### 18.2. Paso 2: Identificar Clases y Atributos
+### 19.2. Paso 2: Identificar Clases y Atributos
 
 Una vez comprendido el problema, se identifican las clases principales a partir de los sustantivos destacados. Luego, se determinan los atributos relevantes para cada clase.
 
@@ -835,7 +918,7 @@ Una vez comprendido el problema, se identifican las clases principales a partir 
   * **Profesor**: departamento  
   * **Préstamo**: fechaInicio, fechaDevolución
 
-### 18.3. Paso 3: Determinar las Relaciones entre las Clases
+### 19.3. Paso 3: Determinar las Relaciones entre las Clases
 
 El siguiente paso consiste en identificar cómo se relacionan las clases entre sí. Esto incluye asociaciones, agregaciones, composiciones y herencias. Se deben analizar las cardinalidades y la navegabilidad.
 
@@ -845,7 +928,7 @@ El siguiente paso consiste en identificar cómo se relacionan las clases entre s
 * Relación 2: Cada **Préstamo** está asociado a un único **Libro**, pero un libro puede ser prestado múltiples veces (relación 1 a N).  
 * Relación 3: Los **Estudiantes** y **Profesores** son tipos específicos de usuarios (herencia).
 
-### 18.4. Paso 4: Definir Métodos y Comportamientos
+### 19.4. Paso 4: Definir Métodos y Comportamientos
 
 Con las relaciones definidas, se identifican los métodos principales de cada clase, que representan las acciones o comportamientos mencionados en el problema.
 
@@ -855,7 +938,7 @@ Con las relaciones definidas, se identifican los métodos principales de cada cl
 * **Libro**: actualizarCantidadDisponible()  
 * **Préstamo**: calcularDuración()
 
-### 18.5. Paso 5: Representar el Diagrama en Notación UML
+### 19.5. Paso 5: Representar el Diagrama en Notación UML
 
 Con toda la información recopilada, se dibuja el diagrama utilizando notación UML. Se incluyen las clases, sus atributos y métodos, y las relaciones con las cardinalidades y navegabilidad correspondientes.
 
@@ -897,7 +980,7 @@ Con toda la información recopilada, se dibuja el diagrama utilizando notación 
         Prestamo "1" --> "1" Libro
 ```
 
-## 19. Ejemplo Práctico: Resolviendo un Problema
+## 20. Ejemplo Práctico: Resolviendo un Problema
 
 **Descripción:**  
 Una tienda de música en línea vende álbumes y permite a los usuarios registrarse para comprar canciones o álbumes completos. Los álbumes tienen un título, un artista y un año de lanzamiento. Las canciones tienen un título, una duración y un precio. Los usuarios registrados tienen un correo electrónico y un nombre de usuario. Los usuarios pueden realizar múltiples compras, y cada compra debe incluir la fecha y una lista de canciones o álbumes comprados.
@@ -946,7 +1029,7 @@ Una tienda de música en línea vende álbumes y permite a los usuarios registra
         Compra "N" o-- "N" Album
 ```
 
-## 20. Otro ejemplo de diagrama de clases completo
+## 21. Otro ejemplo de diagrama de clases completo
 
 El dueño de un hotel pide a desarrollar un programa para consultar sobre las habitaciones disponibles y reservar habitaciones de su hotel..
 El hotel posee tres tipos de habitaciones: simple, doble y matrimonial, y dos tipos de clientes: habituales y esporádicos. Una reserva almacena datos del cliente, de la habitación reservada, la fecha de comienzo y el número de días que será ocupada la habitación
