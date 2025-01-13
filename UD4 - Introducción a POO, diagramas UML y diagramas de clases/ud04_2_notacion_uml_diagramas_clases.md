@@ -671,7 +671,7 @@ Los métodos y atributos estáticos son aquellos que pertenecen a la clase y no 
 ```mermaid
 classDiagram
     class Utilidad {
-        -CONST_PI: double $
+        -CONST_PI: double = 3.1415 $
         +calcularAreaCirculo(radio: double) double $
     }
 ```
