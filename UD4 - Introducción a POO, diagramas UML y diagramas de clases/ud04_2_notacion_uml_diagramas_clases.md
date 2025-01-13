@@ -496,7 +496,7 @@ En este ejemplo, la clase `Pedido` depende de `Cliente` porque utiliza sus méto
 
 ## 10. ¿Cómo distinguir los diferentes tipos de relación?
 
-La **diferencia clave** entre una **asociación (clientela)** y una **agregación o composición** radica en la **naturaleza y la fuerza de la relación entre las clases involucradas**, particularmente en términos de propiedad y ciclo de vida.
+La **diferencia clave** entre una **asociación (clientela)**, una **agregación o composición** o una relación de dependencia radica en la **naturaleza y la fuerza de la relación entre las clases involucradas**, particularmente en términos de propiedad y ciclo de vida.
 
 **Asociación (Clientela):**
 
@@ -508,6 +508,7 @@ La **diferencia clave** entre una **asociación (clientela)** y una **agregació
 
 ```mermaid
 classDiagram
+    direction LR
     class Cliente {
         -nombre: String
     }
@@ -526,6 +527,7 @@ classDiagram
 
 ```mermaid
 classDiagram
+    direction LR
     class Profesor {
         -nombre: String
     }
@@ -544,6 +546,7 @@ classDiagram
 
 ```mermaid
 classDiagram
+    direction LR
     class Casa {
         -direccion: String
     }
@@ -552,15 +555,38 @@ classDiagram
     }
     Casa *-- Habitacion : contiene
 ```
+
+**Dependencia:**
+
+* Representa una relación muy débil y temporal, no una relación estructural.**  
+* Los ciclos de vida son del todo independientes.  
+* **Ejemplo:** Una clase `Impresora` depende de la clase `Documento` para imprimir un archivo. Sin embargo, la `Impresora` no "posee" ni tiene un atributo del tipo `Documento`. Simplemente usa la instancia del documento temporalmente.
+
+```mermaid
+classDiagram
+    direction LR
+    class Documento {
+        - String contenido
+        + Documento(contenido: String)
+        + getContenido(): String
+    }
+
+    class Impresora {
+        + imprimir(documento: Documento): void
+    }
+
+    Impresora ..> Documento : "depende"
+```
+
 **Resumen de diferencias**
 
-| Característica | Asociación | Agregación | Composición |
-| ----- | ----- | ----- | ----- |
-| **Propiedad** | No | Débil | Fuerte |
-| **Independencia** | Total | Parcial | Ninguna |
-| **Ciclo de vida** | Independiente | Relativamente débil | Dependiente |
-| **Fuerza de la relación** | Débil | Moderada | Fuerte |
-| **Ejemplo típico** | Cliente \- Pedido | Profesor \- Departamento | Casa \- Habitación |
+| Característica | Asociación | Agregación | Composición | Dependencia |
+| ----- | ----- | ----- | ----- | ----- |
+| **Propiedad** | No | Débil | Fuerte | No |
+| **Independencia** | Total | Parcial | Ninguna | Total |
+| **Ciclo de vida** | Independiente | Relativamente débil | Dependiente | Independiente |
+| **Fuerza de la relación** | Débil | Moderada | Fuerte | Muy débil |
+| **Ejemplo típico** | Cliente \- Pedido | Profesor \- Departamento | Casa \- Habitación | Clase \- Servicio |
 
 La diferencia clave, por tanto, es que **la asociación no implica propiedad ni ciclo de vida compartido**, mientras que la agregación y la composición representan relaciones "todo-parte" con diferente grado de acoplamiento
 
