@@ -11,8 +11,7 @@ Requisitos:
 Cada equipo tiene una plantilla de jugadores, con información como nombre, posición, número de camiseta y estadísticas (goles, asistencias, etc.). Cada equipo debe permitir añadir y eliminar jugadores de su plantilla, así como consultar las estadísticas agregadas de todos los jugadores. De cada jugador nos interesa también poder acceder a sus estadísticas específicas.
 - Noticias: el sistema debe permitir gestionar noticias relacionadas con deportes, equipos o jugadores específicos. Cada noticia tiene un título, un contenido, una fecha de publicación y etiquetas relacionadas (por ejemplo, "Fútbol", "Real Madrid"). Una noticia puede referirse a múltiples equipos o jugadores. Debemos poder añadir o eliminar las etiquetas de una noticia.
 - Usuarios y comentarios: Los usuarios pueden registrarse en la web para comentar en las noticias. Un usuario tiene atributos como nombre, correo electrónico, contraseña y fecha de registro. Cada comentario pertenece a un usuario y a una noticia específica, y tiene una fecha y contenido. Un usuario debe poder eliminar un comentario realizado.
-- Funciones de Administración: los administradores pueden añadir o eliminar deportes, competiciones, equipos, jugadores y noticias.
-Los administradores tienen atributos como nombre, correo y rol. 
+- Funciones de Administración: los administradores pueden añadir o eliminar deportes, competiciones, equipos, jugadores y noticias. Los administradores tienen atributos como nombre, correo y rol.
 - Operaciones esperadas del sistema:
   - Listar noticias por deporte, equipo o jugador.
   - Buscar noticias por palabra clave en el título o contenido.
@@ -36,7 +35,7 @@ Consideraciones:
 
 Crear un diagrama de clases que permita modelar un sistema que sirva para simular el funcionamiento de una red social, teniendo en cuenta lo siguiente:
 
-- Los usuarios de la red social se identifican con un identificador y una contraseña. Además, se almacena de ellos: 
+- Los usuarios de la red social se identifican con un identificador y una contraseña. Además, se almacena de ellos:
   - Su nombre, apellidos, dirección, teléfono (puede tener varios teléfonos) e e-mail (el email no tiene que poder coincidir con el de otro usuario) y una foto
 - Si los usuarios son celebridades, de ellos no aparecerá ni el email ni la dirección ni el teléfono.
 - Los usuarios pueden tener una serie de contactos, que en realidad son otros usuarios. De cada contacto se puede almacenar un comentario que es personal y que sirve para describir al contacto.
@@ -49,14 +48,14 @@ Crear un diagrama de clases que permita modelar un sistema que sirva para simula
 Crear un diagrama de clases para una empresa de comidas. En la base de datos tienen que figurar:
 
 - El nombre y apellidos de cada empleado, su dni y su número de SS además del teléfono fijo y el móvil
-- Algunos empleados/as son cocineros/as. De los cocineros y cocineras anotamos (además de los datos propios de cada empleado) sus años de servicio en la empresa. 
+- Algunos empleados/as son cocineros/as. De los cocineros y cocineras anotamos (además de los datos propios de cada empleado) sus años de servicio en la empresa.
 - Hay empleados/as que son pinches. De los y las pinches anotamos su fecha de nacimiento.
 - La mayoría de trabajadores no son ni pinches ni cocineros/as
 - En la base de datos figura cada plato (su nombre como “pollo a la carloteña”, “bacalo al pilpil”,…), el precio del plato junto con los ingredientes que lleva. Anotamos también si cada plato es un entrante, un primer plato, segundo plato o postre
-- De los ingredientes necesitamos la cantidad que necesitamos de él en cada plato y en qué almacén y estantería del mismo le tenemos. 
-- Cada almacén se tiene un nombre (despensa principal, cámara frigorífica A, cámara frigorífica B…), un número de almacén y una descripción del mismo. 
+- De los ingredientes necesitamos la cantidad que necesitamos de él en cada plato y en qué almacén y estantería del mismo le tenemos.
+- Cada almacén se tiene un nombre (despensa principal, cámara frigorífica A, cámara frigorífica B…), un número de almacén y una descripción del mismo.
 - Cada estante en el almacén se identifica con dos letras y un tamaño en centímetros. Dos almacenes distintos pueden tener dos estantes con las mismas letras.
-- Necesitamos también saber qué cocineros son capaces de preparar cada plato. 
+- Necesitamos también saber qué cocineros son capaces de preparar cada plato.
 - Cada pinche está a cargo de un cocinero o cocinera.
 - La cantidad de ingredientes en cada estantería de un almacén se actualiza en la base de datos al instante. Si cogemos dos ajos de un estante, figurará al instante que tenemos dos ajos menos en ese estante. Es necesario por lo tanto saber los ingredientes (cuáles y en qué número) que tenemos en cada estante.
 
@@ -64,15 +63,15 @@ Crear un diagrama de clases para una empresa de comidas. En la base de datos tie
 
 Realizar un diagrama de clases que permita modelar el sistema de información de una empresa de software atendiendo las siguientes premisas:
 
-- La empresa crea proyectos para otras empresas. De dichas empresas se almacena el CIF, nombre, dirección y teléfono así como un código interno de empresa. 
+- La empresa crea proyectos para otras empresas. De dichas empresas se almacena el CIF, nombre, dirección y teléfono así como un código interno de empresa.
 - Los proyectos se inician en una determinada fecha y finalizan en otra. Además al planificarle se almacena la fecha prevista de finalización (que puede no coincidir con la finalización real)
 - Los proyectos los realizan varios trabajadores, cada uno de ellos desempeña una determinada profesión en el proyecto (analista, jefe de proyecto, programador,…), dicha profesión tiene un código de profesión. En el mismo proyecto puede haber varios analistas, programadores,…
 - Todos los trabajadores tienen un código de trabajador, un dni, un nombre y apellidos. Su profesión puede cambiar según el proyecto: en uno puede ser jefe y en otro un programador
 - Se anota las horas que ha trabajado cada trabajador en cada proyecto.
 - Puede haber varios proyectos que comiencen el mismo día.
-- A todas las empresas les hemos realizado al menos un proyecto
-- Todos los trabajadores han participado en algún proyecto
-- En la base de datos, la profesión “administrador de diseño” no la ha desempeñado todavía ningún trabajador o trabajadora 
+- A todas las empresas les hemos realizado al menos un proyecto.
+- Todos los trabajadores han participado en algún proyecto.
+- En la base de datos, la profesión “administrador de diseño” no la ha desempeñado todavía ningún trabajador o trabajadora.
 
 ## Vuelos
 
@@ -102,7 +101,7 @@ Crear un diagrama de clases que represente el funcionamiento de un centro escola
 - Sólo interesa llevar el control de ocupación de las aulas en el horario escolar
 - El horario es de seis horas diarias y en la base de datos simplemente se anota si es la primera, segunda,… y el día de la semana del que hablamos (por ejemplo miércoles a tercera hora)
 - Las asignaturas tienen un nombre, un código interno del centro y un código europeo. La misma asignatura se puede impartir en dos ciclos distintos y en ese caso tendría el mismo código europeo y nombre, pero el código interno sería distinto. Hace falta saber en qué curso del ciclo se imparte la asignatura
-- Los ciclos tienen un nombre, pueden ser de grado superior,de grado medio o de iniciación profesional; además tienen otro código interno en el centro. 
+- Los ciclos tienen un nombre, pueden ser de grado superior,de grado medio o de iniciación profesional; además tienen otro código interno en el centro.
 - Las asignaturas en cada momento ocupan un aula, del que tenemos que almacenar un código de aula, un nombre (que no se repite), un número de aula (que tampoco se repite) y los metros que tiene. A una hora concreta de la semana, el aula puede estar vacia o bien ocuparse, pero sólo se puede ocupar por una asignatura
 - Necesitamos saber y anotar en la base de datos si una asignatura requiere que antes se hayan aprobado otras, para poder matricularse en ella. Por ejemplo, **Ampliación de Matemáticas de 2º** a lo mejor requiere aprobar **Matemáticas de 1º**. Puede requerirse terminar más de una asignatura previamente para poder matricularse de una concreta.
 - Se entiende que la asignatura sólo la puede impartir un profesor en todo el año, siempre será uno en todo momento el titular
@@ -111,24 +110,24 @@ Crear un diagrama de clases que represente el funcionamiento de un centro escola
 Complicamos el esquema anterior en este sentido
 
 - Siendo más realistas, nos damos cuenta de que en un curso escolar, puede haber varios profesores responsables de una asignatura (por bajas, ceses, etc.); por lo que anotamos cuándo empezó a impartir dicho profesor la asignatura y cuando terminó (si no ha terminado, se dejaría vacío)
-- Asegurar que podemos averiguar gracias al diseño, que si buscamos a un profesor un día concreto (por ejemplo el 13 de Mayo de 2012\) a una hora concreta (sexta hora), podríamos saber en qué aula va a estar.
+- Asegurar que podemos averiguar gracias al diseño, que si buscamos a un profesor un día concreto (por ejemplo el 13 de Mayo de 2012) a una hora concreta (sexta hora), podríamos saber en qué aula va a estar.
 
 ## Inmuebles
 
-Crear un diagrama de clases que permita modelar un sistema que sirva para gestionar una empresa que posee inmuebles.  Para ello 
+Crear un diagrama de clases que permita modelar un sistema que sirva para gestionar una empresa que posee inmuebles.  Para ello
 
 - Se almacenan los clientes usando su DNI, Teléfono fijo, Móvil, Nombre y Apellidos.
 - Se almacenan los trabajadores y se almacenan los mismos datos. Ocurre además que un trabajador puede ser un cliente (porque puede alquilar o comprar mediante la inmobiliaria) a veces.
 - A cada cliente y trabajador se le asigna un código personal
-- Los clientes pueden comprar pisos, locales o garajes. En los tres casos se almacena un código de inmueble (único para cada inmueble), los metros que tienen, una descripción y su  dirección. 
-- Los pisos tienen un código especial de piso que es distinto para cada piso. 
+- Los clientes pueden comprar pisos, locales o garajes. En los tres casos se almacena un código de inmueble (único para cada inmueble), los metros que tienen, una descripción y su  dirección.
+- Los pisos tienen un código especial de piso que es distinto para cada piso.
 - En los locales se indica el uso que puede tener y si tienen servicio o no.
 - De los garajes se almacena el número de garaje (podría repetirse en distintos edificios) y la planta en que se encuentra (para el caso de garajes que están en varias plantas). Los garajes además pueden asociarse a un piso y así cuando se alquile el piso se incluirá el garaje.
 - La empresa prevé que podría haber inmuebles que podrían no ser ni locales, ni garajes, ni pisos
-- Los inmuebles se pueden comprar. Incluso varias veces. Se asigna un código de compra cada vez que se haga, la fecha y el valor de la compra. La compra puede tener varios titulares. 
+- Los inmuebles se pueden comprar. Incluso varias veces. Se asigna un código de compra cada vez que se haga, la fecha y el valor de la compra. La compra puede tener varios titulares.
 - Cada inmueble se puede alquilar y en ese caso se asigna un número de alquiler por cada inmueble. Ese número se puede repetir en distintos inmuebles (es decir puede haber alquiler nº 18 para el inmueble 40 y el 35). Pero no se repite para el mismo inmueble.
 - Al alquilar queremos saber el nombre del agente de la empresa que gestionó el alquiler así como a qué persona (solo una) estamos alquilando el inmueble.
-- Cada pago de cada alquiler será almacenado en la base de datos, llevando el año, el mes y el valor del mismo. 
+- Cada pago de cada alquiler será almacenado en la base de datos, llevando el año, el mes y el valor del mismo.
 
 ## Olimpiadas
 
