@@ -7,6 +7,11 @@
   - [Herramientas Online y Colaborativas](#herramientas-online-y-colaborativas)
   - [Tabla resumen con las distintas herramientas de modelado UML](#tabla-resumen-con-las-distintas-herramientas-de-modelado-uml)
   - [Elección de la Herramienta Adecuada](#elección-de-la-herramienta-adecuada)
+- [Generación de diagramas de clases con draw.io](#generación-de-diagramas-de-clases-con-drawio)
+  - [Creación de un nuevo diagrama](#creación-de-un-nuevo-diagrama)
+  - [Operaciones básicas](#operaciones-básicas)
+  - [Exportar diagramas](#exportar-diagramas)
+  - [Uso de Draw.io sin conexión a internet](#uso-de-drawio-sin-conexión-a-internet)
 - [Cómo Generar Código a partir de un Diagrama de Clases](#cómo-generar-código-a-partir-de-un-diagrama-de-clases)
   - [Comprensión del Proceso de Generación de Código](#comprensión-del-proceso-de-generación-de-código)
   - [Ejemplo Práctico de Generación de Código](#ejemplo-práctico-de-generación-de-código)
@@ -68,6 +73,125 @@ En un mundo cada vez más colaborativo, las herramientas en línea como **[Lucid
 La elección de una herramienta para diagramas de clases depende de varios factores, como el alcance del proyecto, el nivel de experiencia del usuario y las funcionalidades requeridas. Mientras que herramientas genéricas como Draw.io o Visio pueden ser suficientes para diagramas básicos, proyectos más complejos pueden beneficiarse de soluciones especializadas como Visual Paradigm o StarUML. Por otro lado, desarrolladores interesados en automatizar y documentar sus proyectos pueden encontrar en PlantUML y Mermaid herramientas que se ajusten a sus necesidades.
 
 En cualquier caso, conocer las fortalezas y limitaciones de cada herramienta es clave para seleccionar la que mejor se adapte a las necesidades del proyecto y del equipo.
+
+## Generación de diagramas de clases con draw.io
+
+Draw.io (ahora conocido como diagrams.net) es una herramienta de diagramación versátil y gratuita que permite crear una amplia variedad de diagramas, desde diagramas de flujo y mapas mentales hasta diagramas UML y diagramas de clases. Su interfaz intuitiva y su compatibilidad con aplicaciones en la nube como Google Drive y OneDrive lo hacen ideal tanto para principiantes como para usuarios avanzados.
+
+### Creación de un nuevo diagrama
+
+#### Desde cero
+1. Abre Draw.io en [su versión web](https://app.diagrams.net/) o la aplicación de escritorio.
+2. Selecciona **"Crear nuevo diagrama"**.
+3. Elige una plantilla o selecciona **"Blanco"** para empezar desde cero.
+4. Guarda el archivo en tu ubicación preferida (en la nube, en servicios cono oneDrive o Google Drive, o local).
+
+#### Desde un archivo existente
+1. Ve a **Archivo > Abrir desde**.
+2. Selecciona el origen del archivo: Google Drive, OneDrive, local o URL.
+3. Navega hasta el archivo que deseas abrir y cárgalo en Draw.io.
+
+#### Desde una plantilla
+1. En el menú principal, selecciona **"Crear nuevo diagrama"**.
+2. Explora las plantillas disponibles en las categorías como "Flujo de trabajo", "Red", "UML", entre otras.
+3. Selecciona la plantilla que mejor se adapte a tus necesidades y personalízala.
+
+### Operaciones básicas
+
+#### Añadir figuras
+
+1. En el panel izquierdo, selecciona una figura de las bibliotecas disponibles (rectángulos, óvalos, etc.).
+2. Arrástrala al lienzo y suéltala en la ubicación deseada.
+3. Puedes utilizar la barra de búsqueda para encontrar figuras específicas.
+
+Para crear los diagramas de clases, navega hasta la sección UML, despliegala, y encontrarás los bloques básicos necesarios (clases con atributos y métodos, clases vacías, interfaces, y atributos adicionales).
+
+![Captura bloques UML en drawio](/UD4%20-%20Introducción%20a%20POO,%20diagramas%20UML%20y%20diagramas%20de%20clases/img/ud04_3_drawio_bloques_uml.png)
+
+Pulsa el botón "+ Más formas" en la parte inferior izquierda de la pantalla y explora todos los bloques que, de manera nativa, proporciona draw.io.
+
+#### Modificar propiedades de las figuras
+
+1. Haz clic en la figura para seleccionarla.
+2. Usa el panel derecho para:
+   - Cambiar el color de relleno, borde y sombra.
+   - Ajustar el tamaño y la posición.
+   - Modificar el texto dentro de la figura.
+
+#### Añadir flechas
+
+Puedes añadir flechas desde el panel izquierdo (categoría "General"), o, directamente, ubicando el cursor en los extremos del bloque (laterales, parte superior, o parte inferior); aparecerán unas flechas, y al hacer click en ellas, aparecerá una flecha conectada al bloque y que podrás conectar a otro bloque o dejar sin conectar.
+
+![Crear flecha desde bloque](./img/ud04_3_drawio_crear_flecha_desde_bloque.png)
+![Flecha creada desde bloque](./img/ud04_3_drawio_flecha_creada_desde_bloque.png)
+
+#### Modificar flechas y conexiones
+
+1. Selecciona la flecha para:
+   - Cambiar su estilo (continuo, punteado, etc.).
+   - Cambiar su forma (recta, angulosa, curva...)
+   - Ajustar el tipo de punta (flecha, rombo, triángulo, etc.).
+   - Añadir texto descriptivo sobre la flecha. Haz doble click sobre ella y podrás introducir un texto.
+
+#### Agrupar y alinear
+
+- **Agrupar:** Selecciona varias figuras, haz clic derecho y elige **Agrupar**. Esto creará un único "ente" que podrás mover sin que los bloques se desalineen.
+- **Alinear:** Usa las guías automáticas o el menú de alineación para distribuir uniformemente los elementos.
+
+#### Creación de clases
+
+1. Usa el bloque de **Clase** disponible en la biblioteca UML.
+2. Define los atributos y métodos dentro del bloque de la clase. Puedes usar el formato:
+   - **Atributos:** `- nombre: tipo`
+   - **Métodos:** `+ nombreMétodo(parámetros): tipoRetorno`
+
+#### Representación de relaciones
+Como recordatorio, debemos representar las relaciones en los diagramas de clases de la siguiente manera:
+
+1. **Asociación:** Usa una línea simple entre clases.
+2. **Agregación:** Usa una línea con un rombo blanco en un extremo.
+3. **Composición:** Usa una línea con un rombo negro en un extremo.
+4. **Herencia:** Usa una línea con una punta de flecha blanca.
+5. **Realización:** Usa una línea discontinua con una punta de flecha blanca.
+
+**Ejemplo:**
+
+Puedes descargar e importar [este ejemplo](/UD4%20-%20Introducción%20a%20POO,%20diagramas%20UML%20y%20diagramas%20de%20clases/resources/ud4_class_diagram.drawio) de archivo drawio con diferentes tipos de clases, interfaces y relaciones entre ellas: 
+
+![Ejemplo_diagrama_clases_drawio](/UD4%20-%20Introducción%20a%20POO,%20diagramas%20UML%20y%20diagramas%20de%20clases/img/ud04_3_drawio_class_diagram.png)
+### Exportar diagramas
+
+Draw.io permite exportar los diagramas a varios formatos:
+
+#### Formatos comunes
+
+1. **PNG o JPEG:** Ideal para presentaciones rápidas.
+2. **SVG:** Mantiene la calidad vectorial para ajustes posteriores.
+3. **PDF:** Para compartir diagramas en documentos.
+4. **XML:** Para guardar el diagrama y abrirlo posteriormente en Draw.io. (como el ejemplo mostrado previamente)
+
+#### Proceso de exportación
+
+1. Ve a **Archivo > Exportar como**.
+2. Selecciona el formato deseado.
+3. Configura opciones adicionales (resolución, fondo transparente, etc.).
+4. Guarda el archivo.
+
+### Uso de Draw.io sin conexión a internet
+
+#### Aplicación de escritorio
+
+1. Descarga la aplicación desde [la página oficial](https://github.com/jgraph/drawio-desktop/releases).
+2. Instálala en tu sistema operativo.
+3. La interfaz es idéntica a la versión web, con todas las funcionalidades offline.
+
+#### Extensión de VSCode
+
+1. Instala la extensión [Draw.io Integration](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio) desde el marketplace de Visual Studio Code.
+2. Crea o abre archivos con extensión `.drawio` o `.xml`.
+3. Usa la extensión para editar diagramas directamente desde el editor.
+
+![ud04_3_drawio_vscode_integration](./img/ud04_3_drawio_vscode_integration.png)
 
 ## Cómo Generar Código a partir de un Diagrama de Clases
 
