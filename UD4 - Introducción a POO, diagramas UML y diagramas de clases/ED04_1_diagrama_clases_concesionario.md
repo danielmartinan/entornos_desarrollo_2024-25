@@ -47,7 +47,7 @@ El concesionario también trabaja con diferentes **clientes**, que pueden ser **
 
 Realiza el diagrama de clases cumpliendo con las funcionalidades y requisitos definidos previamente. Realiza un análisis exhaustivo de los requisitos, siguiendo los [pasos sugeridos](/UD4%20-%20Introducción%20a%20POO,%20diagramas%20UML%20y%20diagramas%20de%20clases/ud04_2_notacion_uml_diagramas_clases.md/#19-cómo-crear-un-diagrama-de-clases-a-partir-de-la-descripción-de-un-problema) en los apuntes. Añade las aclaraciones que consideres necesarias mediante el uso de notas dentro del propio diagrama.
 
-Una vez analizado el problema, realiza el diagrama en **draw.io**. Puedes hacerlo tanto en la version web como en la versión de escritorio, o incluso en Visual Studio Code, tal y como se define en los [apuntes](/UD4%20-%20Introducción%20a%20POO,%20diagramas%20UML%20y%20diagramas%20de%20clases/ud04_3_editores_uml.md/#).
+Una vez analizado el problema, realiza el diagrama en **draw.io**. Puedes hacerlo tanto en la versióon web como en la versión de escritorio, o incluso en Visual Studio Code, tal y como se define en los [apuntes](/UD4%20-%20Introducción%20a%20POO,%20diagramas%20UML%20y%20diagramas%20de%20clases/ud04_3_editores_uml.md/#).
 
 ## Preguntas de reflexión
 
@@ -60,13 +60,13 @@ Responde las siguientes preguntas basándote en tu solución al diagrama de clas
 - ¿Qué ventajas ofrece dividir la clase `Concesionario` en varios componentes especializados?
 - ¿Cómo garantizarías que el sistema sea extensible para incluir nuevos tipos de vehículos o clientes?
 - ¿Qué principios SOLID están mejor representados en este diseño y cómo?
-- ¿Es recomendable o deseable representar los constructores y getters/setters de las clases en el diagrama de clases? ¿Hay casos donde esa representación tenga más sentido?
+- ¿Es recomendable o deseable representar los constructores y getters/setters de las clases en el diagrama de clases? ¿Hay casos donde esa representación tenga más sentido? Justifica si, en tu caso, has decidido incluirlos en el diagrama o no.
 
 ## Instrucciones de entrega
 
-Una vez realizado el diagrama, expórtalo en formato PNG. Deberás entregar:
+Una vez realizado el diagrama, **expórtalo en formato PNG**. Deberás entregar:
 
-- Un archivo pdf, respondiendo a las preguntas de reflexión, y con la imagen del diagrama de clases (el PNG previo)
+- Un **archivo pdf**, respondiendo a las preguntas de reflexión, y con la imagen del diagrama de clases (el PNG previo)
 - El archivo .drawio generado por la aplicación
 
 Deberás comprimir ambos archivos en uno único y con el nombre siguiendo el formato **apellidos_nombre_ED05_1.zip**
@@ -76,17 +76,16 @@ Deberás comprimir ambos archivos en uno único y con el nombre siguiendo el for
 El ejercicio será evaluado considerando los siguientes criterios:
 
 1. **Identificación y uso correcto de relaciones (3 puntos):**  
-   - Composición (1 puntos).  
-   - Asociación con multiplicidad (1 puntos).  
-   - Herencia y uso de clases abstractas (1 puntos).  
+   - Composición (1 punto).  
+   - Asociación con multiplicidad (1 punto).  
+   - Herencia y uso de clases abstractas (1 punto).  
 2. **Uso de interfaces y elementos estáticos (2 puntos):**  
-   - Definición e implementación correcta de la interfaz (1 puntos).  
-   - Uso de atributos/métodos estáticos en el contexto adecuado (1 puntos).  
+   - Definición e implementación correcta de la interfaz (1 punto).  
+   - Uso de atributos/métodos estáticos en el contexto adecuado (1 punto).  
 3. **Implementación de métodos y funcionalidades (3 puntos):**  
    - Métodos adecuados en cada clase (1.5 puntos).  
    - Correcta representación de las funcionalidades del sistema (1.5 puntos).  
-4. **Claridad y completitud del modelo (2 puntos):**  
+4. **Claridad y completitud del modelo (1 punto):**  
    - Representación clara de atributos y métodos.  
    - Inclusión de multiplicidades y anotaciones relevantes.
-
-**Total: 10 puntos**
+5. **Respuesta a las preguntas de reflexión (1 punto)**

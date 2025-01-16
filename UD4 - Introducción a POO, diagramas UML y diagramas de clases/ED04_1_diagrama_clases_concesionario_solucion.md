@@ -8,25 +8,25 @@ classDiagram
     class Concesionario {
         - nombre: String
         - ubicacion: String
-        + totalVentas: double
-        + registrarVenta(venta: Venta): void
-        + obtenerGanancias(): double
     }
 
     class GestorInventario {
-        + buscarVehiculo(tipo: String): Vehiculo
-        + agregarVehiculo(vehiculo: Vehiculo): void
-        + eliminarVehiculo(vehiculo: Vehiculo): void
+        + buscarVehiculo(tipo: String) Vehiculo
+        + agregarVehiculo(vehiculo: Vehiculo) void
+        + eliminarVehiculo(vehiculo: Vehiculo) void
     }
 
     class GestorVentas {
-        + registrarVenta(venta: Venta): void
-        + calcularGanancias(): double
+        - totalVentas: double
+        + registrarVenta(venta: Venta) void
+        + generarFactura()
+        + calcularGanancias() double
     }
 
     class GestorClientes {
-        + registrarCliente(cliente: Cliente): void
-        + obtenerDescuento(cliente: Cliente): double
+        + registrarCliente(cliente: Cliente) void
+        + buscarCliente(criterio: String) Cliente 
+        + aplicarDescuento(cliente: Cliente) boolean
     }
 
     class Vehiculo {
@@ -34,63 +34,61 @@ classDiagram
         - marca: String
         - modelo: String
         - precio: double
-        + obtenerDetalles(): String*
+        + obtenerDetalles() String
     }
 
     class VehiculoMotocicleta {
         - cilindrada: int
-        + obtenerDetalles(): String
+        + obtenerDetalles() String
     }
 
     class VehiculoCamion {
         - capacidadCarga: double
-        + obtenerDetalles(): String
+        + obtenerDetalles() String
     }
 
     class VehiculoCoche {
         - numeroPuertas: int
-        + obtenerDetalles(): String
+        + obtenerDetalles() String
     }
 
     class Cliente {
         <<abstract>>
         - nombre: String
         - dni: String
-        + calcularDescuento(): double
+        + calcularDescuento() double
     }
 
     class ClienteFrecuente {
         - puntosFidelidad: int
-        + calcularDescuento(): double
+        + calcularDescuento() double
     }
 
     class ClienteOcasional {
-        + calcularDescuento(): double
+        + calcularDescuento() double
     }
 
     class Venta {
         - fecha: Date
-        - vehiculo: Vehiculo
-        - cliente: Cliente
-        + calcularPrecioFinal(): double
+        + calcularPrecioFinal() double
     }
 
     class DescuentoAplicable {
         <<interface>>
-        + calcularDescuento(): double
+        + calcularDescuento() double
     }
 
     %% Relaciones
-    Concesionario --> GestorInventario : "gestiona"
-    Concesionario --> GestorVentas : "gestiona"
-    Concesionario --> GestorClientes : "gestiona"
+    Concesionario "1" --> "1" GestorInventario : es gestionado por
+    Concesionario "1" --> "1" GestorVentas : es gestionado por
+    Concesionario "1" --> "1" GestorClientes : es gestionado por
 
-    GestorInventario *-- Vehiculo
-    GestorClientes *-- Cliente
-    GestorVentas *-- Venta
+    GestorInventario "1" *-- "1..*" Vehiculo : gestiona
+    GestorClientes "1" *-- "0..*" Cliente : administra
+    GestorVentas "1" *-- "0..*" Venta : registra
 
-    Venta o-- Cliente : "se refiere a"
-    Venta o-- Vehiculo : "se refiere a"
+    Venta "1" o-- "1" Cliente : involucra
+    Venta "0..1" o-- "1..*" Vehiculo : incluye
 
     Vehiculo <|-- VehiculoMotocicleta
     Vehiculo <|-- VehiculoCamion
