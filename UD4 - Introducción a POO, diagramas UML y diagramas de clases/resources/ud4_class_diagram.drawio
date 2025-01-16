@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram name="Páxina-1" id="bZwNnvmaQ7MA14kg0_U4">
-        <mxGraphModel dx="1423" dy="1139" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="1120" dy="779" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -73,7 +73,7 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="yvCoWW8B-aWygzDLnjZ9-25" value="&amp;lt;&amp;lt;interface&amp;gt;&amp;gt;&lt;div&gt;Interfaz&lt;/div&gt;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="620" y="440" width="110" height="48" as="geometry"/>
+                    <mxGeometry x="640" y="440" width="110" height="48" as="geometry"/>
                 </mxCell>
                 <mxCell id="yvCoWW8B-aWygzDLnjZ9-26" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="yvCoWW8B-aWygzDLnjZ9-25" vertex="1">
                     <mxGeometry y="40" width="110" height="8" as="geometry"/>
