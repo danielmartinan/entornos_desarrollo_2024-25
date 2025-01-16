@@ -9,9 +9,23 @@
   - [Elección de la Herramienta Adecuada](#elección-de-la-herramienta-adecuada)
 - [Generación de diagramas de clases con draw.io](#generación-de-diagramas-de-clases-con-drawio)
   - [Creación de un nuevo diagrama](#creación-de-un-nuevo-diagrama)
+    - [Desde cero](#desde-cero)
+    - [Desde un archivo existente](#desde-un-archivo-existente)
+    - [Desde una plantilla](#desde-una-plantilla)
   - [Operaciones básicas](#operaciones-básicas)
+    - [Añadir figuras](#añadir-figuras)
+    - [Modificar propiedades de las figuras](#modificar-propiedades-de-las-figuras)
+    - [Añadir flechas](#añadir-flechas)
+    - [Modificar flechas y conexiones](#modificar-flechas-y-conexiones)
+    - [Agrupar y alinear](#agrupar-y-alinear)
+    - [Creación de clases](#creación-de-clases)
+    - [Representación de relaciones](#representación-de-relaciones)
   - [Exportar diagramas](#exportar-diagramas)
+    - [Formatos comunes](#formatos-comunes)
+    - [Proceso de exportación](#proceso-de-exportación)
   - [Uso de Draw.io sin conexión a internet](#uso-de-drawio-sin-conexión-a-internet)
+    - [Aplicación de escritorio](#aplicación-de-escritorio)
+    - [Extensión de VSCode](#extensión-de-vscode)
 - [Cómo Generar Código a partir de un Diagrama de Clases](#cómo-generar-código-a-partir-de-un-diagrama-de-clases)
   - [Comprensión del Proceso de Generación de Código](#comprensión-del-proceso-de-generación-de-código)
   - [Ejemplo Práctico de Generación de Código](#ejemplo-práctico-de-generación-de-código)
@@ -81,6 +95,7 @@ Draw.io (ahora conocido como diagrams.net) es una herramienta de diagramación v
 ### Creación de un nuevo diagrama
 
 #### Desde cero
+
 1. Abre Draw.io en [su versión web](https://app.diagrams.net/) o la aplicación de escritorio.
 2. Selecciona **"Crear nuevo diagrama"**.
 3. Elige una plantilla o selecciona **"Blanco"** para empezar desde cero.
