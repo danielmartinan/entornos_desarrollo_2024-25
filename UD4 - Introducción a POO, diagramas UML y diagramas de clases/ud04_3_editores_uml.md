@@ -102,6 +102,7 @@ Draw.io (ahora conocido como diagrams.net) es una herramienta de diagramación v
 ### Creación de un nuevo diagrama
 
 #### Desde cero
+
 1. Abre Draw.io en [su versión web](https://app.diagrams.net/) o la aplicación de escritorio.
 2. Selecciona **"Crear nuevo diagrama"**.
 3. Elige una plantilla o selecciona **"Blanco"** para empezar desde cero.
