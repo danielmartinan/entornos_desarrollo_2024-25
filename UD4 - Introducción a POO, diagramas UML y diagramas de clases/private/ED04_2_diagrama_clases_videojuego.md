@@ -55,3 +55,4 @@ El juego debe llevar un registro de los puntos acumulados por el jugador durante
 - Los cálculos de distancia entre elementos, así como la validación de interacciones, deben implementarse mediante un método reutilizable.
 
 Este modelo debe ser lo suficientemente flexible para permitir la adición de nuevos tipos de ítems o enemigos en el futuro, así como la implementación de mecánicas avanzadas como habilidades adicionales para el personaje o nuevos modos de juego.
+
