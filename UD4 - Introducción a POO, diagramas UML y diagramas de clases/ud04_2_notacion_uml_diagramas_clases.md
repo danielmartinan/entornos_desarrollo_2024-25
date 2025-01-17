@@ -72,13 +72,13 @@ La parte superior contiene el nombre de la clase; la parte intermedia, los atrib
 
 Los **atributos** son las propiedades o características que describen a una clase. Se representan en la segunda sección del rectángulo y siguen esta sintaxis:
 
-`[visibilidad] nombre: tipo` 
+`[visibilidad] nombre: tipo`
 
--   **Visibilidades**:
-    -   `+` (pública): el atributo es accesible desde cualquier clase.
-    -   `#` (protegida): el atributo es accesible solo desde la clase y sus subclases.
-    -   `-` (privada): el atributo es accesible solo desde la propia clase.
-    -   `~` (package): el atributo es accesible desde las clases del mismo paquete.
+- **Visibilidades**:
+  - `+` (pública): el atributo es accesible desde cualquier clase.
+  - `#` (protegida): el atributo es accesible solo desde la clase y sus subclases.
+  - `-` (privada): el atributo es accesible solo desde la propia clase.
+  - `~` (package): el atributo es accesible desde las clases del mismo paquete.
 
 **Ejemplo de atributos en UML:**
 
@@ -95,7 +95,7 @@ Los **atributos** son las propiedades o características que describen a una cla
 
 Los **métodos**, también llamados operaciones, son la implementación de un servicio de la clase que muestra un comportamiento común a todos los objetos de dicha clase. Definen cómo interactúa la clase con su entorno. Se representan en la tercera sección del rectángulo y siguen esta sintaxis:
 
-`[visibilidad] nombre(parámetros): tipo_de_retorno` 
+`[visibilidad] nombre(parámetros): tipo_de_retorno`
 
 **Ejemplo de métodos en UML:**
 
@@ -130,13 +130,13 @@ classDiagram
 
 La cardinalidad especifica el número de instancias de una clase que pueden asociarse a otra. Se representa con números en los extremos de las líneas que conectan las clases.
 
--   **Valores comunes de multiplicidad**:
-    -   `1`: Una única instancia.
-    -   `0..1`: Ninguna o una instancia.
-    -   `0..*` o `*`: Cero o más instancias.
-    -   `1..*`: Al menos una instancia.
-    -   `N..M`: Entre N y M veces.
-    -   `M`: Exactamente M veces.
+- **Valores comunes de multiplicidad**:
+  - `1`: Una única instancia.
+  - `0..1`: Ninguna o una instancia.
+  - `0..*` o `*`: Cero o más instancias.
+  - `1..*`: Al menos una instancia.
+  - `N..M`: Entre N y M veces.
+  - `M`: Exactamente M veces.
 
 **Ejemplo de cardinalidad:**
 
@@ -175,7 +175,7 @@ La cardinalidad también puede afectar a atributos o métodos. En algunas ocasio
 La navegabilidad indica si una clase conoce a la otra y puede interactuar con ella. Se representa con una flecha en el extremo de la línea de asociación. De esta manera, la asociación puede ser **unidireccional** o **bidireccional**.
 Si se convierte a Java dos clases unidas por una asociación bidireccional, cada una de ellas tendrá un objeto o conjunto de objetos (dependiendo de la multiplicidad entre ellas).
 
-**Ejemplos**
+**Ejemplos:**
 
 A continuación, vamos a ver un ejemplo de dos clases que se relacionan mediante asociaciones unidirecionales o bidireccionales.
 
@@ -196,7 +196,7 @@ classDiagram
 
     Persona "1" --> "*" Vehiculo: posee
 
-``` 
+```
 
 En este caso, vemos que se trata de una relación unidireccional. Su implementación en Java sería la siguiente:
 
@@ -329,6 +329,7 @@ class Persona {
 El método `agregarVehiculo` asegura que ambos extremos de la relación se actualicen de forma consistente.
 
 ### 5.4. Rol
+
 En cada asociacion, podemos definir dos **roles**, que describen la semántica de la relación en el sentido indicado. Se representa en los extremos de la asociación correspondiente.
 
 ```mermaid
@@ -349,7 +350,7 @@ Cuando una relación tiene atributos propios, se puede representar como una **cl
 
 **Ejemplo de clase asociación:**
 
-![](img/ud4_2_association_class.png)
+![imagen_clase_asociacion](img/ud4_2_association_class.png)
 
 ### 5.6. Relación unaria
 
@@ -376,11 +377,11 @@ classDiagram
 
 - **Clase**: La clase `Empleado` tiene atributos como `nombre`, `puesto` y `salario`.  
 - **Relación Unaria**:  
-   - Un empleado puede supervisar a múltiples empleados (multiplicidad `0..*` en el lado supervisado).  
-   - Un empleado solo puede tener un supervisor directo (multiplicidad `1` en el lado supervisor).  
+  - Un empleado puede supervisar a múltiples empleados (multiplicidad `0..*` en el lado supervisado).  
+  - Un empleado solo puede tener un supervisor directo (multiplicidad `1` en el lado supervisor).  
 - **Métodos**:  
-   - `obtenerJefe()` permite consultar quién es el supervisor directo de un empleado.  
-   - `asignarJefe(jefe: Empleado)` establece la relación entre un empleado y su supervisor.
+  - `obtenerJefe()` permite consultar quién es el supervisor directo de un empleado.  
+  - `asignarJefe(jefe: Empleado)` establece la relación entre un empleado y su supervisor.
 
 **Casos de Uso Comunes:**
 
@@ -421,13 +422,13 @@ En este caso:
 
 ## 6. Herencia (generalización)
 
-La herencia es una relación jerárquica que permite que una clase (hija) herede los atributos y métodos de otra clase (padre). En UML, se representa con una flecha con punta vacía 
+La herencia es una relación jerárquica que permite que una clase (hija) herede los atributos y métodos de otra clase (padre). En UML, se representa con una flecha con punta vacía:
 
 ```mermaid
     classDiagram 
     direction LR
         Padre <|-- Hijo
-``` 
+```
 
 que apunta de la clase hija a la clase padre.
 
@@ -530,11 +531,11 @@ La **diferencia clave** entre una **asociación (clientela)**, una **agregación
 
 **Asociación (Clientela):**
 
-* Es una relación **estructural genérica** entre dos clases.  
-* **No implica propiedad.** Ninguna de las clases "posee" a la otra.  
-* Representa una **colaboración** entre objetos, donde uno utiliza o interactúa con otro.  
-* El ciclo de vida de los objetos no está relacionado, es decir, un objeto puede existir independientemente del otro.  
-* **Ejemplo:** Una clase `Cliente` está asociada a una clase `Pedido`, pero el cliente no "posee" el pedido, simplemente interactúa con él.
+- Es una relación **estructural genérica** entre dos clases.  
+- **No implica propiedad.** Ninguna de las clases "posee" a la otra.  
+- Representa una **colaboración** entre objetos, donde uno utiliza o interactúa con otro.  
+- El ciclo de vida de los objetos no está relacionado, es decir, un objeto puede existir independientemente del otro.  
+- **Ejemplo:** Una clase `Cliente` está asociada a una clase `Pedido`, pero el cliente no "posee" el pedido, simplemente interactúa con él.
 
 ```mermaid
 classDiagram
@@ -550,10 +551,10 @@ classDiagram
 
 **Agregación:**
 
-* Es un tipo especial de asociación que representa una relación **"todo-parte" débil**.  
-* **No implica una fuerte propiedad.** El objeto "todo" puede contener partes, pero las partes pueden existir independientemente del "todo".  
-* Relación más fuerte que una simple asociación, pero más débil que una composición.  
-* **Ejemplo:** Una clase `Profesor` está asociado a una clase `Departamento`, pero el profesor puede cambiar de departamento o existir sin él.
+- Es un tipo especial de asociación que representa una relación **"todo-parte" débil**.  
+- **No implica una fuerte propiedad.** El objeto "todo" puede contener partes, pero las partes pueden existir independientemente del "todo".  
+- Relación más fuerte que una simple asociación, pero más débil que una composición.  
+- **Ejemplo:** Una clase `Profesor` está asociado a una clase `Departamento`, pero el profesor puede cambiar de departamento o existir sin él.
 
 ```mermaid
 classDiagram
@@ -936,15 +937,14 @@ Los diagramas de clases son herramientas esenciales en el desarrollo de software
 
 El primer paso consiste en leer atentamente la descripción proporcionada y comprender el contexto del sistema que se desea modelar. Es fundamental identificar:
 
-* Los actores principales del sistema.  
-* Las entidades o conceptos clave mencionados.  
-* Las acciones o relaciones descritas entre las entidades.
+- Los actores principales del sistema.  
+- Las entidades o conceptos clave mencionados.  
+- Las acciones o relaciones descritas entre las entidades.
 
 Una buena práctica es subrayar palabras clave relacionadas con clases (sustantivos), atributos (características) y métodos (acciones).
 
 **Ejemplo:**  
 Descripción del problema: *“Una biblioteca administra libros y usuarios. Los libros tienen un título, autor, ISBN y una cantidad disponible. Los usuarios pueden ser estudiantes o profesores. Los estudiantes tienen un identificador único, y los profesores tienen un departamento asociado. Los usuarios pueden tomar libros en préstamo, y cada préstamo debe registrar la fecha de inicio y la fecha de devolución.”*
-
 
 ### 19.2. Paso 2: Identificar Clases y Atributos
 
@@ -1256,6 +1256,7 @@ classDiagram
 ```
 
 En esta segunda versión hemos creado tres gestores especializados:
+
 - GestorReservas: Maneja todo lo relacionado con reservas.
 - GestorFinanciero: Maneja precios, descuentos y cálculos financieros.
 - GestorHabitaciones: Maneja la gestión de habitaciones.

@@ -1,0 +1,38 @@
+name: Convert Draw.io to SVG
+
+on:
+  push:
+    paths:
+      - '**.drawio'  # Se ejecuta cuando hay cambios en archivos .drawio
+
+jobs:
+  convert:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libnotify4 libsecret-1-0 xvfb
+
+      - name: Install draw.io CLI
+        run: |
+          wget https://github.com/jgraph/drawio-desktop/releases/download/v21.8.2/drawio-amd64-21.8.2.deb
+          sudo dpkg -i drawio-amd64-21.8.2.deb || sudo apt-get install -f -y
+
+      - name: Convert Draw.io to SVG
+        run: |
+          find . -name "*.drawio" | while read file; do
+            svg_file="${file%.drawio}.svg"
+            xvfb-run drawio -x -f svg -o "$svg_file" "$file"
+          done
+
+      - name: Commit and push if changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add *.svg
+          git diff --quiet && git diff --staged --quiet || git commit -m "Automatically convert Draw.io to SVG"
+          git push

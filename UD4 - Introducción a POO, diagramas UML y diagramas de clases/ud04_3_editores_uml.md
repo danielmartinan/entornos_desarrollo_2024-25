@@ -7,6 +7,7 @@
   - [Herramientas Online y Colaborativas](#herramientas-online-y-colaborativas)
   - [Tabla resumen con las distintas herramientas de modelado UML](#tabla-resumen-con-las-distintas-herramientas-de-modelado-uml)
   - [Elección de la Herramienta Adecuada](#elección-de-la-herramienta-adecuada)
+- [Algunos tips interesantes](#algunos-tips-interesantes)
 - [Generación de diagramas de clases con draw.io](#generación-de-diagramas-de-clases-con-drawio)
   - [Creación de un nuevo diagrama](#creación-de-un-nuevo-diagrama)
     - [Desde cero](#desde-cero)
@@ -87,6 +88,12 @@ En un mundo cada vez más colaborativo, las herramientas en línea como **[Lucid
 La elección de una herramienta para diagramas de clases depende de varios factores, como el alcance del proyecto, el nivel de experiencia del usuario y las funcionalidades requeridas. Mientras que herramientas genéricas como Draw.io o Visio pueden ser suficientes para diagramas básicos, proyectos más complejos pueden beneficiarse de soluciones especializadas como Visual Paradigm o StarUML. Por otro lado, desarrolladores interesados en automatizar y documentar sus proyectos pueden encontrar en PlantUML y Mermaid herramientas que se ajusten a sus necesidades.
 
 En cualquier caso, conocer las fortalezas y limitaciones de cada herramienta es clave para seleccionar la que mejor se adapte a las necesidades del proyecto y del equipo.
+
+## Algunos tips interesantes
+
+Es posible importar un diagrama de Mermaid en draw.io. Échale un ojo a [este artículo](https://www.drawio.com/blog/mermaid-diagrams).
+
+En [este artículo](https://www.visual-paradigm.com/tutorials/uml-class-diagram-in-diff-programming-languages.jsp) explica, muy simplificadamente, como crear un diagrama de clases para diferentes lenguajes (Java, C# y VB) en Visual Paradigm.
 
 ## Generación de diagramas de clases con draw.io
 
