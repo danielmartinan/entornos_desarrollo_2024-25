@@ -505,6 +505,16 @@ classDiagram
 
 Los Profesor pueden existir sin pertenecer a una Universidad.
 
+*¿Cómo distinguir la composición de la agregación?*
+
+Hay características muy distintivas entre ambos tipos de relaciones, que se resumen en la siguiente tabla:
+
+|       | Agregación  | Composición |
+| ----- | ----------- | ----------- |
+| Varias asociaciones comparten los componentes (partes) | Sí | No |
+| Destrucción de los componentes (partes) al destruir al compuesto (todo) | NO | SÍ |
+| Cardinalidad del compuesto (todo) | Cualquiera | 0..1 o 1 |
+
 ## 9. Dependencia
 
 La relación de **dependencia** en UML se utiliza para modelar una conexión débil entre dos elementos, donde un cambio en el elemento independiente (el proveedor) puede afectar al elemento dependiente (el cliente). Este tipo de relación refleja que una clase utiliza o depende de otra para funcionar, pero no posee una asociación directa ni control completo sobre ella.
@@ -623,7 +633,7 @@ La diferencia clave, por tanto, es que **la asociación no implica propiedad ni 
 
 ## 11. Interfaces
 
-Una interfaz define un conjunto de métodos que una clase debe implementar. En UML, se representa como una clase con el nombre en cursiva o precedido de `<<interface>>`.
+Una interfaz define un conjunto de métodos que una clase debe implementar. En UML, se representa como una clase con el nombre en cursiva o precedido del estereotipo `<<interface>>`.
 
 Ejemplo UML:
 
@@ -650,7 +660,7 @@ A diferencia de en la herencia, cuando una clase implementa los métodos de una 
 
 ## 12. Clases Abstractas
 
-Una clase abstracta no se puede instanciar directamente y puede contener **métodos abstractos** (sin implementación; debe tener al menos). En UML, se representa con el nombre de la clase en **cursiva** o con la anotación `<<abstract>>`. Los métodos y atributos abstractos deben representarse en cursiva.
+Una clase abstracta no se puede instanciar directamente y puede contener **métodos abstractos** (sin implementación; debe tener al menos). En UML, se representa con el nombre de la clase en **cursiva** o con el estereotipo `<<abstract>>`. Los métodos y atributos abstractos deben representarse en cursiva.
 
 Ejemplo UML:
 
@@ -678,7 +688,7 @@ classDiagram
 
 ## 13. Enumeradores
 
-Los enumeradores se definen mediante la anotacion `<<Enumeration>>` de la siguiente manera:
+Los enumeradores se definen mediante el estereotipo `<<Enumeration>>` de la siguiente manera:
 
 ```mermaid
 ---
@@ -696,6 +706,34 @@ classDiagram
         BLACK
 }
 ```
+
+***¿Que son los estereotipos?***
+
+Los estereotipos son el mecanismo de extensibilidad que más se utiliza en uml, y que nos permite definir nuevos elementos de modelado UML basándose en uno existente. Cada estereotipo puede definir un conjunto de valores etiquetados y restricciones que se aplican al elemento esterotipado, y se indica escribiéndolo entre comillas francesas '<<>>'. 
+
+Aunque no es objetivo de nuestro estudio crear estereotipos, sí conviente saber e indentificar los estereotipos que proporcionan las herramientas de modelado. Para los diagramas de clases, los más comunes son:
+
+- [Interface](#11-interfaces)
+- [Abstract](#12-clases-abstractas)
+- [Enumeration](#13-enumeradores)
+- DataType: es similar a una clase, pero sus instancias se indentifican por sus propios valores. Se usan tipicamente para representar tipos de valor primitivos o estructuradas, como fecha, hora, genero, dirección...
+
+    ```mermaid
+    ---
+    config:
+        class:
+            hideEmptyMembersBox: true
+    ---
+        classDiagram
+        class DateTime {
+            <<DateType>>
+        }
+    ```
+
+- Exception: sirve para especificar que una clase representa una excepción, una situación excepcional que esperas capturar y gestionar en tu programa. En este ejemplo se muestra una clase Excepción que representa el desbordamiento (*overflow*) de una cola de eventos (*EventQueue*):
+  
+    ![Exception example](./resources/ud04_2_exception_example.png)
+
 
 ## 14. Métodos y atributos estáticos y atributos constantes
 

@@ -69,7 +69,7 @@ Una vez realizado el diagrama, **expórtalo en formato PNG**. Deberás entregar:
 - Un **archivo pdf**, respondiendo a las preguntas de reflexión, y con la imagen del diagrama de clases (el PNG previo)
 - El archivo .drawio generado por la aplicación
 
-Deberás comprimir ambos archivos en uno único y con el nombre siguiendo el formato **apellidos_nombre_ED05_1.zip**
+Deberás comprimir ambos archivos en uno único y con el nombre siguiendo el formato **apellidos_nombre_ED04_1.zip**
 
 ## **Puntuación Propuesta**
 
