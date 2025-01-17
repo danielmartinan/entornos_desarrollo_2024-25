@@ -56,3 +56,26 @@ El juego debe llevar un registro de los puntos acumulados por el jugador durante
 
 Este modelo debe ser lo suficientemente flexible para permitir la adición de nuevos tipos de ítems o enemigos en el futuro, así como la implementación de mecánicas avanzadas como habilidades adicionales para el personaje o nuevos modos de juego.
 
+## Instrucciones de la práctica
+
+Realiza el diagrama de clases cumpliendo con las funcionalidades y requisitos definidos previamente. Realiza un análisis exhaustivo de los requisitos, siguiendo los [pasos sugeridos](/UD4%20-%20Introducción%20a%20POO,%20diagramas%20UML%20y%20diagramas%20de%20clases/ud04_2_notacion_uml_diagramas_clases.md/#19-cómo-crear-un-diagrama-de-clases-a-partir-de-la-descripción-de-un-problema) en los apuntes. Añade las aclaraciones que consideres necesarias mediante el uso de notas dentro del propio diagrama.
+
+Una vez analizado el problema, realiza el diagrama en **Visual Paradigm**. Revisa cómo generar un diagrama de clases en Visual Paradigm siguiendo [este pequeño tutorial](https://www.visual-paradigm.com/tutorials/uml-class-diagram-in-diff-programming-languages.jsp).
+
+Una vez realizado el diagrama deberás entregar el proyecto ()
+
+Deberás comprimir ambos archivos en uno único y con el nombre siguiendo el formato **apellidos_nombre_ED04_2.zip**
+
+1. **Identificación y uso correcto de relaciones (3 puntos):**  
+   - Composición (1 punto).  
+   - Asociación con multiplicidad (1 punto).  
+   - Herencia y uso de clases abstractas (1 punto).  
+2. **Uso de interfaces y elementos estáticos (2 puntos):**  
+   - Definición e implementación correcta de la interfaz (1 punto).  
+   - Uso de atributos/métodos estáticos en el contexto adecuado (1 punto).  
+3. **Implementación de métodos y funcionalidades (3 puntos):**  
+   - Métodos adecuados en cada clase (1.5 puntos).  
+   - Correcta representación de las funcionalidades del sistema (1.5 puntos).  
+4. **Claridad y completitud del modelo (1 punto):**  
+   - Representación clara de atributos y métodos.  
+   - Inclusión de multiplicidades y anotaciones relevantes.
