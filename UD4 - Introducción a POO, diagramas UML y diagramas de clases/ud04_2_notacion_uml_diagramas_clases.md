@@ -933,7 +933,7 @@ En UML, las restricciones permiten especificar reglas o condiciones que limitan 
 - **Restricciones de exclusividad**: Indican que dos relaciones son mutuamente excluyentes (no pueden existir simultáneamente).
   
     ![Restricción de exclusividad](img/ud04_2_XOR-constraint-between-two-associations.jpg)
-    
+
 - **Restricciones de unicidad**: especifican que ciertos valores o relaciones deben ser únicos. En el caso de atributos, se suele indicar con el texto "{id}" despues del atributo.
 
     ![Restricción de unicidad en campo id](./img/ud04_2_unicity_constraint_field_id.png)
@@ -1019,30 +1019,30 @@ Con toda la información recopilada, se dibuja el diagrama utilizando notación 
 ```mermaid
     classDiagram  
         class Libro {  
-            - String titulo  
-            - String autor  
-            - String ISBN  
-            - int cantidadDisponible  
+            - titulo : String
+            - autor : String
+            - ISBN : String
+            - cantidadDisponible : int  
             + actualizarCantidadDisponible() void  
         }
 
         class Usuario {  
             <<abstract>>  
-            - String nombre  
+            - nombre : String
             + realizarPrestamo() void  
         }
 
         class Estudiante {  
-            - String identificador  
+            - identificador : String
         }
 
         class Profesor {  
-            - String departamento  
+            - departamento : String
         }
 
         class Prestamo {  
-            - Date fechaInicio  
-            - Date fechaDevolucion  
+            - fechaInicio : Date
+            - fechaDevolucion : Date
             + calcularDuracion() int  
         }
 
@@ -1073,32 +1073,52 @@ Una tienda de música en línea vende álbumes y permite a los usuarios registra
 **Diagrama:**
 
 ```mermaid
-    classDiagram  
-        class Album {  
-            - String titulo  
-            - String artista  
-            - int añoLanzamiento  
+    classDiagram
+        class Usuario {
+            -email : String
+            -nombreUsuario : String
+            +realizarCompra()
+        }
+        
+        class Compra {
+            -fecha : Date
+            +calcularTotal()
+        }
+        
+        class ItemCompra {
+            -cantidad : int
+            -precioUnitario : double
+            +calcularSubtotal()
         }
 
-        class Cancion {  
-            - String titulo  
-            - double duracion  
-            - double precio  
+        class Album {
+            -titulo : String
+            -artista : String
+            -añoLanzamiento : int
+            +getPrecio() double
+        }
+        
+        class Cancion {
+            -titulo : String
+            -duracion : int
+            -artista : String
+            +getPrecio() double
         }
 
-        class Usuario {  
-            - String correo  
-            - String nombreUsuario  
-    }
-
-        class Compra {  
-            - Date fecha  
+        class Producto {
+            <<abstract>>
+            -descripcion : String
+            -categoría : String
+            -precio: double
+            +getPrecio() double
         }
 
-        Album *-- Cancion  
-        Usuario "1" --> "N" Compra  
-        Compra "N" o-- "N" Cancion  
-        Compra "N" o-- "N" Album
+        Usuario "1" --> "*" Compra
+        Compra "1" o-- "*" ItemCompra
+        ItemCompra "*" --> "1" Producto
+        Album --|> Producto
+        Cancion --|> Producto
+        Album "*" o-- "*" Cancion : contiene
 ```
 
 ## 21. Otro ejemplo de diagrama de clases completo
