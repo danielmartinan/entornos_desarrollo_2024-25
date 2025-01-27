@@ -1,9 +1,8 @@
 name: Convert Draw.io to SVG
-
 on:
   push:
     paths:
-      - '**.drawio'  # Se ejecuta cuando hay cambios en archivos .drawio
+      - '**.drawio'
 
 jobs:
   convert:
@@ -11,22 +10,58 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
+        
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y libnotify4 libsecret-1-0 xvfb
+          sudo apt-get install -y \
+            xvfb \
+            libatk1.0-0 \
+            libcairo2 \
+            libcups2 \
+            libdbus-1-3 \
+            libexpat1 \
+            libfontconfig1 \
+            libgdk-pixbuf2.0-0 \
+            libglib2.0-0 \
+            libgtk-3-0 \
+            libnspr4 \
+            libnss3 \
+            libpango-1.0-0 \
+            libpangocairo-1.0-0 \
+            libx11-6 \
+            libx11-xcb1 \
+            libxcb1 \
+            libxcomposite1 \
+            libxcursor1 \
+            libxdamage1 \
+            libxext6 \
+            libxfixes3 \
+            libxi6 \
+            libxrandr2 \
+            libxrender1 \
+            libxss1 \
+            libxtst6 \
+            libnotify4 \
+            libsecret-1-0 \
+            xdg-utils
 
       - name: Install draw.io CLI
         run: |
           wget https://github.com/jgraph/drawio-desktop/releases/download/v21.8.2/drawio-amd64-21.8.2.deb
           sudo dpkg -i drawio-amd64-21.8.2.deb || sudo apt-get install -f -y
 
+      - name: Set up display
+        run: |
+          export DISPLAY=:99
+          Xvfb :99 -screen 0 1024x768x16 &
+          sleep 3
+
       - name: Convert Draw.io to SVG
         run: |
           find . -name "*.drawio" | while read file; do
             svg_file="${file%.drawio}.svg"
-            xvfb-run drawio -x -f svg -o "$svg_file" "$file"
+            DISPLAY=:99 drawio -x -f svg -o "$svg_file" "$file"
           done
 
       - name: Commit and push if changes

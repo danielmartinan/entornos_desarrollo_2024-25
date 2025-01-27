@@ -2,42 +2,43 @@
 
 **Índice**
 
-- [1. Introduccion](#1-introduccion)
-- [2. Clases](#2-clases)
-- [3. Atributos](#3-atributos)
-- [4. Métodos](#4-métodos)
-- [5. Relaciones](#5-relaciones)
-  - [5.1. Asociación](#51-asociación)
-  - [5.2. Cardinalidad o Multiplicidad](#52-cardinalidad-o-multiplicidad)
-  - [5.3. Navegabilidad](#53-navegabilidad)
-  - [5.4. Rol](#54-rol)
-  - [5.5. Clase Asociación](#55-clase-asociación)
-  - [5.6. Relación unaria](#56-relación-unaria)
-- [6. Herencia (generalización)](#6-herencia-generalización)
-- [7. Composición](#7-composición)
-- [8. Agregación](#8-agregación)
-- [9. Dependencia](#9-dependencia)
-- [10. ¿Cómo distinguir los diferentes tipos de relación?](#10-cómo-distinguir-los-diferentes-tipos-de-relación)
-- [11. Interfaces](#11-interfaces)
-- [12. Clases Abstractas](#12-clases-abstractas)
-- [13. Enumeradores](#13-enumeradores)
-- [14. Métodos y atributos estáticos y atributos constantes](#14-métodos-y-atributos-estáticos-y-atributos-constantes)
-- [15. Resumen de simbología para la representación de relaciones](#15-resumen-de-simbología-para-la-representación-de-relaciones)
-- [16. Polimorfismo](#16-polimorfismo)
-- [17. Notas en UML](#17-notas-en-uml)
-  - [17.1. Tipos de Información en las Notas](#171-tipos-de-información-en-las-notas)
-  - [17.2. Uso de Notas con Restricciones Formales (OCL)](#172-uso-de-notas-con-restricciones-formales-ocl)
-  - [17.3. Ejemplo de Notas en Diagramas UML](#173-ejemplo-de-notas-en-diagramas-uml)
-  - [17.4. Buenas Prácticas al Usar Notas](#174-buenas-prácticas-al-usar-notas)
-- [18. Restricciones (constraints)](#18-restricciones-constraints)
-- [19. Cómo crear un diagrama de clases a partir de la descripción de un problema](#19-cómo-crear-un-diagrama-de-clases-a-partir-de-la-descripción-de-un-problema)
-  - [19.1. Paso 1: Comprender la Descripción del Problema](#191-paso-1-comprender-la-descripción-del-problema)
-  - [19.2. Paso 2: Identificar Clases y Atributos](#192-paso-2-identificar-clases-y-atributos)
-  - [19.3. Paso 3: Determinar las Relaciones entre las Clases](#193-paso-3-determinar-las-relaciones-entre-las-clases)
-  - [19.4. Paso 4: Definir Métodos y Comportamientos](#194-paso-4-definir-métodos-y-comportamientos)
-  - [19.5. Paso 5: Representar el Diagrama en Notación UML](#195-paso-5-representar-el-diagrama-en-notación-uml)
-- [20. Ejemplo Práctico: Resolviendo un Problema](#20-ejemplo-práctico-resolviendo-un-problema)
-- [21. Otro ejemplo de diagrama de clases completo](#21-otro-ejemplo-de-diagrama-de-clases-completo)
+- [Notación UML para la generación de diagramas de clases](#notación-uml-para-la-generación-de-diagramas-de-clases)
+  - [1. Introduccion](#1-introduccion)
+  - [2. Clases](#2-clases)
+  - [3. Atributos](#3-atributos)
+  - [4. Métodos](#4-métodos)
+  - [5. Relaciones](#5-relaciones)
+    - [5.1. Asociación](#51-asociación)
+    - [5.2. Cardinalidad o Multiplicidad](#52-cardinalidad-o-multiplicidad)
+    - [5.3. Navegabilidad](#53-navegabilidad)
+    - [5.4. Rol](#54-rol)
+    - [5.5. Clase Asociación](#55-clase-asociación)
+    - [5.6. Relación unaria](#56-relación-unaria)
+  - [6. Herencia (generalización)](#6-herencia-generalización)
+  - [7. Composición](#7-composición)
+  - [8. Agregación](#8-agregación)
+  - [9. Dependencia](#9-dependencia)
+  - [10. ¿Cómo distinguir los diferentes tipos de relación?](#10-cómo-distinguir-los-diferentes-tipos-de-relación)
+  - [11. Interfaces](#11-interfaces)
+  - [12. Clases Abstractas](#12-clases-abstractas)
+  - [13. Enumeradores](#13-enumeradores)
+  - [14. Métodos y atributos estáticos y atributos constantes](#14-métodos-y-atributos-estáticos-y-atributos-constantes)
+  - [15. Resumen de simbología para la representación de relaciones](#15-resumen-de-simbología-para-la-representación-de-relaciones)
+  - [16. Polimorfismo](#16-polimorfismo)
+  - [17. Notas en UML](#17-notas-en-uml)
+    - [17.1. Tipos de Información en las Notas](#171-tipos-de-información-en-las-notas)
+    - [17.2. Uso de Notas con Restricciones Formales (OCL)](#172-uso-de-notas-con-restricciones-formales-ocl)
+    - [17.3. Ejemplo de Notas en Diagramas UML](#173-ejemplo-de-notas-en-diagramas-uml)
+    - [17.4. Buenas Prácticas al Usar Notas](#174-buenas-prácticas-al-usar-notas)
+  - [18. Restricciones (constraints)](#18-restricciones-constraints)
+  - [19. Cómo crear un diagrama de clases a partir de la descripción de un problema](#19-cómo-crear-un-diagrama-de-clases-a-partir-de-la-descripción-de-un-problema)
+    - [19.1. Paso 1: Comprender la Descripción del Problema](#191-paso-1-comprender-la-descripción-del-problema)
+    - [19.2. Paso 2: Identificar Clases y Atributos](#192-paso-2-identificar-clases-y-atributos)
+    - [19.3. Paso 3: Determinar las Relaciones entre las Clases](#193-paso-3-determinar-las-relaciones-entre-las-clases)
+    - [19.4. Paso 4: Definir Métodos y Comportamientos](#194-paso-4-definir-métodos-y-comportamientos)
+    - [19.5. Paso 5: Representar el Diagrama en Notación UML](#195-paso-5-representar-el-diagrama-en-notación-uml)
+  - [20. Ejemplo Práctico: Resolviendo un Problema](#20-ejemplo-práctico-resolviendo-un-problema)
+  - [21. Otro ejemplo de diagrama de clases completo](#21-otro-ejemplo-de-diagrama-de-clases-completo)
 
 <!-- /TOC -->
 
@@ -709,7 +710,7 @@ classDiagram
 
 ***¿Que son los estereotipos?***
 
-Los estereotipos son el mecanismo de extensibilidad que más se utiliza en uml, y que nos permite definir nuevos elementos de modelado UML basándose en uno existente. Cada estereotipo puede definir un conjunto de valores etiquetados y restricciones que se aplican al elemento esterotipado, y se indica escribiéndolo entre comillas francesas '<<>>'. 
+Los estereotipos son el mecanismo de extensibilidad que más se utiliza en uml, y que nos permite definir nuevos elementos de modelado UML basándose en uno existente. Cada estereotipo puede definir un conjunto de valores etiquetados y restricciones que se aplican al elemento esterotipado, y se indica escribiéndolo entre comillas francesas '<<>>'.
 
 Aunque no es objetivo de nuestro estudio crear estereotipos, sí conviente saber e indentificar los estereotipos que proporcionan las herramientas de modelado. Para los diagramas de clases, los más comunes son:
 
@@ -733,7 +734,6 @@ Aunque no es objetivo de nuestro estudio crear estereotipos, sí conviente saber
 - Exception: sirve para especificar que una clase representa una excepción, una situación excepcional que esperas capturar y gestionar en tu programa. En este ejemplo se muestra una clase Excepción que representa el desbordamiento (*overflow*) de una cola de eventos (*EventQueue*):
   
     ![Exception example](./resources/ud04_2_exception_example.png)
-
 
 ## 14. Métodos y atributos estáticos y atributos constantes
 
@@ -930,27 +930,16 @@ En UML, las restricciones permiten especificar reglas o condiciones que limitan 
 
 - **Restricciones de cardinalidad**: como ya hemos visto anteriormente, limitan el número de instancias permitidas en una relación. Estas restricciones se aplican comúnmente en asociaciones, pero también en atributos para colecciones de tipos primitivos (o su úso en los métodos).
 - **Restricciones de exclusividad**: Indican que dos relaciones son mutuamente excluyentes (no pueden existir simultáneamente).
-![Restricción de exclusividad](img/ud04_2_XOR-constraint-between-two-associations.jpg)
+  
+    ![Restricción de exclusividad](img/ud04_2_XOR-constraint-between-two-associations.jpg)
+
 - **Restricciones de unicidad**: especifican que ciertos valores o relaciones deben ser únicos. En el caso de atributos, se suele indicar con el texto "{id}" despues del atributo.
 
-    ```mermaid
-        classDiagram
-            class Persona {
-                - uuid : int "{id}"
-            }
-    ```
+    ![Restricción de unicidad en campo id](./img/ud04_2_unicity_constraint_field_id.png)
 
 - **Restricciones de orden**: indican que las instancias de una relación deben estar ordenadas. Se combinan con las restricciones de unicidad dentro de la propia colección, para indicar si en ésta, los elementos son ónicos y tienen un criterio de orden, o no.
 
-    ```mermaid
-    classDiagram
-    class Class {
-        - OrderedSet: Integer[*] <<unique, ordered>>
-        - Set: Integer[*] <<unique, unordered>>
-        - Sequence: Integer[*] <<nonunique, ordered>>
-        - Bag: Integer[*] <<nonunique, unordered>>
-    }
-    ```
+    ![restricción_orden_colección](./img/ud04_2_collection_order_constraint.png)
 
 - **Restricciones de validación**: permiten definir condiciones más complejas para garantizar que ciertos atributos o relaciones cumplan requisitos específicos.
 - **Restricciones de dependencia**: limitan las relaciones de dependencia entre clases o componentes. Por ejemplo, una clase A depende de B solo bajo ciertas condiciones.
@@ -1029,30 +1018,30 @@ Con toda la información recopilada, se dibuja el diagrama utilizando notación 
 ```mermaid
     classDiagram  
         class Libro {  
-            - String titulo  
-            - String autor  
-            - String ISBN  
-            - int cantidadDisponible  
+            - titulo : String
+            - autor : String
+            - ISBN : String
+            - cantidadDisponible : int  
             + actualizarCantidadDisponible() void  
         }
 
         class Usuario {  
             <<abstract>>  
-            - String nombre  
+            - nombre : String
             + realizarPrestamo() void  
         }
 
         class Estudiante {  
-            - String identificador  
+            - identificador : String
         }
 
         class Profesor {  
-            - String departamento  
+            - departamento : String
         }
 
         class Prestamo {  
-            - Date fechaInicio  
-            - Date fechaDevolucion  
+            - fechaInicio : Date
+            - fechaDevolucion : Date
             + calcularDuracion() int  
         }
 
@@ -1083,51 +1072,72 @@ Una tienda de música en línea vende álbumes y permite a los usuarios registra
 **Diagrama:**
 
 ```mermaid
-    classDiagram  
-        class Album {  
-            - String titulo  
-            - String artista  
-            - int añoLanzamiento  
+    classDiagram
+        class Usuario {
+            -email : String
+            -nombreUsuario : String
+            +realizarCompra()
+        }
+        
+        class Compra {
+            -fecha : Date
+            +calcularTotal()
+        }
+        
+        class ItemCompra {
+            -cantidad : int
+            -precioUnitario : double
+            +calcularSubtotal()
         }
 
-        class Cancion {  
-            - String titulo  
-            - double duracion  
-            - double precio  
+        class Album {
+            -titulo : String
+            -artista : String
+            -añoLanzamiento : int
+            +getPrecio() double
+        }
+        
+        class Cancion {
+            -titulo : String
+            -duracion : int
+            -artista : String
+            +getPrecio() double
         }
 
-        class Usuario {  
-            - String correo  
-            - String nombreUsuario  
-    }
-
-        class Compra {  
-            - Date fecha  
+        class Producto {
+            <<abstract>>
+            -descripcion : String
+            -categoría : String
+            -precio: double
+            +getPrecio() double
         }
 
-        Album *-- Cancion  
-        Usuario "1" --> "N" Compra  
-        Compra "N" o-- "N" Cancion  
-        Compra "N" o-- "N" Album
+        Usuario "1" --> "*" Compra
+        Compra "1" o-- "*" ItemCompra
+        ItemCompra "*" --> "1" Producto
+        Album --|> Producto
+        Cancion --|> Producto
+        Album "*" o-- "*" Cancion : contiene
 ```
 
 ## 21. Otro ejemplo de diagrama de clases completo
 
-El dueño de un hotel pide a desarrollar un programa para consultar sobre las habitaciones disponibles y reservar habitaciones de su hotel..
-El hotel posee tres tipos de habitaciones: simple, doble y matrimonial, y dos tipos de clientes: habituales y esporádicos. Una reserva almacena datos del cliente, de la habitación reservada, la fecha de comienzo y el número de días que será ocupada la habitación
-El recepcionista del hotel debe poder hacer la siguientes operaciones:
+El dueño de un hotel pide desarrollar un programa para consultar sobre las habitaciones disponibles y reservar habitaciones de su hotel.
+El hotel posee tres tipos de habitaciones: simple, doble y matrimonial, y dos tipos de clientes: habituales y esporádicos. Una reserva almacena datos del cliente, de la habitación reservada, la fecha de comienzo y el número de días que será ocupada la habitación. El recepcionista del hotel debe poder hacer la siguientes operaciones:
 
 - Obtener un listado de las habitaciones disponible de acuerdo a su tipo
 - Preguntar por el precio de una habitación de acuerdo a su tipo
 - Preguntar por el descuento ofrecido a los clientes habituales
-- Preguntar por el precio total para un cliente dado, especificando su numero de DNI, tipo de habitación y número de noches.
+- Preguntar por el precio total para un cliente dado, especificando su numero de DNI, tipo de habitación y número de noches
 - Dibujar en pantalla la foto de un habitación de acuerdo a su tipo
 - Reservar una habitación especificando el número de la habitación, DNI y nombre del cliente.
 - Eliminar una reserva especificando el número de la habitación
+
 El administrador puede usar el programa para:
+
 - Cambiar el precio de una habitación de acuerdo a su tipo
 - Cambiar el valor del descuento ofrecido a los clientes habituales
-- Calcular las ganancias que tendrán en un mes especificado (considere que todos los meses tienen treinta días).
+- Calcular las ganancias que tendrán en un mes especificado (considere que todos los meses tienen treinta días)
 El hotel posee información sobre que clientes son habituales. El diseño a desarrollar debe facilitar la extensibilidad de nuevos tipos de habitación o clientes y a su vez permitir agregar nuevas consultas
 
 A continuación, se muestra una propuesta de solución:

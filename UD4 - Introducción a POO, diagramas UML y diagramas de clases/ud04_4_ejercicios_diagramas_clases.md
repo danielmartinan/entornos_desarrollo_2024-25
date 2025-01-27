@@ -1,4 +1,16 @@
-# Soluciones propuestas a los ejercicios de diagramas de clases
+# Boletín de ejercicios de diagramas de clases
+
+En cada uno de los ejercicios, se debe diseñar un diagrama de clases UML que modele el sistema descrito. El modelo debe:
+
+- Identificar las clases principales y sus atributos.
+- Definir las relaciones entre las clases (asociaciones, agregaciones o composiciones según corresponda).
+- Indicar la multiplicidad en cada relación.
+- Añadir métodos principales a las clases si es relevante para clarificar su propósito.
+
+Consideraciones:
+
+- Piensa en la extensibilidad del sistema
+- Usa abstracciones si es necesario (por ejemplo, clases genéricas o interfaces).
 
 ## Web de deportes
 
@@ -8,28 +20,15 @@ Requisitos:
 
 - Deportes y competiciones: La web cubre diferentes deportes como fútbol, baloncesto, tenis, entre otros. Cada deporte tiene una lista de competiciones asociadas (por ejemplo, LaLiga, NBA, Roland Garros). En cada deporte, debemos poder consultar el número de competiciones vinculadas. Para cada competición, debemos poder agregar un equipo y listar los equipos participantes.
 - Equipos y jugadores: cada competición tiene varios equipos participantes. Un equipo tiene atributos como nombre, ciudad y estadio.
-Cada equipo tiene una plantilla de jugadores, con información como nombre, posición, número de camiseta y estadísticas (goles, asistencias, etc.). Cada equipo debe permitir añadir y eliminar jugadores de su plantilla, así como consultar las estadísticas agregadas de todos los jugadores. De cada jugador nos interesa también poder acceder a sus estadísticas específicas.
+Cada equipo tiene una plantilla de jugadores, con información como nombre, posición, número de camiseta. Cada equipo debe permitir añadir y eliminar jugadores de su plantilla
+- Hay deportes donde los jugadores juegan de manera individual y no a través de un equipo (por ejemplo, el tenis). Por tanto, una competición puede estar formada por jugadores y no por equipos, y debemos poder agregar tambien jugadores a ella.
 - Noticias: el sistema debe permitir gestionar noticias relacionadas con deportes, equipos o jugadores específicos. Cada noticia tiene un título, un contenido, una fecha de publicación y etiquetas relacionadas (por ejemplo, "Fútbol", "Real Madrid"). Una noticia puede referirse a múltiples equipos o jugadores. Debemos poder añadir o eliminar las etiquetas de una noticia.
 - Usuarios y comentarios: Los usuarios pueden registrarse en la web para comentar en las noticias. Un usuario tiene atributos como nombre, correo electrónico, contraseña y fecha de registro. Cada comentario pertenece a un usuario y a una noticia específica, y tiene una fecha y contenido. Un usuario debe poder eliminar un comentario realizado.
 - Funciones de Administración: los administradores pueden añadir o eliminar deportes, competiciones, equipos, jugadores y noticias. Los administradores tienen atributos como nombre, correo y rol.
 - Operaciones esperadas del sistema:
   - Listar noticias por deporte, equipo o jugador.
   - Buscar noticias por palabra clave en el título o contenido.
-  - Mostrar estadísticas de un equipo o jugador específico.
   - Gestionar usuarios (añadir, editar, eliminar) y comentarios ofensivos.
-
-Tarea: diseña un diagrama de clases UML que modele el sistema descrito. Tu modelo debe:
-
-- Identificar las clases principales y sus atributos.
-- Definir las relaciones entre las clases (asociaciones, agregaciones o composiciones según corresponda).
-- Indicar la multiplicidad en cada relación.
-- (Opcional) Añadir métodos principales a las clases si es relevante para clarificar su propósito.
-
-Consideraciones:
-
-- Piensa en la extensibilidad del sistema: ¿Cómo se podrían agregar nuevos deportes o tipos de contenido?
-- Usa abstracciones si es necesario (por ejemplo, clases genéricas para contenido).
-- Diseña el modelo para facilitar operaciones futuras, como estadísticas avanzadas o integración con redes sociales.
 
 ## Red social
 
@@ -41,7 +40,7 @@ Crear un diagrama de clases que permita modelar un sistema que sirva para simula
 - Los usuarios pueden tener una serie de contactos, que en realidad son otros usuarios. De cada contacto se puede almacenar un comentario que es personal y que sirve para describir al contacto.
 - Los usuarios pueden organizar sus contactos en grupos de los cuales se almacena un nombre y deberemos saber los contactos que contiene. El mismo contacto puede formar parte de varios grupos.
 - Además, cada usuario puede tener una lista de usuarios bloqueados a fin de que no puedan contactar con él
-- Los usuarios pueden publicar en la red comentarios, los cuales se puede hacer que los vea todo el mundo, que los vea uno o varios de los grupos de contactos del usuario o bien una lista concreta de usuarios. Los comentarios pueden incluir un texto y una imagen.
+- Los usuarios pueden publicar en la red Publicaciones, los cuales se puede hacer que los vea todo el mundo, que los vea uno o varios de los grupos de contactos del usuario o bien una lista concreta de usuarios. Las publicaciones pueden incluir un texto y una imagen.
 
 ## Empresa de comidas
 
@@ -64,7 +63,7 @@ Crear un diagrama de clases para una empresa de comidas. En la base de datos tie
 Realizar un diagrama de clases que permita modelar el sistema de información de una empresa de software atendiendo las siguientes premisas:
 
 - La empresa crea proyectos para otras empresas. De dichas empresas se almacena el CIF, nombre, dirección y teléfono así como un código interno de empresa.
-- Los proyectos se inician en una determinada fecha y finalizan en otra. Además al planificarle se almacena la fecha prevista de finalización (que puede no coincidir con la finalización real)
+- Los proyectos se inician en una determinada fecha y finalizan en otra. Además al planificarlo se almacena la fecha prevista de finalización (que puede no coincidir con la finalización real)
 - Los proyectos los realizan varios trabajadores, cada uno de ellos desempeña una determinada profesión en el proyecto (analista, jefe de proyecto, programador,…), dicha profesión tiene un código de profesión. En el mismo proyecto puede haber varios analistas, programadores,…
 - Todos los trabajadores tienen un código de trabajador, un dni, un nombre y apellidos. Su profesión puede cambiar según el proyecto: en uno puede ser jefe y en otro un programador
 - Se anota las horas que ha trabajado cada trabajador en cada proyecto.
