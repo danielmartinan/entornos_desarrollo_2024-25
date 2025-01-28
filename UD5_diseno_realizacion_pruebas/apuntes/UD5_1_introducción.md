@@ -30,35 +30,6 @@
   - [9.5. Conclusión](#95-conclusión)
 - [10. Recursos adicionales](#10-recursos-adicionales)
 
-**Mapa mental de la sección:**
-
-```mermaid
-mindmap
-  root((Diseño y realización de pruebas))
-    Introducción
-      Importancia en el desarrollo de software
-      Relación con la depuración
-    Tipos de pruebas
-      Verificación vs Validación
-      Pruebas funcionales vs Pruebas estructurales
-      Nivel de pruebas
-        Pruebas unitarias
-        Pruebas de integración
-        Pruebas del sistema
-        Pruebas de aceptación
-    Herramientas y enfoques modernos
-      Automatización (JUnit)
-      Desarrollo guiado por pruebas (TDD)
-      Frameworks de pruebas automatizadas
-    Conceptos básicos
-      Error
-      Defecto
-      Fallo
-      Bug
-    Principios básicos de las pruebas
-    ISTQB
-```
-
 ## 1. Introducción a las pruebas
 
 El diseño y la realización de pruebas constituyen un pilar fundamental en el desarrollo de software. Este proceso no solo asegura que los programas cumplan con los requisitos funcionales establecidos, sino que también minimiza los defectos, mejora la calidad del producto final y garantiza la satisfacción del usuario.
@@ -189,7 +160,7 @@ En el desarrollo de software, los términos **aseguramiento de calidad (QA)**, *
 
 ## 9. ¿Qué es el ISTQB?
 
-El **ISTQB (International Software Testing Qualifications Board)** es una organización global sin ánimo de lucro que define y mantiene estándares en el ámbito de las pruebas de software. Fundado en 2002, el ISTQB tiene como misión fomentar la calidad en el desarrollo de software a través de un marco de certificación profesional en pruebas, ampliamente reconocido en todo el mundo.
+El [**ISTQB (International Software Testing Qualifications Board)**](https://www.istqb.org/) es una organización global sin ánimo de lucro que define y mantiene estándares en el ámbito de las pruebas de software. Fundado en 2002, el ISTQB tiene como misión fomentar la calidad en el desarrollo de software a través de un marco de certificación profesional en pruebas, ampliamente reconocido en todo el mundo.
 
 ### 9.1. Objetivo Principal del ISTQB
 

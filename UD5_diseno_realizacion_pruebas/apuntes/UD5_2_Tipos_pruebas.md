@@ -239,14 +239,14 @@ El análisis de las normas de codificación (como coding rules y naming conventi
 
 Las normas de codificación (*coding rules*) son un conjunto de reglas y convenciones que definen cómo debe escribirse el código. Incluyen aspectos como:
 
-- Naming conventions: Convenciones para nombrar variables, funciones, clases, etc. (por ejemplo, camelCase, snake_case, o PascalCase).
-- Coding rules: Reglas sobre la estructura del código, como el uso de llaves, indentación, longitud de líneas, etc.
+- **Naming conventions**: Convenciones para nombrar variables, funciones, clases, etc. (por ejemplo, camelCase, snake_case, o PascalCase).
+- **Coding rules**: Reglas sobre la estructura del código, como el uso de llaves, indentación, longitud de líneas, etc.
 
 Estas normas son fundamentales para mantener un código legible, consistente y fácil de mantener, especialmente en proyectos colaborativos.
 
 En el caso de Intellij IDEA, podemos integrar reglas de codificación personalizadas o utilizar las reglas predefinidas por la herramienta.
 
-Puedes seguir las instrucciones definidas aquí.
+Puedes seguir las instrucciones definidas en [este anexo](/UD5_diseno_realizacion_pruebas/apuntes/UD5_anexo_configuracion_analisis_estatico_intellij.md).
 
 ### 1.2. Pruebas dinámicas
 
