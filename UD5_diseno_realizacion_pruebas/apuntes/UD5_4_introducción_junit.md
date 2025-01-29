@@ -22,20 +22,26 @@
 - [5. Ejemplos de aplicación de JUnit](#5-ejemplos-de-aplicación-de-junit)
   - [5.1. Ejemplo 1: Clase `ValidadorContrasena`](#51-ejemplo-1-clase-validadorcontrasena)
   - [5.2. Ejemplo 2: Clase `GestorInventario`](#52-ejemplo-2-clase-gestorinventario)
-  - [6. Pruebas Avanzadas](#6-pruebas-avanzadas)
-    - [6.1. Pruebas Parametrizadas](#61-pruebas-parametrizadas)
-    - [6.2. Pruebas de Excepciones](#62-pruebas-de-excepciones)
-    - [6.3. Combinación de Pruebas Parametrizadas y de Excepciones](#63-combinación-de-pruebas-parametrizadas-y-de-excepciones)
+- [6. Pruebas Avanzadas](#6-pruebas-avanzadas)
+  - [6.1. Pruebas Parametrizadas](#61-pruebas-parametrizadas)
+    - [6.1.1. **Cómo usar pruebas parametrizadas en JUnit 5**](#611-cómo-usar-pruebas-parametrizadas-en-junit-5)
+  - [6.2. Pruebas de Excepciones](#62-pruebas-de-excepciones)
+    - [6.2.1. **Cómo probar excepciones en JUnit 5**](#621-cómo-probar-excepciones-en-junit-5)
+  - [6.3. Combinación de Pruebas Parametrizadas y de Excepciones](#63-combinación-de-pruebas-parametrizadas-y-de-excepciones)
   - [6.4. Pruebas Anidadas (`@Nested`)](#64-pruebas-anidadas-nested)
-    - [**Cómo usar `@Nested` en JUnit 5**](#cómo-usar-nested-en-junit-5)
+    - [6.4.1. **Cómo usar `@Nested` en JUnit 5**](#641-cómo-usar-nested-en-junit-5)
   - [6.5. Deshabilitar Pruebas (`@Disabled`)](#65-deshabilitar-pruebas-disabled)
-  - [7. Ejercicios Prácticos](#7-ejercicios-prácticos)
-    - [Método `esPalindromo`](#método-espalindromo)
-    - [Método `calcularFactorial`](#método-calcularfactorial)
-  - [8. Recursos Adicionales](#8-recursos-adicionales)
-    - [8.1. Documentación Oficial de JUnit](#81-documentación-oficial-de-junit)
-    - [8.2. Libros y Tutoriales Recomendados](#82-libros-y-tutoriales-recomendados)
-    - [8.3. Comunidades y Foros para Resolver Dudas](#83-comunidades-y-foros-para-resolver-dudas)
+  - [6.6. Suite de pruebas (`@Suite`)](#66-suite-de-pruebas-suite)
+    - [Pasos para crear un suite de tests en JUnit 5](#pasos-para-crear-un-suite-de-tests-en-junit-5)
+  - [Otras opciones para agrupar tests](#otras-opciones-para-agrupar-tests)
+  - [Resumen](#resumen)
+- [7. Ejercicios Prácticos](#7-ejercicios-prácticos)
+  - [7.1. Método `esPalindromo`](#71-método-espalindromo)
+  - [7.2. Método `calcularFactorial`](#72-método-calcularfactorial)
+- [8. Recursos Adicionales](#8-recursos-adicionales)
+  - [8.1. Documentación Oficial de JUnit](#81-documentación-oficial-de-junit)
+  - [8.2. Libros y Tutoriales Recomendados](#82-libros-y-tutoriales-recomendados)
+  - [8.3. Comunidades y Foros para Resolver Dudas](#83-comunidades-y-foros-para-resolver-dudas)
 
 **Mapa mental de esta sección:**
 
@@ -967,15 +973,15 @@ public class GestorInventarioTest {
    - Se aseguran de que todos los caminos del código se ejecuten (por ejemplo, todas las condiciones del método `añadirProducto` y `eliminarProducto`).
    - Se verifica que el método maneje correctamente casos como cantidades inválidas, stock insuficiente y productos inexistentes.
 
-### 6. Pruebas Avanzadas
+## 6. Pruebas Avanzadas
 
 En este apartado, exploraremos dos técnicas avanzadas en JUnit: **pruebas parametrizadas** y **pruebas de excepciones**. Estas técnicas permiten escribir pruebas más flexibles y completas, cubriendo una mayor variedad de escenarios.
 
-#### 6.1. Pruebas Parametrizadas
+### 6.1. Pruebas Parametrizadas
 
 Las **pruebas parametrizadas** permiten ejecutar la misma prueba con diferentes conjuntos de datos. Esto es especialmente útil cuando queremos probar un método con múltiples entradas y verificar que produce los resultados esperados en cada caso.
 
-##### **Cómo usar pruebas parametrizadas en JUnit 5**
+#### 6.1.1. **Cómo usar pruebas parametrizadas en JUnit 5**
 
 1. **Anotación `@ParameterizedTest`**:
    - Indica que el método es una prueba parametrizada.
@@ -1048,11 +1054,11 @@ public class SumaParametrizadaTest {
 
 En este caso, usamos `@CsvSource` para definir múltiples conjuntos de datos en formato CSV. La prueba se ejecutará con cada conjunto, verificando que la suma sea correcta. El número de columnas en `@CsvSource` debe coincidir con los parámetros del método.
 
-#### 6.2. Pruebas de Excepciones
+### 6.2. Pruebas de Excepciones
 
 Las **pruebas de excepciones** permiten verificar que un método lanza una excepción específica en ciertas condiciones. Esto es crucial para asegurar que el código maneja correctamente situaciones excepcionales.
 
-##### **Cómo probar excepciones en JUnit 5**
+#### 6.2.1. **Cómo probar excepciones en JUnit 5**
 
 1. **Método `assertThrows`**:
    - Verifica que un bloque de código lanza una excepción específica.
@@ -1091,7 +1097,7 @@ public class PruebasExcepcionesConMensajeTest {
 }
 ```
 
-#### 6.3. Combinación de Pruebas Parametrizadas y de Excepciones
+### 6.3. Combinación de Pruebas Parametrizadas y de Excepciones
 
 Ahora, vamos a escribir pruebas parametrizadas para verificar que el método `validar` lanza una excepción cuando el número no es positivo.
 
@@ -1133,7 +1139,7 @@ public class ValidadorPositivoTest {
 
 Las **pruebas anidadas** permiten organizar pruebas relacionadas en clases internas (anidadas) dentro de una clase de prueba principal. Esto es especialmente útil cuando tienes un conjunto de pruebas que comparten un contexto común o cuando quieres agrupar pruebas por funcionalidad.
 
-#### **Cómo usar `@Nested` en JUnit 5**
+#### 6.4.1. **Cómo usar `@Nested` en JUnit 5**
 
 1. **Anotación `@Nested`**:
    - Se aplica a una clase interna dentro de una clase de prueba.
@@ -1251,11 +1257,131 @@ public class CalculadoraTest {
 - La prueba `testMultiplicacion` está deshabilitada con el mensaje "Esta prueba falla y necesita ser revisada".  
 - Estas pruebas no se ejecutarán, pero aparecerán en los informes como deshabilitadas, junto con el mensaje proporcionado.
 
-### 7. Ejercicios Prácticos
+### 6.6. Suite de pruebas (`@Suite`)
+
+Crear un **suite de tests** en JUnit 5 es una excelente manera de agrupar y ejecutar múltiples clases de prueba de forma conjunta. A diferencia de JUnit 4, JUnit 5 no tiene una anotación `@Suite` incorporada, pero se puede lograr el mismo resultado utilizando la anotación `@Suite` de **JUnit Platform** (que es parte de JUnit 5).
+
+#### Pasos para crear un suite de tests en JUnit 5
+
+1. **Agrega las dependencias necesarias**:
+   Asegúrate de tener las dependencias de JUnit 5 y JUnit Platform en tu `pom.xml` (si usas Maven) o en tu archivo de configuración de Gradle.
+
+   **Para Maven**:
+
+   ```xml
+   <dependency>
+       <groupId>org.junit.platform</groupId>
+       <artifactId>junit-platform-suite</artifactId>
+       <version>1.9.1</version>
+       <scope>test</scope>
+   </dependency>
+   <dependency>
+       <groupId>org.junit.jupiter</groupId>
+       <artifactId>junit-jupiter-engine</artifactId>
+       <version>5.9.1</version>
+       <scope>test</scope>
+   </dependency>
+   ```
+
+   **Para Gradle**:
+
+   ```groovy
+   testImplementation 'org.junit.platform:junit-platform-suite:1.9.1'
+   testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.9.1'
+   ```
+
+2. **Crea las clases de prueba**:
+   Asegúrate de tener las clases de prueba que deseas incluir en el suite. Por ejemplo:
+
+   ```java
+   package com.bibliotecas.app;
+
+   import org.junit.jupiter.api.Test;
+   import static org.junit.jupiter.api.Assertions.*;
+
+   public class MainAppTest {
+       @Test
+       public void testApp() {
+           assertTrue(true);
+       }
+   }
+   ```
+
+   ```java
+   package com.bibliotecas.model;
+
+   import org.junit.jupiter.api.Test;
+   import static org.junit.jupiter.api.Assertions.*;
+
+   public class LibroTest {
+       @Test
+       public void testLibro() {
+           assertTrue(true);
+       }
+   }
+   ```
+
+3. **Crea la clase del suite**:
+   Usa la anotación `@Suite` de JUnit Platform para definir un suite que incluya las clases de prueba.
+
+   ```java
+   package com.bibliotecas;
+
+   import org.junit.platform.suite.api.SelectClasses;
+   import org.junit.platform.suite.api.Suite;
+
+   @Suite
+   @SelectClasses({
+       com.bibliotecas.app.MainAppTest.class,
+       com.bibliotecas.model.LibroTest.class
+   })
+   public class TestSuite {
+       // Esta clase no necesita código, solo actúa como contenedor del suite.
+   }
+   ```
+
+   - `@Suite`: Indica que esta clase es un suite de tests.
+   - `@SelectClasses`: Especifica las clases de prueba que se incluirán en el suite.
+
+4. **Ejecuta el suite**:
+   - En IntelliJ IDEA, haz clic derecho sobre la clase `TestSuite` y selecciona **Run**.
+   - También puedes ejecutarlo desde la terminal con Maven o Gradle:
+     - **Maven**: `mvn test`
+     - **Gradle**: `gradle test`
+
+### Otras opciones para agrupar tests
+
+Además de `@SelectClasses`, puedes usar otras anotaciones para incluir tests en el suite:
+
+- `@SelectPackages`: Incluye todos los tests en un paquete específico.
+
+  ```java
+  @Suite
+  @SelectPackages("com.bibliotecas")
+  public class TestSuite {
+  }
+  ```
+
+- `@IncludeTags` y `@ExcludeTags`: Incluye o excluye tests basados en etiquetas.
+
+  ```java
+  @Suite
+  @IncludeTags("slow")
+  public class SlowTestsSuite {
+  }
+  ```
+
+### Resumen
+
+- Usa `@Suite` de JUnit Platform para crear un suite de tests.
+- Usa `@SelectClasses` para especificar las clases de prueba que formarán parte del suite.
+- Ejecuta el suite desde IntelliJ IDEA o mediante Maven/Gradle.
+
+## 7. Ejercicios Prácticos
 
 En esta sección, proporcionaremos ejemplos prácticos para podáis aplicar los conocimientos de JUnit en diferentes contextos.
 
-#### Método `esPalindromo`
+### 7.1. Método `esPalindromo`
 
 Este método verifica si una cadena es un palíndromo (se lee igual de izquierda a derecha y viceversa).
 
@@ -1295,7 +1421,7 @@ Este método verifica si una cadena es un palíndromo (se lee igual de izquierda
 
    </details>
 
-#### Método `calcularFactorial`
+### 7.2. Método `calcularFactorial`
 
 Este método calcula el factorial de un número.
 
@@ -1333,16 +1459,16 @@ Este método calcula el factorial de un número.
 
 </details>
 
-### 8. Recursos Adicionales
+## 8. Recursos Adicionales
 
 En esta sección, proporcionaremos recursos útiles para que los alumnos puedan seguir aprendiendo sobre JUnit y testing en general.
 
-#### 8.1. Documentación Oficial de JUnit
+### 8.1. Documentación Oficial de JUnit
 
 - **JUnit 5 User Guide**: La guía oficial de JUnit 5 es un recurso imprescindible para entender todas las funcionalidades del framework.
   - Enlace: [https://junit.org/junit5/docs/current/user-guide/](https://junit.org/junit5/docs/current/user-guide/)
 
-#### 8.2. Libros y Tutoriales Recomendados
+### 8.2. Libros y Tutoriales Recomendados
 
 1. **Libros**:
    - **"JUnit in Action"** por Catalin Tudose: Un libro completo que cubre JUnit 5 y prácticas avanzadas de testing.
@@ -1352,7 +1478,7 @@ En esta sección, proporcionaremos recursos útiles para que los alumnos puedan 
    - **JUnit 5 Tutorial** de Baeldung: Un tutorial muy completo con ejemplos prácticos.
      - Enlace: [https://www.baeldung.com/junit-5](https://www.baeldung.com/junit-5)
 
-#### 8.3. Comunidades y Foros para Resolver Dudas
+### 8.3. Comunidades y Foros para Resolver Dudas
 
 1. **Stack Overflow**:
    - Una comunidad activa donde puedes hacer preguntas sobre JUnit y testing.
