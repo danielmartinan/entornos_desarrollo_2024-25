@@ -18,7 +18,7 @@ En este repositorio encontrarás apuntes del módulo de Entornos de Desarrollo, 
     - [Boletín de ejercicios: pruebas de caja blanca](./UD5_diseno_realizacion_pruebas/ejercicios/UD5_boletin_ejercicios_caja_blanca.md)
       - [Soluciones](./UD5_diseno_realizacion_pruebas/ejercicios/UD5_boletin_ejercicios_caja_blanca_soluciones.md)
   - UD5.3. [Automatización de pruebas](./UD5_diseno_realizacion_pruebas/apuntes/UD5_3_automatización_pruebas.md)
-  - UD5.4. [Introducción a JUnit (pendiente de subir)](./UD5_diseno_realizacion_pruebas/apuntes/UD5_4_introducción_junit.md)
+  - UD5.4. [Introducción a JUnit](./UD5_diseno_realizacion_pruebas/apuntes/UD5_4_introducción_junit.md)
   - UD5.5. [Documentación de pruebas](./UD5_diseno_realizacion_pruebas/apuntes/UD5_5_documentacion_pruebas.md)
 
 ## Licencia de uso
