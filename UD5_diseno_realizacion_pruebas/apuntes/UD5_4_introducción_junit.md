@@ -988,6 +988,18 @@ Las **pruebas parametrizadas** permiten ejecutar la misma prueba con diferentes 
      - `@MethodSource`: Permite usar un método como fuente de datos.
      - `@EnumSource`: Proporciona valores de una enumeración.
 
+>[!Nota]
+> Para usar pruebas parametrizadas, debes añadir la siguiente dependencia al archivo pom.xml de tu proyecto
+>
+> ```xml
+>       <dependency>
+>           <groupId>org.junit.jupiter</groupId>
+>           <artifactId>junit-jupiter-params</artifactId>
+>           <version>5.11.3</version>
+>           <scope>test</scope>
+>       </dependency>
+>
+
 **Ejemplo de prueba parametrizada**:
 
 Supongamos que queremos probar un método que verifica si un número es par.
