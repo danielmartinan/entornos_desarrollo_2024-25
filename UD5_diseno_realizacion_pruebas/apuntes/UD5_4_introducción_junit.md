@@ -988,7 +988,7 @@ Las **pruebas parametrizadas** permiten ejecutar la misma prueba con diferentes 
      - `@MethodSource`: Permite usar un método como fuente de datos.
      - `@EnumSource`: Proporciona valores de una enumeración.
 
->[!Nota]
+>[!Note]
 > Para usar pruebas parametrizadas, debes añadir la siguiente dependencia al archivo pom.xml de tu proyecto
 >
 > ```xml
