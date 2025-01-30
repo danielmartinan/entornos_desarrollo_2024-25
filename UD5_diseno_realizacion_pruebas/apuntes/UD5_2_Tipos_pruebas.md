@@ -432,17 +432,17 @@ Un sistema valida que la puntuación de un examen esté entre 0 y 100. Diseña c
      - Límite inferior: 0.
      - Límite superior: 100.
   2. **Seleccionar valores límite y adyacentes**:
-     - \( \text{Puntuación} = -1 \) (No válida).
-     - \( \text{Puntuación} = 0 \) (Válida).
-     - \( \text{Puntuación} = 50 \) (Válida).
-     - \( \text{Puntuación} = 100 \) (Válida).
-     - \( \text{Puntuación} = 101 \) (No válida).
+     - $ \text{Puntuación} = -1  $ (No válida).
+     - $ \text{Puntuación} = 0  $ (Válida).
+     - $ \text{Puntuación} = 50  $ (Válida).
+     - $ \text{Puntuación} = 100  $ (Válida).
+     - $ \text{Puntuación} = 101  $ (No válida).
   3. **Diseñar casos de prueba**:
-     - Caso 1: \( \text{Puntuación} = -1 \) → Resultado esperado: false.
-     - Caso 2: \( \text{Puntuación} = 0 \) → Resultado esperado: true.
-     - Caso 3: \( \text{Puntuación} = 50 \) → Resultado esperado: true.
-     - Caso 4: \( \text{Puntuación} = 100 \) → Resultado esperado: true.
-     - Caso 5: \( \text{Puntuación} = 101 \) → Resultado esperado: false.
+     - Caso 1:  $ \text{Puntuación} = -1  $ → Resultado esperado: false.
+     - Caso 2:  $ \text{Puntuación} = 0  $ → Resultado esperado: true.
+     - Caso 3:  $ \text{Puntuación} = 50  $ → Resultado esperado: true.
+     - Caso 4:  $ \text{Puntuación} = 100  $ → Resultado esperado: true.
+     - Caso 5:  $ \text{Puntuación} = 101  $ → Resultado esperado: false.
 
 **Ejercicio 3: Validación de Edad para un Carnet de Conducir**
 Un sistema valida que la edad para obtener un carnet de conducir esté entre 18 y 65 años. Diseña casos de prueba usando **análisis de valores límite**.
@@ -458,20 +458,21 @@ Un sistema valida que la edad para obtener un carnet de conducir esté entre 18 
      - Límite inferior: 18.
      - Límite superior: 65.
   2. **Seleccionar valores límite y adyacentes**:
-     - \( \text{Edad} = 17 \) (No válida).
-     - \( \text{Edad} = 18 \) (Válida).
-     - \( \text{Edad} = 40 \) (Válida).
-     - \( \text{Edad} = 65 \) (Válida).
-     - \( \text{Edad} = 66 \) (No válida).
+     - $ \text{Edad} = 17  $ (No válida).
+     - $ \text{Edad} = 18  $ (Válida).
+     - $ \text{Edad} = 40  $ (Válida).
+     - $ \text{Edad} = 65  $ (Válida).
+     - $ \text{Edad} = 66  $ (No válida).
   3. **Diseñar casos de prueba**:
-     - Caso 1: \( \text{Edad} = 17 \) → Resultado esperado: false.
-     - Caso 2: \( \text{Edad} = 18 \) → Resultado esperado: true.
-     - Caso 3: \( \text{Edad} = 40 \) → Resultado esperado: true.
-     - Caso 4: \( \text{Edad} = 65 \) → Resultado esperado: true.
-     - Caso 5: \( \text{Edad} = 66 \) → Resultado esperado: false.
+     - Caso 1:  $ \text{Edad} = 17  $ → Resultado esperado: false.
+     - Caso 2:  $ \text{Edad} = 18  $ → Resultado esperado: true.
+     - Caso 3:  $ \text{Edad} = 40  $ → Resultado esperado: true.
+     - Caso 4:  $ \text{Edad} = 65  $ → Resultado esperado: true.
+     - Caso 5:  $ \text{Edad} = 66  $ → Resultado esperado: false.
 
 **Ejercicio 4: Sistema de Descuentos en una Tienda**  
 Un sistema de descuentos aplica las siguientes reglas:
+
 - Si el cliente es VIP y el valor de la compra es mayor a 100€, se aplica un 20% de descuento.
 - Si el cliente es VIP y el valor de la compra es menor o igual a 100€, se aplica un 10% de descuento.
 - Si el cliente no es VIP, no se aplica descuento.
@@ -816,22 +817,22 @@ Se pide diseñar las pruebas de caja blanca de la funcion `fibonacci()`.
 
 **Calcular la Complejidad Ciclomática**: podemos usar cualquiera de las 3 fórmulas para calcular la complejidad ciclomática
 
-1. **Fórmula 1**: \( V(G) = a - n + 2 \)  
-   - \( a \): Número de aristas (flechas): 18 (flechas en el grafo).
-   - \( n \): Número de nodos: 15 (A, B, C, D, E, F, G, H, I, J, K, L, M, N, O).
+1. **Fórmula 1**:  $ V(G) = a - n + 2  $  
+   - $ a  $: Número de aristas (flechas): 18 (flechas en el grafo).
+   - $ n  $: Número de nodos: 15 (A, B, C, D, E, F, G, H, I, J, K, L, M, N, O).
 
     Aplicando la fórmula:  
     \[
     V(G) = 18 - 15 + 2 = 5
     \]
 
-2. **Fórmula 2**: \( V(G) = r \)  
-   - \( r \): Número de regiones cerradas en el grafo (incluyendo la región externa):
-     - Región 1: \( B \rightarrow D \rightarrow F \rightarrow H \rightarrow I \rightarrow J \rightarrow K \rightarrow L \rightarrow M \rightarrow I \).  
-     - Región 2: \( B \rightarrow D \rightarrow F \rightarrow H \rightarrow I \rightarrow N \).  
-     - Región 3: \( B \rightarrow D \rightarrow E \).  
-     - Región 4: \( B \rightarrow D \rightarrow F \rightarrow G \).  
-     - Región 5: \( B \rightarrow C \).
+2. **Fórmula 2**:  $ V(G) = r  $  
+   - $ r  $: Número de regiones cerradas en el grafo (incluyendo la región externa):
+     - Región 1:  $ B \rightarrow D \rightarrow F \rightarrow H \rightarrow I \rightarrow J \rightarrow K \rightarrow L \rightarrow M \rightarrow I  $.  
+     - Región 2:  $ B \rightarrow D \rightarrow F \rightarrow H \rightarrow I \rightarrow N  $.  
+     - Región 3:  $ B \rightarrow D \rightarrow E  $.  
+     - Región 4:  $ B \rightarrow D \rightarrow F \rightarrow G  $.  
+     - Región 5:  $ B \rightarrow C  $.
 
     Total de regiones: **5**.
 
@@ -840,12 +841,12 @@ Se pide diseñar las pruebas de caja blanca de la funcion `fibonacci()`.
     V(G) = 5
     \]
 
-3. **Fórmula 3**: \( V(G) = c + 1 \)  
-   - \( c \): Número de nodos de decisión (condiciones):  
-     - \( B \): ¿n <= 0?  
-     - \( D \): ¿n == 1?  
-     - \( F \): ¿n == 2?  
-     - \( I \): ¿i <= n?  
+3. **Fórmula 3**:  $ V(G) = c + 1  $  
+   - $ c  $: Número de nodos de decisión (condiciones):  
+     - $ B  $: ¿n <= 0?  
+     - $ D  $: ¿n == 1?  
+     - $ F  $: ¿n == 2?  
+     - $ I  $: ¿i <= n?  
 
     Total de nodos de decisión: **4**.
 
@@ -858,40 +859,40 @@ Las tres fórmulas coinciden en que la **complejidad ciclomática** del grafo es
 
 **Definir los caminos y casos de prueba**:
 
-1. **Caso 1**: \( n = -1 \)  
-   - **Camino**: \( A \rightarrow B \rightarrow C \rightarrow O \).  
-   - **Descripción**: Verifica que se lance una excepción para valores no válidos (\( n \leq 0 \)).  
+1. **Caso 1**:  $ n = -1  $  
+   - **Camino**:  $ A \rightarrow B \rightarrow C \rightarrow O  $.  
+   - **Descripción**: Verifica que se lance una excepción para valores no válidos ( $ n \leq 0  $).  
 
-2. **Caso 2**: \( n = 1 \)  
-   - **Camino**: \( A \rightarrow B \rightarrow D \rightarrow E \rightarrow O \).  
-   - **Descripción**: Verifica que se devuelva **0** para \( n = 1 \) (primer número de la serie).  
+2. **Caso 2**:  $ n = 1  $  
+   - **Camino**:  $ A \rightarrow B \rightarrow D \rightarrow E \rightarrow O  $.  
+   - **Descripción**: Verifica que se devuelva **0** para  $ n = 1  $ (primer número de la serie).  
 
-3. **Caso 3**: \( n = 2 \)  
-   - **Camino**: \( A \rightarrow B \rightarrow D \rightarrow F \rightarrow G \rightarrow O \).  
-   - **Descripción**: Verifica que se devuelva **1** para \( n = 2 \) (segundo número de la serie).  
+3. **Caso 3**:  $ n = 2  $  
+   - **Camino**:  $ A \rightarrow B \rightarrow D \rightarrow F \rightarrow G \rightarrow O  $.  
+   - **Descripción**: Verifica que se devuelva **1** para  $ n = 2  $ (segundo número de la serie).  
 
-4. **Caso 4**: \( n = 3 \)  
-   - **Camino**: \( A \rightarrow B \rightarrow D \rightarrow F \rightarrow H \rightarrow I \rightarrow N \rightarrow O \).  
-   - **Descripción**: Verifica que se devuelva **1** para \( n = 3 \) (tercer número de la serie: 0 + 1 = 1).  
+4. **Caso 4**:  $ n = 3  $  
+   - **Camino**:  $ A \rightarrow B \rightarrow D \rightarrow F \rightarrow H \rightarrow I \rightarrow N \rightarrow O  $.  
+   - **Descripción**: Verifica que se devuelva **1** para  $ n = 3  $ (tercer número de la serie: 0 + 1 = 1).  
 
-5. **Caso 5**: \( n = 5 \)  
-   - **Camino**: \( A \rightarrow B \rightarrow D \rightarrow F \rightarrow H \rightarrow I \rightarrow J \rightarrow K \rightarrow L \rightarrow M \rightarrow I \rightarrow N \rightarrow O \).  
-   - **Descripción**: Verifica que se devuelva **3** para \( n = 5 \) (quinto número de la serie: 0, 1, 1, 2, 3).  
+5. **Caso 5**:  $ n = 5  $  
+   - **Camino**:  $ A \rightarrow B \rightarrow D \rightarrow F \rightarrow H \rightarrow I \rightarrow J \rightarrow K \rightarrow L \rightarrow M \rightarrow I \rightarrow N \rightarrow O  $.  
+   - **Descripción**: Verifica que se devuelva **3** para  $ n = 5  $ (quinto número de la serie: 0, 1, 1, 2, 3).  
 
 **Resumen de los Casos de Prueba:**
 
-| Caso de Prueba | Entrada (\( n \)) | Resultado Esperado | Camino Cubierto                     |
+| Caso de Prueba | Entrada ( $ n  $) | Resultado Esperado | Camino Cubierto                     |
 |----------------|-------------------|--------------------|-------------------------------------|
-| **Caso 1**     | \( n = -1 \)      | Lanza excepción    | \( A \rightarrow B \rightarrow C \rightarrow O \) |
-| **Caso 2**     | \( n = 1 \)       | 0                  | \( A \rightarrow B \rightarrow D \rightarrow E \rightarrow O \) |
-| **Caso 3**     | \( n = 2 \)       | 1                  | \( A \rightarrow B \rightarrow D \rightarrow F \rightarrow G \rightarrow O \) |
-| **Caso 4**     | \( n = 3 \)       | 1                  | \( A \rightarrow B \rightarrow D \rightarrow F \rightarrow H \rightarrow I \rightarrow N \rightarrow O \) |
-| **Caso 5**     | \( n = 5 \)       | 3                  | \( A \rightarrow B \rightarrow D \rightarrow F \rightarrow H \rightarrow I \rightarrow J \rightarrow K \rightarrow L \rightarrow M \rightarrow I \rightarrow N \rightarrow O \) |
+| **Caso 1**     |  $ n = -1  $      | Lanza excepción    |  $ A \rightarrow B \rightarrow C \rightarrow O  $ |
+| **Caso 2**     |  $ n = 1  $       | 0                  |  $ A \rightarrow B \rightarrow D \rightarrow E \rightarrow O  $ |
+| **Caso 3**     |  $ n = 2  $       | 1                  |  $ A \rightarrow B \rightarrow D \rightarrow F \rightarrow G \rightarrow O  $ |
+| **Caso 4**     |  $ n = 3  $       | 1                  |  $ A \rightarrow B \rightarrow D \rightarrow F \rightarrow H \rightarrow I \rightarrow N \rightarrow O  $ |
+| **Caso 5**     |  $ n = 5  $       | 3                  |  $ A \rightarrow B \rightarrow D \rightarrow F \rightarrow H \rightarrow I \rightarrow J \rightarrow K \rightarrow L \rightarrow M \rightarrow I \rightarrow N \rightarrow O  $ |
 
 Estos casos de prueba cubren todos los caminos independientes del grafo de flujo, lo que garantiza una **cobertura del 100%** en términos de complejidad ciclomática. Además, se asegura que:
 
-- Se validan los casos base (\( n = 1 \) y \( n = 2 \)).
-- Se prueba el manejo de errores (\( n \leq 0 \)).
+- Se validan los casos base ( $ n = 1  $ y  $ n = 2  $).
+- Se prueba el manejo de errores ( $ n \leq 0  $).
 - Se verifica el funcionamiento del bucle para valores mayores a 2.
 
 </details>

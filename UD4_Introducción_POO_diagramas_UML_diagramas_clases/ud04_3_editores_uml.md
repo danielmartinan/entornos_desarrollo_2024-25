@@ -42,6 +42,7 @@
   - [6.2. ¿Cuándo es una buena práctica?](#62-cuándo-es-una-buena-práctica)
   - [6.3. ¿Cuándo no es recomendable?](#63-cuándo-no-es-recomendable)
   - [6.4. Buenas prácticas al usar ingeniería inversa](#64-buenas-prácticas-al-usar-ingeniería-inversa)
+- [Otros editores de interes](#otros-editores-de-interes)
 
 ## 1. Herramientas para la generación de Diagramas de Clases
 
@@ -109,11 +110,13 @@ Draw.io (ahora conocido como diagrams.net) es una herramienta de diagramación v
 4. Guarda el archivo en tu ubicación preferida (en la nube, en servicios cono oneDrive o Google Drive, o local).
 
 #### 3.1.2. Desde un archivo existente
+
 1. Ve a **Archivo > Abrir desde**.
 2. Selecciona el origen del archivo: Google Drive, OneDrive, local o URL.
 3. Navega hasta el archivo que deseas abrir y cárgalo en Draw.io.
 
 #### 3.1.3. Desde una plantilla
+
 1. En el menú principal, selecciona **"Crear nuevo diagrama"**.
 2. Explora las plantillas disponibles en las categorías como "Flujo de trabajo", "Red", "UML", entre otras.
 3. Selecciona la plantilla que mejor se adapte a tus necesidades y personalízala.
@@ -168,6 +171,7 @@ Puedes añadir flechas desde el panel izquierdo (categoría "General"), o, direc
    - **Métodos:** `+ nombreMétodo(parámetros): tipoRetorno`
 
 #### 3.2.7. Representación de relaciones
+
 Como recordatorio, debemos representar las relaciones en los diagramas de clases de la siguiente manera:
 
 1. **Asociación:** Usa una línea simple entre clases.
@@ -178,9 +182,10 @@ Como recordatorio, debemos representar las relaciones en los diagramas de clases
 
 **Ejemplo:**
 
-Puedes descargar e importar [este ejemplo](/UD4%20-%20Introducción%20a%20POO,%20diagramas%20UML%20y%20diagramas%20de%20clases/resources/ud4_class_diagram.drawio) de archivo drawio con diferentes tipos de clases, interfaces y relaciones entre ellas: 
+Puedes descargar e importar [este ejemplo](/UD4%20-%20Introducción%20a%20POO,%20diagramas%20UML%20y%20diagramas%20de%20clases/resources/ud4_class_diagram.drawio) de archivo drawio con diferentes tipos de clases, interfaces y relaciones entre ellas:
 
 ![Ejemplo_diagrama_clases_drawio](/UD4%20-%20Introducción%20a%20POO,%20diagramas%20UML%20y%20diagramas%20de%20clases/img/ud04_3_drawio_class_diagram.png)
+
 ### 3.3. Exportar diagramas
 
 Draw.io permite exportar los diagramas a varios formatos:
@@ -298,7 +303,7 @@ public class Proyecto {
 
 La **ingeniería inversa** en el contexto del desarrollo de software es el proceso de generar un diagrama UML, como el diagrama de clases, a partir de código fuente existente. Esta práctica es útil para comprender sistemas complejos, documentar código o analizar la arquitectura del software.
 
-IntelliJ IDEA, uno de los IDEs más avanzados, soporta esta funcionalidad a través de herramientas integradas o complementos. 
+IntelliJ IDEA, uno de los IDEs más avanzados, soporta esta funcionalidad a través de herramientas integradas o complementos.
 
 Las herramientas relacionadas con la generación de diagramas de clases desde Intellij IDEA son parte de su versión ultimate, por lo que no podremos aplicarlas desde la versión community,  pero, como estudiantes, se puede obtener una licencia gratuíta siguiendo los pasos descritos [aquí](https://www.jetbrains.com/community/education/#students).
 
@@ -390,9 +395,9 @@ El diagrama generado incluirá las clases **Empleado**, **Gerente** y **Proyecto
 
 ### 5.5. Limitaciones y Consideraciones
 
-* **Nivel de Detalle**: El diagrama puede ser difícil de interpretar si el proyecto tiene demasiadas clases o relaciones.  
-* **Lógica de Negocio**: La ingeniería inversa no incluye detalles sobre la implementación de métodos o lógica interna.  
-* **Complejidad**: Proyectos mal estructurados generan diagramas desorganizados, lo que puede requerir ajustes manuales.
+- **Nivel de Detalle**: El diagrama puede ser difícil de interpretar si el proyecto tiene demasiadas clases o relaciones.  
+- **Lógica de Negocio**: La ingeniería inversa no incluye detalles sobre la implementación de métodos o lógica interna.  
+- **Complejidad**: Proyectos mal estructurados generan diagramas desorganizados, lo que puede requerir ajustes manuales.
 
 ## 6. ¿Es buena práctica hacer uso de la ingeniería inversa?
 
@@ -423,3 +428,8 @@ El diagrama generado incluirá las clases **Empleado**, **Gerente** y **Proyecto
 2. **Combínalo con Documentación Manual**: Usa el diagrama como punto de partida, pero complementa con información de alto nivel, como patrones de diseño y decisiones arquitectónicas.  
 3. **Utiliza Herramientas de Calidad**: Herramientas como Visual Paradigm, StarUML o IntelliJ IDEA pueden generar diagramas más precisos y personalizables.  
 4. **Fomenta el Diseño Previo**: Utiliza ingeniería inversa solo como apoyo, no como un sustituto de un buen diseño previo al desarrollo.
+
+## Otros editores de interes
+
+- [Excalidraw](https://excalidraw.com): Herramienta de diagramación colaborativa y sencilla.
+- [Terrastruct](https://terrastruct.com): Terrastruct proporciona un lenguaje específico de dominio para diagramación, llamado [D2](https://d2lang.com/tour/intro/)
