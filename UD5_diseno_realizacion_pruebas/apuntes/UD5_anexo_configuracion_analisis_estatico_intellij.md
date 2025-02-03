@@ -454,20 +454,20 @@ A continuación se detallan los pasos para configurar la Guía de Estilos de Goo
 
     ![inspect_code](../img/ud5_inspect_code.png)
 
-### Análisis Estático Adicional: SonarLint
+### Análisis Estático Adicional: SonarQube
 
-Aunque IntelliJ IDEA tiene su propio sistema de análisis estático, puedes instalar **SonarLint**, una herramienta avanzada de análisis estático de código que se integra con IntelliJ IDEA para ofrecer análisis en tiempo real. Esto complementa las capacidades del linter y ayuda a identificar problemas de calidad y seguridad en el código.
+Aunque IntelliJ IDEA tiene su propio sistema de análisis estático, puedes instalar **SonarQube**, una herramienta avanzada de análisis estático de código que se integra con IntelliJ IDEA para ofrecer análisis en tiempo real. Esto complementa las capacidades del linter y ayuda a identificar problemas de calidad y seguridad en el código.
 
-Pasos para instalar SonarLint:
+Pasos para instalar SonarQube:
 
 1. Abre **IntelliJ IDEA**.  
    - Ve a `File` \> `Settings` (o `Preferences` en macOS).  
    - En el menú lateral, selecciona `Plugins`.  
-   - Busca **SonarLint**.  
+   - Busca **SonarQube for IDE**.  
    - Instala el plugin y reinicia el IDE.  
-2. Tras la instalación, SonarLint analizará automáticamente tu código en busca de errores de calidad.
+2. Tras la instalación, SonarQube analizará automáticamente tu código en busca de errores de calidad.
 
-Es posible que haya reportes de SonarLint a los que no queramos hacer caso en ciertos momentos. Por ejemplo, SonarLint recomienda NO utilizar `System.out.println` y utilizar, en su lugar, un `Logger`. Por el momento podemos obviar esa recomendación. Para ello, podemos suprimir el warning arrojado de la siguiente forma:
+Es posible que haya reportes de SonarQube a los que no queramos hacer caso en ciertos momentos. Por ejemplo, SonarQube recomienda NO utilizar `System.out.println` y utilizar, en su lugar, un `Logger`. Por el momento podemos obviar esa recomendación. Para ello, podemos suprimir el warning arrojado de la siguiente forma:
 
 - Ubicamos el cursor encima de la expresión `System.out`  
 - Pulsamos en `More actions…`
@@ -514,5 +514,5 @@ La implementación de guías de estilo y convenciones de nomenclatura es fundame
 2. **Reducción de Errores**: Al aplicar convenciones de nomenclatura claras y consistentes, se minimizan los errores comunes y se mejora la capacidad para identificar problemas en el código.  
 3. **Eficiencia en el Desarrollo**: La utilización de herramientas como linters y formateadores automáticos permite a los desarrolladores centrarse en la lógica del negocio en lugar de preocuparse por detalles de formato. Esto aumenta la eficiencia en el proceso de desarrollo.  
 4. **Facilitación del Trabajo en Equipo**: Con un estilo de codificación uniforme, los nuevos miembros del equipo pueden integrarse más rápidamente, entendiendo y contribuyendo al código existente sin necesidad de un largo periodo de adaptación.  
-5. **Configuración del Entorno de Desarrollo**: Configurar adecuadamente el IDE y las herramientas de análisis estático, como SonarLint, permite a los desarrolladores recibir retroalimentación en tiempo real sobre su código, ayudando a detectar y corregir violaciones de estilo de manera temprana.  
+5. **Configuración del Entorno de Desarrollo**: Configurar adecuadamente el IDE y las herramientas de análisis estático, como SonarQube, permite a los desarrolladores recibir retroalimentación en tiempo real sobre su código, ayudando a detectar y corregir violaciones de estilo de manera temprana.  
 6. **Prácticas Continuas**: La adopción de estas prácticas no debe ser vista como un ejercicio único, sino como un proceso continuo que requiere revisión y adaptación a medida que el equipo y los proyectos evolucionan.
