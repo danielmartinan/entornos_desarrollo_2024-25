@@ -326,7 +326,7 @@ A partir de esta tabla, se pueden diseñar casos de prueba para cubrir todas las
 | Caso de prueba | Clase de equivalencia | Condiciones de entrada | Resultado esperado |
 |----------------|-----------------------|------------------------|--------------------|
 | CP1 | V1, V3, V4 | Empleado = 500, Departamento = 10, Oficio = Programador | S3 |
-| CP2 | V1, V2, V5 | Empleado = 500, Departamento = 30, Oficio = Diseñdaor | S2 |
+| CP2 | V1, V2, V5 | Empleado = 500, Departamento = , Oficio = Diseñdaor | S2 |
 | CP3 | NV1, V2, V4 | Empleado = 50, Departamento = , Oficio = Programador | ER1 |
 | CP4 | V1, NV3, V4 | Empleado = 500, Departamento = hola, Oficio = Programador | ER2 |
 | CP5 | V1, V3, NV5 | Empleado = 500, Departamento = 10, Oficio = Elige oficio | ER3 |
