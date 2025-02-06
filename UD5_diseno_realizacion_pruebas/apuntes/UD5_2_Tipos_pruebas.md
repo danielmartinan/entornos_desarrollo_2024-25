@@ -432,17 +432,17 @@ Un sistema valida que la puntuación de un examen esté entre 0 y 100. Diseña c
      - Límite inferior: 0.
      - Límite superior: 100.
   2. **Seleccionar valores límite y adyacentes**:
-     - $ \text{Puntuación} = -1  $ (No válida).
-     - $ \text{Puntuación} = 0  $ (Válida).
-     - $ \text{Puntuación} = 50  $ (Válida).
-     - $ \text{Puntuación} = 100  $ (Válida).
-     - $ \text{Puntuación} = 101  $ (No válida).
+     - $Puntuación = -1  $ (No válida).
+     - $Puntuación = 0  $ (Válida).
+     - $Puntuación = 50  $ (Válida).
+     - $Puntuación = 100  $ (Válida).
+     - $Puntuación = 101  $ (No válida).
   3. **Diseñar casos de prueba**:
-     - Caso 1:  $ \text{Puntuación} = -1  $ → Resultado esperado: false.
-     - Caso 2:  $ \text{Puntuación} = 0  $ → Resultado esperado: true.
-     - Caso 3:  $ \text{Puntuación} = 50  $ → Resultado esperado: true.
-     - Caso 4:  $ \text{Puntuación} = 100  $ → Resultado esperado: true.
-     - Caso 5:  $ \text{Puntuación} = 101  $ → Resultado esperado: false.
+     - Caso 1:  $Puntuación = -1$ → Resultado esperado: false.
+     - Caso 2:  $Puntuación = 0$ → Resultado esperado: true.
+     - Caso 3:  $Puntuación = 50$ → Resultado esperado: true.
+     - Caso 4:  $Puntuación = 100$ → Resultado esperado: true.
+     - Caso 5:  $Puntuación = 101$ → Resultado esperado: false.
 
 **Ejercicio 3: Validación de Edad para un Carnet de Conducir**
 Un sistema valida que la edad para obtener un carnet de conducir esté entre 18 y 65 años. Diseña casos de prueba usando **análisis de valores límite**.
@@ -458,17 +458,17 @@ Un sistema valida que la edad para obtener un carnet de conducir esté entre 18 
      - Límite inferior: 18.
      - Límite superior: 65.
   2. **Seleccionar valores límite y adyacentes**:
-     - $ \text{Edad} = 17  $ (No válida).
-     - $ \text{Edad} = 18  $ (Válida).
-     - $ \text{Edad} = 40  $ (Válida).
-     - $ \text{Edad} = 65  $ (Válida).
-     - $ \text{Edad} = 66  $ (No válida).
+     - $Edad = 17$ (No válida).
+     - $Edad = 18$ (Válida).
+     - $Edad = 40$ (Válida).
+     - $Edad = 65$ (Válida).
+     - $Edad = 66$ (No válida).
   3. **Diseñar casos de prueba**:
-     - Caso 1:  $ \text{Edad} = 17  $ → Resultado esperado: false.
-     - Caso 2:  $ \text{Edad} = 18  $ → Resultado esperado: true.
-     - Caso 3:  $ \text{Edad} = 40  $ → Resultado esperado: true.
-     - Caso 4:  $ \text{Edad} = 65  $ → Resultado esperado: true.
-     - Caso 5:  $ \text{Edad} = 66  $ → Resultado esperado: false.
+     - Caso 1:  $Edad = 17$ → Resultado esperado: false.
+     - Caso 2:  $Edad = 18$ → Resultado esperado: true.
+     - Caso 3:  $Edad = 40$ → Resultado esperado: true.
+     - Caso 4:  $Edad = 65$ → Resultado esperado: true.
+     - Caso 5:  $Edad = 66$ → Resultado esperado: false.
 
 **Ejercicio 4: Sistema de Descuentos en una Tienda**  
 Un sistema de descuentos aplica las siguientes reglas:
