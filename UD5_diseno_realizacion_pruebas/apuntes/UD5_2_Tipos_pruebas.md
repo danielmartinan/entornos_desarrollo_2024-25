@@ -848,11 +848,11 @@ Las tres fórmulas coinciden en que la **complejidad ciclomática** del grafo es
 **Definir los caminos y casos de prueba**:
 
 1. **Caso 1**:  $ n = -1  $  
-   - **Camino**:  $ A \rightarrow B \rightarrow C \rightarrow O  $.  
+   - **Camino**:  $A \rightarrow B \rightarrow C \rightarrow O$.  
    - **Descripción**: Verifica que se lance una excepción para valores no válidos ( $ n \leq 0  $).  
 
 2. **Caso 2**:  $n = 1$  
-   - **Camino**:  $ A \rightarrow B \rightarrow D \rightarrow E \rightarrow O  $.  
+   - **Camino**:  $A \rightarrow B \rightarrow D \rightarrow E \rightarrow O$.  
    - **Descripción**: Verifica que se devuelva **0** para  $ n = 1  $ (primer número de la serie).  
 
 3. **Caso 3**:  $n = 2$  
