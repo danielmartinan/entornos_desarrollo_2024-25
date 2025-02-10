@@ -1004,7 +1004,7 @@ Las **pruebas parametrizadas** permiten ejecutar la misma prueba con diferentes 
 >           <version>5.11.3</version>
 >           <scope>test</scope>
 >       </dependency>
->
+> ```
 
 **Ejemplo de prueba parametrizada**:
 

@@ -406,7 +406,7 @@ boolean validarTelefono(String telefono);
     | Rango | "000000000" -- "999999999"  | V1  | (Longitud < 9) <br> (Longitud > 9) <br>  (Carácter inicial) <br> (Carácter intermedio) <br> (Carácter final)  | NV1 <br> NV2 <br> NV3 <br> NV4 <br> NV5 |
 
     Como este problema solo tiene una condición de entrada, definimos un caso e prueba para cada código de clase de equivalencia válido y no válido.
-    
+
 3. **Diseñar casos de prueba**:
 
     | Caso de Prueba | Entrada          | Resultado Esperado | Descripción                                   |
@@ -432,11 +432,11 @@ Un sistema valida que la puntuación de un examen esté entre 0 y 100. Diseña c
      - Límite inferior: 0.
      - Límite superior: 100.
   2. **Seleccionar valores límite y adyacentes**:
-     - $Puntuación = -1  $ (No válida).
-     - $Puntuación = 0  $ (Válida).
-     - $Puntuación = 50  $ (Válida).
-     - $Puntuación = 100  $ (Válida).
-     - $Puntuación = 101  $ (No válida).
+     - $Puntuación = -1$ (No válida).
+     - $Puntuación = 0$ (Válida).
+     - $Puntuación = 50$ (Válida).
+     - $Puntuación = 100$ (Válida).
+     - $Puntuación = 101$ (No válida).
   3. **Diseñar casos de prueba**:
      - Caso 1:  $Puntuación = -1$ → Resultado esperado: false.
      - Caso 2:  $Puntuación = 0$ → Resultado esperado: true.
@@ -562,9 +562,8 @@ El objetivo de esta técnica de diseño de pruebas es obtener un conjunto de cas
 
         ```mermaid
         graph TD
-        A([Inicio]) --> B([Primera instrucción])
-        B --> C([Segunda instrucción])
-        C --> D([Fin])
+        A([Inicio]) --> B([Bloque de instrucciones])
+        B --> D([Fin])
         ```
 
     - **Condición**: Decisiones con bifurcaciones (`if`, `else`).  
@@ -683,7 +682,8 @@ El objetivo de esta técnica de diseño de pruebas es obtener un conjunto de cas
 
         ```mermaid
         graph TD
-        A([Inicio]) --> B([Condición: x < 5])
+        A([Inicio]) --> M([x = 0])
+        M --> B([Condición: x < 5])
         B -->|Verdadero| C([Imprimir valor de x])
         C --> D([Incrementar x])
         D --> B
@@ -788,28 +788,22 @@ public class Fibonacci {
 
 Se pide diseñar las pruebas de caja blanca de la funcion `fibonacci()`.
 
-<details>
-<summary><strong>Mostrar solución</strong></summary>
-
 **Creación del Grafo de Flujo**: Representamos el código mediante un grafo basado en las estructuras del programa: condiciones, bucles y secuencias.
 
    ```mermaid
     graph TD
-        A([Inicio]) --> B{¿n <= 0?}
-        B -->|Sí| C[Lanzar excepción]
-        B -->|No| D{¿n == 1?}
-        D -->|Sí| E[Devolver 0]
-        D -->|No| F{¿n == 2?}
-        F -->|Sí| G[Devolver 1]
-        F -->|No| H[Inicializar a=0, b=1, c=0]
-        H --> I{¿i <= n?}
-        I -->|No| N[Devolver c]
-        I -->|Sí| J[c = a + b]
-        J --> K[a = b]
-        K --> L[b = c]
-        L --> M[i++]
-        M --> I
-        C --> O([Fin])
+        A([A: Inicio]) --> B{B: ¿n <= 0?}
+        B -->|Sí| C[C: Lanzar excepción]
+        B -->|No| D{D: ¿n == 1?}
+        D -->|Sí| E[E: Devolver 0]
+        D -->|No| F{F: ¿n == 2?}
+        F -->|Sí| G[G: Devolver 1]
+        F -->|No| H[H: Inicializar a=0, b=1, c=0, i=3]
+        H --> I{I: ¿i <= n?}
+        I -->|No| N[N: Devolver c]
+        I -->|Sí| J[J: c = a + b; a = b; b = c; i++]
+        J --> I
+        C --> O([O: Fin])
         E --> O
         G --> O
         N --> O
@@ -817,43 +811,37 @@ Se pide diseñar las pruebas de caja blanca de la funcion `fibonacci()`.
 
 **Calcular la Complejidad Ciclomática**: podemos usar cualquiera de las 3 fórmulas para calcular la complejidad ciclomática
 
-1. **Fórmula 1**:  $ V(G) = a - n + 2  $  
-   - $ a  $: Número de aristas (flechas): 18 (flechas en el grafo).
-   - $ n  $: Número de nodos: 15 (A, B, C, D, E, F, G, H, I, J, K, L, M, N, O).
+1. **Fórmula 1**:  $V(G) = a - n + 2$  
+   - $a$: Número de aristas (flechas): 15 (flechas en el grafo).
+   - $n$: Número de nodos: 12 (A, B, C, D, E, F, G, H, I, J, K, L, M, N, O).
 
     Aplicando la fórmula:  
-    \[
-    V(G) = 18 - 15 + 2 = 5
-    \]
+    $V(G) = 15 - 12 + 2 = 5$
 
-2. **Fórmula 2**:  $ V(G) = r  $  
-   - $ r  $: Número de regiones cerradas en el grafo (incluyendo la región externa):
-     - Región 1:  $ B \rightarrow D \rightarrow F \rightarrow H \rightarrow I \rightarrow J \rightarrow K \rightarrow L \rightarrow M \rightarrow I  $.  
-     - Región 2:  $ B \rightarrow D \rightarrow F \rightarrow H \rightarrow I \rightarrow N  $.  
-     - Región 3:  $ B \rightarrow D \rightarrow E  $.  
-     - Región 4:  $ B \rightarrow D \rightarrow F \rightarrow G  $.  
-     - Región 5:  $ B \rightarrow C  $.
+2. **Fórmula 2**:  $V(G) = r$  
+   - $r$: Número de regiones cerradas en el grafo (incluyendo la región externa):
+     - Región 1:  Región externa
+     - Región 2:  $B \rightarrow C \rightarrow O \rightarrow E \rightarrow D$.  
+     - Región 3:  $D \rightarrow E \rightarrow O \rightarrow G \rightarrow F$.  
+     - Región 4:  $F \rightarrow G \rightarrow O \rightarrow N \rightarrow I \rightarrow H$.  
+     - Región 5:  $I \rightarrow J$.
 
     Total de regiones: **5**.
 
     Aplicando la fórmula:  
-    \[
-    V(G) = 5
-    \]
+    $V(G) = 5$
 
-3. **Fórmula 3**:  $ V(G) = c + 1  $  
-   - $ c  $: Número de nodos de decisión (condiciones):  
-     - $ B  $: ¿n <= 0?  
-     - $ D  $: ¿n == 1?  
-     - $ F  $: ¿n == 2?  
-     - $ I  $: ¿i <= n?  
+3. **Fórmula 3**:  $V(G) = c + 1$  
+   - $c$: Número de nodos de decisión (condiciones):  
+     - $B$: ¿n <= 0?  
+     - $D$: ¿n == 1?  
+     - $F$: ¿n == 2?  
+     - $I$: ¿i <= n?  
 
     Total de nodos de decisión: **4**.
 
     Aplicando la fórmula:  
-    \[
-    V(G) = 4 + 1 = 5
-    \]
+    $V(G) = 4 + 1 = 5$
 
 Las tres fórmulas coinciden en que la **complejidad ciclomática** del grafo es **5**. Esto significa que hay **5 caminos independientes** en el código, lo que se alinea con los casos de prueba diseñados anteriormente.
 
@@ -863,36 +851,36 @@ Las tres fórmulas coinciden en que la **complejidad ciclomática** del grafo es
    - **Camino**:  $ A \rightarrow B \rightarrow C \rightarrow O  $.  
    - **Descripción**: Verifica que se lance una excepción para valores no válidos ( $ n \leq 0  $).  
 
-2. **Caso 2**:  $ n = 1  $  
+2. **Caso 2**:  $n = 1$  
    - **Camino**:  $ A \rightarrow B \rightarrow D \rightarrow E \rightarrow O  $.  
    - **Descripción**: Verifica que se devuelva **0** para  $ n = 1  $ (primer número de la serie).  
 
-3. **Caso 3**:  $ n = 2  $  
-   - **Camino**:  $ A \rightarrow B \rightarrow D \rightarrow F \rightarrow G \rightarrow O  $.  
+3. **Caso 3**:  $n = 2$  
+   - **Camino**:  $A \rightarrow B \rightarrow D \rightarrow F \rightarrow G \rightarrow O$.  
    - **Descripción**: Verifica que se devuelva **1** para  $ n = 2  $ (segundo número de la serie).  
 
-4. **Caso 4**:  $ n = 3  $  
-   - **Camino**:  $ A \rightarrow B \rightarrow D \rightarrow F \rightarrow H \rightarrow I \rightarrow N \rightarrow O  $.  
-   - **Descripción**: Verifica que se devuelva **1** para  $ n = 3  $ (tercer número de la serie: 0 + 1 = 1).  
+4. **Caso 4**:  $n = 3$  
+   - **Camino**:  $A \rightarrow B \rightarrow D \rightarrow F \rightarrow H \rightarrow I \rightarrow N \rightarrow O$.  
+   - **Descripción**: Verifica que se devuelva **1** para  $n = 3$ (tercer número de la serie: 0 + 1 = 1).  
 
-5. **Caso 5**:  $ n = 5  $  
-   - **Camino**:  $ A \rightarrow B \rightarrow D \rightarrow F \rightarrow H \rightarrow I \rightarrow J \rightarrow K \rightarrow L \rightarrow M \rightarrow I \rightarrow N \rightarrow O  $.  
-   - **Descripción**: Verifica que se devuelva **3** para  $ n = 5  $ (quinto número de la serie: 0, 1, 1, 2, 3).  
+5. **Caso 5**:  $n = 5$  
+   - **Camino**:  $A \rightarrow B \rightarrow D \rightarrow F \rightarrow H \rightarrow I \rightarrow J \rightarrow K \rightarrow L \rightarrow M \rightarrow I \rightarrow N \rightarrow O$.  
+   - **Descripción**: Verifica que se devuelva **3** para  $n = 5$ (quinto número de la serie: 0, 1, 1, 2, 3).  
 
 **Resumen de los Casos de Prueba:**
 
-| Caso de Prueba | Entrada ( $ n  $) | Resultado Esperado | Camino Cubierto                     |
+| Caso de Prueba | Entrada ( $n$) | Resultado Esperado | Camino Cubierto                     |
 |----------------|-------------------|--------------------|-------------------------------------|
-| **Caso 1**     |  $ n = -1  $      | Lanza excepción    |  $ A \rightarrow B \rightarrow C \rightarrow O  $ |
-| **Caso 2**     |  $ n = 1  $       | 0                  |  $ A \rightarrow B \rightarrow D \rightarrow E \rightarrow O  $ |
-| **Caso 3**     |  $ n = 2  $       | 1                  |  $ A \rightarrow B \rightarrow D \rightarrow F \rightarrow G \rightarrow O  $ |
-| **Caso 4**     |  $ n = 3  $       | 1                  |  $ A \rightarrow B \rightarrow D \rightarrow F \rightarrow H \rightarrow I \rightarrow N \rightarrow O  $ |
-| **Caso 5**     |  $ n = 5  $       | 3                  |  $ A \rightarrow B \rightarrow D \rightarrow F \rightarrow H \rightarrow I \rightarrow J \rightarrow K \rightarrow L \rightarrow M \rightarrow I \rightarrow N \rightarrow O  $ |
+| **Caso 1**     |  $n = -1$      | Lanza excepción    |  $A \rightarrow B \rightarrow C \rightarrow O$ |
+| **Caso 2**     |  $n = 1$       | 0                  |  $A \rightarrow B \rightarrow D \rightarrow E \rightarrow O$ |
+| **Caso 3**     |  $n = 2$       | 1                  |  $A \rightarrow B \rightarrow D \rightarrow F \rightarrow G \rightarrow O$ |
+| **Caso 4**     |  $n = 3$       | 1                  |  $A \rightarrow B \rightarrow D \rightarrow F \rightarrow H \rightarrow I \rightarrow N \rightarrow O$ |
+| **Caso 5**     |  $n = 5$       | 3                  |  $A \rightarrow B \rightarrow D \rightarrow F \rightarrow H \rightarrow I \rightarrow J \rightarrow K \rightarrow L \rightarrow M \rightarrow I \rightarrow N \rightarrow O$ |
 
 Estos casos de prueba cubren todos los caminos independientes del grafo de flujo, lo que garantiza una **cobertura del 100%** en términos de complejidad ciclomática. Además, se asegura que:
 
-- Se validan los casos base ( $ n = 1  $ y  $ n = 2  $).
-- Se prueba el manejo de errores ( $ n \leq 0  $).
+- Se validan los casos base ( $n = 1$ y  $n = 2$).
+- Se prueba el manejo de errores ( $n \leq 0  $).
 - Se verifica el funcionamiento del bucle para valores mayores a 2.
 
 </details>
