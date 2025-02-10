@@ -875,7 +875,7 @@ Las tres fórmulas coinciden en que la **complejidad ciclomática** del grafo es
    - **Camino**:  $ A \rightarrow B \rightarrow D \rightarrow F \rightarrow H \rightarrow I \rightarrow N \rightarrow O  $.  
    - **Descripción**: Verifica que se devuelva **1** para  $ n = 3  $ (tercer número de la serie: 0 + 1 = 1).  
 
-5. **Caso 5**:  $ n = 5  $  
+5. **Caso 5**:  $n = 5$  
    - **Camino**:  $ A \rightarrow B \rightarrow D \rightarrow F \rightarrow H \rightarrow I \rightarrow J \rightarrow K \rightarrow L \rightarrow M \rightarrow I \rightarrow N \rightarrow O  $.  
    - **Descripción**: Verifica que se devuelva **3** para  $ n = 5  $ (quinto número de la serie: 0, 1, 1, 2, 3).  
 
