@@ -562,8 +562,9 @@ El objetivo de esta técnica de diseño de pruebas es obtener un conjunto de cas
 
         ```mermaid
         graph TD
-        A([Inicio]) --> B([Bloque de instrucciones])
-        B --> D([Fin])
+        A([Inicio]) --> B([Primera instrucción])
+        B --> C([Segunda instrucción])
+        C --> D([Fin])
         ```
 
     - **Condición**: Decisiones con bifurcaciones (`if`, `else`).  
@@ -847,7 +848,7 @@ Las tres fórmulas coinciden en que la **complejidad ciclomática** del grafo es
 
 **Definir los caminos y casos de prueba**:
 
-1. **Caso 1**:  $ n = -1  $  
+1. **Caso 1**:  $n = -1$  
    - **Camino**:  $A \rightarrow B \rightarrow C \rightarrow O$.  
    - **Descripción**: Verifica que se lance una excepción para valores no válidos ( $ n \leq 0  $).  
 
@@ -859,9 +860,9 @@ Las tres fórmulas coinciden en que la **complejidad ciclomática** del grafo es
    - **Camino**:  $A \rightarrow B \rightarrow D \rightarrow F \rightarrow G \rightarrow O$.  
    - **Descripción**: Verifica que se devuelva **1** para  $ n = 2  $ (segundo número de la serie).  
 
-4. **Caso 4**:  $n = 3$  
+4. **Caso 4**:  $N/A$  
    - **Camino**:  $A \rightarrow B \rightarrow D \rightarrow F \rightarrow H \rightarrow I \rightarrow N \rightarrow O$.  
-   - **Descripción**: Verifica que se devuelva **1** para  $n = 3$ (tercer número de la serie: 0 + 1 = 1).  
+   - **Descripción**: Camino imposible, ya que no podemos llegar a la condición de evaluación del bucle y que este no se ejecute nunca.
 
 5. **Caso 5**:  $n = 5$  
    - **Camino**:  $A \rightarrow B \rightarrow D \rightarrow F \rightarrow H \rightarrow I \rightarrow J \rightarrow K \rightarrow L \rightarrow M \rightarrow I \rightarrow N \rightarrow O$.  
@@ -874,16 +875,98 @@ Las tres fórmulas coinciden en que la **complejidad ciclomática** del grafo es
 | **Caso 1**     |  $n = -1$      | Lanza excepción    |  $A \rightarrow B \rightarrow C \rightarrow O$ |
 | **Caso 2**     |  $n = 1$       | 0                  |  $A \rightarrow B \rightarrow D \rightarrow E \rightarrow O$ |
 | **Caso 3**     |  $n = 2$       | 1                  |  $A \rightarrow B \rightarrow D \rightarrow F \rightarrow G \rightarrow O$ |
-| **Caso 4**     |  $n = 3$       | 1                  |  $A \rightarrow B \rightarrow D \rightarrow F \rightarrow H \rightarrow I \rightarrow N \rightarrow O$ |
+| **Caso 4**     |  N/A           | N/A                |  $A \rightarrow B \rightarrow D \rightarrow F \rightarrow H \rightarrow I \rightarrow N \rightarrow O$ |
 | **Caso 5**     |  $n = 5$       | 3                  |  $A \rightarrow B \rightarrow D \rightarrow F \rightarrow H \rightarrow I \rightarrow J \rightarrow K \rightarrow L \rightarrow M \rightarrow I \rightarrow N \rightarrow O$ |
 
 Estos casos de prueba cubren todos los caminos independientes del grafo de flujo, lo que garantiza una **cobertura del 100%** en términos de complejidad ciclomática. Además, se asegura que:
 
-- Se validan los casos base ( $n = 1$ y  $n = 2$).
+- Se validan los casos base ($n = 1$ y  $n = 2$).
 - Se prueba el manejo de errores ( $n \leq 0  $).
 - Se verifica el funcionamiento del bucle para valores mayores a 2.
+- Como vemos, hay un camino que no tiene sentido, ya que no es posible llegar a la condicion de evaluación del bucle y que este no se ejecute nunca. Este camino es el que va desde el nodo F al nodo H. Este camino no se puede cubrir con ningún valor de entrada, ya que no hay ninguna condición que lo active.
 
-</details>
+##### Sobre la métrica de complejidad ciclomática
+
+La complejidad ciclomática es una métrica de software que mide la complejidad de un programa de computadora. Fue desarrollada por Thomas J. McCabe, Sr. en 1976 y se basa en la teoría de grafos. La complejidad ciclomática se calcula a partir del número de regiones lineales independientes en el grafo de flujo del programa. Esta métrica no nos da realmente el número mínimo de pruebas que debemos realizar para cubrir todos los caminos posibles, sino una cota superior. Es decir, si la complejidad ciclomática de una función es 5, sabemos que necesitaremos al menos 5 pruebas para cubrir todos los caminos posibles, pero no necesariamente que con 5 pruebas cubriremos todos los caminos posibles. Pongamos el siguiente ejemplo de código:
+
+```java
+public static int calcular(int a, int b, int c) {
+  int x = 0;
+  if(a > 0) {
+    x++;
+  } else {
+    x--;
+  }
+  if(b > 0) {
+    x++;
+  } else {
+    x--;
+  }
+  if(c > 0) {
+    x++;
+  } else {
+    x--;
+  }
+  return x;
+}
+```
+
+El grafo de flujo de este código sería el siguiente:
+
+```mermaid
+graph TD
+  A([Inicio]) --> B{x = 0}
+  B --> C{a > 0}
+  C -->|Sí| D{x++}
+  C -->|No| E{x--}
+  D --> F{b > 0}
+  F -->|Sí| G{x++}
+  F -->|No| H{x--}
+  G --> I{c > 0}
+  I -->|Sí| J{x++}
+  I -->|No| K{x--}
+  K --> L([Fin])
+```
+
+Si aplicamos las fórmulas para el cálculo de la complejidad ciclomática:
+
+- $V(G) = a - n + 2 = 13 - 11 + 2 = 4$
+- $V(G) = r = 4$
+- $V(G) = c + 1 = 3 + 1 = 4$
+
+En este caso, la complejidad ciclomática es 4, lo que significa que necesitaremos al menos 4 pruebas para cubrir todos los caminos posibles. Sin embargo, si analizamos el código, vemos que realmente solo necesitamos 2 pruebas para cubrir todos los caminos posibles
+
+- Caso 1: a > 0, b > 0, c > 0
+- Caso 2: a <= 0, b <= 0, c <= 0
+
+Con estas combinaciones, alcanzamos una cobertura de código y condiciones del 100%.
+
+*¿Por qué obtenemos entonces una complejidad ciclomática de 4?
+
+La teoría dice que un camino es independiente cuando introduce **al menos** una nueva arista no incluida en los caminos anteriores. De esta forma, recorriendo el grafo del ejemplo anterior haciendo que sólamente cambie una de las aristas, podríamos crear los caminos de la siguiente manera:
+
+| Camino | a>0 | b>0 | c>0 |
+|--------| --- | --- | --- |
+| 1      | T   | T   | T   |
+| 2      | T   | T   | F   |
+| 3      | T   | F   | X   |
+| 4      | F   | X   | X   |
+|--------| --- | --- | --- |
+
+Como vemos, con estos 4 caminos en los cuales solo aplicamos un cambio de arista, también conseguimos una cobertura completa de código. Dicho de otra forma, sabemos que como mucho con 4 caminos podremos hacer la cubrición completa de nuestro código, pero es posible encontrar un número menor de caminos y obtener ese mismo grado de cubrición...
+
+Por otra parte, ¿conseguimos probar todas las combinaciones posibles del programa? Desde luego que no. En este programa tan sencillo, si quisieramos probar todas las combinaciones posibles, tendríamos hasta 8 ($2^3$, ya que los posibles caminos son exponenciales).
+
+| Camino | a>0 | b>0 | c>0 | x  |
+|--------| --- | --- | --- |----|
+| 1      | T   | T   | T   | +3 |
+| 2      | T   | T   | F   | +1 |
+| 3      | T   | F   | T   | +1 |
+| 4      | F   | F   | F   | -3 |
+| 5      | F   | T   | T   | +1 |
+| 6      | F   | T   | F   | -1 |
+| 7      | F   | F   | T   | -1 |
+|--------| --- | --- | --- |----|
 
 ### 1.3. Pruebas Basadas en Experiencia  
 

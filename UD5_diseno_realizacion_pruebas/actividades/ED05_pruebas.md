@@ -208,10 +208,8 @@ Deberás crear un documento donde des respuesta a los siguientes apartados:
     - Identificar los caminos independientes
     - Diseñar los casos de prueba para cada camino
 
-    > [!NOTE] 
-    > 
+    > **Nota** :bulb:
     > Debes tener en cuenta los diferentes bucles y condiciones para identificar todos los caminos posibles
-    >   
 
 2. Realiza un análisis de caja negra, incluyendo valores límite y conjetura de errores del método `venderJuego`. Para este análisis considera que:
     - El método recibe como parámetro la cantidad de juegos a vender
@@ -230,6 +228,6 @@ Deberás crear un documento en el que incluyas:
 - El análisis de caja negra del método `venderJuego`
 - Capturas de pantalla mostrando la ejecución exitosa de las pruebas en Intellij IDEA
 
-Ten en cuenta la sección [UD5_5](/UD5_diseno_realizacion_pruebas/apuntes/UD5_5_documentacion_pruebas.md) relacionada con la documentación de pruebas para crear dicho documento.
+Ten en cuenta la sección [UD5_5](https://github.com/danielmartinan/entornos_desarrollo_2024-25/blob/main-public/UD5_diseno_realizacion_pruebas/apuntes/UD5_5_documentacion_pruebas.md) relacionada con la documentación de pruebas para crear dicho documento.
 
 Deberás entregar también el proyecto de Intellij IDEA con la clase de test creada, y crear un archivo comprimido junto al documento con el nombre **apellidos_nombre_ed05.zip**.

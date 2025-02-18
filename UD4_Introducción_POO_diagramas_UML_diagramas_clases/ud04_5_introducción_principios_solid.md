@@ -1,6 +1,7 @@
 # Principios SOLID en Programación Orientada a Objetos
 
 Los principios **SOLID** son **cinco principios fundamentales** de la programación orientada a objetos que ayudan a crear software más mantenible, flexible y escalable. Las siglas SOLID vienen de:
+
 - S: *Single Responsibility Principle* (O Principio de Responsabilidad Única)
 - O: *Open/Closed Principle* (o Principio de Abierto/Cerrado)
 - L: *Liskov Substitution Principle* (o Principio de Sustitución de Liskov)

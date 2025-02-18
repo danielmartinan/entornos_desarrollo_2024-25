@@ -2,43 +2,42 @@
 
 **Índice**
 
-- [Notación UML para la generación de diagramas de clases](#notación-uml-para-la-generación-de-diagramas-de-clases)
-  - [1. Introduccion](#1-introduccion)
-  - [2. Clases](#2-clases)
-  - [3. Atributos](#3-atributos)
-  - [4. Métodos](#4-métodos)
-  - [5. Relaciones](#5-relaciones)
-    - [5.1. Asociación](#51-asociación)
-    - [5.2. Cardinalidad o Multiplicidad](#52-cardinalidad-o-multiplicidad)
-    - [5.3. Navegabilidad](#53-navegabilidad)
-    - [5.4. Rol](#54-rol)
-    - [5.5. Clase Asociación](#55-clase-asociación)
-    - [5.6. Relación unaria](#56-relación-unaria)
-  - [6. Herencia (generalización)](#6-herencia-generalización)
-  - [7. Composición](#7-composición)
-  - [8. Agregación](#8-agregación)
-  - [9. Dependencia](#9-dependencia)
-  - [10. ¿Cómo distinguir los diferentes tipos de relación?](#10-cómo-distinguir-los-diferentes-tipos-de-relación)
-  - [11. Interfaces](#11-interfaces)
-  - [12. Clases Abstractas](#12-clases-abstractas)
-  - [13. Enumeradores](#13-enumeradores)
-  - [14. Métodos y atributos estáticos y atributos constantes](#14-métodos-y-atributos-estáticos-y-atributos-constantes)
-  - [15. Resumen de simbología para la representación de relaciones](#15-resumen-de-simbología-para-la-representación-de-relaciones)
-  - [16. Polimorfismo](#16-polimorfismo)
-  - [17. Notas en UML](#17-notas-en-uml)
-    - [17.1. Tipos de Información en las Notas](#171-tipos-de-información-en-las-notas)
-    - [17.2. Uso de Notas con Restricciones Formales (OCL)](#172-uso-de-notas-con-restricciones-formales-ocl)
-    - [17.3. Ejemplo de Notas en Diagramas UML](#173-ejemplo-de-notas-en-diagramas-uml)
-    - [17.4. Buenas Prácticas al Usar Notas](#174-buenas-prácticas-al-usar-notas)
-  - [18. Restricciones (constraints)](#18-restricciones-constraints)
-  - [19. Cómo crear un diagrama de clases a partir de la descripción de un problema](#19-cómo-crear-un-diagrama-de-clases-a-partir-de-la-descripción-de-un-problema)
-    - [19.1. Paso 1: Comprender la Descripción del Problema](#191-paso-1-comprender-la-descripción-del-problema)
-    - [19.2. Paso 2: Identificar Clases y Atributos](#192-paso-2-identificar-clases-y-atributos)
-    - [19.3. Paso 3: Determinar las Relaciones entre las Clases](#193-paso-3-determinar-las-relaciones-entre-las-clases)
-    - [19.4. Paso 4: Definir Métodos y Comportamientos](#194-paso-4-definir-métodos-y-comportamientos)
-    - [19.5. Paso 5: Representar el Diagrama en Notación UML](#195-paso-5-representar-el-diagrama-en-notación-uml)
-  - [20. Ejemplo Práctico: Resolviendo un Problema](#20-ejemplo-práctico-resolviendo-un-problema)
-  - [21. Otro ejemplo de diagrama de clases completo](#21-otro-ejemplo-de-diagrama-de-clases-completo)
+- [1. Introduccion](#1-introduccion)
+- [2. Clases](#2-clases)
+- [3. Atributos](#3-atributos)
+- [4. Métodos](#4-métodos)
+- [5. Relaciones](#5-relaciones)
+  - [5.1. Asociación](#51-asociación)
+  - [5.2. Cardinalidad o Multiplicidad](#52-cardinalidad-o-multiplicidad)
+  - [5.3. Navegabilidad](#53-navegabilidad)
+  - [5.4. Rol](#54-rol)
+  - [5.5. Clase Asociación](#55-clase-asociación)
+  - [5.6. Relación unaria](#56-relación-unaria)
+- [6. Herencia (generalización)](#6-herencia-generalización)
+- [7. Composición](#7-composición)
+- [8. Agregación](#8-agregación)
+- [9. Dependencia](#9-dependencia)
+- [10. ¿Cómo distinguir los diferentes tipos de relación?](#10-cómo-distinguir-los-diferentes-tipos-de-relación)
+- [11. Interfaces](#11-interfaces)
+- [12. Clases Abstractas](#12-clases-abstractas)
+- [13. Enumeradores](#13-enumeradores)
+- [14. Métodos y atributos estáticos y atributos constantes](#14-métodos-y-atributos-estáticos-y-atributos-constantes)
+- [15. Resumen de simbología para la representación de relaciones](#15-resumen-de-simbología-para-la-representación-de-relaciones)
+- [16. Polimorfismo](#16-polimorfismo)
+- [17. Notas en UML](#17-notas-en-uml)
+  - [17.1. Tipos de Información en las Notas](#171-tipos-de-información-en-las-notas)
+  - [17.2. Uso de Notas con Restricciones Formales (OCL)](#172-uso-de-notas-con-restricciones-formales-ocl)
+  - [17.3. Ejemplo de Notas en Diagramas UML](#173-ejemplo-de-notas-en-diagramas-uml)
+  - [17.4. Buenas Prácticas al Usar Notas](#174-buenas-prácticas-al-usar-notas)
+- [18. Restricciones (constraints)](#18-restricciones-constraints)
+- [19. Cómo crear un diagrama de clases a partir de la descripción de un problema](#19-cómo-crear-un-diagrama-de-clases-a-partir-de-la-descripción-de-un-problema)
+  - [19.1. Paso 1: Comprender la Descripción del Problema](#191-paso-1-comprender-la-descripción-del-problema)
+  - [19.2. Paso 2: Identificar Clases y Atributos](#192-paso-2-identificar-clases-y-atributos)
+  - [19.3. Paso 3: Determinar las Relaciones entre las Clases](#193-paso-3-determinar-las-relaciones-entre-las-clases)
+  - [19.4. Paso 4: Definir Métodos y Comportamientos](#194-paso-4-definir-métodos-y-comportamientos)
+  - [19.5. Paso 5: Representar el Diagrama en Notación UML](#195-paso-5-representar-el-diagrama-en-notación-uml)
+- [20. Ejemplo Práctico: Resolviendo un Problema](#20-ejemplo-práctico-resolviendo-un-problema)
+- [21. Otro ejemplo de diagrama de clases completo](#21-otro-ejemplo-de-diagrama-de-clases-completo)
 
 <!-- /TOC -->
 
@@ -335,11 +334,14 @@ En cada asociacion, podemos definir dos **roles**, que describen la semántica d
 
 ```mermaid
 classDiagram
-    direction LR
     class Piloto {
+        -nombre: String
+        +conducir(automovil: Automovil) void
     }
 
     class Automovil {
+        -modelo: String
+        +arrancar() void
     }
 
     Automovil "Conduce" <--> "Es conducido por" Piloto
@@ -646,9 +648,11 @@ classDiagram
     }
 
     class Avion {
+        numeroMotores: int
     }
 
     class Pajaro {
+        especie: String
     }
 
     Volador <|.. Avion

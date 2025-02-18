@@ -131,7 +131,7 @@ Draw.io (ahora conocido como diagrams.net) es una herramienta de diagramación v
 
 Para crear los diagramas de clases, navega hasta la sección UML, despliegala, y encontrarás los bloques básicos necesarios (clases con atributos y métodos, clases vacías, interfaces, y atributos adicionales).
 
-![Captura bloques UML en drawio](/UD4%20-%20Introducción%20a%20POO,%20diagramas%20UML%20y%20diagramas%20de%20clases/img/ud04_3_drawio_bloques_uml.png)
+![Captura bloques UML en drawio](./img/ud04_3_drawio_bloques_uml.png)
 
 Pulsa el botón "+ Más formas" en la parte inferior izquierda de la pantalla y explora todos los bloques que, de manera nativa, proporciona draw.io.
 
@@ -182,9 +182,9 @@ Como recordatorio, debemos representar las relaciones en los diagramas de clases
 
 **Ejemplo:**
 
-Puedes descargar e importar [este ejemplo](/UD4%20-%20Introducción%20a%20POO,%20diagramas%20UML%20y%20diagramas%20de%20clases/resources/ud4_class_diagram.drawio) de archivo drawio con diferentes tipos de clases, interfaces y relaciones entre ellas:
+Puedes descargar e importar [este ejemplo](./resources/ud4_class_diagram.drawio) de archivo drawio con diferentes tipos de clases, interfaces y relaciones entre ellas:
 
-![Ejemplo_diagrama_clases_drawio](/UD4%20-%20Introducción%20a%20POO,%20diagramas%20UML%20y%20diagramas%20de%20clases/img/ud04_3_drawio_class_diagram.png)
+![Ejemplo_diagrama_clases_drawio](/UD4_Introducción_POO_diagramas_UML_diagramas_clases/resources/ud4_class_diagram.svg)
 
 ### 3.3. Exportar diagramas
 

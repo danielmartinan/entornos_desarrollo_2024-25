@@ -1,49 +1,48 @@
 # INTRODUCCIÓN AL DISEÑO ORIENTADO A OBJETOS Y DIAGRAMAS DE CLASES UML
 
-<!-- TOC -->
+- [1. Introducción](#1-introducción)
+- [2. Paradigma de desarrollo de software](#2-paradigma-de-desarrollo-de-software)
+  - [2.1. Programación Imperativa](#21-programación-imperativa)
+  - [2.2. Programación Orientada a Objetos (POO)](#22-programación-orientada-a-objetos-poo)
+  - [2.3. Programación Funcional](#23-programación-funcional)
+  - [2.4. Programación Declarativa](#24-programación-declarativa)
+  - [2.5. Paradigmas Combinados](#25-paradigmas-combinados)
+- [3. Importancia de los diagramas de clases en el desarrollo de aplicaciones](#3-importancia-de-los-diagramas-de-clases-en-el-desarrollo-de-aplicaciones)
+- [4. UML en el contexto de la ingeniería de software](#4-uml-en-el-contexto-de-la-ingeniería-de-software)
+- [5. Tipos de diagramas en UML y su relación con el ciclo de vida](#5-tipos-de-diagramas-en-uml-y-su-relación-con-el-ciclo-de-vida)
+- [6. Relación de los diagramas de clases con el ciclo de vida](#6-relación-de-los-diagramas-de-clases-con-el-ciclo-de-vida)
+- [7. Historia y Evolución de UML](#7-historia-y-evolución-de-uml)
+  - [7.1. Los Orígenes de UML](#71-los-orígenes-de-uml)
+  - [7.2. La Primera Versión de UML](#72-la-primera-versión-de-uml)
+  - [7.3. Evolución de UML: Principales Versiones](#73-evolución-de-uml-principales-versiones)
+  - [7.4. UML Hoy en Día](#74-uml-hoy-en-día)
+- [8. Clases y Objetos: Definición y Características](#8-clases-y-objetos-definición-y-características)
+  - [8.1. Clases](#81-clases)
+  - [8.2. Objetos](#82-objetos)
+- [9. Atributos, Métodos y Visibilidad](#9-atributos-métodos-y-visibilidad)
+  - [9.1. Atributos](#91-atributos)
+  - [9.2. Métodos](#92-métodos)
+  - [9.3. Visibilidad](#93-visibilidad)
+- [10. Relaciones: Herencia o jerarquía, Composición y Agregación](#10-relaciones-herencia-o-jerarquía-composición-y-agregación)
+  - [10.1. Clientela](#101-clientela)
+  - [10.2. Herencia](#102-herencia)
+  - [10.3. Composición](#103-composición)
+  - [10.4. Agregación](#104-agregación)
+  - [10.5. Anidamiento](#105-anidamiento)
+- [11. Concepto de Abstracción y Encapsulación en Programación Orientada a Objetos](#11-concepto-de-abstracción-y-encapsulación-en-programación-orientada-a-objetos)
+  - [11.1. Clases Abstractas](#111-clases-abstractas)
+  - [11.2. Interfaces](#112-interfaces)
+  - [11.3. Diferencias entre Clase Abstracta e Interfaz](#113-diferencias-entre-clase-abstracta-e-interfaz)
+  - [11.4. Abstracción y Diagramas de Clases](#114-abstracción-y-diagramas-de-clases)
+- [12. Polimorfismo en Programación Orientada a Objetos](#12-polimorfismo-en-programación-orientada-a-objetos)
+  - [12.1. Tipos de Polimorfismo](#121-tipos-de-polimorfismo)
+    - [12.1.1. Polimorfismo en Tiempo de Compilación (Sobrecarga de Métodos)](#1211-polimorfismo-en-tiempo-de-compilación-sobrecarga-de-métodos)
+    - [12.1.2. Polimorfismo en Tiempo de Ejecución (Sobrescritura de Métodos)](#1212-polimorfismo-en-tiempo-de-ejecución-sobrescritura-de-métodos)
+  - [12.2. Importancia del Polimorfismo](#122-importancia-del-polimorfismo)
+  - [12.3. Polimorfismo y Principio de Sustitución de Liskov](#123-polimorfismo-y-principio-de-sustitución-de-liskov)
+- [13. Ejemplo Práctico de un Diagrama de Clases](#13-ejemplo-práctico-de-un-diagrama-de-clases)
 
-- [Paradigma de desarrollo de software](#paradigma-de-desarrollo-de-software)
-  - [Programación Imperativa](#programación-imperativa)
-  - [Programación Orientada a Objetos (POO)](#programación-orientada-a-objetos-poo)
-  - [Programación Funcional](#programación-funcional)
-  - [Programación Declarativa](#programación-declarativa)
-  - [Paradigmas Combinados](#paradigmas-combinados)
-- [Importancia de los diagramas de clases en el desarrollo de aplicaciones](#importancia-de-los-diagramas-de-clases-en-el-desarrollo-de-aplicaciones)
-- [UML en el contexto de la ingeniería de software](#uml-en-el-contexto-de-la-ingeniería-de-software)
-- [Tipos de diagramas en UML y su relación con el ciclo de vida](#tipos-de-diagramas-en-uml-y-su-relación-con-el-ciclo-de-vida)
-- [Relación de los diagramas de clases con el ciclo de vida](#relación-de-los-diagramas-de-clases-con-el-ciclo-de-vida)
-- [Historia y Evolución de UML](#historia-y-evolución-de-uml)
-  - [Los Orígenes de UML](#los-orígenes-de-uml)
-  - [La Primera Versión de UML](#la-primera-versión-de-uml)
-  - [Evolución de UML: Principales Versiones](#evolución-de-uml-principales-versiones)
-  - [UML Hoy en Día](#uml-hoy-en-día)
-- [Clases y Objetos: Definición y Características](#clases-y-objetos-definición-y-características)
-  - [Clases](#clases)
-  - [Objetos](#objetos)
-- [Atributos, Métodos y Visibilidad](#atributos-métodos-y-visibilidad)
-  - [Atributos](#atributos)
-  - [Métodos](#métodos)
-  - [Visibilidad](#visibilidad)
-- [Relaciones: Herencia o jerarquía, Composición y Agregación](#relaciones-herencia-o-jerarquía-composición-y-agregación)
-  - [Clientela](#clientela)
-  - [Herencia](#herencia)
-  - [Composición](#composición)
-  - [Agregación](#agregación)
-  - [Anidamiento](#anidamiento)
-- [Concepto de Abstracción y Encapsulación en Programación Orientada a Objetos](#concepto-de-abstracción-y-encapsulación-en-programación-orientada-a-objetos)
-  - [Clases Abstractas](#clases-abstractas)
-  - [Interfaces](#interfaces)
-  - [Diferencias entre Clase Abstracta e Interfaz](#diferencias-entre-clase-abstracta-e-interfaz)
-  - [Abstracción y Diagramas de Clases](#abstracción-y-diagramas-de-clases)
-- [Polimorfismo en Programación Orientada a Objetos](#polimorfismo-en-programación-orientada-a-objetos)
-  - [Tipos de Polimorfismo](#tipos-de-polimorfismo)
-  - [Importancia del Polimorfismo](#importancia-del-polimorfismo)
-  - [Polimorfismo y Principio de Sustitución de Liskov](#polimorfismo-y-principio-de-sustitución-de-liskov)
-- [Ejemplo Práctico de un Diagrama de Clases](#ejemplo-práctico-de-un-diagrama-de-clases)
-
-<!-- /TOC -->
-
-# Introducción
+## 1. Introducción
 
 Como hemos visto en las primeras unidades didácticas, el proceso de creación de aplicaciones y sistemas informáticas es complejo y consta de múltiples fases o etapas.
 
@@ -58,11 +57,11 @@ Además, sabemos que la forma de organizar estas etapas, así como las formas de
 
 Uno de los conceptos asociados a esta estrategia a la hora de desarrollar nuestro sistema es el de paradigma de desarrollo.
 
-## Paradigma de desarrollo de software
+## 2. Paradigma de desarrollo de software
 
 En el mundo del desarrollo de software, un **paradigma de programación** es un enfoque o estilo para **diseñar y escribir** código. Cada paradigma organiza y resuelve los problemas de manera distinta, lo que afecta directamente la forma en que entendemos, diseñamos y modelamos los sistemas, incluyendo el uso de UML. A continuación, describimos los paradigmas más importantes:
 
-### Programación Imperativa
+### 2.1. Programación Imperativa
 
 La programación imperativa se basa en la idea de dar instrucciones paso a paso para resolver un problema.
 
@@ -71,7 +70,7 @@ La programación imperativa se basa en la idea de dar instrucciones paso a paso 
   - Se centra en cambiar el estado del programa mediante variables y estructuras de control (como bucles y condicionales).
 - **Ejemplo de lenguajes**: C, Pascal.
 
-### Programación Orientada a Objetos (POO)
+### 2.2. Programación Orientada a Objetos (POO)
 
 Este paradigma organiza el código en torno a objetos que combinan datos (atributos) y comportamientos (métodos).
 
@@ -80,7 +79,7 @@ Este paradigma organiza el código en torno a objetos que combinan datos (atribu
   - Modela el sistema basándose en entidades del mundo real.
 - **Ejemplo de lenguajes**: Java, C++, Python, C#.
 
-### Programación Funcional
+### 2.3. Programación Funcional
 
 La programación funcional se centra en resolver problemas utilizando funciones matemáticas puras, sin modificar el estado ni los datos.
 
@@ -89,7 +88,7 @@ La programación funcional se centra en resolver problemas utilizando funciones 
   - Facilita la concurrencia y el paralelismo.
 - **Ejemplo de lenguajes**: Haskell, Scala, JavaScript (con funciones de orden superior).
 
-### Programación Declarativa
+### 2.4. Programación Declarativa
 
 En este paradigma, el programador especifica qué desea obtener, pero no cómo lograrlo.
 
@@ -98,23 +97,23 @@ En este paradigma, el programador especifica qué desea obtener, pero no cómo l
   - Ejemplo: Escribir una consulta SQL para obtener datos sin especificar cómo buscarlos.
 - **Ejemplo de lenguajes**: SQL, Prolog.
 
-### Paradigmas Combinados
+### 2.5. Paradigmas Combinados
 
 Muchos lenguajes modernos combinan varios paradigmas para adaptarse mejor a diferentes tipos de problemas.
 
 - Ejemplo: Python es tanto orientado a objetos como funcional, y JavaScript mezcla paradigmas funcionales, orientados a objetos y declarativos.
 
-## Importancia de los diagramas de clases en el desarrollo de aplicaciones
+## 3. Importancia de los diagramas de clases en el desarrollo de aplicaciones
 
 Los diagramas de clases son un pilar fundamental en la **programación orientada a objetos**, ya que permiten representar de manera visual las estructuras y relaciones de los componentes clave de un sistema. Su uso facilita la comprensión, el diseño y la comunicación en equipos de desarrollo, especialmente en proyectos complejos.
 
-## UML en el contexto de la ingeniería de software
+## 4. UML en el contexto de la ingeniería de software
 
 El Lenguaje Unificado de Modelado (**UML, Unified Modeling Language**) es un estándar ampliamente utilizado en la ingeniería de software para **especificar, visualizar, construir y documentar** sistemas. UML no solo se limita a los diagramas de clases, sino que abarca una amplia variedad de diagramas que se adaptan a las distintas fases del ciclo de vida del desarrollo de software.
 
 UML proporciona una base común que permite a desarrolladores, analistas y otros actores del proyecto comunicarse de manera eficiente. Al incluir diagramas estructurales, de comportamiento y de interacción, cubre todos los aspectos del diseño y la implementación de un sistema.
 
-## Tipos de diagramas en UML y su relación con el ciclo de vida
+## 5. Tipos de diagramas en UML y su relación con el ciclo de vida
 
 UML clasifica sus diagramas en tres grandes categorías:
 
@@ -131,7 +130,7 @@ UML clasifica sus diagramas en tres grandes categorías:
    - Ejemplos: **Diagramas de secuencia, comunicación, tiempos e interacción general**.
    - **Fase del ciclo de vida**: Comunes en diseño detallado y pruebas.
 
-## Relación de los diagramas de clases con el ciclo de vida
+## 6. Relación de los diagramas de clases con el ciclo de vida
 
 El **diagrama de clases**, al ser un diagrama estructural, tiene un papel destacado en las siguientes fases:
 
@@ -140,11 +139,11 @@ El **diagrama de clases**, al ser un diagrama estructural, tiene un papel destac
 - **Implementación**: Sirve como base para generar código automáticamente.
 - **Mantenimiento**: Permite interpretar, modificar y documentar sistemas existentes.
 
-## Historia y Evolución de UML
+## 7. Historia y Evolución de UML
 
 El Lenguaje Unificado de Modelado (**UML**) ha evolucionado desde sus inicios en la década de 1990 hasta convertirse en un estándar internacional ampliamente utilizado en el desarrollo de software. Aquí repasamos su historia, las versiones más relevantes y cómo ha llegado a ser una herramienta indispensable en la ingeniería de software.
 
-### Los Orígenes de UML
+### 7.1. Los Orígenes de UML
 
 Antes de UML, no existía un estándar común para modelar sistemas orientados a objetos, lo que dificultaba la comunicación entre equipos y organizaciones. En la década de 1980 y principios de 1990, varios métodos competían por dominar el diseño orientado a objetos, como:
 
@@ -154,7 +153,7 @@ Antes de UML, no existía un estándar común para modelar sistemas orientados a
 
 Estos tres métodos tenían enfoques complementarios pero inconsistentes. En 1994, los creadores de estos métodos (Booch, Rumbaugh y Jacobson) unieron fuerzas para desarrollar un lenguaje unificado. Este esfuerzo culminó en la creación de UML.
 
-### La Primera Versión de UML
+### 7.2. La Primera Versión de UML
 
 - En **1997**, la versión **UML 1.0** fue adoptada oficialmente por el **Object Management Group (OMG)**, una organización dedicada a establecer estándares de modelado en ingeniería de software.
 - UML 1.0 combinaba elementos de los tres métodos principales y ofrecía un marco coherente para modelar sistemas.
@@ -165,7 +164,7 @@ Estos tres métodos tenían enfoques complementarios pero inconsistentes. En 199
 - Diagramas de comportamiento para modelar dinámicas del sistema.
 - Enfoque en sistemas orientados a objetos.
 
-### Evolución de UML: Principales Versiones
+### 7.3. Evolución de UML: Principales Versiones
 
 Desde su lanzamiento inicial, UML ha evolucionado para incluir nuevas capacidades y adaptarse a las necesidades de la industria del software.
 
@@ -185,7 +184,7 @@ Desde su lanzamiento inicial, UML ha evolucionado para incluir nuevas capacidade
       - Simplificación del estándar para facilitar su adopción.
       - Mejora en la interoperabilidad con herramientas CASE (Computer-Aided Software Engineering).
 
-### UML Hoy en Día
+### 7.4. UML Hoy en Día
 
 En la actualidad, UML es el estándar más utilizado para modelar sistemas en múltiples industrias, no solo en software, sino también en áreas como sistemas embebidos y gestión empresarial.
 
@@ -198,9 +197,9 @@ UML sigue evolucionando en función de las necesidades de la industria y los ava
 
 La programación orientada a objetos (POO) es un paradigma de programación que organiza el código en torno a "objetos", los cuales representan elementos del mundo real o conceptos abstractos. Es fundamental en el desarrollo de aplicaciones modernas y está directamente relacionado con los diagramas de clases.
 
-## Clases y Objetos: Definición y Características
+## 8. Clases y Objetos: Definición y Características
 
-### Clases
+### 8.1. Clases
 
 Una **clase** es una plantilla o modelo que define cómo serán los objetos.
 
@@ -222,7 +221,7 @@ class Libro {
 }
 ```
 
-### Objetos
+### 8.2. Objetos
 
 Un **objeto** es una instancia de una clase, es decir, un ejemplar concreto basado en la plantilla de la clase.
 
@@ -238,18 +237,18 @@ libro1.autor = "George Orwell";
 libro1.leer(); // Llama al método: muestra "Estás leyendo el libro: 1984"` 
 ```
 
-## Atributos, Métodos y Visibilidad
+## 9. Atributos, Métodos y Visibilidad
 
-### Atributos
+### 9.1. Atributos
 
 Son las características o propiedades que describen a una clase.  
 En el ejemplo anterior, `titulo` y `autor` son atributos de la clase `Libro`.
 
-### Métodos
+### 9.2. Métodos
 
 Son las acciones que un objeto puede realizar. En el ejemplo, `leer()` es un método que representa la acción de leer un libro.
 
-### Visibilidad
+### 9.3. Visibilidad
 
 La **visibilidad** determina quién puede acceder a los atributos y métodos de una clase. Las palabras clave más comunes son:
 
@@ -274,7 +273,7 @@ class Libro {
 }` 
 ```
 
-## Relaciones: Herencia o jerarquía, Composición y Agregación
+## 10. Relaciones: Herencia o jerarquía, Composición y Agregación
 
 Las relaciones entre clases son fundamentales en la programación orientada a objetos (POO) porque permiten organizar, estructurar y modelar el comportamiento y las interacciones entre diferentes entidades en un programa. Una correcta comprensión y uso de estas relaciones mejora la reutilización de código, la modularidad y la flexibilidad del diseño.
 
@@ -286,7 +285,7 @@ En este apartado, analizaremos cinco tipos de relaciones entre clases:
 - Agregación
 - Anidamiento
 
-### Clientela
+### 10.1. Clientela
 
 La clientela (o asociación de uso) es una relación donde una clase utiliza los servicios o métodos de otra clase. Es una relación muy flexible y frecuente.
 
@@ -320,7 +319,7 @@ public class Main {
 }
 ```
 
-### Herencia
+### 10.2. Herencia
 
 La herencia permite que una clase "hija" herede atributos y métodos de una clase "padre". Esto evita la duplicación de código.
 
@@ -340,7 +339,7 @@ class Libro extends Publicacion {
 
 La clase `Libro` hereda `titulo` y `autor` de `Publicacion`, y añade su propio atributo `paginas`.
 
-### Composición
+### 10.3. Composición
 
 Ocurre cuando una clase contiene objetos de otras clases como parte de sus atributos, indicando una relación "tiene un".
 
@@ -353,7 +352,7 @@ class Biblioteca {
 }
 ```
 
-### Agregación
+### 10.4. Agregación
 
 Es similar a la composición, pero la relación entre las clases es más débil. Los objetos relacionados pueden existir por separado.
 
@@ -370,7 +369,7 @@ class Libro {
 }
 ```
 
-### Anidamiento
+### 10.5. Anidamiento
 
 El anidamiento es una relación en la que una clase está contenida dentro de otra clase. Se implementa usando clases anidadas o clases internas.
 
@@ -406,7 +405,7 @@ public class Main {
 }
 ```
 
-## Concepto de Abstracción y Encapsulación en Programación Orientada a Objetos
+## 11. Concepto de Abstracción y Encapsulación en Programación Orientada a Objetos
 
 La **abstracción** es uno de los principios fundamentales de la programación orientada a objetos (POO) y se refiere al proceso de ocultar los detalles complejos de implementación, mostrando solo lo necesario para el uso de un componente o sistema. Este principio permite centrarse en "qué hace un objeto" en lugar de "cómo lo hace", simplificando el diseño y la comprensión del código.
 Por ejemplo, si queremos modelar la clase `Coche`, dependiendo del contexto, podríamos definir los siguientes atributos y métodos:
@@ -436,7 +435,7 @@ Por ejemplo, si queremos modelar la clase `Coche`, dependiendo del contexto, pod
 
 Por su parte, la **encapsulación** es el proceso de ocultar todos los detalles de un objeto que no son de interés desde fuera de dicho objeto, es decir, separar el aspecto externo accesible por otros objetos del interno, innaccesible para los demás. De esta manera, la encapsulación consiste en ocultar los atributos y métodos del objeto a otros objetos, pasando a denominarse **privados**.
 
-### Clases Abstractas
+### 11.1. Clases Abstractas
 
 Una **clase abstracta** es una clase que no puede instanciarse directamente. Sirve como modelo o plantilla para otras clases y puede incluir:
 
@@ -481,7 +480,7 @@ class Gato extends Animal {
 
 En este ejemplo, la clase `Animal` es abstracta. Define el método abstracto `hacerSonido()` y un método concreto `comer()`. Las subclases `Perro` y `Gato` implementan `hacerSonido()` con su propio comportamiento.
 
-### Interfaces
+### 11.2. Interfaces
 
 Una **interfaz** define un conjunto de métodos que una clase debe implementar, sin proporcionar ninguna implementación concreta.
 
@@ -517,7 +516,7 @@ class Avion implements Volador {
 
 En este ejemplo, la interfaz `Volador` define el método `volar()`. Las clases `Ave` y `Avion` implementan esta interfaz, cada una con su propio comportamiento.
 
-### Diferencias entre Clase Abstracta e Interfaz
+### 11.3. Diferencias entre Clase Abstracta e Interfaz
 
 | Aspecto | Clase Abstracta | Interfaz |
 | ----- | ----- | ----- |
@@ -526,22 +525,22 @@ En este ejemplo, la interfaz `Volador` define el método `volar()`. Las clases `
 | **Herencia** | Una clase solo puede heredar de una clase abstracta. | Una clase puede implementar múltiples interfaces. |
 | **Métodos** | Puede tener métodos concretos y abstractos. | Solo métodos abstractos (hasta versiones recientes de algunos lenguajes). |
 
-### Abstracción y Diagramas de Clases
+### 11.4. Abstracción y Diagramas de Clases
 
 La abstracción es clave para diseñar sistemas escalables y fáciles de mantener. En UML:
 
 * Se utiliza para modelar comportamientos genéricos con clases abstractas y para definir contratos con interfaces.  
 * Ayuda a visualizar jerarquías complejas y relaciones entre clases de forma clara.
 
-## Polimorfismo en Programación Orientada a Objetos
+## 12. Polimorfismo en Programación Orientada a Objetos
 
 El **polimorfismo** es un principio fundamental de la programación orientada a objetos que permite a una entidad, como un método o un objeto, comportarse de múltiples formas dependiendo del contexto. En términos simples, el polimorfismo permite utilizar una misma interfaz para representar diferentes comportamientos o implementaciones.
 
-### Tipos de Polimorfismo
+### 12.1. Tipos de Polimorfismo
 
 Existen dos tipos principales de polimorfismo en la programación orientada a objetos:
 
-#### Polimorfismo en Tiempo de Compilación (Sobrecarga de Métodos)
+#### 12.1.1. Polimorfismo en Tiempo de Compilación (Sobrecarga de Métodos)
 
 - Ocurre cuando un método en una clase tiene el mismo nombre pero diferentes firmas (diferente número o tipo de parámetros).  
 - El compilador selecciona cuál método invocar en función de los argumentos proporcionados.  
@@ -587,7 +586,7 @@ public class Main {
 
 En este ejemplo, el método `sumar` tiene diferentes implementaciones según los parámetros, y el compilador selecciona automáticamente la versión apropiada.
 
-#### Polimorfismo en Tiempo de Ejecución (Sobrescritura de Métodos)
+#### 12.1.2. Polimorfismo en Tiempo de Ejecución (Sobrescritura de Métodos)
 
 - Ocurre cuando una subclase proporciona su propia implementación de un método definido en una clase base.  
 - La invocación del método se decide en tiempo de ejecución en función del tipo del objeto real, no del tipo de referencia.  
@@ -637,7 +636,7 @@ Guau, guau! Miau, miau!
 
 En este ejemplo, el método `hacerSonido` es sobrescrito en las clases `Perro` y `Gato`. Aunque la referencia es de tipo `Animal`, el método invocado depende del tipo real del objeto (`Perro` o `Gato`) en tiempo de ejecución.
 
-### Importancia del Polimorfismo
+### 12.2. Importancia del Polimorfismo
 
 El polimorfismo permite:
 
@@ -645,7 +644,7 @@ El polimorfismo permite:
 - Reducir la duplicación de código al reutilizar métodos comunes en clases base y personalizar el comportamiento en las subclases.  
 - Implementar patrones de diseño, como el **patrón de estrategia**, que dependen del uso de polimorfismo.
 
-### Polimorfismo y Principio de Sustitución de Liskov
+### 12.3. Polimorfismo y Principio de Sustitución de Liskov
 
 El polimorfismo respeta el **Principio de Sustitución de Liskov (LSP)**, que establece que un objeto de una clase base debe poder ser sustituido por un objeto de una clase derivada sin alterar la funcionalidad del programa. Esto garantiza que el comportamiento esperado en tiempo de ejecución sea coherente, independientemente del tipo específico del objeto.
 
@@ -662,7 +661,7 @@ public class Main {
 } 
 ```
 
-## Ejemplo Práctico de un Diagrama de Clases
+## 13. Ejemplo Práctico de un Diagrama de Clases
 
 Antes de entrar en el detalle de la creación de diagramas de clases, y para consolidar los conceptos vistos anteriormente, vamos a representar las clases y sus relaciones vistas anteriormente mediante diagramas de clases.
 
@@ -677,24 +676,28 @@ Antes de entrar en el detalle de la creación de diagramas de clases, y para con
 classDiagram
     direction LR
     class Biblioteca {
+        añadirLibro() boolean
     }
+
     class Libro {
-        String titulo
-        int paginas
+        titulo: String
+        paginas: int
         leer() void
     }
+
     class Autor {
-        String nombre
+        nombre: String
     }
+
     Biblioteca --> Libro : contiene
-    Libro --> Autor : tiene un
+    Libro --> Autor : tiene
 ```
 
 Este ejemplo muestra cómo representar las relaciones entre clases y sus atributos/métodos.
 
 **Representación de clases y métodos abstractos en UML**:
 
-- Las **clases abstractas** se representan con el nombre en cursiva.  
+- Las **clases abstractas** se representan con el nombre en cursiva o con el estereotipo `<<abstract>>`.
 - Los **métodos abstractos** también aparecen en cursiva.
 
 ``` mermaid  
@@ -702,7 +705,7 @@ classDiagram
     class Animal {
         <<abstract>>
         String nombre
-        hacerSonido()*
+        hacerSonido() void*
         comer() void
     }
 

@@ -24,12 +24,12 @@
   - [5.2. Ejemplo 2: Clase `GestorInventario`](#52-ejemplo-2-clase-gestorinventario)
 - [6. Pruebas Avanzadas](#6-pruebas-avanzadas)
   - [6.1. Pruebas Parametrizadas](#61-pruebas-parametrizadas)
-    - [6.1.1. **Cómo usar pruebas parametrizadas en JUnit 5**](#611-cómo-usar-pruebas-parametrizadas-en-junit-5)
+    - [6.1.1. Cómo usar pruebas parametrizadas en JUnit 5](#611-cómo-usar-pruebas-parametrizadas-en-junit-5)
   - [6.2. Pruebas de Excepciones](#62-pruebas-de-excepciones)
-    - [6.2.1. **Cómo probar excepciones en JUnit 5**](#621-cómo-probar-excepciones-en-junit-5)
+    - [6.2.1. Cómo probar excepciones en JUnit 5](#621-cómo-probar-excepciones-en-junit-5)
   - [6.3. Combinación de Pruebas Parametrizadas y de Excepciones](#63-combinación-de-pruebas-parametrizadas-y-de-excepciones)
   - [6.4. Pruebas Anidadas (`@Nested`)](#64-pruebas-anidadas-nested)
-    - [6.4.1. **Cómo usar `@Nested` en JUnit 5**](#641-cómo-usar-nested-en-junit-5)
+    - [6.4.1. Cómo usar `@Nested` en JUnit 5](#641-cómo-usar-nested-en-junit-5)
   - [6.5. Deshabilitar Pruebas (`@Disabled`)](#65-deshabilitar-pruebas-disabled)
   - [6.6. Suite de pruebas (`@Suite`)](#66-suite-de-pruebas-suite)
     - [Pasos para crear un suite de tests en JUnit 5](#pasos-para-crear-un-suite-de-tests-en-junit-5)
@@ -981,7 +981,7 @@ En este apartado, exploraremos dos técnicas avanzadas en JUnit: **pruebas param
 
 Las **pruebas parametrizadas** permiten ejecutar la misma prueba con diferentes conjuntos de datos. Esto es especialmente útil cuando queremos probar un método con múltiples entradas y verificar que produce los resultados esperados en cada caso.
 
-#### 6.1.1. **Cómo usar pruebas parametrizadas en JUnit 5**
+#### 6.1.1. Cómo usar pruebas parametrizadas en JUnit 5
 
 1. **Anotación `@ParameterizedTest`**:
    - Indica que el método es una prueba parametrizada.
@@ -1058,7 +1058,7 @@ En este caso, usamos `@CsvSource` para definir múltiples conjuntos de datos en 
 
 Las **pruebas de excepciones** permiten verificar que un método lanza una excepción específica en ciertas condiciones. Esto es crucial para asegurar que el código maneja correctamente situaciones excepcionales.
 
-#### 6.2.1. **Cómo probar excepciones en JUnit 5**
+#### 6.2.1. Cómo probar excepciones en JUnit 5
 
 1. **Método `assertThrows`**:
    - Verifica que un bloque de código lanza una excepción específica.
@@ -1139,7 +1139,7 @@ public class ValidadorPositivoTest {
 
 Las **pruebas anidadas** permiten organizar pruebas relacionadas en clases internas (anidadas) dentro de una clase de prueba principal. Esto es especialmente útil cuando tienes un conjunto de pruebas que comparten un contexto común o cuando quieres agrupar pruebas por funcionalidad.
 
-#### 6.4.1. **Cómo usar `@Nested` en JUnit 5**
+#### 6.4.1. Cómo usar `@Nested` en JUnit 5
 
 1. **Anotación `@Nested`**:
    - Se aplica a una clase interna dentro de una clase de prueba.

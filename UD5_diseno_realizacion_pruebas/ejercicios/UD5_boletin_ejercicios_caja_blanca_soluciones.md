@@ -30,11 +30,9 @@ Nodos:
 
 ### 1.2. Complejidad Ciclomática
 
-$ V(G) = a - n + 2 = 27 - 19 + 2 = 10 $
-
-$ V(G) = r = 10 $  
-
-$ V(G) = c + 1 = 9 + 1 = 10$  
+$V(G) = a - n + 2 = 27 - 19 + 2 = 10$
+$V(G) = r = 10$  
+$V(G) = c + 1 = 9 + 1 = 10$  
 
 ### 1.3. Caminos Independientes
 
@@ -120,8 +118,10 @@ flowchart TD
     I -->|No| K{tipoCliente == FRECUENTE?}
     K -->|Sí| L([descuento += 0.10])
     K -->|No| M([Calcular total])
+    H -->|Sí| M
     J & L --> M
     M --> N([Return resultado])
+    C --> N([Return resultado])
 
     style A fill:#f9f,stroke:#333,stroke-width:2px
     style C fill:#f96,stroke:#333,stroke-width:2px
@@ -130,30 +130,29 @@ flowchart TD
 
 ### 2.2. Complejidad Ciclomática
 
-a) V(G) = A - N + 2
-- Aristas = 17
-- Nodos = 14
-V(G) = 17 - 14 + 2 = 5
-
-b) V(G) = P + 1
-- Predicados = 4 (validación, unidades, tipo cliente)
-V(G) = 4 + 1 = 5
-
-c) V(G) = R = 8 
+$V(G) = a - n + 2 = 19 - 14 + 2 = 7$
+$V(G) = c + 1 = 6 + 1 = 7$
+$V(G) = r = 7 $
 
 ### 2.3. Caminos Independientes
 
-1. Parámetros inválidos → excepción
-2. Sin descuentos
-3. Descuento solo por volumen
+1,2 --> Parámetros inválidos → excepción
+3 --> Unidades <10, cliente null → precio sin descuento
+4 --> Unidades <10, cliente estandar → precio sin descuento
+5 --> Unidades <10, cliente vip → precio sin descuento
+3. Descuento solo por volumen (unidades >= 10, cliente estandar)
 4. Descuento VIP con volumen
+
+
+| **Camino** | **Ruta**                                                                 | **Condiciones**                                                                                     | **Resultado esperado** |
+|------------|--------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|-------------------------|
+| 1          | $A \rightarrow B \rightarrow C \rightarrow N$                             | `precio` < 0                                                                                        | `throw exception`   |
+| 2          |  $A \rightarrow B \rightarrow C \rightarrow D \rightarrow N$    | `unidades` < 0                                                                                        | `throw exception`   |
+| 3          | $A  B D E F H           | `password` no es `null` y `length < 8`.                                                            | `retorno = false`       |
 
 ### 2.4. Casos de Prueba
 
-1. `calcularDescuento(-100, 5, "VIP")` → IllegalArgumentException
-2. `calcularDescuento(100, 5, null)` → 500.0
-3. `calcularDescuento(100, 15, null)` → 450.0
-4. `calcularDescuento(100, 15, "VIP")` → 350.0
+TBD
 
 ## 3. SOLUCIÓN EJERCICIO 3: Validador de Fechas
 
