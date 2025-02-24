@@ -1027,6 +1027,8 @@ public class PruebasParametrizadasTest {
 
 Para este metodo, definimos un conjunto de valores de entrada (2, 4, 6, 8, 10) usando `@ValueSource`. La prueba se ejecutará con cada uno de estos valores, verificando que el número sea par.
 
+La anotación `@ValueSource` admite diferentes tipos de datos: `int`, `long`, `double`, `String`, `char`, `boolean`, `Class`, `Enum`, etc. Para más información, consultar la [documentación oficial](https://junit.org/junit5/docs/5.7.1/api/org.junit.jupiter.params/org/junit/jupiter/params/provider/ValueSource.html).
+
 **Ejemplo con `@CsvSource`**:
 
 Ahora vamos a probar un método que suma dos números.
@@ -1053,6 +1055,8 @@ public class SumaParametrizadaTest {
 ```
 
 En este caso, usamos `@CsvSource` para definir múltiples conjuntos de datos en formato CSV. La prueba se ejecutará con cada conjunto, verificando que la suma sea correcta. El número de columnas en `@CsvSource` debe coincidir con los parámetros del método.
+
+Se puede consultar la información adicional sobre `@CsvSource` en la [documentación oficial](https://junit.org/junit5/docs/5.7.1/api/org.junit.jupiter.params/org/junit/jupiter/params/provider/CsvSource.html).
 
 ### 6.2. Pruebas de Excepciones
 
@@ -1197,8 +1201,8 @@ public class CalculadoraTest {
 
 Explicación:
 
-- Las pruebas de suma están agrupadas en la clase anidada PruebasDeSuma.
-- Las pruebas de resta están agrupadas en la clase anidada PruebasDeResta.
+- Las pruebas de suma están agrupadas en la clase anidada `PruebasDeSuma`.
+- Las pruebas de resta están agrupadas en la clase anidada `PruebasDeResta`.
 
 Esto mejora la organización del código y facilita la lectura de las pruebas relacionadas.
 
