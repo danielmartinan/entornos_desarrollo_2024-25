@@ -593,8 +593,8 @@ $$
 
 También podemos utilizar un **bloque de código** para escribir ecuaciones matemáticas en Markdown:
 
-\`\`\`math
-\int_{a}^{b} x^2 dx
+\`\`\`math  
+\int_{a}^{b} x^2 dx  
 \`\`\`
 
 Renderizado:
