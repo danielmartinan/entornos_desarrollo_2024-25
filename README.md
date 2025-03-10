@@ -20,6 +20,11 @@ En este repositorio encontrarás apuntes del módulo de Entornos de Desarrollo, 
   - UD5.3. [Automatización de pruebas](./UD5_diseno_realizacion_pruebas/apuntes/UD5_3_automatización_pruebas.md)
   - UD5.4. [Introducción a JUnit](./UD5_diseno_realizacion_pruebas/apuntes/UD5_4_introducción_junit.md)
   - UD5.5. [Documentación de pruebas](./UD5_diseno_realizacion_pruebas/apuntes/UD5_5_documentacion_pruebas.md)
+- **UD6 - Documentación y refactorización**
+  - UD6.1. [Introducción a la documentación y refactorización de software](./UD6_refactorizacion_documentacion/apuntes/ud6_1_introducción_optimizacion_documentacion.md)
+  - UD6.2. [Documentación de código](./UD6_refactorizacion_documentacion/apuntes/ud6_2_tipos_documentacion.md)
+  - UD6.3. [Introducción a Markdown](./UD6_refactorizacion_documentacion/apuntes/ud6_3_markdown.md)
+
 
 ## Licencia de uso
 
