@@ -257,6 +257,16 @@ Para bloques de código con resaltado de sintaxis, se utilizan tres comillas inv
 
 Ejemplo en Java:  
 
+\`\`\`java
+public class HolaMundo {
+    public static void main(String[] args) {
+        System.out.println("Hola Mundo");
+    }
+}
+\`\`\`
+
+Renderizado:  
+
 ```java
 public class HolaMundo {
     public static void main(String[] args) {
@@ -567,21 +577,31 @@ La ecuación de la relatividad es $E=mc^2$.
 
 Renderizado:  
 
-La ecuación de la relatividad es \(E=mc^2\).  
+La ecuación de la relatividad es $E=mc^2$.  
 
 Ejemplo de ecuación en bloque:  
 
 ```plaintext
-$$
-F = G \frac{m_1 m_2}{r^2}
-$$
+$$F = G \frac{m_1 m_2}{r^2}$$
 ```
 
 Renderizado:  
 
-\[
+$$
 F = G \frac{m_1 m_2}{r^2}
-\]
+$$
+
+También podemos utilizar un **bloque de código** para escribir ecuaciones matemáticas en Markdown:
+
+\`\`\`math
+\int_{a}^{b} x^2 dx
+\`\`\`
+
+Renderizado:
+
+```math
+\int_{a}^{b} x^2 dx
+```
 
 Estas funciones avanzadas amplían las posibilidades de Markdown en entornos científicos y de programación.  
 
