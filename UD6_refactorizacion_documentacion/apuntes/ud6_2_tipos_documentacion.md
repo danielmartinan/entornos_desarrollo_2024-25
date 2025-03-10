@@ -217,6 +217,8 @@ Si la dirección de correo ya está en uso, se debe mostrar un mensaje de error.
 
 ---
 
+Puedes encontrar una plantilla de SRS en formato .doc en [este enlace](./plantilla_formato_ieee830.doc){:target="_blank"}.
+
 ### 3.2. Diagramas UML en la documentación
 
 El lenguaje **UML (Unified Modeling Language)** es una herramienta esencial en la documentación de software, ya que permite visualizar estructuras y comportamientos del sistema antes de su implementación.  
