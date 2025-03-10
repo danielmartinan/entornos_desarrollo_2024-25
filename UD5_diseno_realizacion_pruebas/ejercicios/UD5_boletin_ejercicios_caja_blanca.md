@@ -18,6 +18,7 @@ public static boolean validarPassword(String password) {
     boolean tieneMayuscula = false;
     boolean tieneNumero = false;
     boolean tieneEspecial = false;
+    boolean tieneMinuscula = false;
     
     for (char c : password.toCharArray()) {
         if (Character.isUpperCase(c)) {
@@ -26,9 +27,11 @@ public static boolean validarPassword(String password) {
             tieneNumero = true;
         } else if (!Character.isLetterOrDigit(c)) {
             tieneEspecial = true;
+        } else {
+            tieneMinuscula = true;
         }
         
-        if (tieneMayuscula && tieneNumero && tieneEspecial) {
+        if (tieneMayuscula && tieneNumero && tieneEspecial && tieneMinuscula) {
             return true;
         }
     }

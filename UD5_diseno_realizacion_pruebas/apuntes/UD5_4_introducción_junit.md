@@ -832,7 +832,7 @@ public class GestorInventario {
      * @param nombre   El nombre del producto.
      * @param cantidad La cantidad a añadir.
      */
-    public void añadirProducto(String nombre, int cantidad) {
+    public void anadirProducto(String nombre, int cantidad) {
         if (cantidad <= 0) {
             throw new IllegalArgumentException("La cantidad debe ser mayor que cero.");
         }
@@ -903,28 +903,28 @@ public class GestorInventarioTest {
 
     // Pruebas de Caja Negra
     @Test
-    public void testAñadirProducto() {
-        gestor.añadirProducto("Manzana", 10);
+    public void testanadirProducto() {
+        gestor.anadirProducto("Manzana", 10);
         assertEquals(10, gestor.verificarStock("Manzana"), "El stock de Manzana debería ser 10");
     }
 
     @Test
-    public void testAñadirProductoExistente() {
-        gestor.añadirProducto("Manzana", 10);
-        gestor.añadirProducto("Manzana", 5);
+    public void testanadirProductoExistente() {
+        gestor.anadirProducto("Manzana", 10);
+        gestor.anadirProducto("Manzana", 5);
         assertEquals(15, gestor.verificarStock("Manzana"), "El stock de Manzana debería ser 15");
     }
 
     @Test
     public void testEliminarProducto() {
-        gestor.añadirProducto("Manzana", 10);
+        gestor.anadirProducto("Manzana", 10);
         gestor.eliminarProducto("Manzana", 4);
         assertEquals(6, gestor.verificarStock("Manzana"), "El stock de Manzana debería ser 6");
     }
 
     @Test
     public void testBuscarProductoExistente() {
-        gestor.añadirProducto("Manzana", 10);
+        gestor.anadirProducto("Manzana", 10);
         assertEquals(10, gestor.buscarProducto("Manzana"), "El stock de Manzana debería ser 10");
     }
 
@@ -940,19 +940,19 @@ public class GestorInventarioTest {
 
     // Pruebas de Caja Blanca
     @Test
-    public void testAñadirProductoCantidadInvalida() {
-        assertThrows(IllegalArgumentException.class, () -> gestor.añadirProducto("Manzana", 0), "Debería lanzar una excepción si la cantidad es menor o igual a cero");
+    public void testanadirProductoCantidadInvalida() {
+        assertThrows(IllegalArgumentException.class, () -> gestor.anadirProducto("Manzana", 0), "Debería lanzar una excepción si la cantidad es menor o igual a cero");
     }
 
     @Test
     public void testEliminarProductoCantidadInvalida() {
-        gestor.añadirProducto("Manzana", 10);
+        gestor.anadirProducto("Manzana", 10);
         assertThrows(IllegalArgumentException.class, () -> gestor.eliminarProducto("Manzana", 0), "Debería lanzar una excepción si la cantidad es menor o igual a cero");
     }
 
     @Test
     public void testEliminarProductoStockInsuficiente() {
-        gestor.añadirProducto("Manzana", 10);
+        gestor.anadirProducto("Manzana", 10);
         assertThrows(IllegalArgumentException.class, () -> gestor.eliminarProducto("Manzana", 15), "Debería lanzar una excepción si no hay suficiente stock");
     }
 
@@ -970,7 +970,7 @@ public class GestorInventarioTest {
    - Se prueban casos como añadir productos, eliminar productos, buscar productos y verificar el stock.
 
 2. **Pruebas de Caja Blanca**:
-   - Se aseguran de que todos los caminos del código se ejecuten (por ejemplo, todas las condiciones del método `añadirProducto` y `eliminarProducto`).
+   - Se aseguran de que todos los caminos del código se ejecuten (por ejemplo, todas las condiciones del método `anadirProducto` y `eliminarProducto`).
    - Se verifica que el método maneje correctamente casos como cantidades inválidas, stock insuficiente y productos inexistentes.
 
 ## 6. Pruebas Avanzadas
@@ -994,7 +994,7 @@ Las **pruebas parametrizadas** permiten ejecutar la misma prueba con diferentes 
      - `@MethodSource`: Permite usar un método como fuente de datos.
      - `@EnumSource`: Proporciona valores de una enumeración.
 
->[!Note]
+>Nota :bulb:
 > Para usar pruebas parametrizadas, debes añadir la siguiente dependencia al archivo pom.xml de tu proyecto
 >
 > ```xml
@@ -1025,9 +1025,7 @@ public class PruebasParametrizadasTest {
 }
 ```
 
-Para este metodo, definimos un conjunto de valores de entrada (2, 4, 6, 8, 10) usando `@ValueSource`. La prueba se ejecutará con cada uno de estos valores, verificando que el número sea par.
-
-La anotación `@ValueSource` admite diferentes tipos de datos: `int`, `long`, `double`, `String`, `char`, `boolean`, `Class`, `Enum`, etc. Para más información, consultar la [documentación oficial](https://junit.org/junit5/docs/5.7.1/api/org.junit.jupiter.params/org/junit/jupiter/params/provider/ValueSource.html).
+Para este método, definimos un conjunto de valores de entrada (2, 4, 6, 8, 10) usando `@ValueSource`. La prueba se ejecutará con cada uno de estos valores, verificando que el número sea par.
 
 **Ejemplo con `@CsvSource`**:
 
