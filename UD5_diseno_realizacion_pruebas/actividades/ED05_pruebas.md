@@ -114,7 +114,7 @@ public class GestorJuegos {
         int juegosRegistrados = 0;
 
         //comprobamos que las longitudes de los arrays sean iguales
-        if (codigos.length != unidadesPorCodigo.length) {
+        if (codigos.length != unidadesPorCodigo.length || codigos.length == 0) {
             return -1;
         }
 
