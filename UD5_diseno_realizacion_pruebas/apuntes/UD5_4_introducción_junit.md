@@ -32,16 +32,23 @@
     - [6.4.1. Cómo usar `@Nested` en JUnit 5](#641-cómo-usar-nested-en-junit-5)
   - [6.5. Deshabilitar Pruebas (`@Disabled`)](#65-deshabilitar-pruebas-disabled)
   - [6.6. Suite de pruebas (`@Suite`)](#66-suite-de-pruebas-suite)
-    - [Pasos para crear un suite de tests en JUnit 5](#pasos-para-crear-un-suite-de-tests-en-junit-5)
-  - [Otras opciones para agrupar tests](#otras-opciones-para-agrupar-tests)
-  - [Resumen](#resumen)
-- [7. Ejercicios Prácticos](#7-ejercicios-prácticos)
-  - [7.1. Método `esPalindromo`](#71-método-espalindromo)
-  - [7.2. Método `calcularFactorial`](#72-método-calcularfactorial)
-- [8. Recursos Adicionales](#8-recursos-adicionales)
-  - [8.1. Documentación Oficial de JUnit](#81-documentación-oficial-de-junit)
-  - [8.2. Libros y Tutoriales Recomendados](#82-libros-y-tutoriales-recomendados)
-  - [8.3. Comunidades y Foros para Resolver Dudas](#83-comunidades-y-foros-para-resolver-dudas)
+    - [6.6.1. Pasos para crear un suite de tests en JUnit 5](#661-pasos-para-crear-un-suite-de-tests-en-junit-5)
+  - [6.7. Otras opciones para agrupar tests](#67-otras-opciones-para-agrupar-tests)
+  - [6.8. Resumen](#68-resumen)
+- [7. MetricsReloaded](#7-metricsreloaded)
+  - [7.1. ¿Qué es MetricsReloaded?](#71-qué-es-metricsreloaded)
+  - [7.2. Características principales](#72-características-principales)
+  - [7.3. Instalación de MetricsReloaded](#73-instalación-de-metricsreloaded)
+    - [7.3.1. Instalación en modo online](#731-instalación-en-modo-online)
+    - [7.3.2. Instalación en modo offline](#732-instalación-en-modo-offline)
+  - [7.4. Uso de MetricsReloaded](#74-uso-de-metricsreloaded)
+- [8. Ejercicios Prácticos](#8-ejercicios-prácticos)
+  - [8.1. Método `esPalindromo`](#81-método-espalindromo)
+  - [8.2. Método `calcularFactorial`](#82-método-calcularfactorial)
+- [9. Recursos Adicionales](#9-recursos-adicionales)
+  - [9.1. Documentación Oficial de JUnit](#91-documentación-oficial-de-junit)
+  - [9.2. Libros y Tutoriales Recomendados](#92-libros-y-tutoriales-recomendados)
+  - [9.3. Comunidades y Foros para Resolver Dudas](#93-comunidades-y-foros-para-resolver-dudas)
 
 **Mapa mental de esta sección:**
 
@@ -1263,7 +1270,7 @@ public class CalculadoraTest {
 
 Crear un **suite de tests** en JUnit 5 es una excelente manera de agrupar y ejecutar múltiples clases de prueba de forma conjunta. A diferencia de JUnit 4, JUnit 5 no tiene una anotación `@Suite` incorporada, pero se puede lograr el mismo resultado utilizando la anotación `@Suite` de **JUnit Platform** (que es parte de JUnit 5).
 
-#### Pasos para crear un suite de tests en JUnit 5
+#### 6.6.1. Pasos para crear un suite de tests en JUnit 5
 
 1. **Agrega las dependencias necesarias**:
    Asegúrate de tener las dependencias de JUnit 5 y JUnit Platform en tu `pom.xml` (si usas Maven) o en tu archivo de configuración de Gradle.
@@ -1351,7 +1358,7 @@ Crear un **suite de tests** en JUnit 5 es una excelente manera de agrupar y ejec
      - **Maven**: `mvn test`
      - **Gradle**: `gradle test`
 
-### Otras opciones para agrupar tests
+### 6.7. Otras opciones para agrupar tests
 
 Además de `@SelectClasses`, puedes usar otras anotaciones para incluir tests en el suite:
 
@@ -1373,17 +1380,71 @@ Además de `@SelectClasses`, puedes usar otras anotaciones para incluir tests en
   }
   ```
 
-### Resumen
+### 6.8. Resumen
 
 - Usa `@Suite` de JUnit Platform para crear un suite de tests.
 - Usa `@SelectClasses` para especificar las clases de prueba que formarán parte del suite.
 - Ejecuta el suite desde IntelliJ IDEA o mediante Maven/Gradle.
 
-## 7. Ejercicios Prácticos
+## 7. MetricsReloaded
+
+### 7.1. ¿Qué es MetricsReloaded?
+
+MetricsReloaded es un complemento para IntelliJ IDEA que permite analizar y calcular diversas métricas de código, facilitando la evaluación de la calidad y complejidad del software. Con esta herramienta, los desarrolladores pueden obtener información detallada sobre el acoplamiento, la cohesión, el tamaño de las clases, la profundidad de herencia, entre otras métricas clave en el desarrollo de software orientado a objetos. Concretamente, podemos utilizar esta extensión para verificar la complejidad ciclomática de nuestros métodos, y verificar el cálculo realizado en el proceso de diseño de pruebas de caja blanca a partir del grafo de flujo.
+
+### 7.2. Características principales
+
+- Análisis detallado de métricas de código.
+- Generación de reportes y gráficos visuales.
+- Compatible con proyectos Java y otros lenguajes soportados por IntelliJ IDEA.
+- Configuración flexible para personalizar las métricas calculadas.
+
+### 7.3. Instalación de MetricsReloaded
+
+Podemos instalar MetricsReloaded directamente desde el marketplace de IntellijIDEA, si tenemos acceso a internet, o descargar el archivo `.zip` del plugin desde el repositorio oficial de JetBrains o desde otra fuente confiable si necesitamos instalarlo en modo offline.
+
+#### 7.3.1. Instalación en modo online
+
+Si tienes acceso a internet, puedes instalar MetricsReloaded directamente desde el marketplace de IntelliJ IDEA siguiendo estos pasos:
+
+1. Abre IntelliJ IDEA.
+2. Dirígete a **File** > **Settings** (o **Preferences** en macOS).
+3. En el panel lateral, selecciona **Plugins**.
+4. En la pestaña **Marketplace**, busca "MetricsReloaded".
+5. Haz clic en **Install** y reinicia IntelliJ IDEA si es necesario.
+
+![metrics reloaded online](metrics_reloaded_overview.png)
+
+#### 7.3.2. Instalación en modo offline
+
+Si necesitas instalar el complemento sin conexión a internet, sigue estos pasos:
+
+1. Descarga el archivo `.zip` del plugin desde el [repositorio oficial de JetBrains](https://plugins.jetbrains.com/plugin/93-metricsreloaded/versions#tabs) o desde otra fuente confiable.
+2. Abre IntelliJ IDEA y ve a **File** > **Settings** (o **Preferences** en macOS).
+3. En la sección **Plugins**, haz clic en el botón de engranaje :gear: y selecciona **Install Plugin from Disk...**.
+4. Selecciona el archivo `.zip` que descargaste y confirma la instalación.
+5. Reinicia IntelliJ IDEA para aplicar los cambios.
+
+![metrics_reload_download](metrics_reloaded_download.png)
+
+### 7.4. Uso de MetricsReloaded
+
+Una vez instalado, puedes utilizar MetricsReloaded para analizar tu código siguiendo estos pasos:
+
+1. Abre tu proyecto en IntelliJ IDEA.
+2. Dirígete a **Code** > **Calculate Metrics**.
+3. Selecciona sobre qué elementos deseas calcular las métricas (por ejemplo, un paquete, un directorio o un archivo). Selecciona también como perfil el cálculo de complejidad (Complexity Metrics). Haz clic en `Analyze`. 
+4. Revisa los resultados en la ventana de reporte y analiza las recomendaciones para mejorar la calidad del código.
+
+![Metricas en Intellij Idea](intellij_metrics_chart.png)
+
+La columna v(G) es la que incluye la métrica de **Complejidad Ciclomática**.
+
+## 8. Ejercicios Prácticos
 
 En esta sección, proporcionaremos ejemplos prácticos para podáis aplicar los conocimientos de JUnit en diferentes contextos.
 
-### 7.1. Método `esPalindromo`
+### 8.1. Método `esPalindromo`
 
 Este método verifica si una cadena es un palíndromo (se lee igual de izquierda a derecha y viceversa).
 
@@ -1423,7 +1484,7 @@ Este método verifica si una cadena es un palíndromo (se lee igual de izquierda
 
    </details>
 
-### 7.2. Método `calcularFactorial`
+### 8.2. Método `calcularFactorial`
 
 Este método calcula el factorial de un número.
 
@@ -1461,16 +1522,16 @@ Este método calcula el factorial de un número.
 
 </details>
 
-## 8. Recursos Adicionales
+## 9. Recursos Adicionales
 
 En esta sección, proporcionaremos recursos útiles para que los alumnos puedan seguir aprendiendo sobre JUnit y testing en general.
 
-### 8.1. Documentación Oficial de JUnit
+### 9.1. Documentación Oficial de JUnit
 
 - **JUnit 5 User Guide**: La guía oficial de JUnit 5 es un recurso imprescindible para entender todas las funcionalidades del framework.
   - Enlace: [https://junit.org/junit5/docs/current/user-guide/](https://junit.org/junit5/docs/current/user-guide/)
 
-### 8.2. Libros y Tutoriales Recomendados
+### 9.2. Libros y Tutoriales Recomendados
 
 1. **Libros**:
    - **"JUnit in Action"** por Catalin Tudose: Un libro completo que cubre JUnit 5 y prácticas avanzadas de testing.
@@ -1480,7 +1541,7 @@ En esta sección, proporcionaremos recursos útiles para que los alumnos puedan 
    - **JUnit 5 Tutorial** de Baeldung: Un tutorial muy completo con ejemplos prácticos.
      - Enlace: [https://www.baeldung.com/junit-5](https://www.baeldung.com/junit-5)
 
-### 8.3. Comunidades y Foros para Resolver Dudas
+### 9.3. Comunidades y Foros para Resolver Dudas
 
 1. **Stack Overflow**:
    - Una comunidad activa donde puedes hacer preguntas sobre JUnit y testing.
