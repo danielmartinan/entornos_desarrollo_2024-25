@@ -1413,7 +1413,7 @@ Si tienes acceso a internet, puedes instalar MetricsReloaded directamente desde 
 4. En la pestaña **Marketplace**, busca "MetricsReloaded".
 5. Haz clic en **Install** y reinicia IntelliJ IDEA si es necesario.
 
-![metrics reloaded online](metrics_reloaded_overview.png)
+![metrics reloaded online](../img/ud5_4_metrics_reloaded_overview.png)
 
 #### 7.3.2. Instalación en modo offline
 
@@ -1425,7 +1425,7 @@ Si necesitas instalar el complemento sin conexión a internet, sigue estos pasos
 4. Selecciona el archivo `.zip` que descargaste y confirma la instalación.
 5. Reinicia IntelliJ IDEA para aplicar los cambios.
 
-![metrics_reload_download](metrics_reloaded_download.png)
+![metrics_reload_download](../img/ud5_4_metrics_reloaded_download.png)
 
 ### 7.4. Uso de MetricsReloaded
 
@@ -1436,7 +1436,7 @@ Una vez instalado, puedes utilizar MetricsReloaded para analizar tu código sigu
 3. Selecciona sobre qué elementos deseas calcular las métricas (por ejemplo, un paquete, un directorio o un archivo). Selecciona también como perfil el cálculo de complejidad (Complexity Metrics). Haz clic en `Analyze`. 
 4. Revisa los resultados en la ventana de reporte y analiza las recomendaciones para mejorar la calidad del código.
 
-![Metricas en Intellij Idea](intellij_metrics_chart.png)
+![Metricas en Intellij Idea](../img/ud5_4_intellij_metrics_chart.png)
 
 La columna v(G) es la que incluye la métrica de **Complejidad Ciclomática**.
 
