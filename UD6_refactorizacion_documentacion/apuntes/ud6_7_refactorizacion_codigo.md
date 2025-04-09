@@ -229,7 +229,7 @@ Refactorizar código sin un motivo claro puede ser contraproducente. Antes de in
 
 Un **code smell** es una señal de que el código tiene algún problema que podría dificultar su mantenimiento o escalabilidad. No significa necesariamente que haya un error, pero sí que existe una oportunidad de mejora.
 
-Existe un recurso web, llamado [**Code Smells**](https://refactoring.guru/es/refactoring/smells), que proporciona una lista de los principales code smells y ejemplos de cómo solucionarlos. Lo utilizaremos cono referencia a lo largo de esta sección.
+Existe un recurso web, llamado [Refactoring Guru](https://refactoring.guru/es/refactoring/smells), que proporciona una lista de los principales code smells y ejemplos de cómo solucionarlos. Lo utilizaremos cono referencia a lo largo de esta sección.
 
 #### 4.1.1. Tipos comunes de code smells
 
