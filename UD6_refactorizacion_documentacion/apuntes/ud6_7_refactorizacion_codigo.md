@@ -159,8 +159,8 @@ Uno de los principales objetivos de la refactorización es mejorar la legibilida
 ✔ Usa nombres descriptivos para clases, métodos y variables.  
 ✔ Evita duplicación de lógica.  
 ✔ Mantiene las funciones cortas y con una única responsabilidad.  
-✔ Se estructura de manera modular, facilitando su reutilización.
-✔ Usa comentarios solo cuando sea necesario, evitando la sobrecarga de información.
+✔ Se estructura de manera modular, facilitando su reutilización.  
+✔ Usa comentarios solo cuando sea necesario, evitando la sobrecarga de información.  
 
 El libro "**Clean Code: A Handbook of Agile Software Craftsmanship**" de Robert C. Martin es una referencia clave en este ámbito. En él se presentan principios y prácticas para escribir código limpio y mantenible, así como ejemplos de código bien estructurado y fácil de entender.
 
