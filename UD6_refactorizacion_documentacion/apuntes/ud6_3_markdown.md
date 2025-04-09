@@ -438,7 +438,7 @@ Renderizado:
 \*Texto en negrita\*.  
 Añado más caracteres especiales: \` \_ \{ \} \[ \] \( \) \# \+ \- \. \! \> \< \~ \|
 
-Fijate como no se interpreta el significado del asterisco sino que se muestra literalmente como un carácter más del texto.
+Fíjate como no se interpreta el significado del asterisco sino que se muestra literalmente como un carácter más del texto.
 
 ### 2.10. Tablas
 
@@ -550,8 +550,8 @@ classDiagram
     class Vehiculo {
         - marca: String
         - modelo: String
-        + acelerar(): void
-        + frenar(): void
+        + acelerar() void
+        + frenar() void
     }
     class Coche {
         - numeroPuertas: int
