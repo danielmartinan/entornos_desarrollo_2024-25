@@ -29,7 +29,6 @@ En este repositorio encontrarás apuntes del módulo de Entornos de Desarrollo, 
   - UD6.6. [Javadoc para la documentación de proyectos Java](./UD6_refactorizacion_documentacion/apuntes/ud6_6_javadoc.md)
   - UD6.7. [Refactorización de código](./UD6_refactorizacion_documentacion/apuntes/ud6_7_refactorizacion_codigo.md)
 
-
 ## Licencia de uso
 
 Este repositorio y todo su contenido está licenciado bajo licencia **Creative Commons**. Por favor si compartes, usas o modificas este proyecto cita a su autor, y usa las mismas condiciones para su uso docente, formativo o educativo y no comercial.
