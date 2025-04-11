@@ -24,8 +24,10 @@ En este repositorio encontrarás apuntes del módulo de Entornos de Desarrollo, 
   - UD6.1. [Introducción a la documentación y refactorización de software](./UD6_refactorizacion_documentacion/apuntes/ud6_1_introducción_optimizacion_documentacion.md)
   - UD6.2. [Documentación de código](./UD6_refactorizacion_documentacion/apuntes/ud6_2_tipos_documentacion.md)
   - UD6.3. [Introducción a Markdown](./UD6_refactorizacion_documentacion/apuntes/ud6_3_markdown.md)
-  - UD6.4. [Herramientas de Markdown](./UD6_refactorizacion_documentacion/apuntes/ud6_4_herramientas_markdown.md)
-  - UD6.5. [Mkdocs para la generación de documentación con Markdown](./UD6_refactorizacion_documentacion/apuntes/ud6_5_mkdocs.md)
+  - UD6.4. [Herramientas de uso con Markdown](./UD6_refactorizacion_documentacion/apuntes/ud6_4_herramientas_markdown.md)
+  - UD6.5. [Mkdocs para documentación de proyectos](./UD6_refactorizacion_documentacion/apuntes/ud6_5_mkdocs.md)
+  - UD6.6. [Javadoc para la documentación de proyectos Java](./UD6_refactorizacion_documentacion/apuntes/ud6_6_javadoc.md)
+  - UD6.7. [Refactorización de código](./UD6_refactorizacion_documentacion/apuntes/ud6_7_refactorizacion_codigo.md)
 
 ## Licencia de uso
 
