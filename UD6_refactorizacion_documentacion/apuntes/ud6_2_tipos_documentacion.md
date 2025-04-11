@@ -251,15 +251,6 @@ El lenguaje **UML (Unified Modeling Language)** es una herramienta esencial en l
    - Representa las interacciones entre los actores (usuarios) y el sistema.  
    - Permite identificar las funciones clave del software.  
 
-   **Ejemplo en Mermaid:**  
-
-   ```mermaid
-   graph TD;
-       Usuario -->|Realiza| Login;
-       Usuario -->|Registra| NuevaCuenta;
-       Administrador -->|Gestiona| Usuarios;
-   ```
-
 3. **Diagrama de secuencia**  
    - Describe cómo interactúan los objetos en el tiempo.  
    - Se usa para documentar flujos de procesos en el software.  

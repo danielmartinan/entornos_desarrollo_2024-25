@@ -297,6 +297,58 @@ class Empleado implements Trabajable, Alimentable, Pagable {
 }
 ```
 
+Otro ejemplo, definimos una interfaz `Pájaro` que tiene métodos `nadar`, `correr` y `volar`:
+
+```java 
+interface Pajaro {
+    void comer();
+    void dormir();
+    void nadar();
+    void correr();
+    void volar();
+}
+
+class Pinguino implements Pajaro {
+    public void comer() { ... }
+    public void dormir() { ... }
+    public void nadar() { ... }
+    public void correr() { 
+        throw new UnsupportedOperationException(); // ¡Viola ISP!
+    }
+    public void volar() {
+        throw new UnsupportedOperationException(); // ¡Viola ISP!
+    }
+}
+```
+
+Como vemos, no todos los pájaros nadan, corren o vuelan. Por lo tanto, es mejor crear interfaces específicas para cada tipo de pájaro:
+
+```java
+interface PajaroBase {
+    void comer();
+    void dormir();
+}
+interface PajaroVolador {
+    void volar();
+}
+interface PajaroNadador {
+    void nadar();
+}
+interface PajaroCorredor {
+    void correr();
+}
+
+class Pinguino implements PajaroBase, PajaroNadador {
+    public void nadar() { ... }
+}
+class Avestruz implements PajaroBase PajaroCorredor {
+    public void correr() { ... }
+}
+class Paloma implements PajaroBase, PajaroVolador {
+    public void volar() { ... }
+}
+```
+
 ## D - Principio de Inversión de Dependencias (Dependency Inversion Principle)
 
 Los módulos de alto nivel no deberían depender de módulos de bajo nivel. Ambos deberían depender de abstracciones.
