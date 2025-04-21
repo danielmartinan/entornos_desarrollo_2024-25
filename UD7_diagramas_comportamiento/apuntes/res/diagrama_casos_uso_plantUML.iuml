@@ -1,0 +1,41 @@
+@startuml
+actor Cliente
+actor ClienteVip
+actor Administrador
+
+Cliente <|-- ClienteVip
+
+package "Sistema de Compras" {
+    usecase "Iniciar sesión" as UC7
+    usecase "Registrar cuenta" as UC8
+
+    usecase "Buscar productos" as UC1
+    usecase "Añadir al carrito" as UC2
+    usecase "Realizar compra" as UC3
+
+    usecase "Acceder a productos VIP" as UC9
+
+    Cliente -- UC1
+    Cliente -- UC2
+    Cliente -- UC3
+    ClienteVip -- UC9
+
+    UC7 <|-- UC8
+    UC2 .> UC7 : <<include>>
+    UC3 .> UC7 : <<include>>
+    UC9 .> UC7 : <<include>>
+}
+
+package "Sistema de Soporte" {
+    usecase "Consultar FAQ" as UC4
+    usecase "Contactar soporte" as UC5
+    usecase "Actualizar FAQ" as UC6
+
+    Cliente -- UC4
+    Cliente -- UC5
+    Administrador -- UC6
+}
+
+left to right direction
+
+@enduml

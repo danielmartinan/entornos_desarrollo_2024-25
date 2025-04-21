@@ -1,0 +1,20 @@
+@startuml
+actor "ClienteVip" as pasajero
+
+
+package "Sistema de Reservas Aéreas" {
+  usecase UC1 as "RealizarReserva
+  --
+  Punto de extensión
+  Establecer clase
+  de asiento"
+  useCase UC2 as "AplicarDescuentoVip"
+}
+
+pasajero --> UC1
+
+UC1 .down.> UC2 : <<extend>>\n[Cliente es VIP]
+
+left to right direction
+
+@enduml

@@ -1,0 +1,10 @@
+@startuml
+actor "Pasajero" as pasajero
+
+pasajero --> (RealizarReserva)
+pasajero --> (ModificarReserva)
+
+(RealizarReserva) .down.> (ComprobarAsiento) : <<include>>
+(ModificarReserva) .down.> (ComprobarAsiento) : <<include>>
+
+@enduml

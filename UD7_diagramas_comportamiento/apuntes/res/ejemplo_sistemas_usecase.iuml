@@ -1,0 +1,27 @@
+@startuml
+actor Cliente
+actor Administrador
+
+package "Sistema de compras" {
+    usecase "Buscar productos" as UC1
+    usecase "Añadir al carrito" as UC2
+    usecase "Realizar compra" as UC3
+
+}
+
+Cliente -- UC1
+Cliente -- UC2
+Cliente -- UC3
+
+package "Sistema de soporte" {
+    usecase "Consultar FAQ" as UC4
+    usecase "Contactar soporte" as UC5
+    usecase "Actualizar FAQ" as UC6
+}
+
+Cliente -- UC4
+Cliente -- UC5
+Administrador -- UC6
+
+left to right direction
+@enduml

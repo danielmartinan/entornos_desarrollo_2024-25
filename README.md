@@ -28,6 +28,8 @@ En este repositorio encontrarás apuntes del módulo de Entornos de Desarrollo, 
   - UD6.5. [Mkdocs para documentación de proyectos](./UD6_refactorizacion_documentacion/apuntes/ud6_5_mkdocs.md)
   - UD6.6. [Javadoc para la documentación de proyectos Java](./UD6_refactorizacion_documentacion/apuntes/ud6_6_javadoc.md)
   - UD6.7. [Refactorización de código](./UD6_refactorizacion_documentacion/apuntes/ud6_7_refactorizacion_codigo.md)
+- **UD7 - Diagramas de comportamiento**
+  - UD7.1. [Introducción a los diagramas de comportamiento](./UD7_diagramas_comportamiento/apuntes/UD7_1_introduccion_diagramas_comportamiento.md)
 
 ## Licencia de uso
 

@@ -1,0 +1,13 @@
+@startuml
+actor "ClienteVip" as pasajero
+
+rectangle "Sistema de Reservas Aéreas" {
+    usecase RealizarReserva
+    (AplicarDescuentoVip)
+}
+
+pasajero --> (RealizarReserva)
+
+(RealizarReserva) .down.> (AplicarDescuentoVip) : <<extend>>\n[Cliente es VIP]
+
+@enduml
