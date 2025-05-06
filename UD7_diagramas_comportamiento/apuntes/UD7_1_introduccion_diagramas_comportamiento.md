@@ -518,7 +518,7 @@ Vamos a ilustrarlo con un ejemplo. Supongamos que tenemos un sistema de gestión
 ```mermaid
 sequenceDiagram
    actor Cliente
-   participant :Pantalla
+   participant Pantalla as :Pantalla
    participant GestorClientes
    participant GestorPedidos
 
