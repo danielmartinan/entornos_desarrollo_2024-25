@@ -764,7 +764,7 @@ stateDiagram-v2
    [*] --> Soltero
    Soltero --> Casado : casarse
    Casado --> Divorciado : divorciarse
-   Casado --> Viudo : morir cónjuge
+   Casado --> Viudo : morir cónyuge
    Divorciado --> Casado : casarse
    Viudo --> Casado : casarse
    Soltero --> [*] : morir
@@ -772,6 +772,10 @@ stateDiagram-v2
    Divorciado --> [*] : morir
    Viudo --> [*] : morir
 ```
+
+### Ejemplo 3:  diagrama de estados de un envío de pedido de una tienda online
+
+![alt text](res/ejemplo_diagrama_estados_pedido_online.png)
 
 ### 7.4. ¿Para qué sirve?
 
