@@ -13,7 +13,7 @@ package "Sistema de Reservas Aéreas" {
 
 pasajero --> UC1
 
-UC1 .down.> UC2 : <<extend>>\n[Cliente es VIP]
+UC2 .down.> UC1 : <<extend>>\n[Cliente es VIP]
 
 left to right direction
 

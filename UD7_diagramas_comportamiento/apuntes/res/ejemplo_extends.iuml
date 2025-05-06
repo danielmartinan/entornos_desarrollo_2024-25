@@ -8,6 +8,6 @@ rectangle "Sistema de Reservas Aéreas" {
 
 pasajero --> (RealizarReserva)
 
-(RealizarReserva) .down.> (AplicarDescuentoVip) : <<extend>>\n[Cliente es VIP]
+(AplicarDescuentoVip) ..> (RealizarReserva) : <<extend>>\n[Cliente es VIP]
 
 @enduml

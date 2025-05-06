@@ -13,7 +13,7 @@ Los diagramas de comportamiento forman parte de los tipos de diagramas definidos
 - La **comunicación entre objetos** en tiempo de ejecución.
 - El **ciclo de vida** o cambios de estado de un objeto según los eventos que lo afectan.
 
-A diferencia de los **diagramas estructurales** (como el diagrama de clases), que representan la estructura estática del sistema (los elementos y sus relaciones), los diagramas de comportamiento **modelan lo que hace el sistema**: cómo reacciona, cómo se mueve la información, y cómo cambian los elementos en respuesta a eventos.
+A diferencia de los **diagramas estructurales** (como el diagrama de clases), que representan la estructura estática del sistema (los elementos y sus relaciones), los diagramas de comportamiento **modelan lo que hace el sistema**: cómo reacciona, cómo fluye la información mediante eventos o interacciones entre objetos, y cómo cambian los elementos en respuesta a eventos.
 
 **¿Por qué son importantes?**
 
@@ -31,7 +31,7 @@ A continuación, se describen brevemente los principales tipos de diagramas de c
 ### 2.1. Diagrama de casos de uso
 
 - **Objetivo:** Representa las funcionalidades que el sistema ofrece a los usuarios (actores).
-- **Enfoque:** Qué hace el sistema, no cómo lo hace.
+- **Enfoque:** Qué hace el sistema (requisitos funcionales), no cómo lo hace.
 - **Útil para:** Análisis de requisitos funcionales, comunicación con el cliente.
 
 ### 2.2. Diagrama de actividades
@@ -56,7 +56,7 @@ A continuación, se describen brevemente los principales tipos de diagramas de c
 
 - **Objetivo:** Describe los diferentes estados por los que pasa un objeto y cómo cambia de estado según los eventos.
 - **Enfoque:** Ciclo de vida de un objeto.
-- **Útil para:** Modelar objetos con comportamiento complejo, como máquinas de estados.
+- **Útil para:** Modelar objetos con comportamiento complejo, como máquinas de estados. También es útil cuando un objeto cambia de comportamiento en función del estado en el que se encuentra.
 
 ### 2.6. Diagrama de interacción general
 
@@ -97,7 +97,7 @@ Como para la creación de diagramas de clases, existen diferentes herramientas d
 - **Draw.io:** Herramienta gratuita y en línea que permite crear diagramas de casos de uso y otros tipos de diagramas UML.
 - **PlantUML:** Herramienta que permite crear diagramas de casos de uso a **partir de texto**, ideal para desarrolladores que prefieren escribir el código del diagrama en lugar de dibujarlo.
 
-A diferencia que para los diagramas de clases, **Mermaid no permite crear diagramas de casos de uso**. Sin embargo, podemos utilizar PlantUML para crear un diagrama de casos de uso a partir de texto. A continuación, se muestra un ejemplo:
+A diferencia de los diagramas de clases, **Mermaid no permite crear diagramas de casos de uso**. Sin embargo, podemos utilizar PlantUML para crear un diagrama de casos de uso a partir de texto. A continuación, se muestra un ejemplo:
 
 ```plaintext
 @startuml
@@ -181,7 +181,7 @@ Este código generaría el siguiente diagrama de casos de uso:
    
 4. **Relaciones**: los actores y los casos de uso están conectados por líneas que indican la interacción entre ellos. Existen diferentes tipos de relaciones:
    - **Asociación (línea simple):** Une actores con los casos de uso que utilizan.
-   - **Inclusión (`<<include>>`):** Un caso de uso siempre incluye a otro (reutilización obligatoria). La relación *include* ocurre cuando se tiene una porción de comportamiento que es similar en más de un caso de uso. Por ejemplo, en una aplicación de sistema de viajes aéreos, los casos de uso `RealizarReserva` y `ModificarReserva` incluyen el caso de uso `ComprobarAsiento`, ya que ambos casos de uso requieren comprobar la disponibilidad de asientos. En este caso, el caso de uso `ComprobarAsiento` es un caso de uso común que se incluye en otros casos de uso:
+   - **Inclusión (`<<include>>`):** Un caso de uso siempre incluye a otro (**reutilización obligatoria**). La relación *include* ocurre cuando se tiene una porción de comportamiento que es similar en más de un caso de uso. Por ejemplo, en una aplicación de sistema de viajes aéreos, los casos de uso `RealizarReserva` y `ModificarReserva` incluyen el caso de uso `ComprobarAsiento`, ya que ambos casos de uso requieren comprobar la disponibilidad de asientos. En este caso, el caso de uso `ComprobarAsiento` es un caso de uso común que se incluye en otros casos de uso:
 
       <div style="text-align: center;">
          <img src="res/ejemplo_include.png" alt="Ejemplo de inclusión" width="300">
@@ -189,10 +189,11 @@ Este código generaría el siguiente diagrama de casos de uso:
 
       Se representa mediante una flecha discontinua con una etiqueta `<<include>>`, apuntando desde el caso de uso que incluye al caso de uso incluido.
 
-   - **Extensión (`<<extend>>`):** Un caso de uso puede extender a otro en situaciones específicas (opcional). Se usa la relación *extend* cuando se tiene un caso de uso que extiende o amplia la funcionalidad de otro (llamado caso de uso base). En la relación *extend* el caso de uso extra no es indispensable que ocurra, y cuando lo hace ofrece un valor extra al objetivo original. Por ejemplo, en una aplicación de sistema de viajes aéreos, el caso de uso `RealizarReserva` puede extenderse con el caso de uso `AplicarDescuentoVip`, que solo se aplica si el cliente es un miembro VIP. En este caso, el caso de uso `AplicarDescuentoVip` es opcional y solo se ejecuta si se cumplen ciertas condiciones:
+   - **Extensión (`<<extend>>`):** Un caso de uso puede extender a otro en situaciones específicas (**opcional**). Se usa la relación *extend* cuando se tiene un caso de uso que extiende o amplia la funcionalidad de otro (llamado caso de uso base). En la relación *extend* el caso de uso extra no es indispensable que ocurra, y cuando lo hace ofrece un valor extra al objetivo original. Por ejemplo, en una aplicación de sistema de viajes aéreos, el caso de uso `RealizarReserva` puede extenderse con el caso de uso `AplicarDescuentoVip`, que solo se aplica si el cliente es un miembro VIP. En este caso, el caso de uso `AplicarDescuentoVip` es opcional y solo se ejecuta si se cumplen ciertas condiciones:
+   <br>
 
       <div style="text-align: center;">
-         <img src="res/ejemplo_extends.png" alt="Ejemplo de extensión" width="200">
+         <img src="res/ejemplo_extends.png" alt="Ejemplo de extensión" width="400">
       </div><br>
 
       Podemos detallar, dentro del caso de uso, el **punto de extensión**, momento en el que se puede extender el caso de uso. Por ejemplo, en el caso de uso `RealizarReserva`, el punto de extensión podría ser "Establecer clase de asiento". Esta información sería importante de cara a la definición del comportamiento del caso de uso, que veremos en apartados siguientes.
@@ -200,7 +201,6 @@ Este código generaría el siguiente diagrama de casos de uso:
       <br><div style="text-align: center;">
          <img src="res/ejemplo_extends_punto_acceso.png" alt="Ejemplo de extensión con punto de acceso" width="500">
       </div><br>
-
 
    - **Generalización:** Se puede aplicar tanto a actores como a casos de uso, mostrando herencia o especialización. Se representa mediante una linea continua con punta de tipo triángulo (igual que la herencia en los diagramas de clases). Por ejemplo, en un sistema con verificación de identidad de usuarios, contamos con un caso de uso llamado `ValidarUsuario`, que se especializa en diferentes casos de uso: `ComprobarClave`, `EscanearRostro`, `ComprobarHuella`. En este caso, el caso de uso `ValidarUsuario` es un caso de uso general que se especializa en otros casos de uso:
 
@@ -518,7 +518,7 @@ Vamos a ilustrarlo con un ejemplo. Supongamos que tenemos un sistema de gestión
 ```mermaid
 sequenceDiagram
    actor Cliente
-   participant Pantalla as :Pantalla
+   participant :Pantalla
    participant GestorClientes
    participant GestorPedidos
 
@@ -708,7 +708,7 @@ No vamos a profundizar en este diagrama, ya que es menos utilizado.
 
 El **diagrama de estados** muestra los **distintos estados por los que pasa un objeto** (o sistema) en respuesta a eventos, así como las **transiciones** entre esos estados. Es especialmente útil cuando los objetos tienen comportamientos complejos o dependen de eventos externos.
 
-Este tipo de diagrama es una representación de una **máquina de estados finita**, muy común en sistemas de control, aplicaciones interactivas o componentes que responden a eventos.
+Este tipo de diagrama es una representación de una **máquina de estados finita determinista, donde cada transición depende de un evento**, muy común en sistemas de control, aplicaciones interactivas o componentes que responden a eventos.
 
 ### 7.2. Elementos principales
 
